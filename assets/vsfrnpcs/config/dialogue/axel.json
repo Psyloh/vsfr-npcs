@@ -1,0 +1,167 @@
+{
+	components: [
+		{
+			code: "testhasmetjohn",
+			owner: "axel",
+			type: "condition",
+			variable: "player.hasfinishedprologue",
+			isNotValue: "true",
+			thenJumpTo: "testhasmet",
+			elseJumpTo: "welcomeback"
+		},
+		{
+			code: "testhasmet",
+			owner: "axel",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "testhasmetmarie"
+		},
+        {
+			code: "testhasmetmarie",
+			owner: "axel",
+			type: "condition",
+			variable: "player.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "meetmarie",
+			elseJumpTo: "welcomeback"
+		},
+		{
+			code: "firstmeet",
+			owner: "axel",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet" },
+			],
+			jumpTo: "firstmeetresponse"
+		},
+		{
+			code: "firstmeetresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse", jumpTo: "firstmeet2" }
+			],
+		},
+		{
+			code: "firstmeet2",
+			owner: "axel",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet2" },
+			],
+			jumpTo: "firstmeetresponse2"
+		},
+        {
+			code: "firstmeetresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse2", jumpTo: "firstmeet3" },
+			]
+		},
+        {
+			code: "firstmeet3",
+			owner: "axel",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet3" },
+			],
+			jumpTo: "firstmeetresponse3"
+		},
+        {
+			code: "firstmeetresponse3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse3", jumpTo: "firstmeet4" },
+			]
+		},
+        {
+			code: "firstmeet4",
+			owner: "axel",
+			type: "talk",
+            setVariables: {"entity.hasmet": "true"},
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet4", jumpTo:"firstmeetresponse4" },
+			]
+		},
+        {
+			code: "firstmeetresponse4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse4", jumpTo: "close" },
+			]
+		},
+		{
+			code: "welcomeback",
+			owner: "axel",
+			type: "talk",
+           
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-welcomeback" },
+			],
+			jumpTo: "welcomebackresponse"
+		},
+        {
+			code: "welcomebackresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-wbresponse", jumpTo:"close"},
+			]
+		},
+        
+		{
+			code: "meetmarie",
+			owner: "axel",
+			type: "talk",
+            
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-meetmarie" },
+			],
+            jumpTo:"hasmetmarie"
+		},
+        {
+			code: "hasmetmarie",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-hasmetmarie", jumpTo:"close" },
+                { value: "vsfrnpcs:dialogue-main-axel-hasnotmetmarie", jumpTo:"aidemarie" },
+			]
+		},
+        {
+			code: "youpiresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-youpiresponse", jumpTo:"close" }
+			]
+		},
+        {
+			code: "aidemarie",
+			owner: "axel",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-aidemarie" }
+			],
+            jumpTo:"aidemariereponse"
+		},
+        {
+			code: "aidemariereponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-main-axel-aidemariereponse", jumpTo:"close" }
+			]
+		},
+        {
+			code: "close",
+			owner: "axel",
+			trigger: "closedialogue",
+		},
+	]
+}

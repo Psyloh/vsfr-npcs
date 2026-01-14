@@ -1,0 +1,17 @@
+{
+    "tabname-vsfr-npc": "VSFR NPC",
+
+    "vsfrnpcs:item-creature-citizen-male-axel" : "NPC Axel",
+    "tradingwindow-citizen-male-axel": "{0} - Guide des nouveaux",
+
+    "vsfrnpcs:item-creature-citizen-female-marie" : "NPC Marie",
+    "tradingwindow-citizen-female-marie": "{0} - Boulangère",
+
+    "vsfrnpcs:item-creature-citizen-male-john" : "NPC John",
+    "tradingwindow-citizen-male-john": "{0} - Ancien mercenaire",
+
+    "vsfrnpcs:item-creature-citizen-male-john" : "NPC Thomas",
+    "tradingwindow-citizen-male-john": "{0} - Gardien des Translocateurs",
+
+}
+

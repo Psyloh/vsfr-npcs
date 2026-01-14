@@ -1,0 +1,17 @@
+{
+    "tabname-vsfr-npc": "VSFR PNJ",
+
+    "vsfrnpcs:item-creature-citizen-male-axel" : "PNJ Axel",
+    "tradingwindow-citizen-male-axel": "{0} - Guide des nouveaux",
+
+    "vsfrnpcs:item-creature-citizen-female-marie" : "PNJ Marie",
+    "tradingwindow-citizen-female-marie": "{0} - Boulangère",
+
+    "vsfrnpcs:item-creature-citizen-male-john" : "PNJ John",
+    "tradingwindow-citizen-male-john": "{0} - Ancien mercenaire",
+
+    "vsfrnpcs:item-creature-citizen-male-thomas" : "PNJ Thomas",
+    "tradingwindow-citizen-male-thomas": "{0} - Gardien des Translocateurs",
+
+}
+
