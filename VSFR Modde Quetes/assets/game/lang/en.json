@@ -1,0 +1,11 @@
+{
+    "vsfr:item-creature-citizen-male-axel" : "NPC Axel",
+    "tradingwindow-citizen-male-axel": "{0} - Helper for new players",
+
+    "vsfr:item-creature-citizen-female-marie" : "NPC Marie",
+    "tradingwindow-citizen-female-marie": "{0} - Baker",
+
+    "vsfr:item-creature-citizen-male-john" : "NPC John",
+    "tradingwindow-citizen-male-john": "{0} - Old Mercenary"
+
+}

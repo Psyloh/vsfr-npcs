@@ -1,0 +1,18 @@
+{
+  "Type": 1,
+  "TextureSize": 32,
+  "Name": "VSFR Modde Quetes",
+  "Version": "0.0.1",
+  "Description": "",
+  "Website": "",
+  "CoreMod": false,
+  "ModID": "vsfrquetes",
+  "Authors": [ "Fox" ],
+  "Contributors": [],
+  "Side": "Universal",
+  "RequiredOnClient": true,
+  "RequiredOnServer": true,
+
+
+  "Dependencies": { "game": "1.21.0"}
+}

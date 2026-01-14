@@ -1,0 +1,157 @@
+{
+	components: [
+		{
+			code: "testhasmetmarie",
+			owner: "marie",
+			type: "condition",
+			variable: "entity.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "testhasmetjohn"
+		},
+        {
+			code: "testhasmetjohn",
+			owner: "marie",
+			type: "condition",
+			variable: "player.hasfinishedprologue",
+			isNotValue: "true",
+			thenJumpTo: "meetjohn",
+			elseJumpTo: "main"
+		},
+		{
+			code: "firstmeet",
+			owner: "marie",
+			type: "talk",
+			trigger: "revealname",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-firstmeet" },
+			],
+			jumpTo: "firstmeetresponse"
+		},
+		{
+			code: "firstmeetresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-fmresponse", jumpTo: "firstmeet2" }
+			],
+		},
+		{
+			code: "firstmeet2",
+			owner: "marie",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-firstmeet2" },
+			],
+			jumpTo: "firstmeetresponse2"
+		},
+        {
+			code: "firstmeetresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-fmresponse2", jumpTo: "firstmeet3" },
+			]
+		},
+        {
+			code: "firstmeet3",
+			owner: "marie",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-firstmeet3" },
+			],
+			jumpTo: "firstmeetresponse3"
+		},
+        {
+			code: "firstmeetresponse3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-fmresponse3", jumpTo: "firstmeet4" },
+			]
+		},
+        {
+			code: "firstmeet4",
+			owner: "marie",
+			type: "talk",
+			trigger: "giveitemstack",
+			triggerdata: { type: "item", code: "bread-rice-perfect", stacksize: 16 },
+            setVariables: {"player.hasmetmarie": "true"},
+			text: [
+				{ value: "vsfr:dialogue-main-marie-firstmeet4", jumpTo:"firstmeetresponse4" },
+			]
+		},
+        {
+			code: "firstmeetresponse4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-fmresponse4", jumpTo: "close" },
+			]
+		},
+		{
+			code: "meetjohn",
+			owner: "marie",
+			type: "talk",
+            
+			text: [
+				{ value: "vsfr:dialogue-main-marie-meetjohn" },
+			],
+            jumpTo:"hasmetjohn"
+		},
+        {
+			code: "hasmetjohn",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-hasmetjohn", jumpTo:"close" },
+                { value: "vsfr:dialogue-main-marie-hasnotmetjohn", jumpTo:"aidejohn" },
+			]
+		},
+        {
+			code: "aidejohn",
+			owner: "marie",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-aidejohn" }
+			],
+            jumpTo:"aidejohnreponse"
+		},
+        {
+			code: "aidejohnreponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-aidejohnreponse", jumpTo:"close" }
+			]
+		},
+		{
+			code: "main",
+			owner: "marie",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-welcomeback" },
+			],
+			jumpTo: "welcomebackresponse"
+		},
+        {
+			code: "welcomebackresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-marie-wbresponse", jumpTo:"close"},
+				{ value: "vsfr:dialogue-main-marie-opentrade", jumpTo: "opentrade"}
+			]
+		},
+		{
+			code: "opentrade",
+			owner: "marie",
+			trigger: "opentrade"
+		},
+        {
+			code: "close",
+			owner: "marie",
+			trigger: "closedialogue",
+		}
+	]
+}

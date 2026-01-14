@@ -1,0 +1,12 @@
+{
+    "vsfr:item-creature-citizen-male-axel" : "PNJ Axel",
+    "tradingwindow-citizen-male-axel": "{0} - Guide des nouveaux",
+
+    "vsfr:item-creature-citizen-female-marie" : "PNJ Marie",
+    "tradingwindow-citizen-female-marie": "{0} - Boulangère",
+
+    "vsfr:item-creature-citizen-male-john" : "PNJ John",
+    "tradingwindow-citizen-male-john": "{0} - Ancien mercenaire"
+
+}
+

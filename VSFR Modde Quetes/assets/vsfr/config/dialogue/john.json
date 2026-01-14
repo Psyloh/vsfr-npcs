@@ -1,0 +1,188 @@
+{
+	components: [
+		{
+			code: "testhasmetmarie",
+			owner: "john",
+			type: "condition",
+			variable: "player.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "stranger",
+			elseJumpTo: "testhasmet"
+		},
+        {
+			code: "testhasmet",
+			owner: "john",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "main"
+		},
+		{
+			code: "stranger",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet" },
+			],
+			jumpTo: "strangerresponse"
+		},
+		{
+			code: "strangerresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-strangerresponse", jumpTo: "close" }
+			],
+		},
+		{
+			code: "firstmeet",
+			owner: "john",
+			type: "talk",
+			trigger: "revealname",
+            setVariables: {"entity.hasmeetjohn": "true"},
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet" },
+			],
+			jumpTo: "firstmeetresponse"
+		},
+		{
+			code: "firstmeetresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse", jumpTo: "firstmeet2" }
+			],
+		},
+		{
+			code: "firstmeet2",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet2" },
+			],
+			jumpTo: "firstmeetresponse2"
+		},
+        {
+			code: "firstmeetresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse2", jumpTo: "firstmeet3" },
+			]
+		},
+        {
+			code: "firstmeet3",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet3" },
+			],
+			jumpTo: "firstmeetresponse3"
+		},
+        {
+			code: "firstmeetresponse3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse3", jumpTo: "firstmeet4" },
+			]
+		},
+        {
+			code: "firstmeet4",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet4", jumpTo:"firstmeetresponse4" },
+			]
+		},
+        {
+			code: "firstmeetresponse4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse4", jumpTo: "firstmeet5" },
+			]
+		},
+        {
+			code: "firstmeet5",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet5", jumpTo:"firstmeetresponse5" },
+			]
+		},
+        {
+			code: "firstmeetresponse5",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse5", jumpTo: "firstmeet6" },
+			]
+		},
+        {
+			code: "firstmeet6",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet6", jumpTo:"firstmeetresponse4" },
+			]
+		},
+        {
+			code: "firstmeetresponse6",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse6", jumpTo: "giveitem" },
+			]
+		},
+        {
+			code: "giveitem",
+			owner: "john",
+			trigger: "giveitemstack",
+			triggerdata: { type: "item", code: "stick", stacksize: 20},
+			jumpTo : "firstmeet7"
+		},
+        {
+			code: "firstmeet7",
+			owner: "john",
+			trigger: "giveitemstack",
+			triggerdata: {type: "item", code: "flint", stacksize: 8 },
+            setVariables: {"entity.hasmet": "true", "player.hasfinishedprologue": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-firstmeet7", jumpTo:"firstmeetresponse7" },
+			]
+		},
+        {
+			code: "firstmeetresponse7",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-fmresponse7", jumpTo: "close" },
+			]
+		},
+		{
+			code: "main",
+			owner: "john",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-main" },
+			],
+			jumpTo: "mainreponse"
+		},
+        {
+			code: "mainreponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfr:dialogue-main-john-response", jumpTo:"close"},
+			]
+		},
+        {
+			code: "close",
+			owner: "john",
+			trigger: "closedialogue",
+		},
+	]
+}
