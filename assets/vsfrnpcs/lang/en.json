@@ -1,6 +1,6 @@
 {
-    "nametag-villager-female-unrevealedname": "Villager",
-    "nametag-villager-male-unrevealedname": "Villager",
+    "vsfr:nametag-villager-female-unrevealedname": "Villager",
+    "vsfr:nametag-villager-male-unrevealedname": "Villager",
 
     "quest-select-title": "Quest Offering",
     "tab-available-quests": "Available quests",
