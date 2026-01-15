@@ -10,7 +10,8 @@
     "*-axel": {
       "nametag": {
         "showtagonlywhentargeted": true,
-        "triggeredNameReveal": false
+        "triggeredNameReveal": false,
+        "renderRange": "10"
       }
     },
     "*": {
