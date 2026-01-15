@@ -10,8 +10,8 @@
     "vsfrnpcs:item-creature-citizen-male-john" : "NPC John",
     "tradingwindow-citizen-male-john": "{0} - Ancien mercenaire",
 
-    "vsfrnpcs:item-creature-citizen-male-john" : "NPC Thomas",
-    "tradingwindow-citizen-male-john": "{0} - Gardien des Translocateurs",
+    "vsfrnpcs:item-creature-citizen-male-thomas" : "NPC Thomas",
+    "tradingwindow-citizen-male-thomas": "{0} - Gardien des Translocateurs"
 
 }
 

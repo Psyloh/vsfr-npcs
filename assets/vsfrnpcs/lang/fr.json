@@ -1,6 +1,6 @@
 {
-    "nametag-villager-female-unrevealedname": "Villageoise",
-    "nametag-villager-male-unrevealedname": "Villageois",
+    "vsfr:nametag-villager-female-unrevealedname": "Villageoise",
+    "vsfr:nametag-villager-male-unrevealedname": "Villageois",
 
     "quest-select-title": "Offres de quêtes",
     "tab-available-quests": "Quêtes disponibles",
