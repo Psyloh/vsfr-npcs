@@ -6,11 +6,19 @@
   "canClimb": true,
   "hitboxSize": { "x": 0.6, "y": 1.75 },
   "deadHitboxSize": { "x": 0.75, "y": 0.5 },
-  "behaviorConfigs": {
-    "nametag": {
-      "showtagonlywhentargeted": true,
-      "triggeredNameReveal": true,
-      "unrevealedDisplayName": "vsfr:nametag-villager-{gender}-unrevealedname"
+  "behaviorConfigsByType": {
+    "*-axel": {
+      "nametag": {
+        "showtagonlywhentargeted": true,
+        "triggeredNameReveal": false
+      }
+    },
+    "*": {
+      "nametag": {
+        "showtagonlywhentargeted": true,
+        "triggeredNameReveal": true,
+        "unrevealedDisplayName": "vsfr:nametag-villager-{gender}-unrevealedname"
+      }
     }
   },
   "variantgroups": [
@@ -29,8 +37,6 @@
     "texture": { "base": "game:entity/humanoid/villager-{gender}" },
     "behaviors": [
       { "code": "nametag" },
-      { "code": "repulseagents" },
-      { "code": "controlledphysics", "stepHeight": 1.01 },
       { "code": "interpolateposition" },
       { "code": "conversable", "dialogue": "config/dialogue/{name}" }
     ],
@@ -62,9 +68,7 @@
 					"game:sounds/voice/oboe/"
 				]
 		},
-		"personalityByType": {
-			"*": "balanced"
-		},
+		"personality": "balanced",
     "personalities": {
       "balanced": { "chordDelayMul": 1.3, "pitchModifier": 0.7, "volumneModifier": 1.1 }
     },
@@ -131,7 +135,15 @@
       "pathfinder": { "minTurnAnglePerSec": 720, "maxTurnAnglePerSec": 1440 }
     },
     "behaviors": [
-      { "code": "nametag", "showtagonlywhentargeted": true, "selectFromRandomName": ["{name}"] },
+      { 
+        "code": "nametag", 
+        "selectFromRandomNameByType": { 
+          "*-marie": ["Marie"] ,
+          "*-axel": ["Axel"],
+          "*-john": ["John"],
+          "*-thomas": ["Thomas"]
+        }
+      },
       { "code": "repulseagents" },
       { "code": "controlledphysics", "stepHeight": 1.01 },
       { "code": "reviveondeath", "minHours": 24, "maxHours": 72 },
