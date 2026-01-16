@@ -1,0 +1,25 @@
+{
+    "id": "vsfrnpcs:quest-michel-bushmeat",
+    "cooldown": 360000,
+    "perPlayer": true,
+    "onAcceptedActions": [
+        {
+            "id": "playsound",
+            "args": [
+                "game:sounds/effect/translocate-breakdimension"
+            ]
+        }
+    ],
+    "gatherObjectives": [
+        {
+            "validCodes": ["bushmeat-raw"],
+            "demand": 8
+        }
+    ],
+    "itemRewards": [
+        {
+            "itemCode": "game:gear-rusty",
+            "amount": 15
+        }
+    ]
+}
