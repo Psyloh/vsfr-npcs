@@ -1,30 +1,30 @@
 {
 	components: [
 		{
-			code: "testhasmetmarie",
-			owner: "marie",
+			code: "testhasmet",
+			owner: "npc",
 			type: "condition",
-			variable: "entity.hasmetmarie",
+			variable: "player.hasmetmarie",
 			isNotValue: "true",
 			thenJumpTo: "firstmeet",
 			elseJumpTo: "testhasmetjohn"
 		},
         {
 			code: "testhasmetjohn",
-			owner: "marie",
+			owner: "npc",
 			type: "condition",
-			variable: "player.hasfinishedprologue",
+			variable: "player.hasdonetuto",
 			isNotValue: "true",
-			thenJumpTo: "meetjohn",
-			elseJumpTo: "main"
+			thenJumpTo: "hasnotmetjohn",
+			elseJumpTo: "welcomeback"
 		},
 		{
 			code: "firstmeet",
-			owner: "marie",
-			type: "talk",
 			trigger: "revealname",
+			owner: "npc",
+			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-firstmeet" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet" },
 			],
 			jumpTo: "firstmeetresponse"
 		},
@@ -33,15 +33,15 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-fmresponse", jumpTo: "firstmeet2" }
+				{ value: "vsfrnpcs:dialogue-orario-marie-fmresponse", jumpTo: "firstmeet2" }
 			],
 		},
 		{
 			code: "firstmeet2",
-			owner: "marie",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-firstmeet2" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet2" },
 			],
 			jumpTo: "firstmeetresponse2"
 		},
@@ -50,35 +50,62 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-fmresponse2", jumpTo: "firstmeet3" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-fmresponse2", jumpTo: "testgavebread" },
 			]
 		},
-        {
+		{
+			code: "testgavebread",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.gavebread",
+			isNotValue: "true",
+			thenJumpTo: "givebread",
+			elseJumpTo: "firstmeet3"
+		},
+		{
 			code: "firstmeet3",
-			owner: "marie",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-firstmeet3" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet3" },
 			],
 			jumpTo: "firstmeetresponse3"
+		},
+        {
+			code: "givebread",
+			owner: "npc",
+			type: "talk",
+			setVariables:{"entity.gavebread": "true"},
+			trigger: "giveitemstack",
+			triggerdata: { type: "item", code: "bread-rice-perfect", stacksize: 16 },
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-marie-givebread" },
+			],
+			jumpTo: "thxforbread"
 		},
         {
 			code: "firstmeetresponse3",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-fmresponse3", jumpTo: "firstmeet4" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-fmresponse3", jumpTo: "firstmeet4" },
+			]
+		},
+		{
+			code: "thxforbread",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-marie-thxforbread", jumpTo:"firstmeet4" },
 			]
 		},
         {
 			code: "firstmeet4",
-			owner: "marie",
+			owner: "npc",
 			type: "talk",
-			trigger: "giveitemstack",
-			triggerdata: { type: "item", code: "bread-rice-perfect", stacksize: 16 },
             setVariables: {"player.hasmetmarie": "true"},
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-firstmeet4", jumpTo:"firstmeetresponse4" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet4", jumpTo:"firstmeetresponse4" },
 			]
 		},
         {
@@ -86,71 +113,69 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-fmresponse4", jumpTo: "close" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-fmresponse4", jumpTo: "close" },
 			]
 		},
 		{
-			code: "meetjohn",
-			owner: "marie",
+			code: "hasnotmetjohn",
+			owner: "npc",
 			type: "talk",
-            
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-meetjohn" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-hasnotmetjohn" },
 			],
-            jumpTo:"hasmetjohn"
+            jumpTo:"lookforjohn"
 		},
         {
-			code: "hasmetjohn",
+			code: "lookforjohn",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-hasmetjohn", jumpTo:"close" },
-                { value: "vsfrnpcs:dialogue-main-marie-hasnotmetjohn", jumpTo:"aidejohn" },
+                { value: "vsfrnpcs:dialogue-orario-marie-lookforjohn", jumpTo:"guidetojohn" },
 			]
 		},
         {
-			code: "aidejohn",
-			owner: "marie",
+			code: "guidetojohn",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-aidejohn" }
+				{ value: "vsfrnpcs:dialogue-orario-marie-guidetojohn" }
 			],
-            jumpTo:"aidejohnreponse"
+            jumpTo:"thxforguidance"
 		},
         {
-			code: "aidejohnreponse",
+			code: "thxforguidance",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-aidejohnreponse", jumpTo:"close" }
+				{ value: "vsfrnpcs:dialogue-orario-marie-thxforguidance", jumpTo:"close" }
 			]
 		},
 		{
-			code: "main",
-			owner: "marie",
+			code: "welcomeback",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-welcomeback" },
+				{ value: "vsfrnpcs:dialogue-orario-marie-welcomeback" },
 			],
-			jumpTo: "welcomebackresponse"
+			jumpTo: "welcomebackmenu"
 		},
         {
-			code: "welcomebackresponse",
+			code: "welcomebackmenu",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-marie-wbresponse", jumpTo:"close"},
-				{ value: "vsfrnpcs:dialogue-main-marie-opentrade", jumpTo: "opentrade"}
+				{ value: "vsfrnpcs:dialogue-orario-marie-bye", jumpTo:"close"},
+				{ value: "vsfrnpcs:dialogue-orario-marie-trade", jumpTo: "opentrade"}
 			]
 		},
 		{
 			code: "opentrade",
-			owner: "marie",
+			owner: "npc",
 			trigger: "opentrade"
 		},
         {
 			code: "close",
-			owner: "marie",
+			owner: "npc",
 			trigger: "closedialogue",
 		}
 	]

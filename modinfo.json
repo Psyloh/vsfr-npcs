@@ -14,7 +14,7 @@
   "RequiredOnServer": true,
   
   "Dependencies": {
-    "game": "1.21.0",
-    "vsquest" : ""
+    "game": "1.21.6",
+    "alegacyvsquest" : "1.1.0"
   }
 }

@@ -1,0 +1,11 @@
+{
+    components: [
+        {
+			code: "hello",
+			owner: "obliviac",
+            type:"talk",
+            setVariables: {"player.hasmetmarie":"false","player.hasdonetuto":"false"},
+            text: [{value:"J'ai recousu l'hymen : elle est prêt à marier, wallah!"}]
+		},
+    ]
+}

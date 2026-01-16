@@ -1,17 +1,22 @@
 {
-    "tabname-vsfr-npc": "VSFR NPC",
+    "tabname-vsfrnpcs": "VSFR NPCs",
 
-    "vsfrnpcs:item-creature-citizen-male-axel" : "NPC Axel",
-    "tradingwindow-citizen-male-axel": "{0} - Guide des nouveaux",
+    "tradingwindow-vsfrnpc-male-axel": "{0} - Begginers Guide",
+    "tradingwindow-vsfrnpc-female-marie": "{0} - Baker",
+    "tradingwindow-vsfrnpc-male-john": "{0} - Old Mercenary",
+    //TODO traduire
+    "tradingwindow-vsfrnpc-male-thomas": "{0} - Gardien des Translocateurs",
+    //TODO changer
+    "tradingwindow-vsfrnpc-male-michel": "{0} - Le seul et unique",
 
-    "vsfrnpcs:item-creature-citizen-female-marie" : "NPC Marie",
-    "tradingwindow-citizen-female-marie": "{0} - Boulangère",
+    "vsfrnpcs:item-creature-vsfrnpc-male-axel": "Axel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-michel": "Michel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-john": "John",
+    "vsfrnpcs:item-creature-vsfrnpc-female-marie": "Marie",
+    "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Anna",
 
-    "vsfrnpcs:item-creature-citizen-male-john" : "NPC John",
-    "tradingwindow-citizen-male-john": "{0} - Ancien mercenaire",
-
-    "vsfrnpcs:item-creature-citizen-male-thomas" : "NPC Thomas",
-    "tradingwindow-citizen-male-thomas": "{0} - Gardien des Translocateurs"
-
+    "nametag-vsfrnpc-male-unrevealed": "Villager",
+    "nametag-vsfrnpc-female-unrevealed": "Villager",
 }
 

@@ -1,38 +1,38 @@
 {
 	components: [
 		{
-			code: "testhasmetjohn",
-			owner: "axel",
-			type: "condition",
-			variable: "player.hasfinishedprologue",
-			isNotValue: "true",
-			thenJumpTo: "testhasmet",
-			elseJumpTo: "welcomeback"
-		},
-		{
 			code: "testhasmet",
-			owner: "axel",
+			owner: "npc",
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
 			thenJumpTo: "firstmeet",
 			elseJumpTo: "testhasmetmarie"
 		},
+		{
+			code: "testhasdonetuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "testhasmet",
+			elseJumpTo: "welcomeback"
+		},
         {
 			code: "testhasmetmarie",
-			owner: "axel",
+			owner: "npc",
 			type: "condition",
 			variable: "player.hasmetmarie",
 			isNotValue: "true",
-			thenJumpTo: "meetmarie",
+			thenJumpTo: "hasnotmetmarie",
 			elseJumpTo: "welcomeback"
 		},
 		{
 			code: "firstmeet",
-			owner: "axel",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet" },
 			],
 			jumpTo: "firstmeetresponse"
 		},
@@ -41,15 +41,15 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse", jumpTo: "firstmeet2" }
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse", jumpTo: "firstmeet2" }
 			],
 		},
 		{
 			code: "firstmeet2",
-			owner: "axel",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet2" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet2" },
 			],
 			jumpTo: "firstmeetresponse2"
 		},
@@ -58,33 +58,77 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse2", jumpTo: "firstmeet3" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse2", jumpTo: "firstmeet3" },
 			]
 		},
         {
 			code: "firstmeet3",
-			owner: "axel",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet3" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet3" },
 			],
-			jumpTo: "firstmeetresponse3"
+			jumpTo: "testmetjohnbefore"
 		},
-        {
+		{
+			code: "testmetjohnbefore",
+			owner: "player",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "firstmeetresponse3",
+			elseJumpTo: "leave"
+		},
+		{
 			code: "firstmeetresponse3",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse3", jumpTo: "firstmeet4" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse3", jumpTo: "testmetmariebefore" },
+			]
+		},
+		{
+			code: "leave",
+			owner: "player",
+			setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-leave", jumpTo: "close" },
+			]
+		},
+		{
+			code: "testmetmariebefore",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet4",
+			elseJumpTo: "guidetoexit"
+		},
+        {
+			code: "guidetoexit",
+			owner: "npc",
+			type: "talk",
+            setVariables: {"entity.hasmet": "true"},
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-guidetoexit", jumpTo:"thxforguidance" },
+			]
+		},
+        {
+			code: "thxforguidance",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-thxforguidance", jumpTo: "close" },
 			]
 		},
         {
 			code: "firstmeet4",
-			owner: "axel",
+			owner: "npc",
 			type: "talk",
             setVariables: {"entity.hasmet": "true"},
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-firstmeet4", jumpTo:"firstmeetresponse4" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet4", jumpTo:"firstmeetresponse4" },
 			]
 		},
         {
@@ -92,16 +136,15 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-fmresponse4", jumpTo: "close" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse4", jumpTo: "close" },
 			]
 		},
 		{
 			code: "welcomeback",
-			owner: "axel",
+			owner: "npc",
 			type: "talk",
-           
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-welcomeback" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-welcomeback" },
 			],
 			jumpTo: "welcomebackresponse"
 		},
@@ -110,57 +153,47 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-wbresponse", jumpTo:"close"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-wbresponse", jumpTo:"close"},
 			]
 		},
-        
 		{
-			code: "meetmarie",
-			owner: "axel",
+			code: "hasnotmetmarie",
+			owner: "npc",
 			type: "talk",
             
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-meetmarie" },
+				{ value: "vsfrnpcs:dialogue-orario-axel-hasnotmetmarie" },
 			],
-            jumpTo:"hasmetmarie"
+            jumpTo:"lookformarie"
 		},
         {
-			code: "hasmetmarie",
+			code: "lookformarie",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-hasmetmarie", jumpTo:"close" },
-                { value: "vsfrnpcs:dialogue-main-axel-hasnotmetmarie", jumpTo:"aidemarie" },
+                { value: "vsfrnpcs:dialogue-orario-axel-lookformarie", jumpTo:"guidetomarie" },
 			]
 		},
         {
-			code: "youpiresponse",
-			owner: "player",
+			code: "guidetomarie",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-youpiresponse", jumpTo:"close" }
-			]
-		},
-        {
-			code: "aidemarie",
-			owner: "axel",
-			type: "talk",
-			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-aidemarie" }
+				{ value: "vsfrnpcs:dialogue-orario-axel-guidetomarie" }
 			],
-            jumpTo:"aidemariereponse"
+            jumpTo:"thxforguidance"
 		},
         {
-			code: "aidemariereponse",
+			code: "thxforguidance",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-axel-aidemariereponse", jumpTo:"close" }
+				{ value: "vsfrnpcs:dialogue-orario-axel-thxforguidance", jumpTo:"close" }
 			]
 		},
         {
 			code: "close",
-			owner: "axel",
+			owner: "npc",
 			trigger: "closedialogue",
 		},
 	]

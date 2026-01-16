@@ -10,51 +10,36 @@
   "variantgroups": [
     {
       "code": "type",
-      "states": ["citizen"]
-    },
-    {
-      "code": "gender",
-      "states": ["male", "female"]
-    },
-    {
-      "code": "name",
-      "states": ["axel", "john", "thomas", "marie"]
+      "states": [
+        "vsfrnpc-male-axel",
+        "vsfrnpc-male-john",
+        "vsfrnpc-male-thomas",
+        "vsfrnpc-male-michel",
+        "vsfrnpc-female-marie",
+        "vsfrnpc-female-anna",
+        "vsfrnpc-male-obliviac",
+      ]
     }
-  ],
-  "allowedVariants": [
-    "creature-citizen-male-axel",
-    "creature-citizen-male-john",
-    "creature-citizen-male-thomas",
-    "creature-citizen-female-marie",
-    "creature-citizen-female-anna"
   ],
   "shapeByType": {
-    "*-male-*": {
-      "base": "game:entity/humanoid/villager-male"
-    },
-    "*-female-*": {
-      "base": "game:entity/humanoid/villager-female"
-    }
+      "*-vsfrnpc-*": {
+          "base": "game:entity/humanoid/trader"
+      }
   },
   "texturesByType": {
-    "*-male-*": {
-      "skin": {
-        "base": "game:entity/humanoid/villager-male"
+      "*-vsfrnpc-*": {
+          "skin": {
+              "base": "game:entity/humanoid/trader"
+          }
       }
-    },
-    "*-female-*": {
-      "skin": {
-        "base": "game:entity/humanoid/villager-female"
-      }
-    }
   },
   "creativeinventory": {
     "general": ["*"],
-    "vsfr-npc": ["*"]
+    "vsfrnpcs": ["*"]
   },
   "materialDensity": 600,
   "guiTransformByType": {
-    "*-citizen-*": {
+    "*-vsfrnpc-*": {
       "rotate": true,
       "rotation": {
         "x": 0,
@@ -69,7 +54,7 @@
     }
   },
   "tpHandTransformByType": {
-    "*-citizen-*": {
+    "*-vsfrnpc-*": {
       "translation": {
         "x": -0.6,
         "y": -1.1,
@@ -89,7 +74,7 @@
     }
   },
   "fpHandTransformByType": {
-    "*-citizen-*": {
+    "*-vsfrnpc-*": {
       "translation": {
         "x": 0.05,
         "y": -0.3,

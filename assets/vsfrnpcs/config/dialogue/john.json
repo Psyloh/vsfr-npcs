@@ -1,65 +1,80 @@
 {
 	components: [
-		{
-			code: "testhasmetmarie",
-			owner: "john",
-			type: "condition",
-			variable: "player.hasmetmarie",
-			isNotValue: "true",
-			thenJumpTo: "stranger",
-			elseJumpTo: "testhasmet"
-		},
         {
 			code: "testhasmet",
-			owner: "john",
+			owner: "npc",
 			type: "condition",
-			variable: "entity.hasmet",
+			variable: "player.hasdonetuto",
 			isNotValue: "true",
-			thenJumpTo: "firstmeet",
-			elseJumpTo: "main"
+			thenJumpTo: "hello",
+			elseJumpTo: "goaway"
 		},
 		{
 			code: "stranger",
-			owner: "john",
+			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet" },
-			],
-			jumpTo: "strangerresponse"
+				{ value: "vsfrnpcs:dialogue-orario-john-notmet", jumpTo:"close" },
+			]
 		},
 		{
 			code: "strangerresponse",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-strangerresponse", jumpTo: "close" }
+				{ value: "vsfrnpcs:dialogue-orario-john-strangerresponse", jumpTo: "close" }
+			],
+		},
+		{
+			code: "hello",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-john-hello" },
+			],
+			jumpTo: "testhasmetmarie"
+		},
+		{
+			code: "testhasmetmarie",
+			owner: "player",
+			type: "condition",
+			variable: "player.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "stranger",
+			elseJumpTo: "helloback"
+		},
+		{
+			code: "helloback",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-john-helloback", jumpTo: "firstmeet" }
 			],
 		},
 		{
 			code: "firstmeet",
-			owner: "john",
-			type: "talk",
+			owner: "npc",
 			trigger: "revealname",
-            setVariables: {"entity.hasmeetjohn": "true"},
+			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet" },
+				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet" },
 			],
 			jumpTo: "firstmeetresponse"
 		},
-		{
+        {
 			code: "firstmeetresponse",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse", jumpTo: "firstmeet2" }
-			],
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse", jumpTo: "firstmeet2" },
+			]
 		},
 		{
 			code: "firstmeet2",
-			owner: "john",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet2" },
+				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet2" },
 			],
 			jumpTo: "firstmeetresponse2"
 		},
@@ -68,15 +83,15 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse2", jumpTo: "firstmeet3" },
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse2", jumpTo: "firstmeet3" },
 			]
 		},
         {
 			code: "firstmeet3",
-			owner: "john",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet3" },
+				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet3" },
 			],
 			jumpTo: "firstmeetresponse3"
 		},
@@ -85,15 +100,15 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse3", jumpTo: "firstmeet4" },
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse3", jumpTo: "firstmeet4" },
 			]
 		},
         {
 			code: "firstmeet4",
-			owner: "john",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet4", jumpTo:"firstmeetresponse4" },
+				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet4", jumpTo:"firstmeetresponse4" },
 			]
 		},
         {
@@ -101,15 +116,15 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse4", jumpTo: "firstmeet5" },
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse4", jumpTo: "firstmeet5" },
 			]
 		},
         {
 			code: "firstmeet5",
-			owner: "john",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet5", jumpTo:"firstmeetresponse5" },
+				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet5", jumpTo:"firstmeetresponse5" },
 			]
 		},
         {
@@ -117,15 +132,25 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse5", jumpTo: "firstmeet6" },
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse5", jumpTo: "giveitem" },
 			]
+		},
+		{
+			code: "giveitem",
+			owner: "npc",
+			trigger: "giveitemstack",
+			triggerdata: { type: "item", code: "stick", stacksize: 20},
+			jumpTo : "firstmeet6"
 		},
         {
 			code: "firstmeet6",
-			owner: "john",
+			owner: "npc",
 			type: "talk",
+			trigger: "giveitemstack",
+			triggerdata: {type: "item", code: "flint", stacksize: 8 },
+			setVariables: {"player.hasdonetuto": "true"},
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet6", jumpTo:"firstmeetresponse4" },
+				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet6", jumpTo:"firstmeetresponse6" },
 			]
 		},
         {
@@ -133,55 +158,29 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse6", jumpTo: "giveitem" },
-			]
-		},
-        {
-			code: "giveitem",
-			owner: "john",
-			trigger: "giveitemstack",
-			triggerdata: { type: "item", code: "stick", stacksize: 20},
-			jumpTo : "firstmeet7"
-		},
-        {
-			code: "firstmeet7",
-			owner: "john",
-			trigger: "giveitemstack",
-			triggerdata: {type: "item", code: "flint", stacksize: 8 },
-            setVariables: {"entity.hasmet": "true", "player.hasfinishedprologue": "true"},
-			type: "talk",
-			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-firstmeet7", jumpTo:"firstmeetresponse7" },
-			]
-		},
-        {
-			code: "firstmeetresponse7",
-			owner: "player",
-			type: "talk",
-			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-fmresponse7", jumpTo: "close" },
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse6", jumpTo: "close" },
 			]
 		},
 		{
-			code: "main",
-			owner: "john",
+			code: "goaway",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-main" },
+				{ value: "vsfrnpcs:dialogue-orario-john-goaway" },
 			],
-			jumpTo: "mainreponse"
+			jumpTo: "leaving"
 		},
         {
-			code: "mainreponse",
+			code: "leaving",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-main-john-response", jumpTo:"close"},
+				{ value: "vsfrnpcs:dialogue-orario-john-leaving", jumpTo:"close"},
 			]
 		},
         {
 			code: "close",
-			owner: "john",
+			owner: "npc",
 			trigger: "closedialogue",
 		},
 	]

@@ -1,56 +1,48 @@
 {
-  "code": "citizen",
+  "code": "vsfrnpc",
   "class": "EntityVillager",
   "tags": ["humanoid", "villager", "trader", "human", "habitat-land"],
   "weight": 80,
   "canClimb": true,
   "hitboxSize": { "x": 0.6, "y": 1.75 },
   "deadHitboxSize": { "x": 0.75, "y": 0.5 },
-  "behaviorConfigsByType": {
-    "*-axel": {
-      "nametag": {
+  "behaviorConfigs": {
+    nametagByType: {
+      "*-axel": {
         "showtagonlywhentargeted": true,
         "triggeredNameReveal": false,
         "renderRange": "10"
-      }
-    },
-    "*": {
-      "nametag": {
+      },
+      "*": {
         "showtagonlywhentargeted": true,
         "triggeredNameReveal": true,
-        "unrevealedDisplayName": "vsfr:nametag-villager-{gender}-unrevealedname"
-      }
-    }
+        "unrevealedDisplayName": "vsfrnpcs:nametag-villager-{sex}-unrevealed"
+      },
+    },
+    conversable: {
+		//bloc Dialogues
+		dialogueByType: {
+			"@*-(axel|marie|john|thomas|michel|obliviac)": "vsfrnpcs:config/dialogue/{name}",
+		},
+		approachPlayer: false
+	}
   },
+  //bloc Variants
   "variantgroups": [
-    { "code": "gender", "states": ["male", "female"] },
-    { "code": "name", "states": ["axel", "marie", "john", "thomas"] }
+    { "code": "sex", "states": ["male", "female"] },
+    { "code": "name", "states": ["axel", "marie", "john", "thomas", "michel", "obliviac"] }
   ],
   "AllowedVariants": [
-    "citizen-female-marie",
-    "citizen-male-axel",
-    "citizen-male-john",
-    "citizen-male-thomas"
+    "vsfrnpc-female-marie",
+    "vsfrnpc-male-axel",
+    "vsfrnpc-male-john",
+    "vsfrnpc-male-thomas",
+    "vsfrnpc-male-michel",
+    "vsfrnpc-male-obliviac"
   ],
-  "client": {
-    "renderer": "Shape",
-    "shape": { "base": "game:entity/humanoid/villager-{gender}" },
-    "texture": { "base": "game:entity/humanoid/villager-{gender}" },
-    "behaviors": [
-      { "code": "nametag" },
-      { "code": "interpolateposition" },
-      { "code": "conversable", "dialogue": "config/dialogue/{name}" }
-    ],
-    "animations": [
-      { "code": "die", "animation": "die", "animationSpeed": 1.75, "weight": 10, "blendMode": "AddAverage" },
-      { "code": "hurt", "animation": "hurt", "animationSpeed": 2, "blendMode": "AddAverage" },
-      { "code": "formal-walk", "animation": "formal-walk", "animationSpeed": 1.5 }
-    ]
-  },
   "attributes": {
-    "tradePropsFile": "game:config/tradelists/trader-buildmaterials",
-    "tradeProps": {
-      "money": { "avg": 30, "var": 10 }
+    "tradePropsFileByType": {
+      "@.*-(marie|michel)": "vsfrnpcs:config/tradelists/{name}",
     },
 		"voiceSoundsByType": {
       "*-male-*":
@@ -74,10 +66,11 @@
       "balanced": { "chordDelayMul": 1.3, "pitchModifier": 0.7, "volumneModifier": 1.1 }
     },
     "shouldSwivelFromMotion": false,
-    "outfitConfigFileNameByType": {
-			"*": "villageraccessories-{gender}"
-		},
     "deathByMultiplier": 0,
+    //blocs Apparence
+    "outfitConfigFileNameByType": {
+			"*": "villageraccessories-{sex}"
+		},
     "partialRandomOutfitsByType": {
 			"*-male-*": {
         "skin-face":[{"Code":"skin-face-blacksmith"}],
@@ -131,18 +124,35 @@
 			}
     }
   },
+  "client": {
+    "renderer": "Shape",
+    "shape": { "base": "game:entity/humanoid/villager-{sex}" },
+    "texture": { "base": "game:entity/humanoid/villager-{sex}" },
+    "behaviors": [
+      { "code": "nametag" },
+      { "code": "interpolateposition" },
+      { "code": "conversable" }
+    ],
+    "animations": [
+      { "code": "die", "animation": "die", "animationSpeed": 1.75, "weight": 10, "blendMode": "AddAverage" },
+      { "code": "hurt", "animation": "hurt", "animationSpeed": 2, "blendMode": "AddAverage" },
+      { "code": "formal-walk", "animation": "formal-walk", "animationSpeed": 1.5 }
+    ]
+  },
   "server": {
     "attributes": {
       "pathfinder": { "minTurnAnglePerSec": 720, "maxTurnAnglePerSec": 1440 }
     },
     "behaviors": [
       { 
-        "code": "nametag", 
+        //bloc Nametag
+        "code": "nametag",
         "selectFromRandomNameByType": { 
           "*-marie": ["Marie"] ,
           "*-axel": ["Axel"],
           "*-john": ["John"],
-          "*-thomas": ["Thomas"]
+          "*-thomas": ["Thomas"],
+          "*-michel": ["Michel"],
         }
       },
       { "code": "repulseagents" },
@@ -150,6 +160,7 @@
       { "code": "reviveondeath", "minHours": 24, "maxHours": 72 },
       { "code": "health", "currenthealth": 25, "maxhealth": 25 },
       {
+        //bloc Emotions
         "code": "emotionstates",
         "states": [
           { "code": "aggressiveondamage", "duration": 6, "chance": 0.6, "slot": 0, "priority": 2, "accumType": "noaccum" },
@@ -157,6 +168,7 @@
         ]
       },
       {
+        //bloc AItasks
         "code": "taskai",
         "aitasks": [
           { "code": "idle", "priority": 1.2, "minduration": 2500, "maxduration": 2500, "mincooldown": 2000, "maxcooldown": 10000, "animation": "laugh" },
@@ -164,7 +176,7 @@
           { "code": "lookaround", "priority": 0.5 }
         ]
       },
-      { "code": "conversable", "dialogue": "config/dialogue/{name}" },
+      { "code": "conversable" },
       { "code": "entitystatetags" }
     ]
   },
