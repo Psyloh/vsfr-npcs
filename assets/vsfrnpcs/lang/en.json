@@ -2,6 +2,7 @@
     "dialogue-player-nowords": "...",
 
     //quêtes Michel
+    //TODO Traduire
     "quest-michel-redmeat-title":   "Ravitaillement urgent",
     "quest-michel-redmeat-desc":    "Oui, avec l'Apocalypse j'aurais bien besoin de Viande Rouge. Pourrais-tu m'en apporter ?\n15 beaux morceaux feront l'affaire.\nJe saurais généreusement te récompenser !",
     "quest-michel-redmeat-obj":     "Viande Rouge : {0}/15",
@@ -11,6 +12,7 @@
     "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
 
     //dialogue Michel
+    //TODO Check la traduction
     "dialogue-orario-michel-goaway":          "Qui êtes-vous ?\nQue faites-vous dans ma cuisine ?",
     "dialogue-orario-michel-firstmeet":       "Oh salut! Tu dois être l'un des nouveaux venus dont parle Marie ?",
     "dialogue-orario-michel-fmresponse":      "Oui c'est ça",
@@ -22,6 +24,7 @@
     "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose ?",
 
     //dialogue Axel
+    //TODO Check la traduction
     "dialogue-orario-axel-firstmeet":         "Bienvenue {{playername}}, tu dois être la dernière création de Jonas, un... séraphin c'est ça ?",
     "dialogue-orario-axel-fmresponse":        "Oui, c'est ça.",
     "dialogue-orario-axel-firstmeet2":        "Bien, je vois que tu as l'air perdu. Alors voici Orario, la capitale. Une ville fortifiée !",
@@ -40,6 +43,7 @@
     "dialogue-orario-axel-thxforguidance":    "Merci, au revoir !",
 
     //dialogue Marie
+    //TODO Check la traduction
     "dialogue-orario-marie-firstmeet":        "Bonjour, je me présente : je suis Marie l'une des boulangères d'Orario.",
     "dialogue-orario-marie-fmresponse":       "Un petit oiseau m'a dit que vous aviez du pain pour les aventuriers.",
     "dialogue-orario-marie-firstmeet2":       "Un aventurier ?\nIntéressant, je ne savais pas qu'il était possible de survivre à l'Apocalypse hors des murs...",
@@ -59,6 +63,7 @@
     "dialogue-orario-marie-trade":            "Oui ! Mais qu'avez vous comme pain ou vienoiserie ?",
 
     //dialogue John
+    //TODO Traduire
     "dialogue-orario-john-hello":         "... ... ... Que me veux-tu ?",
     "dialogue-orario-john-notmet":        "Oups ! Mauvaise maison.",
     "dialogue-orario-john-helloback":     "Excusez-moi ! Vous êtes bien John, le mercenaire ?",
@@ -78,6 +83,7 @@
     "dialogue-orario-john-leaving":       "D'accord, d'accord...",
 
     //dialogue Thomas
+    //TODO Traduire
     "dialogue-orario-thomas-firstmeet": "Bonjour, oh bienvenue jeune Séraphin, tu n'est pas un peu perdu ?",
     "dialogue-orario-thomas-fmresponse" : "Euhm merci, pourquoi me regardez vous comme ça ?",
     "dialogue-orario-thomas-firstmeet2": "Je vois que Tobias a bien travailler, on dirait que vous êtes presques comme nous.",

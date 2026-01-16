@@ -6,28 +6,26 @@
   "canClimb": true,
   "hitboxSize": { "x": 0.6, "y": 1.75 },
   "deadHitboxSize": { "x": 0.75, "y": 0.5 },
-  "behaviorConfigsByType": {
-    "*-axel": {
-      "nametag": {
+  "behaviorConfigs": {
+    nametagByType: {
+      "*-axel": {
         "showtagonlywhentargeted": true,
         "triggeredNameReveal": false,
         "renderRange": "10"
-      }
-    },
-    "*": {
-      nametag: {
+      },
+      "*": {
         "showtagonlywhentargeted": true,
         "triggeredNameReveal": true,
         "unrevealedDisplayName": "vsfrnpcs:nametag-villager-{sex}-unrevealed"
       },
-      conversable: {
-        //bloc Dialogues
-        dialogueByType: {
-          "@*-(axel|marie|john|thomas|michel|obliviac)": "config/dialogue/{name}",
-        },
-        approachPlayer: false
-      }
-    }
+    },
+    conversable: {
+		//bloc Dialogues
+		dialogueByType: {
+			"@*-(axel|marie|john|thomas|michel|obliviac)": "vsfrnpcs:config/dialogue/{name}",
+		},
+		approachPlayer: false
+	}
   },
   //bloc Variants
   "variantgroups": [

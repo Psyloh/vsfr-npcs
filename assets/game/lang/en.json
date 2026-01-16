@@ -9,11 +9,12 @@
     //TODO changer
     "tradingwindow-vsfrnpc-male-michel": "{0} - Le seul et unique",
 
-    "item-creature-vsfrnpc-male-axel": "Axel",
-    "item-creature-vsfrnpc-male-michel": "Michel",
-    "item-creature-vsfrnpc-male-john": "John",
-    "item-creature-vsfrnpc-female-marie": "Marie",
-    "item-creature-vsfrnpc-male-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-axel": "Axel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-michel": "Michel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-john": "John",
+    "vsfrnpcs:item-creature-vsfrnpc-female-marie": "Marie",
+    "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Anna",
 
     "nametag-vsfrnpc-male-unrevealed": "Villager",
     "nametag-vsfrnpc-female-unrevealed": "Villager",

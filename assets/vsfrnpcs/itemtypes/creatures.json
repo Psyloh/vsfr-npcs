@@ -22,28 +22,20 @@
     }
   ],
   "shapeByType": {
-    "*-male-*": {
-      "base": "game:entity/humanoid/villager-male"
-    },
-    "*-female-*": {
-      "base": "game:entity/humanoid/villager-female"
-    }
+      "*-vsfrnpc-*": {
+          "base": "game:entity/humanoid/trader"
+      }
   },
   "texturesByType": {
-    "*-male-*": {
-      "skin": {
-        "base": "game:entity/humanoid/villager-male"
+      "*-vsfrnpc-*": {
+          "skin": {
+              "base": "game:entity/humanoid/trader"
+          }
       }
-    },
-    "*-female-*": {
-      "skin": {
-        "base": "game:entity/humanoid/villager-female"
-      }
-    }
   },
   "creativeinventory": {
     "general": ["*"],
-    "vsfr-npc": ["*"]
+    "vsfrnpcs": ["*"]
   },
   "materialDensity": 600,
   "guiTransformByType": {
