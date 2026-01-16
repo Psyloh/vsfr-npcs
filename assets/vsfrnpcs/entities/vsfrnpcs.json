@@ -16,7 +16,7 @@
       "*": {
         "showtagonlywhentargeted": true,
         "triggeredNameReveal": true,
-        "unrevealedDisplayName": "vsfrnpcs:nametag-villager-{sex}-unrevealed"
+        "unrevealedDisplayName": "vsfrnpcs:nametag-vsfrnpc-{sex}-unrevealed"
       },
     },
     conversable: {
