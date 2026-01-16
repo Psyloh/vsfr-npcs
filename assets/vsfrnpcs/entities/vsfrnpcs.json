@@ -131,7 +131,8 @@
     "behaviors": [
       { "code": "nametag" },
       { "code": "interpolateposition" },
-      { "code": "conversable" }
+      { "code": "conversable" },
+	  { "code": "questgiver" },
     ],
     "animations": [
       { "code": "die", "animation": "die", "animationSpeed": 1.75, "weight": 10, "blendMode": "AddAverage" },
@@ -177,6 +178,10 @@
         ]
       },
       { "code": "conversable" },
+	  { "code": "questgiver" , questsByType: {
+		"*-michel": ["vsfrnpcs:quest-michel-redmeat", "vsfrnpcs:quest-michel-bushmeat"],
+		"*": []
+	  }},
       { "code": "entitystatetags" }
     ]
   },
