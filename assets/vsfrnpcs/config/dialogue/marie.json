@@ -57,7 +57,7 @@
 			code: "testgavebread",
 			owner: "npc",
 			type: "condition",
-			variable: "entity.gavebread",
+			variable: "player.gavebread",
 			isNotValue: "true",
 			thenJumpTo: "givebread",
 			elseJumpTo: "firstmeet3"
@@ -75,7 +75,7 @@
 			code: "givebread",
 			owner: "npc",
 			type: "talk",
-			setVariables:{"entity.gavebread": "true"},
+			setVariables:{"player.gavebread": "true"},
 			trigger: "giveitemstack",
 			triggerdata: { type: "item", code: "bread-rice-perfect", stacksize: 16 },
 			text: [
@@ -179,4 +179,5 @@
 			trigger: "closedialogue",
 		}
 	]
+
 }
