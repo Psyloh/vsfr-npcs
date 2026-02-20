@@ -1,19 +1,18 @@
 {
-  "type": "Content",
-  "textureSize": 32,
-  "name": "Vintage Story FR - NPCs",
-  "version": "0.0.1",
-  "description": "Adds content NPCs to VSFR server",
-  "website": "",
-  "modID": "vsfrnpcs",
-  "authors": [ "Fox" ],
-  "contributors": [],
-  "side": "Universal",
-  "requiredOnClient": true,
-  "requiredOnServer": true,
-  
-  "dependencies": {
-    "game": "1.21.6",
-    "alegacyvsquest" : "1.1.0"
+  type: "Content",
+  textureSize: 32,
+  name: "Vintage Story FR - NPCs",
+  version: "0.0.2",
+  description: "Adds content NPCs to VSFR server",
+  website: "",
+  modID: "vsfrnpcs",
+  authors: [ "Fox" ],
+  contributors: [],
+  side: "Universal",
+  requiredOnClient: true,
+  requiredOnServer: true,
+  dependencies: {
+    game: "1.21.6",
+    alegacyvsquest: "2.3.2"
   }
 }

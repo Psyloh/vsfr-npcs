@@ -1,10 +1,8 @@
 {
-    "tradingwindow-citizen-male-axel": "{0} - Guide des nouveaux",
+    //Vanilla Dialogue UIs Titles
+    "tradingwindow-citizen-male-axel": "{0} - Guide des Nouveaux",
     "tradingwindow-citizen-female-marie": "{0} - Boulangère",
-    "tradingwindow-citizen-male-john": "{0} - Ancien mercenaire",
+    "tradingwindow-citizen-male-john": "{0} - Ancien Mercenaire",
     "tradingwindow-citizen-male-thomas": "{0} - Gardien des Translocateurs",
     "tradingwindow-vsfrnpc-male-michel": "{0} - Cuisinier",
-
-    "vsfrnpcs:nametag-vsfrnpc-male-unrevealed": "Villageois",
-    "vsfrnpcs:nametag-vsfrnpc-female-unrevealed": "Villageoise",
 }

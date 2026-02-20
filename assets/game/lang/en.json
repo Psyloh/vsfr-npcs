@@ -1,20 +1,16 @@
 {
+    //Creative Inventory UIs
     "tabname-vsfrnpcs": "VSFR NPCs",
-
-    "tradingwindow-vsfrnpc-male-axel": "{0} - Begginers Guide",
-    "tradingwindow-vsfrnpc-female-marie": "{0} - Baker",
-    "tradingwindow-vsfrnpc-male-john": "{0} - Old Mercenary",
-    "tradingwindow-vsfrnpc-male-michel": "{0} - Cook",
-    //TODO traduire
-    "tradingwindow-vsfrnpc-male-thomas": "{0} - Gardien des Translocateurs",
-
     "vsfrnpcs:item-creature-vsfrnpc-male-axel": "Axel",
     "vsfrnpcs:item-creature-vsfrnpc-male-michel": "Michel",
     "vsfrnpcs:item-creature-vsfrnpc-male-john": "John",
     "vsfrnpcs:item-creature-vsfrnpc-female-marie": "Marie",
     "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Thomas",
 
-    "vsfrnpcs:nametag-vsfrnpc-male-unrevealed": "Villager",
-    "vsfrnpcs:nametag-vsfrnpc-female-unrevealed": "Villager",
+    //Vanilla Dialogue UIs Titles
+    "tradingwindow-vsfrnpc-male-axel": "{0} - Beginners Guide",
+    "tradingwindow-vsfrnpc-female-marie": "{0} - Baker",
+    "tradingwindow-vsfrnpc-male-john": "{0} - Old Mercenary",
+    "tradingwindow-vsfrnpc-male-michel": "{0} - Cook",
+    "tradingwindow-vsfrnpc-male-thomas": "{0} - Warden of Translocators",
 }
-
