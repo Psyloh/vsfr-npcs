@@ -2,7 +2,7 @@
   type: "Content",
   textureSize: 32,
   name: "Vintage Story FR - NPCs",
-  version: "0.0.2",
+  version: "0.1.5",
   description: "Adds content NPCs to VSFR server",
   website: "",
   modID: "vsfrnpcs",
@@ -15,4 +15,5 @@
     game: "1.21.6",
     alegacyvsquest: "2.3.2"
   }
+
 }
