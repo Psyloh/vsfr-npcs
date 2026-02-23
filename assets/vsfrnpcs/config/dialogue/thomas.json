@@ -2,16 +2,16 @@
     components: [
         {
 			code: "testhasmet",
-			owner: "thomas",
+			owner: "npc",
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
 			thenJumpTo: "firstmeet",
-			elseJumpTo: "mainhello"
+			elseJumpTo: "welcomeback"
 		},
 		{
 			code: "firstmeet",
-			owner: "thomas",
+			owner: "npc",
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet" },
@@ -28,7 +28,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "thomas",
+			owner: "npc",
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet2" },
@@ -45,7 +45,7 @@
 		},
 		{
 			code: "firstmeet3",
-			owner: "thomas",
+			owner: "npc",
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet3" },
@@ -62,7 +62,7 @@
 		},
 		{
 			code: "firstmeet4",
-			owner: "thomas",
+			owner: "npc",
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet4" },
@@ -79,7 +79,7 @@
 		},
 		{
 			code: "firstmeet5",
-			owner: "thomas",
+			owner: "npc",
             setVariables: {"entity.hasmet": "true"},
 			trigger: "revealname",			
 			type: "talk",
@@ -97,63 +97,59 @@
 			],
 		},
 		{
-			code: "mainhello",
-			owner: "thomas",
+			code: "welcomeback",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-thomas-mainhello" },
+				{ value: "vsfrnpcs:dialogue-orario-thomas-welcomeback" },
 			],
-			jumpTo: "mainplayer"
+			jumpTo: "welcomebackmenu"
 		},
 		{
-			code: "mainplayer",
+			code: "welcomebackmenu",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-thomas-howtotransloc", jumpTo: "translocresponse" },
-				{ value: "vsfrnpcs:dialogue-orario-thomas-howtormvtransloc", jumpTo: "translocrmvresponse" },
-				{ value: "vsfrnpcs:dialogue-orario-thomas-howtodpltransloc", jumpTo: "translocdplresponse"},
-				{ value: "vsfrnpcs:dialogue-orario-thomas-mainbye", jumpTo: "close"}
+				{ value: "vsfrnpcs:dialogue-orario-thomas-howtogettl", jumpTo: "howtogettranslocresp" },
+				{ value: "vsfrnpcs:dialogue-orario-thomas-nothingbye", jumpTo: "close"}
 			],
 		},
 		{
-			code: "translocresponse",
-			owner: "thomas",
+			code: "howtogettranslocresp",
+			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-thomas-translocresponse" },
+				{ value: "vsfrnpcs:dialogue-orario-thomas-howtogettlresp" },
 			],
-			jumpTo: "mainthanks"
+			jumpTo: "howtomovetransloc"
 		},
 		{
-			code: "translocrmvresponse",
-			owner: "thomas",
-			type: "talk",
-			text: [
-				{ value: "vsfrnpcs:dialogue-orario-thomas-translocrmvresponse" },
-			],
-			jumpTo: "mainthanks"
-		},
-		{
-			code: "translocdplresponse",
-			owner: "thomas",
-			type: "talk",
-			text: [
-				{ value: "vsfrnpcs:dialogue-orario-thomas-translocdplresponse" },
-			],
-			jumpTo: "mainthanks"
-		},
-		{
-			code: "mainthanks",
+			code: "howtomovetransloc",
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-thomas-mainthanks", jumpTo: "mainhello" },
+				{ value: "vsfrnpcs:dialogue-orario-thomas-howtomovetl", jumpTo: "howtomovetranslocresp"},
+			],
+		},
+		{
+			code: "howtomovetranslocresp",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-thomas-howtomovetlresp" },
+			],
+			jumpTo: "okthx"
+		},
+		{
+			code: "okthx",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-thomas-okthx", jumpTo: "close" },
 			],
 		},
         {
 			code: "close",
-			owner: "thomas",
 			trigger: "closedialogue",
 		}
     ]
