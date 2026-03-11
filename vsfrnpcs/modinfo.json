@@ -12,6 +12,6 @@
 	requiredOnServer: true,
 	dependencies: {
 		game: "1.22.0",
-		alegacyvsquest: "2.4.1"
+		//alegacyvsquest: "2.4.1"
 	}
 }
