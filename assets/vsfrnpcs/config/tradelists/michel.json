@@ -1,0 +1,16 @@
+{
+    money: {
+        avg: 40,
+        var: 8
+    },
+    selling: {
+        maxItems: 14,
+        list: [
+        ]
+    },
+    buying: {
+        maxItems: 14,
+        list: [
+        ]
+    }
+}

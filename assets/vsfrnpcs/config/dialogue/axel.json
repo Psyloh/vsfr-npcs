@@ -1,0 +1,200 @@
+{
+	components: [
+		{
+			code: "testhasmet",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "testhasmetmarie"
+		},
+		{
+			code: "testhasdonetuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "testhasmet",
+			elseJumpTo: "welcomeback"
+		},
+        {
+			code: "testhasmetmarie",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "hasnotmetmarie",
+			elseJumpTo: "welcomeback"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet" },
+			],
+			jumpTo: "firstmeetresponse"
+		},
+		{
+			code: "firstmeetresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse", jumpTo: "firstmeet2" }
+			],
+		},
+		{
+			code: "firstmeet2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet2" },
+			],
+			jumpTo: "firstmeetresponse2"
+		},
+        {
+			code: "firstmeetresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse2", jumpTo: "firstmeet3" },
+			]
+		},
+        {
+			code: "firstmeet3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet3" },
+			],
+			jumpTo: "testmetjohnbefore"
+		},
+		{
+			code: "testmetjohnbefore",
+			owner: "player",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "firstmeetresponse3",
+			elseJumpTo: "leave"
+		},
+		{
+			code: "firstmeetresponse3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse3", jumpTo: "testmetmariebefore" },
+			]
+		},
+		{
+			code: "leave",
+			owner: "player",
+			setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-leave", jumpTo: "close" },
+			]
+		},
+		{
+			code: "testmetmariebefore",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasmetmarie",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet4",
+			elseJumpTo: "guidetoexit"
+		},
+        {
+			code: "guidetoexit",
+			owner: "npc",
+			type: "talk",
+            setVariables: {"entity.hasmet": "true"},
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-guidetoexit", jumpTo:"thxforguidance" },
+			]
+		},
+        {
+			code: "thxforguidance",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-thxforguidance", jumpTo: "close" },
+			]
+		},
+        {
+			code: "firstmeet4",
+			owner: "npc",
+			type: "talk",
+            setVariables: {"entity.hasmet": "true"},
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet4", jumpTo:"firstmeetresponse4" },
+			]
+		},
+        {
+			code: "firstmeetresponse4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmresponse4", jumpTo: "close" },
+			]
+		},
+		{
+			code: "welcomeback",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-welcomeback" },
+			],
+			jumpTo: "welcomebackresponse"
+		},
+        {
+			code: "welcomebackresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-wbresponse", jumpTo:"close"},
+			]
+		},
+		{
+			code: "hasnotmetmarie",
+			owner: "npc",
+			type: "talk",
+            
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-hasnotmetmarie" },
+			],
+            jumpTo:"lookformarie"
+		},
+        {
+			code: "lookformarie",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-orario-axel-lookformarie", jumpTo:"guidetomarie" },
+			]
+		},
+        {
+			code: "guidetomarie",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-guidetomarie" }
+			],
+            jumpTo:"thxforguidance"
+		},
+        {
+			code: "thxforguidance",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-thxforguidance", jumpTo:"close" }
+			]
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		},
+	]
+}

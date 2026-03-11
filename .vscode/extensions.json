@@ -1,6 +1,8 @@
 {
-    "recommendations": [
+  "recommendations": [
+        "mrmlnc.vscode-json5",
+        "swaxx.custom-fold-markers"
         "ms-dotnettools.csdevkit",
         "ms-dotnettools.csharp"
-    ]
+  ]
 }
