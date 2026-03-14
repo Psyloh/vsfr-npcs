@@ -1,11 +1,60 @@
 {
-    components: [
+  components: [
+    {
+      type: "talk",
+      text: [ { value: "Hamdoulilalala ♫♪ Kiss ti veux?" } ]
+    },
+    {
+      owner: "player",
+      type: "talk",
+      text: [
         {
-			code: "hello",
-			owner: "obliviac",
-            type:"talk",
-            setVariables: {"player.hasmetmarie":"false","player.hasdonetuto":"false"},
-            text: [{value:"J'ai recousu l'hymen : elle est prêt à marier, wallah !"}]
-		},
-    ]
+          value: "Met les variables à zéro!",
+          jumpTo: "resetVars"
+        },
+        {
+          value: "Régénère les donjons!",
+          jumpTo: "resetDungeons"
+        },
+        {
+          value: "Téléporte-moi!",
+          jumpTo: "testTeleport"
+        }
+      ]
+    },
+    {
+      code: "resetDungeons",
+      type: "talk",
+      text: [ { value: "Vos désirs font désordre!" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "testTeleport",
+      trigger: "teleport",
+      triggerData: {
+        x: "~5",
+        z: "~7"
+      },
+      jumpTo: "close"
+    },
+    {
+      code: "resetVars",
+      type: "talk",
+      setVariables: {
+        "player.hasmetmarie": "false",
+        "player.hasdonetuto": "false"
+      },
+      text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "thx",
+      owner: "player",
+      type: "talk",
+      text: [ { value: "Merci Bobby!" } ]
+    },
+    {
+      code: "close"
+    }
+  ]
 }

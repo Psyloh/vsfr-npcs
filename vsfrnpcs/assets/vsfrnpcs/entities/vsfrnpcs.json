@@ -69,7 +69,7 @@
     deathByMultiplier: 0,
     //blocs Apparence
     outfitConfigFileNameByType: {
-			"*": "villageraccessories-{sex}"
+			"*": "game:villageraccessories-{sex}"
 		},
 		partialRandomOutfitsByType: {
 			"*-marie": {
