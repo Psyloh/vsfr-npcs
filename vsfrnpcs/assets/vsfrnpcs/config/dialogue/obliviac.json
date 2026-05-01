@@ -25,6 +25,7 @@
     {
       code: "resetDungeons",
       type: "talk",
+      trigger: "resetarchives",
       text: [ { value: "Vos désirs font désordre!" } ],
       jumpTo: "thx"
     },
