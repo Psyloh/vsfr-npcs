@@ -52,9 +52,10 @@ namespace vsfrnpcs
 				};
 				api.ChatCommands.Execute("tp", args);
 			}
-			else if (value == "resetarchives")
+			else if (value == "resetdungeon")
 			{
-				Helpers.ResetArchives(api);
+				var id = data["id"];
+				Helpers.ResetDungeon(api, id);
 			}
 		}
 	}
@@ -74,16 +75,22 @@ namespace vsfrnpcs
 			}
 		}
 
-		public static void ResetArchives(ICoreServerAPI api)
+		public static void ResetDungeon(ICoreServerAPI api, string id)
 		{
 			var sSys = api.ModLoader.GetModSystem<GenStoryStructures>();
-			var archive = sSys.Structures.Get("resonancearchive");
+			var dungeon = sSys.Structures.Get(id);
+
+			if (dungeon is null)
+			{
+				api.Logger.Error($@"No dungeon with id ""{id}"" could be found x_x");
+				return;
+			}
 
 			var chunkSize = GlobalConstants.ChunkSize;
-			var x1 = archive.Location.MinX / chunkSize;
-			var z1 = archive.Location.MinZ / chunkSize;
-			var x2 = archive.Location.MaxX / chunkSize;
-			var z2 = archive.Location.MaxZ / chunkSize;
+			var x1 = dungeon.Location.MinX / chunkSize;
+			var z1 = dungeon.Location.MinZ / chunkSize;
+			var x2 = dungeon.Location.MaxX / chunkSize;
+			var z2 = dungeon.Location.MaxZ / chunkSize;
 			
 			api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
 			{
@@ -102,7 +109,7 @@ namespace vsfrnpcs
 
 			api.ChatCommands.Create("regenArch").RequiresPrivilege(Privilege.chat).WithDesc("Testing").HandleWith((TextCommandCallingArgs args) => {
 
-				Helpers.ResetArchives(api);
+				Helpers.ResetDungeon(api, "resonancearchive");
 
 				return  TextCommandResult.Success("Disappeared!");
 			});

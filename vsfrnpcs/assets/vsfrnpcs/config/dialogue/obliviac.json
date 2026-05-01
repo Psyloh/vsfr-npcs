@@ -13,8 +13,8 @@
           jumpTo: "resetVars"
         },
         {
-          value: "Régénère les donjons!",
-          jumpTo: "resetDungeons"
+          value: "Régénère les archives!",
+          jumpTo: "resetArchives"
         },
         {
           value: "Téléporte-moi!",
@@ -23,9 +23,12 @@
       ]
     },
     {
-      code: "resetDungeons",
+      code: "resetArchives",
       type: "talk",
-      trigger: "resetarchives",
+      trigger: "resetdungeon",
+      triggerData: {
+        id: "resonancearchive"
+      },
       text: [ { value: "Vos désirs font désordre!" } ],
       jumpTo: "thx"
     },
