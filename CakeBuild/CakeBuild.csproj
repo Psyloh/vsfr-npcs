@@ -20,4 +20,8 @@
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="NuGet.Protocol" Version="7.3.1" />
+</ItemGroup>
 </Project>
