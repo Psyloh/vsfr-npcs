@@ -23,11 +23,16 @@ namespace vsfrnpcs
 
 		public static void Postfix(EntityBehaviorConversable __instance, EntityAgent triggeringEntity, string value, JsonObject data)
 		{
-			var api = __instance.entity.Api as ICoreServerAPI;
-			if (api == null) return;
+            if (__instance.entity.Api is not ICoreServerAPI api)
+			{
+				return;
+			}
 
-			var player = ((triggeringEntity as EntityPlayer)?.Player as IServerPlayer);
-			if (player == null) return;
+            var player = ((triggeringEntity as EntityPlayer)?.Player as IServerPlayer);
+			if (player == null)
+			{
+				return;
+			}
 
 			if (value == "teleport")
 			{
@@ -47,21 +52,11 @@ namespace vsfrnpcs
 				};
 				api.ChatCommands.Execute("tp", args);
 			}
+			else if (value == "resetarchives")
+			{
+				Helpers.ResetArchives(api);
+			}
 		}
-	}
-
-	[HarmonyPatch(typeof(WgenCommands), "Regen")]
-	public static class WgenResetPatch
-	{
-		public static void Prefix(WgenCommands __instance)
-		{
-			
-		}
-	}
-
-	public class regenStoryLoc
-	{
-
 	}
 
 	public static class Helpers
@@ -78,59 +73,39 @@ namespace vsfrnpcs
 				};
 			}
 		}
+
+		public static void ResetArchives(ICoreServerAPI api)
+		{
+			var sSys = api.ModLoader.GetModSystem<GenStoryStructures>();
+			var archive = sSys.Structures.Get("resonancearchive");
+
+			var chunkSize = GlobalConstants.ChunkSize;
+			var x1 = archive.Location.MinX / chunkSize;
+			var z1 = archive.Location.MinZ / chunkSize;
+			var x2 = archive.Location.MaxX / chunkSize;
+			var z2 = archive.Location.MaxZ / chunkSize;
+			
+			api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
+			{
+				Caller = AdminCaller,
+				RawArgs = new CmdArgs($"regenrange {x1} {z1} {x2} {z2}")
+			});
+		}
 	}
 
-	public class vsfrnpcsModSystem : ModSystem
+	public class MainModSystem : ModSystem
 	{
-		// Called on server and client
-		// Useful for registering block/entity classes on both sides
-		public override void Start(ICoreAPI api)
-		{
-			Harmony harmony = new("vsfrnpcs");
-			harmony.PatchAll();
-		}
-
 		public override void StartServerSide(ICoreServerAPI api)
 		{
+			Harmony harmony = new(Mod.Info.ModID);
+			harmony.PatchAll();
+
 			api.ChatCommands.Create("regenArch").RequiresPrivilege(Privilege.chat).WithDesc("Testing").HandleWith((TextCommandCallingArgs args) => {
 
-				var chunkSize = GlobalConstants.ChunkSize;
-				var chunksInRegion = api.WorldManager.RegionSize / chunkSize;
-
-				var sSys = api.ModLoader.GetModSystem<GenStoryStructures>();
-				var archive = sSys.Structures.Get("resonancearchive");
-
-				var x1 = archive.Location.MinX / chunkSize;
-				var z1 = archive.Location.MinZ / chunkSize;
-				var x2 = archive.Location.MaxX / chunkSize;
-				var z2 = archive.Location.MaxZ / chunkSize;
-				
-				api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
-				{
-					Caller = Helpers.AdminCaller,
-					RawArgs = new CmdArgs($"regenrange {x1} {z1} {x2} {z2}")
-				});
+				Helpers.ResetArchives(api);
 
 				return  TextCommandResult.Success("Disappeared!");
 			});
-		}
-
-		public override void StartClientSide(ICoreClientAPI api)
-		{
-
-		}
-	}
-
-	class VecComparer : IEqualityComparer<FastVec2i>
-	{
-		bool IEqualityComparer<FastVec2i>.Equals(FastVec2i x, FastVec2i y)
-		{
-			return x == y;
-		}
-
-		int IEqualityComparer<FastVec2i>.GetHashCode(FastVec2i obj)
-		{
-			return obj.GetHashCode();
 		}
 	}
 }
