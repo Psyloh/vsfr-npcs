@@ -55,6 +55,7 @@ namespace vsfrnpcs
 			else if (value == "resetdungeon")
 			{
 				var id = data["id"].AsString("");
+				api.Logger.Warning($@"Id is ""{id}""");
 				Helpers.ResetDungeon(api, id);
 			}
 		}
@@ -79,12 +80,6 @@ namespace vsfrnpcs
 		{
 			var sSys = api.ModLoader.GetModSystem<GenStoryStructures>();
 			var dungeon = sSys.Structures.Get(id);
-
-			if (dungeon is null)
-			{
-				api.Logger.Error($@"No dungeon with id ""{id}"" could be found x_x");
-				return;
-			}
 
 			var chunkSize = GlobalConstants.ChunkSize;
 			var x1 = dungeon.Location.MinX / chunkSize;
