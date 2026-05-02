@@ -54,7 +54,7 @@ namespace vsfrnpcs
 			}
 			else if (value == "resetdungeon")
 			{
-				var id = data["id"];
+				var id = data["id"].AsString("");
 				Helpers.ResetDungeon(api, id);
 			}
 		}
