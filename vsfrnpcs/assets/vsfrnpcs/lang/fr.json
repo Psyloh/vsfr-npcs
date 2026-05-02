@@ -15,6 +15,8 @@
 
     // Dialogues
     //{ Dull answers
+    "dialogue-player-ok": "Ok",
+    "dialogue-player-ok2": "D'accord",
     "dialogue-player-yesofcourse": "Oui, bien sûr!",
     "dialogue-player-yesthatsit": "Oui, c'est ça.",
     "dialogue-player-okthx": "Bien, merci.",
@@ -22,26 +24,91 @@
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
     //}
 
-    //{ Michel
-    "dialogue-orario-michel-goaway":          "Qui êtes-vous?\nQue faites-vous dans ma cuisine?",
-    "dialogue-orario-michel-firstmeet":       "Oh salut! Tu dois être l'un des nouveaux venus dont parle Marie?",
-    "dialogue-orario-michel-fmresponse":      "Oui c'est ça",
-    "dialogue-orario-michel-firstmeet2":      "Je m'appelle {{npcname}}, je suis le cuisinier de la plus prestigieuse des auberges d'Orario.",
-    "dialogue-orario-michel-fmresponse2":     "Je vois donc vous faites plein de sorte de nourriture?",
-    "dialogue-orario-michel-firstmeet3":      "Oui! Tu peux directement venir me voir moi si tu as besoin de certains plats à emporter. Mais il faudra y mettre le prix!",
-    "dialogue-orario-michel-welcomeback":     "Salut aventurier! Alors que me vaut ta visite?",
-    "dialogue-orario-michel-trade":           "Je veux bien voir si je peux m'offrir quelques-uns de vos plats",
-    "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
-    //}
-
     //{ Axel
-    "dialogue-orario-axel-firstmeet":         "Bienvenue {{playername}}, tu dois être la dernière création de Jonas, un... séraphin?",
-    "dialogue-orario-axel-fmresponse":        "Oui, c'est ça.",
-    "dialogue-orario-axel-firstmeet2":        "Bien, je vois que tu as l'air perdu. Alors voici Orario, la capitale. Une ville fortifiée!",
-    "dialogue-orario-axel-fmresponse2":       "Y a-t-il d'autres villes aux alentours?",
-    "dialogue-orario-axel-firstmeet3":        "Eh bien... Si l'Apocalypse a frappé le monde aussi durement qu'ici, les autres villes doivent être en piteux état.",
-    "dialogue-orario-axel-fmresponse3":       "Je vois... Comment pourrais-je sortir de la ville fortifiée?",
+    "dialogue-orario-axel-firstmeetjail":     "Bonjour Prisonier n°4546B, tu es enfin conscient on dirait.",
+    "dialogue-orario-axel-fmjresponse":       "Attendez, qu'est ce que je fais là ?",
+    "dialogue-orario-axel-firstmeetjail2":    "...",
+    "dialogue-orario-axel-fmjresponse2":      "Qu'ai je fait ? Pourquoi suis-je en prison ?",
+    "dialogue-orario-axel-firstmeetjail3":    "Tu es en prison car tu as est coupable de complicité avec le scientifique Jonas.",
+    "dialogue-orario-axel-fmjresponse3":      "Jonas ? Ce nom me dit vaguement quelque chose...",
+    "dialogue-orario-axel-firstmeetjail4":    "Bien nous avançons, Jonas est coupable d'avoir provoqué la Grande Tempête Temporelle qui s'est abattue sur la ville.\nQui a causer des dégâts innombrables sur le Royaume de sa Majesté tant matériel qu'humain.\nC'est pour cela que pour vous allez être executer sur la place publique.",
+    "dialogue-orario-axel-fmjresponse4":      "Je ne suis coupable de rien, il n'y a rien que je puisse faire pour être rendu innocent ?",
+    "dialogue-orario-axel-firstmeetjail5":    "Mmmh tu peux, tu dois cependant, répondre à trois différentes question.",
+    "dialogue-orario-axel-firstchoicequestion": "Bien, je te laisserais à chaque fois choisir entre trois questions.\nAttention si tu ne réussi pas tu devras tout recommencer.",
+
     "dialogue-orario-axel-leave":             "Hmmm... Bon, j'y retourne!",
+    "dialogue-orario-axel-goodanswer":        "Bonne réponse, tu peux choisir ta prochaine question !",
+    "dialogue-orario-axel-badanswer":         "Mauvaise réponse, mais tu peux re-essayer.",
+    "dialogue-orario-axel-question1":         "Question 1",
+    "dialogue-orario-axel-questionreveal1":   "Comment je m'appelle ?",
+    "dialogue-orario-axel-ansquestion1-1":    "Tobias",
+    "dialogue-orario-axel-ansquestion1-2":    "Axel",
+    "dialogue-orario-axel-ansquestion1-3":    "John",
+
+    "dialogue-orario-axel-question2":         "Question 2",
+    "dialogue-orario-axel-questionreveal2":   "A cause de qui es tu en prison ?",
+    "dialogue-orario-axel-ansquestion2-1":    "Jonas",
+    "dialogue-orario-axel-ansquestion2-2":    "Axel",
+    "dialogue-orario-axel-ansquestion2-3":    "Sa Majesté le Roi",
+
+    "dialogue-orario-axel-question3":         "Question 3",
+    "dialogue-orario-axel-questionreveal3":   "Qu'ont causé les experiences de Jonas ?",
+    "dialogue-orario-axel-ansquestion3-1":    "Un tremblement de terre",
+    "dialogue-orario-axel-ansquestion3-2":    "Une tempête temporelle ",
+    "dialogue-orario-axel-ansquestion3-3":    "Un Ouragan",
+
+    "dialogue-orario-axel-question4":         "Question 4",
+    "dialogue-orario-axel-questionreveal4":   "À partir de quelle température l'eau devient vapeur en général ?",
+    "dialogue-orario-axel-ansquestion4-1":    "0°C",
+    "dialogue-orario-axel-ansquestion4-2":    "50°C",
+    "dialogue-orario-axel-ansquestion4-3":    "100°C",
+
+    "dialogue-orario-axel-question5":         "Question 5",
+    "dialogue-orario-axel-questionreveal5":   "Qu'elle est la temprérature moyenne du corps humain ?",
+    "dialogue-orario-axel-ansquestion5-1":    "30,4°C",
+    "dialogue-orario-axel-ansquestion5-2":    "37,5°C",
+    "dialogue-orario-axel-ansquestion5-3":    "39,9°C",
+
+    "dialogue-orario-axel-question6":         "Question 6",
+    "dialogue-orario-axel-questionreveal6":   "Qu'elle minerais est le plus lourd entre les trois ?",
+    "dialogue-orario-axel-ansquestion6-1":    "Or",
+    "dialogue-orario-axel-ansquestion6-2":    "Plomb",
+    "dialogue-orario-axel-ansquestion6-3":    "Uranium",
+
+    "dialogue-orario-axel-question7":         "Question 7",
+    "dialogue-orario-axel-questionreveal7":   "Si l'on mélange toutes les couleur qu'est ce que nous obtenons ?",
+    "dialogue-orario-axel-ansquestion7-1":    "Blanc",
+    "dialogue-orario-axel-ansquestion7-2":    "Brun",
+    "dialogue-orario-axel-ansquestion7-3":    "Noir",
+
+    "dialogue-orario-axel-question8":         "Question 8",
+    "dialogue-orario-axel-questionreveal8":   "Quel animal est considerer comme le meilleur ami de l'homme ?",
+    "dialogue-orario-axel-ansquestion8-1":    "Le chat",
+    "dialogue-orario-axel-ansquestion8-2":    "Le lapin",
+    "dialogue-orario-axel-ansquestion8-3":    "Le chien",
+
+    "dialogue-orario-axel-question9":         "Question 9",
+    "dialogue-orario-axel-questionreveal9":   "Quel scientifique a découvert la loi de la gravité ?",
+    "dialogue-orario-axel-ansquestion9-1":    "Albert Einstein",
+    "dialogue-orario-axel-ansquestion9-2":    "Isaac Newton",
+    "dialogue-orario-axel-ansquestion9-3":    "Marie Curie",
+
+    "dialogue-orario-axel-questionreveal10":   "Bien, je te laisse donc avec une dernière question\nVous devez résoudre ce problème (158x2)5²/0= ?",
+    "dialogue-orario-axel-ansquestion10-1":    "128",
+    "dialogue-orario-axel-ansquestion10-2":    "6,5",
+    "dialogue-orario-axel-ansquestion10-3":    "67",
+
+    "dialogue-orario-axel-goodfanswer":        "Faux,",
+    "dialogue-orario-axel-outrage":            "Serieusement, comment pouvais-je savoir ?",
+    "dialogue-orario-axel-goodfanswer2":       "Mais ce n'est pas grave puisque seul Jonas aurait pu répondre\ncorrectement à cette question.\nBien, puisque moi Axel membre de la Noblesse de sa majesté ai pu définir que vous n'étiez pas un danger je vous déclare\npar la présente non coupable et te libère!",
+    "dialogue-orario-axel-thanks":             "Merci, merci beaucoup !",
+
+    "dialogue-orario-axel-firstmeet":         "Ah te revoila {{playername}}, j'espère que tu profite bien de ta liberté.",
+    "dialogue-orario-axel-fmresponse":        "Oui, merci encore !",
+    "dialogue-orario-axel-firstmeet2":        "Bien, je vois que tu as l'air un peu perdu. Alors voici Orario, la capitale. Une ville fortifiée!",
+    "dialogue-orario-axel-fmresponse2":       "Y a-t-il d'autres villes aux alentours?",
+    "dialogue-orario-axel-firstmeet3":        "Eh bien... Si l'Apocalypse a frappé le monde aussi durement qu'ici, les autres villes et villages doivent être en piteux état.",
+    "dialogue-orario-axel-fmresponse3":       "Je vois... Comment pourrais-je sortir de la ville fortifiée?",
     "dialogue-orario-axel-firstmeet4":        "Impatient à ce que je vois.\nTu peux sortir par la porte ouest, les gardes te laisseront passer.\nMais il me semble que Marie, la boulangère, a fait du zèle lors de sa dernière fournée!\nElle devrait avoir de quoi te sustenter pour ta première excursion. Tu la trouveras dans sa boulangerie.",
     "dialogue-orario-axel-guidetoexit":       "Tu n'es pas encore sorti? J'ai cru te voir par la fenêtre...\nEh bien, suis la route vers l'Ouest jusqu'à la porte principale, bon courage!",
     "dialogue-orario-axel-fmresponse4":       "Bien, à une prochaine.",
@@ -54,7 +121,7 @@
     //}
 
     //{ Marie
-    "dialogue-orario-marie-firstmeet":        "Bonjour, je me présente : je suis {{npcnape}} l'une des boulangères d'Orario.",
+    "dialogue-orario-marie-firstmeet":        "Bonjour, je me présente : je suis {{npcname}} l'une des boulangères d'Orario.",
     "dialogue-orario-marie-fmresponse":       "Un petit oiseau m'a dit que vous aviez du pain pour les aventuriers.",
     "dialogue-orario-marie-firstmeet2":       "Un aventurier?\nIntéressant, je ne savais pas qu'il était possible de survivre à l'Apocalypse hors des murs...",
     "dialogue-orario-marie-fmresponse2":      "Tout le monde parle de l'Apocalypse, mais j'ignore ce que c'est.",
@@ -91,6 +158,18 @@
     "dialogue-orario-john-fmresponse6":   "Au revoir monsieur et merci pour tout!",
     "dialogue-orario-john-goaway":        "Encore toi? Allez ouste! Hors de chez moi!",
     "dialogue-orario-john-leaving":       "D'accord, d'accord...",
+    //}
+
+    //{ Michel
+    "dialogue-orario-michel-goaway":          "Qui êtes-vous?\nQue faites-vous dans ma cuisine?",
+    "dialogue-orario-michel-firstmeet":       "Oh salut! Tu dois être l'un des nouveaux venus dont parle Marie?",
+    "dialogue-orario-michel-fmresponse":      "Oui c'est ça",
+    "dialogue-orario-michel-firstmeet2":      "Je m'appelle {{npcname}}, je suis le cuisinier de la plus prestigieuse des auberges d'Orario.",
+    "dialogue-orario-michel-fmresponse2":     "Je vois donc vous faites plein de sorte de nourriture?",
+    "dialogue-orario-michel-firstmeet3":      "Oui! Tu peux directement venir me voir moi si tu as besoin de certains plats à emporter. Mais il faudra y mettre le prix!",
+    "dialogue-orario-michel-welcomeback":     "Salut aventurier! Alors que me vaut ta visite?",
+    "dialogue-orario-michel-trade":           "Je veux bien voir si je peux m'offrir quelques-uns de vos plats",
+    "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //}
 
     //{ Thomas

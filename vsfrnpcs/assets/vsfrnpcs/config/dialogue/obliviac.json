@@ -46,6 +46,13 @@
       type: "talk",
       setVariables: {
         "player.hasmetmarie": "false",
+        "player.hasdonetuto": "false",
+        "player.hasmetjail": "false",
+        "entity.hasmet": "false",
+        "player.hasfinishedq": "false",
+        "player.hasfinishedjail": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
         "player.hasdonetuto": "false"
       },
       text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
