@@ -36,8 +36,8 @@
       code: "testTeleport",
       trigger: "teleport",
       triggerData: {
-        x: "~5",
-        z: "~7"
+        x: "0",
+        z: "0"
       },
       jumpTo: "close"
     },
