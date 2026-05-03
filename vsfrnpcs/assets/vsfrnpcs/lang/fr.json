@@ -2,17 +2,6 @@
     "nametag-vsfrnpc-male-unrevealed": "Villageois",
     "nametag-vsfrnpc-female-unrevealed": "Villageoise",
 
-    //Quests
-    //{ Michel
-    "quest-michel-redmeat-title":   "Ravitaillement urgent",
-    "quest-michel-redmeat-desc":    "Nos troupeaux ont beaucoup souffert de l'Apocalypse et nos stocks de viande rouge diminuent : si tu peux m'en rapporter 15 beaux morceaux,je saurais généreusement te récompenser!",
-    "quest-michel-redmeat-obj":     "Viande Rouge : {0}/15",
-
-    "quest-michel-bushmeat-title":  "On teste des trucs",
-    "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène-la moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
-    "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
-    //}
-
     // Dialogues
     //{ Dull answers
     "dialogue-player-ok": "Ok",
@@ -169,7 +158,7 @@
     "dialogue-orario-michel-firstmeet3":      "Oui! Tu peux directement venir me voir moi si tu as besoin de certains plats à emporter. Mais il faudra y mettre le prix!",
     "dialogue-orario-michel-welcomeback":     "Salut aventurier! Alors que me vaut ta visite?",
     "dialogue-orario-michel-trade":           "Je veux bien voir si je peux m'offrir quelques-uns de vos plats",
-    "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
+    "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //}
 
     //{ Thomas
@@ -190,5 +179,22 @@
     "dialogue-orario-thomas-howtomovetl": "Comme pour le retirer, par exemple?",
     "dialogue-orario-thomas-howtomovetlresp": "Tu veux dire \"le déplacer\"? Il me semble que ça te coûtera 15 engrenages rouillés... Mais tâche de ne pas faire perdre leur temps aux \"Administrateurs\"! Il pourrait t'en coûter bien plus que tu n'es prêt à payer!..",
     "dialogue-orario-thomas-okthx": "D'accord, merci.",
+    //}
+
+    //Quests
+    "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
+    //{ Michel
+    "quest-michel-redmeat-title":   "Ravitaillement urgent",
+    "quest-michel-redmeat-desc":    "Nos troupeaux ont beaucoup souffert de l'Apocalypse et nos stocks de viande rouge diminuent : si tu peux m'en rapporter 15 beaux morceaux,je saurais généreusement te récompenser!",
+    "quest-michel-redmeat-obj":     "Viande Rouge : {0}/15",
+
+    "quest-michel-bushmeat-title":  "On teste des trucs",
+    "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène-la moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
+    "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
+    //}
+    //{ Marie
+    "quest-marie-clayoven-title":      "Four à pain détruit",
+    "quest-marie-clayoven-desc":       "Avec la tempête temporelle l'un de mes fours à pain a été détruit, peut tu m'en confectionner un ?",
+    "quest-marie-clayoven-obj":        "Four en Céramique {0}/1",
     //}
 }

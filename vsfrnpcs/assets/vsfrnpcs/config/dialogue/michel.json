@@ -97,7 +97,7 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-michel-trade", jumpTo: "trade" },
-				{ value: "vsfrnpcs:dialogue-orario-michel-quests", jumpTo: "quests" }
+				{ value: "vsfrnpcs:dialogue-orario-npc-quests", jumpTo: "quests" }
 			],
 		},
 		{

@@ -653,11 +653,12 @@
         //bloc Nametag
         code: "nametag",
         selectFromRandomNameByType: { 
-          "*-marie": ["Marie"] ,
+          "*-marie": ["Marie"],
           "*-axel": ["Axel"],
           "*-john": ["John"],
           "*-thomas": ["Thomas"],
           "*-michel": ["Michel"],
+		  "*-obliviac": ["PNJ Admin : Obliviac"],
         }
       },
 			//bloc Activity
@@ -765,7 +766,8 @@
       },
       { code: "conversable" },
 			{ code: "questgiver", questsByType: {
-				"*-michel": ["vsfrnpcs:quest-michel-bushmeat", "vsfrnpcs:quest-michel-redmeat"]
+				"*-michel": ["vsfrnpcs:quest-michel-bushmeat", "vsfrnpcs:quest-michel-redmeat"],
+				"*-marie": ["vsfrnpcs:quest-marie-clayoven"],
 			}},
       { code: "entitystatetags" }
     ]
