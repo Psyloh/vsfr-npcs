@@ -91,7 +91,7 @@
 
     "dialogue-orario-axel-goodfanswer":        "Faux,",
     "dialogue-orario-axel-outrage":            "Serieusement, comment pouvais-je savoir ?",
-    "dialogue-orario-axel-goodfanswer2":       "Mais ce n'est pas grave puisque seul Jonas aurait pu répondre\ncorrectement à cette question.\nBien, puisque moi Axel membre de la Noblesse de sa majesté ai pu définir que vous n'étiez pas un danger je vous déclare\npar la présente non coupable et te libère!",
+    "dialogue-orario-axel-goodfanswer2":       "Mais ce n'est pas grave puisque seul Jonas aurait pu répondre\ncorrectement à cette question.\nBien, puisque moi Axel membre de la Noblesse de sa majesté ai pu définir que vous n'étiez pas un danger je vous déclare par la présente non coupable et te libère!",
     "dialogue-orario-axel-thanks":             "Merci, merci beaucoup !",
 
     "dialogue-orario-axel-firstmeet":         "Ah te revoila {{playername}}, j'espère que tu profite bien de ta liberté.",
@@ -160,7 +160,7 @@
     "dialogue-orario-michel-firstmeet3":      "Oui! Tu peux directement venir me voir moi si tu as besoin de certains plats à emporter. Mais il faudra y mettre le prix!",
     "dialogue-orario-michel-welcomeback":     "Salut aventurier! Alors que me vaut ta visite?",
     "dialogue-orario-michel-trade":           "Je veux bien voir si je peux m'offrir quelques-uns de vos plats",
-    "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
+    "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //}
 
     //{ Thomas
@@ -185,7 +185,20 @@
 
     //{ Christian
     "dialogue-orario-guard-entry-notuto": "Tu me semble bien presser jeune aventurier, bonne chance dans ta découverte de ce monde.",
-    "dialogue-orario-christian-obj": "dialogue",
+    "dialogue-orario-christian-firstmeet": "Salut {{playername}}, qu'en pense tu d'Orario, c'est une magnifique Ville ?",
+    "dialogue-orario-christian-fmresponse" : "Oui, merci.",
+    "dialogue-orario-christian-menu": "Alors en quoi puis-je t'aider ?",
+    "dialogue-orario-christian-guardask": "Est-ce que le métier de Garde est dur ?",
+    "dialogue-orario-christian-guardansw": "Avant la grande tempête temporelle je t'aurais dis que non.",
+    "dialogue-orario-christian-guardask2": "Désolé...",
+    "dialogue-orario-christian-guardansw2": "Pourquoi t'excuse tu ? C'est de la faute de ses monstres qui apparraissent.\nIls ne témoignent aucune pitié et tuent tout ce qui bouge...",
+    "dialogue-orario-christian-guardask3": "C'étais donc moins dur avant ?",
+    "dialogue-orario-christian-guardansw3": "Oui, avant on devait seulement s'entrainement quotidiennement ainsi que surveillier l'horizon si des signaux de fumée apparaissaient ou qu'un messager arrive.",
+    "dialogue-orario-christian-guardask4": "C'est donc un métier bien pénible.",
+    "dialogue-orario-christian-guardansw4": "Oui, mais heureusement j'ai Christina avec moi, grâce à elle je me sent plus léger à ses côtés...\nEnfin bon, merci aventurier grâce à toi j'ai pu dire ce que j'avais au fond du coeur.",
+    "dialogue-orario-christian-guardaskbye": "Derien, si j'ai pû vous aider cela me fait plaisir !",
+    "dialogue-orario-christian-askquest": "Non, moi comment pourrais-je vous aider ?",
+    "dialogue-orario-christian-bye": "Je passais simplement le bonjour.",
     //}
 
     //Quests

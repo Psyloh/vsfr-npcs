@@ -773,6 +773,7 @@
 			{ code: "questgiver", questsByType: {
 				"*-michel": ["vsfrnpcs:quest-michel-bushmeat", "vsfrnpcs:quest-michel-redmeat"],
 				"*-marie": ["vsfrnpcs:quest-marie-clayoven"],
+				"*-christian": ["vsfrnpcs:quest-christian-blacksmithsword"],
 			}},
       { code: "entitystatetags" }
     ]
