@@ -2,6 +2,7 @@
   components: [
     {
       type: "talk",
+      trigger: "revealname",
       text: [ { value: "Hamdoulilalala ♫♪ Kiss ti veux?" } ]
     },
     {

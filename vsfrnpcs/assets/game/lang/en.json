@@ -1,11 +1,14 @@
 {
     //Creative Inventory UIs
     "tabname-vsfrnpcs": "VSFR NPCs",
-    "vsfrnpcs:item-creature-vsfrnpc-male-axel": "Axel",
-    "vsfrnpcs:item-creature-vsfrnpc-male-michel": "Michel",
-    "vsfrnpcs:item-creature-vsfrnpc-male-john": "John",
-    "vsfrnpcs:item-creature-vsfrnpc-female-marie": "Marie",
-    "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-axel": "Axel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-michel": "Michel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-john": "John",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-marie": "Marie",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-obliviac": "Admin NPC : Obliviac",
+    "vsfrnpcs:item-creature-vsfrnpc-male-guard-christian": "Christian",
+    "vsfrnpcs:item-creature-vsfrnpc-female-guard-christina": "Christina",
 
     //Vanilla Dialogue UIs Titles
     "tradingwindow-vsfrnpc-male-axel": "{0} - Beginners Guide",
@@ -13,4 +16,5 @@
     "tradingwindow-vsfrnpc-male-john": "{0} - Old Mercenary",
     "tradingwindow-vsfrnpc-male-michel": "{0} - Cook",
     "tradingwindow-vsfrnpc-male-thomas": "{0} - Warden of Translocators",
+    "tradingwindow-vsfrnpc-male-none-obliviac": "{0} - NPC Admin",
 }

@@ -1,6 +1,8 @@
 {
-    "nametag-vsfrnpc-male-unrevealed": "Villageois",
-    "nametag-vsfrnpc-female-unrevealed": "Villageoise",
+    "nametag-vsfrnpc-male-none-unrevealed": "Villageois",
+    "nametag-vsfrnpc-female-none-unrevealed": "Villageoise",
+    "nametag-vsfrnpc-male-guard-unrevealed": "Garde",
+    "nametag-vsfrnpc-female-guard-unrevealed": "Garde",
 
     // Dialogues
     //{ Dull answers
@@ -181,6 +183,11 @@
     "dialogue-orario-thomas-okthx": "D'accord, merci.",
     //}
 
+    //{ Christian
+    "dialogue-orario-guard-entry-notuto": "Tu me semble bien presser jeune aventurier, bonne chance dans ta découverte de ce monde.",
+    "dialogue-orario-christian-obj": "dialogue",
+    //}
+
     //Quests
     "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //{ Michel
@@ -196,5 +203,9 @@
     "quest-marie-clayoven-title":      "Four à pain détruit",
     "quest-marie-clayoven-desc":       "Avec la tempête temporelle l'un de mes fours à pain a été détruit, peut tu m'en confectionner un ?",
     "quest-marie-clayoven-obj":        "Four en Céramique {0}/1",
+    //}
+
+    //{
+    "dialogue-village-npc-obj": "dialogue",
     //}
 }

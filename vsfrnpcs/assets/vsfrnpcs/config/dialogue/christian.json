@@ -1,0 +1,35 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "hello",
+			elseJumpTo: "notuto"
+		},
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-guard-entry-notuto" },
+			],
+            jumpto: "bye"
+        },
+        {
+            code: "bye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+    ]
+}

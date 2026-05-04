@@ -16,13 +16,13 @@
       "*": {
         showtagonlywhentargeted: true,
         triggeredNameReveal: true,
-        unrevealedDisplayName: "vsfrnpcs:nametag-vsfrnpc-{sex}-unrevealed"
+        unrevealedDisplayName: "vsfrnpcs:nametag-vsfrnpc-{sex}-{work}-unrevealed"
       },
     },
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -30,15 +30,18 @@
   //bloc Variants
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac"] }
+	{ code: "work", states: ["none", "guard"]},
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina"] }
   ],
   AllowedVariants: [
-    "vsfrnpc-female-marie",
-    "vsfrnpc-male-axel",
-    "vsfrnpc-male-john",
-    "vsfrnpc-male-thomas",
-    "vsfrnpc-male-michel",
-    "vsfrnpc-male-obliviac"
+    "vsfrnpc-female-none-marie",
+    "vsfrnpc-male-none-axel",
+    "vsfrnpc-male-none-john",
+    "vsfrnpc-male-none-thomas",
+    "vsfrnpc-male-none-michel",
+    "vsfrnpc-male-none-obliviac",
+	"vsfrnpc-male-guard-christian",
+	"vsfrnpc-female-guard-christina",
   ],
   attributes: {
     tradePropsFileByType: {
@@ -659,6 +662,8 @@
           "*-thomas": ["Thomas"],
           "*-michel": ["Michel"],
 		  "*-obliviac": ["PNJ Admin : Obliviac"],
+		  "*-christian": ["Garde Christian"],
+		  "*-christina": ["Christina"],
         }
       },
 			//bloc Activity

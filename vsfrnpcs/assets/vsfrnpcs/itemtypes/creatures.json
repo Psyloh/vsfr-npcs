@@ -1,7 +1,7 @@
 {
 	code: "creature",
 	class: "ItemCreature",
-	maxstacksize: 64,
+	maxstacksize: 1,
 	attributes: {
 		disableElementsByType: {
 			"*-male-*": ["breasts"]
@@ -14,12 +14,14 @@
 		{
 			code: "type",
 			states: [
-				"vsfrnpc-male-axel",
-				"vsfrnpc-male-john",
-				"vsfrnpc-male-thomas",
-				"vsfrnpc-male-michel",
-				"vsfrnpc-female-marie",
-				"vsfrnpc-male-obliviac",
+				"vsfrnpc-male-none-axel",
+				"vsfrnpc-male-none-john",
+				"vsfrnpc-male-none-thomas",
+				"vsfrnpc-male-none-michel",
+				"vsfrnpc-female-none-marie",
+				"vsfrnpc-male-none-obliviac",
+				"vsfrnpc-male-guard-christian",
+				"vsfrnpc-female-guard-christina",
 			]
 		}
 	],
