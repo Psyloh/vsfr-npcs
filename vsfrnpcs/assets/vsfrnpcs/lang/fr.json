@@ -61,7 +61,7 @@
     "dialogue-orario-axel-ansquestion5-3":    "39,9°C",
 
     "dialogue-orario-axel-question6":         "Question 6",
-    "dialogue-orario-axel-questionreveal6":   "Qu'elle minerais est le plus lourd entre les trois ?",
+    "dialogue-orario-axel-questionreveal6":   "Qu'elle minerais est le plus dense entre les trois ?",
     "dialogue-orario-axel-ansquestion6-1":    "Or",
     "dialogue-orario-axel-ansquestion6-2":    "Plomb",
     "dialogue-orario-axel-ansquestion6-3":    "Uranium",
@@ -167,7 +167,7 @@
     "dialogue-orario-thomas-firstmeet": "Bonjour! Oh, bienvenue jeune séraphin! Tu n'es pas un peu perdu?",
     "dialogue-orario-thomas-fmresponse" : "Euhm, pourquoi me regardez-vous comme ça?",
     "dialogue-orario-thomas-firstmeet2": "Je vois que Tobias a bien travaillé, on dirait que vous êtes presque comme nous.",
-    "dialogue-orario-thomas-fmresponse2" : "Presque comme nous?\nVous connaissez Tobias?\nQue pouvez-vous me dire sur ce monde?",
+    "dialogue-orario-thomas-fmresponse2" : "Presque comme nous? Vous connaissez Tobias? Que pouvez-vous me dire sur ce monde?",
     "dialogue-orario-thomas-firstmeet3": "Oh, tu as beaucoup de questions!.. Oui, en effet, vous êtes plus grand que nous et vous avez aussi une couleur de peau qui diffère...\nEt vos yeux sont très différents!\n\nConcernant Tobias, je ne l'ai jamais rencontré mais c'est une sommité tant scientifique qu'alchimique : nous autres, techniciens, suivons attentivement ses projets, parfois jusqu'à l'imprudence, malheureusement...",
     "dialogue-orario-thomas-fmresponse3" : "D'accord... Et quel est cet endroit?",
     "dialogue-orario-thomas-firstmeet4": "Ici? C'est le Sanctuaire des Translocateurs : c'est d'ici que tu pourras rejoindre les points de ralliement d'expéditions et les villages dont les points d'arrivée sont restés intacts!",
@@ -184,7 +184,7 @@
     //}
 
     //{ Christian
-    "dialogue-orario-guard-entry-notuto": "Tu me semble bien presser jeune aventurier, bonne chance dans ta découverte de ce monde.",
+    "dialogue-orario-christian-entry-notuto": "Tu me semble bien presser jeune aventurier, bonne chance dans ta découverte de ce monde.",
     "dialogue-orario-christian-firstmeet": "Salut {{playername}}, qu'en pense tu d'Orario, c'est une magnifique Ville ?",
     "dialogue-orario-christian-fmresponse" : "Oui, merci.",
     "dialogue-orario-christian-menu": "Alors en quoi puis-je t'aider ?",
@@ -199,6 +199,24 @@
     "dialogue-orario-christian-guardaskbye": "Derien, si j'ai pû vous aider cela me fait plaisir !",
     "dialogue-orario-christian-askquest": "Non, moi comment pourrais-je vous aider ?",
     "dialogue-orario-christian-bye": "Je passais simplement le bonjour.",
+    //}
+
+    //{ christina
+    "dialogue-orario-christina-entry-notuto": "En quête d'aventure ? La sortie est bien par là, mais fait bien attention !",
+    "dialogue-orario-christina-firstmeet": "Bonjour {{playername}}, Orario est une ville bien calme ?",
+    "dialogue-orario-christina-fmresponse" : "Oui, c'est agréable...",
+    "dialogue-orario-christina-menu": "Est-ce qu'un garde d'Orario peut aider ?",
+    "dialogue-orario-christina-guardask": "Vous ne vous ennuyer pas ?",
+    "dialogue-orario-christina-guardansw": "Mmmmh la question n'est pas facile.",
+    "dialogue-orario-christina-guardask2": "Ah bon ?",
+    "dialogue-orario-christina-guardansw2": "Oui, tout dépend d'avec qui nous sommes en garde, du lieux ou nous sommes et surtout ce que nous devons faire",
+    "dialogue-orario-christina-guardask3": "Vous avez une préference",
+    "dialogue-orario-christina-guardansw3": "Tu es bien curieux, mais oui. J'aime bien être à ce poste, garder la porte c'est être à deux.",
+    "dialogue-orario-christina-guardask4": "Toujours à deux ?",
+    "dialogue-orario-christina-guardansw4": "Oui, et en géneral je suis avec Christian et je ne m'ennuie jamais quand je suis avec lui.",
+    "dialogue-orario-christina-guardaskbye": "Je vois, merci pour cette histoire.",
+    "dialogue-orario-christina-askquest": "Est-ce que moi je peux aider les gardes d'Orario ?",
+    "dialogue-orario-christina-bye": "Une simple salutation en passant par là.",
     //}
 
     //Quests

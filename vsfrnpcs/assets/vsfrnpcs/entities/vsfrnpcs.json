@@ -101,7 +101,7 @@
 				waist:[]
 			},
 			"*-axel": {
-				"skin-face":[{Code:"skin-face-blacksmith"}],
+				"skin-face":[{Code:"skin-face-normal1"}],
 				"hair-base":[{Code:"hair-02", Weight:1.0}],
 				"hair-base2":[],
 				"hair-base3":[],
@@ -125,7 +125,7 @@
 				shoulder:[],
 				upperbody:[{Code:"upperbody-male-longsleeve-musician"}],
 				upperbodyover:[],
-				waist:[]
+				"waist":[{Code: "waist-guard"}],
 			},
 			"*-john": {
 				"skin-face":[{Code:"skin-face-blacksmith"}],
@@ -153,6 +153,34 @@
 				upperbody:[{Code:"upperbody-male-shortsleeve-blacksmith"}],
 				upperbodyover:[],
 				waist:[{Code:"waist-winter2"}]
+			},
+			"*-thomas": {
+				"skin-face":[{Code:"skin-face-normal1"}],
+				"hair-base":[{Code:"hair-02"}],
+				haircolor:[{Code:"lightgray",Weight:1.0}],
+				"hair-base2":[],
+				"hair-base3":[],
+				faceextra:[],
+				beard:[],
+				mustache:[],
+				iris:[{Code:"iris-9",Weight:1.0}],
+				eyebrows:[{Code:"eyebrows-normal5",Weight:1.0}],
+				lips:[{Code:"lips-normal11",Weight:1.0}],
+				sclera:[{Code:"sclera-normal1",Weight:1.0}],
+				bodyskin:[{Code:"bodyskin-3",Weight:1.0}],
+				tatoo:[],
+				scar:[],
+				arm:[],
+				face:[],
+				foot:[{Code:"foot-tailor"}],
+				hand:[{Code:"hand-alchemist"}],
+				head:[],
+				"waist":[{Code: "waist-alchemist"}],
+				lowerbody:[{Code:"lowerbody-pants-shepherd"}],
+				neck:[],
+				shoulder:[{Code:"shoulder-male-shortsleeve-peasant1"}],
+				upperbody:[],
+				upperbodyover:[],
 			},
 			"*-male-*": {
 				"skin-face":[{Code:"skin-face-blacksmith"}],
@@ -663,7 +691,7 @@
           "*-michel": ["Michel"],
 		  "*-obliviac": ["PNJ Admin : Obliviac"],
 		  "*-christian": ["Garde Christian"],
-		  "*-christina": ["Christina"],
+		  "*-christina": ["Garde Christina"],
         }
       },
 			//bloc Activity

@@ -7,11 +7,36 @@
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
 			thenJumpTo: "notuto",
-			elseJumpTo: "firstmeet"
+			elseJumpTo: "knowchristian"
+		},
+        {
+			code: "knowchristian",
+			owner: "npc",
+			type: "condition",
+			variable: "player.knowchristian",
+			isNotValue: "true",
+			thenJumpTo: "hasmet",
+			elseJumpTo: "revealchristian"
+		},
+		{
+			code: "revealchristian",
+			owner: "npc",
+			trigger: "revealname",
+            jumpto: "hasmet"
+        },
+        {
+			code: "hasmet",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
 		},
 		{
 			code: "firstmeet",
 			owner: "npc",
+            setVariables: {"entity.hasmet": "true"},
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-christian-firstmeet" },
@@ -41,7 +66,7 @@
             type: "talk",
             text: [
                 { value: "vsfrnpcs:dialogue-orario-christian-guardask", jumpto: "guardansw"},
-                { value: "vsfrnpcs:dialogue-orario-christian-askquest", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-orario-christian-askquest", jumpto: "quests"},
                 { value: "vsfrnpcs:dialogue-orario-christian-bye", jumpto: "close"},
             ]
         },
@@ -99,6 +124,7 @@
 		{
 			code: "guardansw4",
 			owner: "npc",
+            setVariables: {"player.knowchristina": "true"},
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-christian-guardansw4" },
@@ -118,7 +144,7 @@
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-guard-entry-notuto" },
+				{ value: "vsfrnpcs:dialogue-orario-christian-entry-notuto" },
 			],
             jumpto: "bye"
         },
