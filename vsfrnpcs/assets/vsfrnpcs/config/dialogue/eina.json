@@ -1,0 +1,250 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-notuto" },
+			],
+            jumpto: "notutoplayer"
+        },
+        {
+            code: "notutoplayer",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "dialogue-orario-eina-notutoask", jumpto: "notutoansw"},
+                { value: "vsfrnpcs:dialogue-orario-eina-notutobye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "notutoansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-notutoansw" },
+			],
+            jumpto: "notutobye"
+        },
+        {
+            code: "notutobye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christian-fmresponse", jumpto: "menu"},
+            ]
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-menu" },
+			],
+            jumpto: "playermenu"
+        },
+		{
+			code: "menualt",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-menualt" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-eina-persoqstn", jumpto: "persoansw"},
+                { value: "vsfrnpcs:dialogue-orario-eina-quests", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "persoansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-persoansw" },
+			],
+            jumpto: "persoqstn2"
+        },
+        {
+            code: "persoqstn2",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christian-persoqstn2", jumpto: "persoansw2"},
+            ]
+        },
+		{
+			code: "persoansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-persoansw2" },
+			],
+            jumpto: "persoqstn3"
+        },
+        {
+            code: "persoqstn3",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christian-persoqstn3", jumpto: "persoansw4"},
+            ]
+        },
+		{
+			code: "persoansw4",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-persoansw4" },
+			],
+            jumpto: "persoqstnend"
+        },
+        {
+            code: "persoqstnend",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christian-persoqstn2", jumpto: "menualt"},
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "quest",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-menuquest" },
+			],
+            jumpto: "playerquestchoice"
+        },
+        {
+            code: "playerquestchoice",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christian-askeinaquestctg", jumpto: "categoryquest"},
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "categoryquest",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-einaquestcategory" },
+			],
+            jumpto: "playerchoicecategory"
+        },
+        {
+            code: "playerchoicecategory",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-eina-craftquest", jumpto: "craftcategory"},
+                { value: "vsfrnpcs:dialogue-orario-eina-huntquest", jumpto: "huntcategory"},
+                { value: "vsfrnpcs:dialogue-orario-eina-harvestquest", jumpto: "harvestcategory"},
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpto: "close"},
+            ]
+        },
+		{
+			code: "craftcategory",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-craftquestmenu" },
+			],
+            jumpto: "craftcategoryplayer"
+        },
+        {
+            code: "craftcategoryplayer",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-eina-craftquest1", jumpto: "craftquest1"},
+            ]
+        },
+		{
+			code: "craftquest1",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest1desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "huntcategory",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-huntquestmenu" },
+			],
+            jumpto: "void"
+        },
+		{
+			code: "harvestcategory",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquestmenu" },
+			],
+            jumpto: "harvestcategoryplayer"
+        },
+        {
+            code: "harvestcategoryplayer",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-eina-harvestquest1", jumpto: "harvestquest1"},
+                { value: "vsfrnpcs:dialogue-orario-eina-harvestquest2", jumpto: "harvestquest2"},
+            ]
+        },
+		{
+			code: "harvestquest1",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest1desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "harvestquest2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest1desc" },
+			],
+            jumpto: "playerthanks"
+        },
+        {
+            code: "playerthanks",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+    ]
+}

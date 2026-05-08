@@ -11,6 +11,8 @@
     "dialogue-player-yesofcourse": "Oui, bien sûr!",
     "dialogue-player-yesthatsit": "Oui, c'est ça.",
     "dialogue-player-okthx": "Bien, merci.",
+    "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
+    "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
     //}
@@ -201,7 +203,7 @@
     "dialogue-orario-christian-bye": "Je passais simplement le bonjour.",
     //}
 
-    //{ christina
+    //{ Christina
     "dialogue-orario-christina-entry-notuto": "En quête d'aventure ? La sortie est bien par là, mais fait bien attention !",
     "dialogue-orario-christina-firstmeet": "Bonjour {{playername}}, Orario est une ville bien calme ?",
     "dialogue-orario-christina-fmresponse" : "Oui, c'est agréable...",
@@ -217,6 +219,49 @@
     "dialogue-orario-christina-guardaskbye": "Je vois, merci pour cette histoire.",
     "dialogue-orario-christina-askquest": "Est-ce que moi je peux aider les gardes d'Orario ?",
     "dialogue-orario-christina-bye": "Une simple salutation en passant par là.",
+    //}
+
+    //{ Eina
+    "dialogue-orario-eina-notuto": "Bonjour aventurier, avant de pouvoir recevoir des quêtes tu dois finir la toute premiere qui t'a été donner.",
+    "dialogue-orario-eina-notutobye": "Je vais aller la terminer merci !",
+    "dialogue-orario-eina-notutoask": "Quelle quête ? Où se trouve-t-elle ?",
+    "dialogue-orario-eina-notutoansw": "Axel t'en dira plus, il se trouve juste dehors sur la place centrale.",
+    "dialogue-orario-eina-menu": "Bonjour aventurier {{playername}}, en quoi puis-je vous aider ?",
+    "dialogue-orario-eina-quests": "Auriez vous des quêtes pour moi ?",
+    "dialogue-orario-eina-persoqstn": "Que faites vous ici ?",
+    "dialogue-orario-eina-persoansw": "Je me présente je suis Eina, je suis l'intendante de petite Guilde.",
+    "dialogue-orario-eina-persoqstn2": "Une Guilde ?",
+    "dialogue-orario-eina-persoansw2": "Oui, avant la grande tempête il y avait nombreux aventuriers et mercenaire qui parcouraient les terres.",
+    "dialogue-orario-eina-persoqstn3": "Jusqu'où s'étendaient cette guilde ?",
+    "dialogue-orario-eina-persoansw3": "N'importe où il y a assez de passage et que des personnes ont besoin d'aide.\nVous pouvez être sûr de nous trouver pour proposer des quêtes.",
+    "dialogue-orario-eina-persoqstn4": "Vous proposez des quêtes ?",
+    "dialogue-orario-eina-persoansw4": "En effet, ceux ayant besoin d'aide viennent ici nous proposer des quêtes. En échange d'une rémunération nous postons leur requête.\n Et une fois complétée nous prenons une petite commission et le reste va à l'aventurier.",
+    "dialogue-orario-eina-altmenu": "Oui ?",
+    "dialogue-orario-eina-menuquest": "Vous pouvez trouver les quêtes sur les tableaux\nou en me demandant à moi directement.\nCependant, vous devrez allez voir les villageois directement pour accepter leur quêtes.",
+    "dialogue-orario-eina-askeinaquestctg": "Je veux bien que vous me les montriez.",    
+    "dialogue-orario-eina-einaquestcategory": "Bien, vous pouvez choisir entre trois catégories de quêtes.",
+    "dialogue-orario-eina-craftquest": "Quêtes d'Artisanat",
+    "dialogue-orario-eina-huntquest": "Quêtes de Chasses",
+    "dialogue-orario-eina-harvestquest": "Quêtes de Récolte",
+    "dialogue-orario-eina-craftquestmenu": "Il y a un total de 1 quête pour 1 villageois.",
+    "dialogue-orario-eina-huntquestmenu": "Il n'y as pas de quêtes de chasse actuellement.",
+    "dialogue-orario-eina-harvestquestmenu": "Il y a actuellement 1 villageois pour un total de 2 quêtes.",
+    "dialogue-orario-eina-craftquest1": "Quête Artisanat | Marie.",
+    "dialogue-orario-eina-craftquest1desc": "Durant la tempête temporelle Marie la Boulangère de la ville a perdu l'un de ses fours à pain elle aimerait que quelqu'un lui en re fasse un.",
+    "dialogue-orario-eina-harvestquest1": "Quête collecte | Michel (1)",
+    "dialogue-orario-eina-harvestquestdesc1": "Avec la tempête temporelle la quantité de viande a drastiquement baisser.\nMichel le cuisinier de l'Auberge des Ours aurait besoin de 15 Viande Rouge.",
+    "dialogue-orario-eina-harvestquest2": "Quête collecte | Michel (2)",
+    "dialogue-orario-eina-harvestquestdesc2": "Au vu de la récente pénurie de viande rouge dans la ville, michel aimerait tester de cuisiner des plats à base de Viande Coriace, peux tu lui en ramener 8 ?",
+    "dialogue-orario-eina-": "",
+    //}
+
+    //{Guard Common
+    "dialogue-orario-commonguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
+    "dialogue-orario-commonguard-notutoansw": "Excusez moi, je vais redescendre.",
+    "dialogue-orario-commonguard-menu": "La vue des plaines est belle depuis les murs aventurier... Si seulement l'insoucience pouvait reigner comme autrefois...",
+    "dialogue-orario-commonguard-bye" : "Oui...",
+    "dialogue-orario-commonguard-askquest" : "Est-ce que du haut de ces murailles vous auriez besoin d'aide ?",
+    "dialogue-orario-commonguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
     //}
 
     //Quests
