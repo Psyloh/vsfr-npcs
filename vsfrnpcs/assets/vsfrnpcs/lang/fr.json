@@ -4,6 +4,8 @@
     "nametag-vsfrnpc-male-guard-unrevealed": "Garde",
     "nametag-vsfrnpc-female-guard-unrevealed": "Garde",
 
+    "npcguard": "Corse",
+
     // Dialogues
     //{ Dull answers
     "dialogue-player-ok": "Ok",
@@ -235,7 +237,7 @@
     "dialogue-orario-eina-persoqstn3": "Jusqu'où s'étendaient cette guilde ?",
     "dialogue-orario-eina-persoansw3": "N'importe où il y a assez de passage et que des personnes ont besoin d'aide.\nVous pouvez être sûr de nous trouver pour proposer des quêtes.",
     "dialogue-orario-eina-persoqstn4": "Vous proposez des quêtes ?",
-    "dialogue-orario-eina-persoansw4": "En effet, ceux ayant besoin d'aide viennent ici nous proposer des quêtes. En échange d'une rémunération nous postons leur requête.\n Et une fois complétée nous prenons une petite commission et le reste va à l'aventurier.",
+    "dialogue-orario-eina-persoansw4": "En effet, ceux ayant besoin d'aide viennent ici nous proposer des quêtes. En échange d'une rémunération nous postons leur requête.\nEt une fois complétée nous prenons une petite commission et le reste va à l'aventurier.",
     "dialogue-orario-eina-altmenu": "Oui ?",
     "dialogue-orario-eina-menuquest": "Vous pouvez trouver les quêtes sur les tableaux\nou en me demandant à moi directement.\nCependant, vous devrez allez voir les villageois directement pour accepter leur quêtes.",
     "dialogue-orario-eina-askeinaquestctg": "Je veux bien que vous me les montriez.",    
@@ -247,21 +249,21 @@
     "dialogue-orario-eina-huntquestmenu": "Il n'y as pas de quêtes de chasse actuellement.",
     "dialogue-orario-eina-harvestquestmenu": "Il y a actuellement 1 villageois pour un total de 2 quêtes.",
     "dialogue-orario-eina-craftquest1": "Quête Artisanat | Marie.",
-    "dialogue-orario-eina-craftquest1desc": "Durant la tempête temporelle Marie la Boulangère de la ville a perdu l'un de ses fours à pain elle aimerait que quelqu'un lui en re fasse un.",
+    "dialogue-orario-eina-craftquest1desc": "Durant la tempête temporelle Marie, la Boulangère de la ville a perdu l'un de ses fours à pain elle aimerait que quelqu'un lui en re fasse un.",
     "dialogue-orario-eina-harvestquest1": "Quête collecte | Michel (1)",
-    "dialogue-orario-eina-harvestquestdesc1": "Avec la tempête temporelle la quantité de viande a drastiquement baisser.\nMichel le cuisinier de l'Auberge des Ours aurait besoin de 15 Viande Rouge.",
+    "dialogue-orario-eina-harvestquest1desc": "Avec la tempête temporelle la quantité de viande a drastiquement baisser.\nMichel le cuisinier de l'Auberge des Ours aurait besoin de 15 Viande Rouge.",
     "dialogue-orario-eina-harvestquest2": "Quête collecte | Michel (2)",
-    "dialogue-orario-eina-harvestquestdesc2": "Au vu de la récente pénurie de viande rouge dans la ville, michel aimerait tester de cuisiner des plats à base de Viande Coriace, peux tu lui en ramener 8 ?",
-    "dialogue-orario-eina-": "",
+    "dialogue-orario-eina-harvestquest2desc": "Au vu de la récente pénurie de viande rouge dans la ville, michel aimerait tester de cuisiner des plats à base de Viande Coriace, peux tu lui en ramener 8 ?",
+    "dialogue-orario-eina-persoend": "Ah encore une chose.",
     //}
 
-    //{Guard Common
-    "dialogue-orario-commonguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
-    "dialogue-orario-commonguard-notutoansw": "Excusez moi, je vais redescendre.",
-    "dialogue-orario-commonguard-menu": "La vue des plaines est belle depuis les murs aventurier... Si seulement l'insoucience pouvait reigner comme autrefois...",
-    "dialogue-orario-commonguard-bye" : "Oui...",
-    "dialogue-orario-commonguard-askquest" : "Est-ce que du haut de ces murailles vous auriez besoin d'aide ?",
-    "dialogue-orario-commonguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
+    //{Generic Guard
+    "dialogue-orario-genericguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
+    "dialogue-orario-genericguard-notutoansw": "Excusez moi, je vais redescendre.",
+    "dialogue-orario-genericguard-menu": "La vue des plaines est belle depuis les murs aventurier... Si seulement l'insoucience pouvait reigner comme autrefois...",
+    "dialogue-orario-genericguard-bye" : "En effet, au revoir...",
+    "dialogue-orario-genericguard-askquest" : "Est-ce que du haut de ces murailles vous auriez besoin d'aide ?",
+    "dialogue-orario-genericguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
     //}
 
     //Quests

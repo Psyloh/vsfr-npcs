@@ -22,6 +22,9 @@
 				"vsfrnpc-male-none-obliviac",
 				"vsfrnpc-male-guard-christian",
 				"vsfrnpc-female-guard-christina",
+				"vsfrnpc-female-none-eina",
+				"vsfrnpc-female-guard-genericguard",
+				"vsfrnpc-male-guard-genericguard"
 			]
 		}
 	],

@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,7 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina"] }
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard"] }
   ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
@@ -42,6 +42,9 @@
     "vsfrnpc-male-none-obliviac",
 	"vsfrnpc-male-guard-christian",
 	"vsfrnpc-female-guard-christina",
+	"vsfrnpc-female-none-eina",
+	"vsfrnpc-female-guard-genericguard",
+	"vsfrnpc-male-guard-genericguard"
   ],
   attributes: {
     tradePropsFileByType: {
@@ -181,6 +184,19 @@
 				shoulder:[{Code:"shoulder-male-shortsleeve-peasant1"}],
 				upperbody:[],
 				upperbodyover:[],
+			},
+			"*-guard-*": {
+				tatoo:[],
+				face:[],
+				foot:[{Code:"foot-guard"}],
+				hand:[{Code:"hand-gloves"}],
+				head:[],
+				lowerbody:[{Code:"lowerbody-pants-guard"}],
+				neck:[],
+				shoulder:[{Code:"shoulder-{sex}-shortsleeve-guard",Weight:1.0}],
+				upperbody:[{Code:"upperbody-{sex}-shortsleeve-guard"}],
+				upperbodyover:[],
+				waist:[{Code:"waist-guard"}]
 			},
 			"*-male-*": {
 				"skin-face":[{Code:"skin-face-blacksmith"}],
@@ -690,8 +706,10 @@
           "*-thomas": ["Thomas"],
           "*-michel": ["Michel"],
 		  "*-obliviac": ["PNJ Admin : Obliviac"],
-		  "*-christian": ["Garde Christian"],
-		  "*-christina": ["Garde Christina"],
+		  "*-christian": ["Christian"],
+		  "*-christina": ["Christina"],
+		  "*-eina": ["Eina"],
+		  "*-genericguard": ["Garde"],
         }
       },
 			//bloc Activity

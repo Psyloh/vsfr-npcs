@@ -23,7 +23,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "dialogue-orario-eina-notutoask", jumpto: "notutoansw"},
+                { value: "vsfrnpcs:dialogue-orario-eina-notutoask", jumpto: "notutoansw"},
                 { value: "vsfrnpcs:dialogue-orario-eina-notutobye", jumpto: "close"},
             ]
         },
@@ -41,7 +41,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-christian-fmresponse", jumpto: "menu"},
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
             ]
         },
 		{
@@ -58,7 +58,7 @@
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-eina-menualt" },
+				{ value: "vsfrnpcs:dialogue-orario-eina-altmenu" },
 			],
             jumpto: "playermenu"
         },
@@ -75,6 +75,7 @@
 		{
 			code: "persoansw",
 			owner: "npc",
+			trigger: "revealname",
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-persoansw" },
@@ -86,7 +87,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-christian-persoqstn2", jumpto: "persoansw2"},
+                { value: "vsfrnpcs:dialogue-orario-eina-persoqstn2", jumpto: "persoansw2"},
             ]
         },
 		{
@@ -103,7 +104,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-christian-persoqstn3", jumpto: "persoansw4"},
+                { value: "vsfrnpcs:dialogue-orario-eina-persoqstn3", jumpto: "persoansw4"},
             ]
         },
 		{
@@ -120,7 +121,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-christian-persoqstn2", jumpto: "menualt"},
+                { value: "vsfrnpcs:dialogue-orario-eina-persoend", jumpto: "menualt"},
                 { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
             ]
         },
@@ -138,7 +139,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-christian-askeinaquestctg", jumpto: "categoryquest"},
+                { value: "vsfrnpcs:dialogue-orario-eina-askeinaquestctg", jumpto: "categoryquest"},
                 { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
             ]
         },
@@ -229,7 +230,7 @@
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest1desc" },
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest2desc" },
 			],
             jumpto: "playerthanks"
         },
@@ -238,7 +239,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "dialogue-player-thxbye", jumpto: "close"},
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
             ]
         },
         {
