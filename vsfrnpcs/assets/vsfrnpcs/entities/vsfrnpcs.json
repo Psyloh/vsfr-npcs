@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,7 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard"] }
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor"] }
   ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
@@ -44,11 +44,13 @@
 	"vsfrnpc-female-guard-christina",
 	"vsfrnpc-female-none-eina",
 	"vsfrnpc-female-guard-genericguard",
-	"vsfrnpc-male-guard-genericguard"
+	"vsfrnpc-male-guard-genericguard",
+	"vsfrnpc-male-none-psyloh",
+	"vsfrnpc-male-none-igor"
   ],
   attributes: {
     tradePropsFileByType: {
-      "@.*-(marie|michel)": "vsfrnpcs:config/tradelists/{name}",
+      "@.*-(marie|michel|psyloh|igor)": "vsfrnpcs:config/tradelists/{name}",
     },
 		voiceSoundsByType: {
       "*-male-*":
@@ -710,6 +712,8 @@
 		  "*-christina": ["Christina"],
 		  "*-eina": ["Eina"],
 		  "*-genericguard": ["Garde"],
+		  "*-psyloh": ["Psyloh"],
+		  "*-igor": ["Igor"],
         }
       },
 			//bloc Activity
@@ -820,6 +824,8 @@
 				"*-michel": ["vsfrnpcs:quest-michel-bushmeat", "vsfrnpcs:quest-michel-redmeat"],
 				"*-marie": ["vsfrnpcs:quest-marie-clayoven"],
 				"*-christian": ["vsfrnpcs:quest-christian-blacksmithsword"],
+				"*-psyloh": ["vsfrnpcs:quest-psyloh-drinkardgroup"],
+				"*-igor": ["vsfrnpcs:quest-igor-tinbronzeingot", "vsfrnpcs:quest-igor-ironingot"]
 			}},
       { code: "entitystatetags" }
     ]

@@ -13,6 +13,8 @@
     "dialogue-player-yesofcourse": "Oui, bien sûr!",
     "dialogue-player-yesthatsit": "Oui, c'est ça.",
     "dialogue-player-okthx": "Bien, merci.",
+    "dialogue-player-okthx2": "D'accord, merci.",
+    "dialogue-player-intrestingthx": "Intéressant, merci.",
     "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
     "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
@@ -257,6 +259,31 @@
     "dialogue-orario-eina-persoend": "Ah encore une chose.",
     //}
 
+    //{ Psyloh
+    "dialogue-orario-psyloh-notuto": "Salut aventurier, il semblerait que tu sois occupé. Reviens me voir quand tu auras plus de temps.",
+    "dialogue-orario-psyloh-menu": "Bonjoir aventurier, qu'est-ce que j'peux t'servir ?",
+    "dialogue-orario-psyloh-persoqstn": "Qui êtes vous ?",
+    "dialogue-orario-psyloh-persoansw": "Moi qui chuis ? J'chuis Psyloh. L'tavernier et l'brasseur d'la ville.",
+    "dialogue-orario-psyloh-persoqstn2": "Vous ne vendez que de la bière ?",
+    "dialogue-orario-psyloh-persoansw2": "Boarff pas que, j'ai l'materiel pour faire des liqueurs et du Schnaps.",
+    "dialogue-orario-psyloh-trade": "Je peux voir votre carte des boissons ?",
+    "dialogue-orario-psyloh-quests": "Est-ce que vous auriez besoin d'aide ?",
+    //}
+
+    //{Igor
+    "dialogue-orario-igor-notuto": "Hey aventurier, tu semble occupé. Reviens me voir quand tu auras plus de temps.",
+    "dialogue-orario-igor-menu": "Je suis un peu occupé, mais dit moi aventurier de quoi a tu besoin ?",
+    "dialogue-orario-igor-persoqstn": "Qui êtes vous ?",
+    "dialogue-orario-igor-persoansw": "Je suis Igor, forgeron de la ville.",
+    "dialogue-orario-igor-persoqstn2": "Vous êtes donc forgeron",
+    "dialogue-orario-igor-persoansw2": "Bah oe logique tu croyais qu'on étais à la boulangerie de Marie ?\nEnfin bon, tout ce qui est fait de metal peut être forger ici.",
+    "dialogue-orario-igor-quests": "Est-ce que vous auriez besoin d'aide par tout hasard ?",
+    "dialogue-orario-igor-trade": "En tant que forgeron, que vendez vous ?",
+    "dialogue-orario-igor-obj": "dialogue",
+
+    //}
+
+
     //{Generic Guard
     "dialogue-orario-genericguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
     "dialogue-orario-genericguard-notutoansw": "Excusez moi, je vais redescendre.",
@@ -266,7 +293,12 @@
     "dialogue-orario-genericguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
     //}
 
+
     //Quests
+
+
+
+
     "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //{ Michel
     "quest-michel-redmeat-title":   "Ravitaillement urgent",
@@ -277,10 +309,28 @@
     "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène-la moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
     "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
     //}
+
     //{ Marie
     "quest-marie-clayoven-title":      "Four à pain détruit",
     "quest-marie-clayoven-desc":       "Avec la tempête temporelle l'un de mes fours à pain a été détruit, peut tu m'en confectionner un ?",
     "quest-marie-clayoven-obj":        "Four en Céramique {0}/1",
+    //}
+
+    //{ Psyloh
+    "quest-psyloh-drinkardgroup-title":      "Groupe de Buveur",
+    "quest-psyloh-drinkardgroup-desc":       "Tous les an j'ai un gros groupe de voyageur qui m'viens me vider mon stock de bière. Mais avec la tempête j'en ai plus. Tu peux m'ramner 64 grains d'épautre ? Heureusement ils aiment boire mais ne font pas attention au goûts.",
+    "quest-psyloh-drinkardgroup-obj":        "Grains d'épautre {0}/64",
+    //}
+
+    //{ Igor
+    "quest-igor-tinbronzeingot-title":      "Manque de Bronze",
+    "quest-igor-tinbronzeingot-desc":       "Avec les récents combats dû à la tempête temporelle, je dois forger pas mal d'armes.\nPour l'instant je n'ai besoin que de 4 lingots de bronze pour des armes basiques.",
+    "quest-igor-tinbronzeingot-obj":        "Lingots de bronze {0}/4",
+    
+    "quest-igor-ironingot-title":      "Pénurie de Fer",
+    "quest-igor-ironingot-desc":       "Ayant fait une demande pour des lingots de bronze, j'ai besoin de fer pour des armes de meilleure qualité.",
+    "quest-igor-ironingot-obj":        "Lingots de fer {0}/2",    
+    
     //}
 
     //{

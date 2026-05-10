@@ -1,0 +1,200 @@
+{
+    money: {
+        avg: 58,
+        var: 8
+    },
+    selling: {
+        maxItems: 14,
+        list: [
+            {
+                "code": "tankardsandgoblets:tankard-woodtype-oak.-iron",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 24,
+                    "var": 4
+                },
+                "price": {
+                    "avg": 3,
+                    "var": 1
+                },
+                "attributes": {
+                    "ucontents": [
+                        {
+                            "type": "item",
+                            "code": "game:ciderportion-rye",
+                            "makefull": true
+                        }
+                    ]
+                }
+            },
+            {
+                "code": "tankardsandgoblets:tankard-woodtype-oak.-iron",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 24,
+                    "var": 4
+                },
+                "price": {
+                    "avg": 3,
+                    "var": 1
+                },
+                "attributes": {
+                    "ucontents": [
+                        {
+                            "type": "item",
+                            "code": "game:ciderportion-spelt",
+                            "makefull": true
+                        }
+                    ]
+                }
+            },
+            {
+                "code": "tankardsandgoblets:tankard-woodtype-oak.-iron",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 24,
+                    "var": 4
+                },
+                "price": {
+                    "avg": 3,
+                    "var": 1
+                },
+                "attributes": {
+                    "ucontents": [
+                        {
+                            "type": "item",
+                            "code": "game:ciderportion-mead",
+                            "makefull": true
+                        }
+                    ]
+                }
+            },
+            {
+                "code": "tankardsandgoblets:goblet-tinbronze",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 16,
+                    "var": 6
+                },
+                "price": {
+                    "avg": 7,
+                    "var": 3
+                },
+                "attributes": {
+                    "ucontents": [
+                        {
+                            "type": "item",
+                            "code": "game:ciderportion-blackcurrant",
+                            "makefull": true
+                        }
+                    ]
+                }
+            },
+            {
+                "code": "tankardsandgoblets:goblet-tinbronze",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 16,
+                    "var": 6
+                },
+                "price": {
+                    "avg": 7,
+                    "var": 3
+                },
+                "attributes": {
+                    "ucontents": [
+                        {
+                            "type": "item",
+                            "code": "game:ciderportion-whitecurrant",
+                            "makefull": true
+                        }
+                    ]
+                }
+            },
+            {
+                "code": "tankardsandgoblets:goblet-tinbronze",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 16,
+                    "var": 6
+                },
+                "price": {
+                    "avg": 7,
+                    "var": 3
+                },
+                "attributes": {
+                    "ucontents": [
+                        {
+                            "type": "item",
+                            "code": "game:ciderportion-redcurrant",
+                            "makefull": true
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    buying: {
+        maxItems: 14,
+        list: [
+            {
+                "code": "tankardsandgoblets:tankard-woodtype-oak.-iron",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 24,
+                    "var": 4
+                },
+                "price": {
+                    "avg": 1,
+                    "var": 0
+                },
+            },
+            {
+                "code": "tankardsandgoblets:goblet-tinbronze",
+                "type": "block",
+                "stacksize": 1,
+                "stock": {
+                    "avg": 24,
+                    "var": 4
+                },
+                "price": {
+                    "avg": 2,
+                    "var": 0
+                },
+            },
+            {
+                code: "game:grain-spelt",
+                type: "item",
+                stacksize: 16,
+                stock: {
+                    avg: 32,
+                    var: 16
+                },
+                price: {
+                avg: 6,
+                var: 4
+                }
+            },
+            {
+                code: "game:grain-rye",
+                type: "item",
+                stacksize: 16,
+                stock: {
+                    avg: 32,
+                    var: 16
+                },
+                price: {
+                avg: 6,
+                var: 4
+                }
+            },
+        ]
+    }
+}
