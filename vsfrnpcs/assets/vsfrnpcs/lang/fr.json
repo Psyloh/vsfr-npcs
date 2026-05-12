@@ -278,7 +278,17 @@
     "dialogue-orario-igor-persoqstn2": "Vous êtes donc forgeron",
     "dialogue-orario-igor-persoansw2": "Bah oe logique tu croyais qu'on étais à la boulangerie de Marie ?\nEnfin bon, tout ce qui est fait de metal peut être forger ici.",
     "dialogue-orario-igor-quests": "Est-ce que vous auriez besoin d'aide par tout hasard ?",
-    "dialogue-orario-igor-trade": "En tant que forgeron, que vendez vous ?",
+    "dialogue-orario-igor-trade": "Que vendez vous ?",
+    "dialogue-orario-igor-repairask": "Pouvez vous réparez mon objet ?",
+    "dialogue-orario-igor-repairansw": "Oui, tout dépend de ce que vous voulez réparer.\nSi vous voulez réparer un outil ce sera 7 engrenages pour 300 durabilité.\nCependant, pour les armures ce sera 10 engrenages pour 300 durabilité.\nVous devez prendre l'outil ou l'armure en question dans vos mains.",
+    "dialogue-orario-igor-repairtool": "J'aimerais bien réparer mon outil.",
+    "dialogue-orario-igor-repairarmor": "Je souhaite réparer l'armure que j'ai.",
+    "dialogue-orario-igor-repairno": "Au final je n'ai plus envie de réparer mes outils.",
+    "dialogue-orario-igor-noworries": "Pas de problème, alors que souhaite tu ?",
+    "dialogue-orario-igor-nothingtorepair": "Il semblerait que tu n'ai rien à réparer.",
+    "dialogue-orario-igor-letsgo": "C'est partis !",
+    "dialogue-orario-igor-comebackagaintool": "Parfait, voila ton outil réparé, n'hésite pas à revenir.",
+    "dialogue-orario-igor-comebackagainarmor": "Parfait, voila ton armure réparé, n'hésite pas à revenir.",
     "dialogue-orario-igor-obj": "dialogue",
 
     //}

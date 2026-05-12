@@ -43,6 +43,7 @@
                 { value: "vsfrnpcs:dialogue-orario-igor-persoqstn", jumpto: "persoansw"},
                 { value: "vsfrnpcs:dialogue-orario-igor-quests", jumpto: "quests"},
 				{ value: "vsfrnpcs:dialogue-orario-igor-trade", jumpTo: "opentrade"},
+				{ value: "vsfrnpcs:dialogue-orario-igor-repairask", jumpTo: "repair"},
                 { value: "vsfrnpcs:dialogue-player-sorrybye", jumpto: "close"},
             ]
         },
@@ -81,6 +82,105 @@
                 { value: "vsfrnpcs:dialogue-player-intrestingthx", jumpto: "close"},
             ]
         },
+		{
+			code: "repair",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-repairansw" },
+			],
+            jumpto: "repairchoice"
+        },
+		{
+			code: "repairchoice",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-repairtool", jumpTo: "testrepairtool", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 7}" }	},
+				{ value: "vsfrnpcs:dialogue-orario-igor-repairarmor", jumpTo: "testrepairarmor", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 10}" }	},
+				{ value: "vsfrnpcs:dialogue-orario-igor-repairno", jumpTo: "repairreturn" },
+			],
+		},
+		{
+			code: "repairreturn",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-noworries"	}
+			],
+			jumpTo: "playermenu"
+		},
+		{
+			code: "testrepairtool",
+			owner: "agnieszka",
+			type: "condition",
+			variable: "player.heldstack",
+			isValue: "damagedtool",
+			thenJumpTo: "takegearstool",
+			elseJumpTo: "norepair"
+		},
+		{
+			code: "testrepairarmor",
+			owner: "agnieszka",
+			type: "condition",
+			variable: "player.heldstack",
+			isValue: "damagedarmor",
+			thenJumpTo: "takegearsarmor",
+			elseJumpTo: "norepair"
+		},
+		{
+			code: "norepair",
+			owner: "agnieszka",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-nothingtorepair"	},
+			],
+			jumpTo: "playermenu"
+		},
+		{
+			code: "takegearstool",
+			owner: "agnieszka",
+			type: "talk",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 7 },
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-letsgo" },
+			],
+			jumpTo: "dorepairtool"
+		},
+		{
+			code: "takegearsarmor",
+			owner: "agnieszka",
+			type: "talk",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 10 },
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-letsgo" },
+			],
+			jumpTo: "dorepairarmor"
+		},		
+		{
+			code: "dorepairtool",
+			owner: "agnieszka",
+			type: "talk",
+			trigger: "repairheldtool",
+			triggerData: { amount: 300 },
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-comebackagaintool" },
+			],
+			jumpTo: "playermenu"
+		},
+		{
+			code: "dorepairarmor",
+			owner: "agnieszka",
+			type: "talk",
+			trigger: "repairheldarmor",
+			triggerData: { amount: 200 },
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-igor-comebackagainarmor"	},
+			],
+			jumpTo: "playermenu"
+		},
 		{
 			code: "opentrade",
 			owner: "npc",
