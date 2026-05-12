@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,7 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor"] }
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime"] }
   ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
@@ -46,7 +46,8 @@
 	"vsfrnpc-female-guard-genericguard",
 	"vsfrnpc-male-guard-genericguard",
 	"vsfrnpc-male-none-psyloh",
-	"vsfrnpc-male-none-igor"
+	"vsfrnpc-male-none-igor",
+	"vsfrnpc-male-guard-jaime",
   ],
   attributes: {
     tradePropsFileByType: {
@@ -714,6 +715,7 @@
 		  "*-genericguard": ["Garde"],
 		  "*-psyloh": ["Psyloh"],
 		  "*-igor": ["Igor"],
+		  "*-jaime": ["Jaime"],
         }
       },
 			//bloc Activity
@@ -825,7 +827,8 @@
 				"*-marie": ["vsfrnpcs:quest-marie-clayoven"],
 				"*-christian": ["vsfrnpcs:quest-christian-blacksmithsword"],
 				"*-psyloh": ["vsfrnpcs:quest-psyloh-drinkardgroup"],
-				"*-igor": ["vsfrnpcs:quest-igor-tinbronzeingot", "vsfrnpcs:quest-igor-ironingot"]
+				"*-igor": ["vsfrnpcs:quest-igor-tinbronzeingot", "vsfrnpcs:quest-igor-ironingot"],
+				"*-jaime": ["vsfrnpcs:quest-jaime-ironfalx"]
 			}},
       { code: "entitystatetags" }
     ]

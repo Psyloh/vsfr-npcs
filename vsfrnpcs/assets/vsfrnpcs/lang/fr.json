@@ -16,6 +16,7 @@
     "dialogue-player-okthx2": "D'accord, merci.",
     "dialogue-player-intrestingthx": "Intéressant, merci.",
     "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
+    "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
     "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
@@ -290,9 +291,23 @@
     "dialogue-orario-igor-comebackagaintool": "Parfait, voila ton outil réparé, n'hésite pas à revenir.",
     "dialogue-orario-igor-comebackagainarmor": "Parfait, voila ton armure réparé, n'hésite pas à revenir.",
     "dialogue-orario-igor-obj": "dialogue",
-
     //}
 
+    //{
+    "dialogue-orario-jaime-notuto": "Bonjour étranger, il semblerait que vous n'ayez rien à faire ici.",
+    "dialogue-orario-jaime-menu": "Que me veux tu aventurier ?",
+    "dialogue-orario-jaime-persoqstn": "Qui êtes vous ?",
+    "dialogue-orario-jaime-persoansw": "Qui est tu pour me poser cette question ?",
+    "dialogue-orario-jaime-persoansw2": "Tu es têtu, pourquoi je te répondrais ?",
+    "dialogue-orario-jaime-persoansw3": "Bien d'accord... Je m'appelle Jaime. Je suis le chef de la garde.\nTu es content, tu as tes réponses ?",
+    "dialogue-orario-jaime-persoqstn2": "Depuis combien de temps êtes vous garde ?",
+    "dialogue-orario-jaime-persoansw4": "Je suis au service du Roi depuis presque 15 ans.",
+    "dialogue-orario-jaime-persoqstn3": "Et pourquoi cette vocation ?",
+    "dialogue-orario-jaime-persoansw5": "J'étais au départ un simple enfant de forgeron, mais ■■■■■ ■■ ■■■■■■■■.",
+    "dialogue-orario-jaime-persoqstnend": "Pardon ?",
+    "dialogue-orario-jaime-quests": "Excusez moi auriez vous un travail par hasard ?",
+    "dialogue-orario-npc-obj": "dialogue",
+    //}
 
     //{Generic Guard
     "dialogue-orario-genericguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
@@ -340,7 +355,12 @@
     "quest-igor-ironingot-title":      "Pénurie de Fer",
     "quest-igor-ironingot-desc":       "Ayant fait une demande pour des lingots de bronze, j'ai besoin de fer pour des armes de meilleure qualité.",
     "quest-igor-ironingot-obj":        "Lingots de fer {0}/2",    
-    
+    //}
+
+    //{ Marie
+    "quest-jaime-ironfalx-title":      "Epée du Chef de la Garde",
+    "quest-jaime-ironfalx-desc":       "Bon Aventurier, avec cette tempête temporelle, j'ai perdu mon épée en fer. Après avoir discuter avec Igor il semblerait que désormais les épées seront moins utiles contre ces monstres.\nRamène moi une nouvelle arme en fer qui est efficace contre ces monstres et je te récompenserait.",
+    "quest-jaime-ironfalx-obj":        "Falx en Fer {0}/1",
     //}
 
     //{

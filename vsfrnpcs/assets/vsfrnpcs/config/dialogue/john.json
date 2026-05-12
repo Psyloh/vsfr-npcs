@@ -142,7 +142,7 @@
 			variable: "player.johngive",
 			isNotValue: "true",
 			thenJumpTo: "giveitem",
-			elseJumpTo: "firstmeet6"
+			elseJumpTo: "firstmeetresponse6"
 		},
 		{
 			code: "giveitem",

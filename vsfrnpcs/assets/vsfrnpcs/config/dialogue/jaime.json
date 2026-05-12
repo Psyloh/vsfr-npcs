@@ -1,0 +1,186 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "testjaimeperso"
+		},
+        {
+			code: "testjaimeperso",
+			owner: "npc",
+			type: "condition",
+			variable: "player.jaimeperso",
+			isValue: "true",
+			thenJumpTo: "menu",
+			elseJumpTo: "testjaimeperso2"
+		},
+        {
+			code: "testjaimeperso2",
+			owner: "npc",
+			type: "condition",
+			variable: "player.jaimeperso2",
+			isValue: "true",
+			thenJumpTo: "menu",
+			elseJumpTo: "testjaimeperso3"
+		},
+        {
+			code: "testjaimeperso3",
+			owner: "npc",
+			type: "condition",
+			variable: "player.jaimeperso3",
+			isValue: "true",
+			thenJumpTo: "menu",
+			elseJumpTo: "testjaimepersoend"
+		},
+        {
+			code: "testjaimepersoend",
+			owner: "npc",
+			type: "condition",
+			variable: "player.jaimepersoend",
+			isValue: "true",
+			thenJumpTo: "menu",
+			elseJumpTo: "givejaimeperso"
+		},
+		{
+			code: "givejaimeperso",
+			owner: "npc",
+			setVariables: {"player.jaimeperso": "true"},
+            jumpto: "menu"
+        },
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-notuto" },
+			],
+            jumpto: "notutoplayer"
+        },
+        {
+            code: "notutoplayer",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-sorrybye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-menu" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-jaime-persoqstn", jumpto: "persoansw",  condition: { variable: "player.jaimeperso", isValue: "true" } },
+				{ value: "vsfrnpcs:dialogue-orario-jaime-persoqstn", jumpTo: "persoansw2", condition: { variable: "player.jaimeperso2", isValue: "true" } },
+                { value: "vsfrnpcs:dialogue-orario-jaime-persoqstn", jumpTo: "persoansw3", condition: { variable: "player.jaimeperso3", isValue: "true" } },
+                { value: "vsfrnpcs:dialogue-orario-jaime-quests", jumpto: "quests"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpto: "close"},
+            ]
+        },
+		{
+			code: "persoansw",
+			owner: "npc",
+			setVariables: {
+				"player.jaimeperso": "false",
+				"player.jaimeperso2": "true",
+			},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-persoansw" },
+			],
+            jumpto: "playermenu"
+        },
+		{
+			code: "persoansw2",
+			owner: "npc",
+			setVariables: {
+				"player.jaimeperso2": "false",
+				"player.jaimeperso3": "true",
+			},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-persoansw2" },
+			],
+            jumpto: "playermenu"
+        },
+		{
+			code: "persoansw3",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-persoansw3" },
+			],
+            jumpto: "persoqstn2"
+        },
+        {
+            code: "persoqstn2",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-jaime-persoqstn2", jumpto: "persoansw4"},
+            ]
+        },
+		{
+			code: "persoansw4",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-persoansw4" },
+			],
+            jumpto: "persoqstn3"
+        },
+        {
+            code: "persoqstn3",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-jaime-persoqstn3", jumpto: "persoansw5"},
+            ]
+        },
+		{
+			code: "persoansw5",
+			owner: "npc",
+			setVariables: {
+				"player.jaimeperso3": "false",
+            	"player.jaimepersoend": "true",
+			},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jaime-persoansw5" },
+			],
+            jumpto: "persoqstnend"
+        },
+        {
+            code: "persoqstnend",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-jaime-persoqstnend", jumpto: "menu"},
+            ]
+        },
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		}
+    ]
+}

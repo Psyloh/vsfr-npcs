@@ -54,7 +54,15 @@
         "player.hasfinishedjail": "false",
         "player.knowchristian": "false",
         "player.knowchristina": "false",
-        "player.hasdonetuto": "false"
+        "player.jaimeperso": "false",
+        "player.jaimeperso2": "false",
+        "player.jaimeperso3": "false",
+        "player.jaimepersoend": "false",
+        "player.johngive": "false",
+        "player.gavebread": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
       },
       text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
       jumpTo: "thx"
