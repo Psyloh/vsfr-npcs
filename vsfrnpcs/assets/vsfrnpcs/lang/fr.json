@@ -228,10 +228,10 @@
 
     //{ Eina
     "dialogue-orario-eina-notuto": "Bonjour aventurier, avant de pouvoir recevoir des quêtes tu dois finir la toute premiere qui t'a été donner.",
-    "dialogue-orario-eina-notutobye": "Je vais aller la terminer merci !",
-    "dialogue-orario-eina-notutoask": "Quelle quête ? Où se trouve-t-elle ?",
-    "dialogue-orario-eina-notutoansw": "Axel t'en dira plus, il se trouve juste dehors sur la place centrale.",
-    "dialogue-orario-eina-menu": "Bonjour aventurier {{playername}}, en quoi puis-je vous aider ?",
+    "dialogue-orario-eina-notutobye": "D'accord, je vais m'en occuper !",
+    "dialogue-orario-eina-notutoask": "Quelle quête ?",
+    "dialogue-orario-eina-notutoansw": "Allez voir Axel, il vous en dira plus. Vous le trouverez dehors, sur la place centrale.",
+    "dialogue-orario-eina-menu": "Bonjour {{playername}}, en quoi puis-je vous aider ?",
     "dialogue-orario-eina-quests": "Auriez vous des quêtes pour moi ?",
     "dialogue-orario-eina-persoqstn": "Que faites vous ici ?",
     "dialogue-orario-eina-persoansw": "Je me présente je suis Eina, je suis l'intendante de petite Guilde.",
@@ -290,7 +290,6 @@
     "dialogue-orario-igor-letsgo": "C'est partis !",
     "dialogue-orario-igor-comebackagaintool": "Parfait, voila ton outil réparé, n'hésite pas à revenir.",
     "dialogue-orario-igor-comebackagainarmor": "Parfait, voila ton armure réparé, n'hésite pas à revenir.",
-    "dialogue-orario-igor-obj": "dialogue",
     //}
 
     //{
@@ -306,7 +305,6 @@
     "dialogue-orario-jaime-persoansw5": "J'étais au départ un simple enfant de forgeron, mais ■■■■■ ■■ ■■■■■■■■.",
     "dialogue-orario-jaime-persoqstnend": "Pardon ?",
     "dialogue-orario-jaime-quests": "Excusez moi auriez vous un travail par hasard ?",
-    "dialogue-orario-npc-obj": "dialogue",
     //}
 
     //{Generic Guard
@@ -318,11 +316,18 @@
     "dialogue-orario-genericguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
     //}
 
+    //{ Albert
+    "dialogue-orario-albert-notuto": "Bonjour jeune homme. Tu semble essouflé, re viens dans ma boucherie une fois que tu n'es pas occuper.",
+    "dialogue-orario-albert-menu": "Salut aventurier. Que puis-je te servir ?",
+    "dialogue-orario-albert-persoqstn": "Parlez moi un peu de vous ?",
+    "dialogue-orario-albert-quests": "Auriez vous une tâche pour moi ?",
+    "dialogue-orario-albert-trade": "Que vendez vous ?",
+    "dialogue-orario-albert-persoansw": "Je suis Alberto, mais ici on m'appelle Albert. Comme tu peux le voir nous sommes dans une boucherie, je suis donc boucher.",
+    "dialogue-orario-albert-persoqstn2": "Intéressant et quels type de viande d'animal vendez vous ?",
+    "dialogue-orario-albert-persoansw2": "Toutes viandes qui se mange peut être vendue ici.",
+    //}
 
     //Quests
-
-
-
 
     "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //{ Michel
@@ -361,6 +366,12 @@
     "quest-jaime-ironfalx-title":      "Epée du Chef de la Garde",
     "quest-jaime-ironfalx-desc":       "Bon Aventurier, avec cette tempête temporelle, j'ai perdu mon épée en fer. Après avoir discuter avec Igor il semblerait que désormais les épées seront moins utiles contre ces monstres.\nRamène moi une nouvelle arme en fer qui est efficace contre ces monstres et je te récompenserait.",
     "quest-jaime-ironfalx-obj":        "Falx en Fer {0}/1",
+    //}
+
+    //{ Albert
+    "quest-albert-redmeat-title":      "Besoin Urgent de viande",
+    "quest-albert-redmeat-desc":       "Salut aventurier, j'ai besoin de viande rouge. N'ayant plus de réponse du fermier du village d'à côté, j'ai quand même besoin d'un apport en viande rouge pour ma boucherie.",
+    "quest-albert-redmeat-obj":        "Viande rouge {0}/10",
     //}
 
     //{

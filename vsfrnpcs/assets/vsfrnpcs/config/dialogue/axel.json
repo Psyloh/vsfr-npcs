@@ -441,11 +441,19 @@
 		},
 		{
 			code: "teleport",
-			setVariables: {"player.hasfinishedjail": "true"},
  		    trigger: "teleport",
       		triggerData: {
         		x: "0",
         		z: "0"
+    		},
+      		jumpTo: "setrole"
+		},
+		{
+			code: "setrole",
+			setVariables: {"player.hasfinishedjail": "true"},
+ 		    trigger: "setrole",
+      		triggerData: {
+        		role: "suplayer"
     		},
       		jumpTo: "close"
 		},
