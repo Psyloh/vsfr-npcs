@@ -1,9 +1,11 @@
 ﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.CommandAbbr;
@@ -28,13 +30,12 @@ namespace vsfrnpcs
 				return;
 			}
 
-            var player = ((triggeringEntity as EntityPlayer)?.Player as IServerPlayer);
-			if (player == null)
-			{
-				return;
-			}
+            if ((triggeringEntity as EntityPlayer)?.Player is not IServerPlayer player)
+            {
+                return;
+            }
 
-			if (value == "teleport")
+            if (value == "teleport")
 			{
 				__instance.Dialog?.TryClose();
 
@@ -55,26 +56,25 @@ namespace vsfrnpcs
 			else if (value == "resetdungeon")
 			{
 				var id = data["id"].AsString("");
-				api.Logger.Warning($@"Id is ""{id}""");
 				Helpers.ResetDungeon(api, id);
+			}
+			else if (value == "setrole")
+			{
+				var role = data["role"].AsString("");
+				Helpers.ChangeRole(player, role);
 			}
 		}
 	}
 
 	public static class Helpers
 	{
-		public static Caller AdminCaller {
-			get
-			{
-				return new Caller
-				{
-					Type = EnumCallerType.Console,
-					CallerRole = "admin",
-					CallerPrivileges = ["*"],
-					FromChatGroupId = GlobalConstants.ConsoleGroup
-				};
-			}
-		}
+		public static Caller AdminCaller { get; } = new()
+		{
+			Type = EnumCallerType.Console,
+			CallerRole = "admin",
+			CallerPrivileges = ["*"],
+			FromChatGroupId = GlobalConstants.ConsoleGroup
+		};
 
 		public static void ResetDungeon(ICoreServerAPI api, string id)
 		{
@@ -92,6 +92,11 @@ namespace vsfrnpcs
 				Caller = AdminCaller,
 				RawArgs = new CmdArgs($"regenrange {x1} {z1} {x2} {z2}")
 			});
+		}
+
+		public static void ChangeRole(IServerPlayer player, string role)
+		{
+			player.SetRole(role);
 		}
 	}
 
