@@ -134,39 +134,7 @@
           ]
         },
         "ConditionsOp": 1
-      },
-      {
-        "$type": "Vintagestory.GameContent.EntityActivity, VSSurvivalMod",
-        "Slot": 0,
-        "Priority": 20.0,
-        "Name": "onattacked",
-        "Code": "onattacked",
-        "Conditions": {
-          "$type": "Vintagestory.GameContent.IActionCondition[], VSSurvivalMod",
-          "$values": [
-            {
-              "$type": "Vintagestory.GameContent.EmotionStateCondition, VSSurvivalMod",
-              "emotionState": "aggressiveondamage",
-              "Invert": false
-            }
-          ]
-        },
-        "Actions": {
-          "$type": "Vintagestory.GameContent.IEntityAction[], VSSurvivalMod",
-          "$values": [
-            {
-              "$type": "Vintagestory.GameContent.EquipAction, VSSurvivalMod",
-              "Target": "righthand",
-              "Value": "{ type: \"item\", code: \"spear-generic-blackbronze\" }"
-            },
-            {
-              "$type": "Vintagestory.GameContent.StandardAIAction, VSSurvivalMod",
-              "durationSeconds": 60.0
-            }
-          ]
-        },
-        "ConditionsOp": 1
-      },
+      }
     ]
   }
 }
