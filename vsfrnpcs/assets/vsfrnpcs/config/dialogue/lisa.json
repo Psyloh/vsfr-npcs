@@ -1,0 +1,185 @@
+{
+	components: [
+		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			setVariables: {"entity.hasmet": "true"},
+			jumpTo: "placediscover"
+		},
+		{
+			code: "placediscover",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placediscover" },
+			],
+			jumpTo: "placeqstn"
+		},
+        {
+			code: "placeqstn",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placeqstn", jumpTo: "placeansw" },
+			]
+		},
+		{
+			code: "placeansw",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placeansw" },
+			],
+			jumpTo: "placeqstn2"
+		},
+        {
+			code: "placeqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placeqstn2", jumpTo: "placeansw2" },
+			]
+		},
+		{
+			code: "placeansw2",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placeansw2" },
+			],
+			jumpTo: "placeend"
+		},
+        {
+			code: "placeend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placeend", jumpTo: "menualt" },
+			]
+		},
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-menu" },
+			],
+			jumpTo: "playermenu"
+		},
+		{
+			code: "menualt",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-menualt" },
+			],
+			jumpTo: "playermenu"
+		},
+        {
+			code: "playermenu",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-placefqstn", jumpTo: "placediscover" },
+                { value: "vsfrnpcs:dialogue-orario-lisa-bookqstn", jumpTo: "bookansw" },
+                { value: "vsfrnpcs:dialogue-orario-lisa-quests", jumpTo: "quests" },
+				{ value: "vsfrnpcs:dialogue-player-sorrybye3", jumpTo:"close"},
+			]
+		},		{
+			code: "bookansw",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookansw" },
+			],
+			jumpTo: "bookqstn2"
+		},
+        {
+			code: "bookqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookqstn2", jumpTo: "bookansw2" },
+			]
+		},
+		{
+			code: "bookansw2",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookansw2" },
+			],
+			jumpTo: "bookqstn3"
+		},
+        {
+			code: "bookqstn3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookqstn3", jumpTo: "bookansw3" },
+			]
+		},
+		{
+			code: "bookansw3",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookansw3" },
+			],
+			jumpTo: "bookqstn4"
+		},
+        {
+			code: "bookqstn4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookqstn4", jumpTo: "bookansw4" },
+			]
+		},
+		{
+			code: "bookansw4",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-lisa-bookansw4" },
+			],
+			jumpTo: "bookend"
+		},
+        {
+			code: "bookend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ohwaitaminute", jumpTo: "menu" },
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpTo: "close" },
+			]
+		},
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		},
+    ]
+}

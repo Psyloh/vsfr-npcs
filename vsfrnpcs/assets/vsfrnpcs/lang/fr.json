@@ -17,9 +17,12 @@
     "dialogue-player-intrestingthx": "Intéressant, merci.",
     "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
     "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
+    "dialogue-player-sorrybye3": "Excusez moi, j'ai un imprévu.",
+    "dialogue-player-bye": "Tchao.",
     "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
+    "dialogue-player-ohwaitaminute": "Oh attendez.",
     //}
 
     //{ Axel
@@ -257,7 +260,6 @@
     "dialogue-orario-eina-harvestquest1desc": "Avec la tempête temporelle la quantité de viande a drastiquement baisser.\nMichel le cuisinier de l'Auberge des Ours aurait besoin de 15 Viande Rouge.",
     "dialogue-orario-eina-harvestquest2": "Quête collecte | Michel (2)",
     "dialogue-orario-eina-harvestquest2desc": "Au vu de la récente pénurie de viande rouge dans la ville, michel aimerait tester de cuisiner des plats à base de Viande Coriace, peux tu lui en ramener 8 ?",
-    "dialogue-orario-eina-persoend": "Ah encore une chose.",
     //}
 
     //{ Psyloh
@@ -327,6 +329,27 @@
     "dialogue-orario-albert-persoansw2": "Toutes viandes qui se mange peut être vendue ici.",
     //}
 
+    //{
+    "dialogue-orario-lisa-placediscover": "Bienvenue cher aventurier dans la Bibliothèque des Lumières",
+    "dialogue-orario-lisa-placeqstn": "Oooh, c'est donc une bibliothèque",
+    "dialogue-orario-lisa-placeansw": "C'est aussi un lieu d'étude, grâce à nos archives et notre grande base de livre.",
+    "dialogue-orario-lisa-placeqstn2": "Et la bibliothèque n'a pas subis de dégats ?",
+    "dialogue-orario-lisa-placeansw2": "Non ! Moi, Lisa directrice de cette bibliothèque ne le permetrait pas !",
+    "dialogue-orario-lisa-placeend": "Je vois",
+    "dialogue-orario-lisa-menu": "Que puis-je faire pour vous Aventurier ?",
+    "dialogue-orario-lisa-menualt": "Bon, que puis-je faire pour vous Aventurier ?",
+    "dialogue-orario-lisa-placefqstn": "Quel est cet endroit ?",
+    "dialogue-orario-lisa-quests": "Est-ce que la directrice de la bibliothèque a besoin d'aide ?",
+    "dialogue-orario-lisa-bookqstn": "Vous acceptez quel genre de livre ?",
+    "dialogue-orario-lisa-bookansw": "Tout type de livre. Du roman à des livres historiques, des recettes de cuisine ect...",
+    "dialogue-orario-lisa-bookqstn2": "Vraiment tout ?",
+    "dialogue-orario-lisa-bookansw2": "Oui tout livre qui raconte une histoire ou renferme un savoir a sa place ici.",
+    "dialogue-orario-lisa-bookqstn3": "Donc si nous écrivons un livre il pourrais avoir sa place ici ?",
+    "dialogue-orario-lisa-bookansw3": "Oui si vous avez écris un livre qui raconte une réelle histoire ou des connaissance,\nil a tout a fait sa place ici !",
+    "dialogue-orario-lisa-bookqstn4": "Comment je peux avoir mon livre dans la bibliothèque ?",
+    "dialogue-orario-lisa-bookansw4": "Tu dois tout simplement contacter un *Administrateur* pour ajouter ton livre dans la bibliothèque.",
+    //}
+
     //Quests
 
     "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
@@ -372,6 +395,12 @@
     "quest-albert-redmeat-title":      "Besoin Urgent de viande",
     "quest-albert-redmeat-desc":       "Salut aventurier, j'ai besoin de viande rouge. N'ayant plus de réponse du fermier du village d'à côté, j'ai quand même besoin d'un apport en viande rouge pour ma boucherie.",
     "quest-albert-redmeat-obj":        "Viande rouge {0}/10",
+    //}
+
+    //{ Lisa
+    "quest-lisa-paper-title":      "Classification",
+    "quest-lisa-paper-desc":       "Bonjour aventurier, j'ai grandement besoin de papier pour la classification de mes livres. Sans ça je ne peux pas efficacement ranger la bibliothèque.",
+    "quest-lisa-paper-obj":        "Parchemin {0}/12",
     //}
 
     //{

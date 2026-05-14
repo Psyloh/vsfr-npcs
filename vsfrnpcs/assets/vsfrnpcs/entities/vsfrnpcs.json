@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,7 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert"] }
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa"] }
   ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
@@ -49,6 +49,7 @@
 	"vsfrnpc-male-none-igor",
 	"vsfrnpc-male-guard-jaime",
 	"vsfrnpc-male-none-albert",
+	"vsfrnpc-female-none-lisa",
   ],
   attributes: {
     tradePropsFileByType: {
@@ -718,6 +719,7 @@
 		  "*-igor": ["Igor"],
 		  "*-jaime": ["Jaime"],
 		  "*-albert": ["Albert"],
+		  "*-lisa": ["Lisa"],
         }
       },
 			//bloc Activity
@@ -832,6 +834,7 @@
 				"*-igor": ["vsfrnpcs:quest-igor-tinbronzeingot", "vsfrnpcs:quest-igor-ironingot"],
 				"*-jaime": ["vsfrnpcs:quest-jaime-ironfalx"],
 				"*-albert": ["vsfrnpcs:quest-albert-redmeat"],
+				"*-lisa": ["vsfrnpcs:quest-lisa-paper"]
 			}},
       { code: "entitystatetags" }
     ]
