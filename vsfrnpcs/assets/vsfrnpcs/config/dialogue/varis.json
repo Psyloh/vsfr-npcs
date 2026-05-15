@@ -1,0 +1,123 @@
+{
+	components: [
+		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			trigger: "revealname",
+            setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-firstmeet" },
+			],
+			jumpTo: "fmresponse"
+		},
+        {
+			code: "fmresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-fmresponse", jumpTo: "firstmeet2" },
+			]
+		},
+		{
+			code: "firstmeet2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-firstmeet2" },
+			],
+			jumpTo: "fmresponse2"
+		},
+        {
+			code: "fmresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-fmresponse2", jumpTo: "menu" },
+			]
+		},
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-menu" },
+			],
+			jumpTo: "playermenu"
+		},
+        {
+			code: "playermenu",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueqstn", jumpTo: "statueansw" },
+                { value: "vsfrnpcs:dialogue-orario-varis-close", jumpTo: "close" },
+			]
+		},
+		{
+			code: "statueansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueansw" },
+			],
+			jumpTo: "statueqstn2"
+		},
+        {
+			code: "statueqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueqstn2", jumpTo: "statueansw2" },
+			]
+		},
+		{
+			code: "statueansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueansw2" },
+			],
+			jumpTo: "statueqstn3"
+		},
+        {
+			code: "statueqstn3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueqstn3", jumpTo: "statueansw3" },
+			]
+		},
+		{
+			code: "statueansw3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueansw3" },
+			],
+			jumpTo: "statueend"
+		},
+        {
+			code: "statueend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-varis-statueend", jumpTo: "close" },
+			]
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		},
+    ]
+}

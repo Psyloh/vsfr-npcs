@@ -8,6 +8,7 @@
 
     // Dialogues
     //{ Dull answers
+    "dialogue-player-nothingtosay": "...",
     "dialogue-player-ok": "Ok",
     "dialogue-player-ok2": "D'accord",
     "dialogue-player-yesofcourse": "Oui, bien sûr!",
@@ -348,6 +349,55 @@
     "dialogue-orario-lisa-bookansw3": "Oui si vous avez écris un livre qui raconte une réelle histoire ou des connaissance,\nil a tout a fait sa place ici !",
     "dialogue-orario-lisa-bookqstn4": "Comment je peux avoir mon livre dans la bibliothèque ?",
     "dialogue-orario-lisa-bookansw4": "Tu dois tout simplement contacter un *Administrateur* pour ajouter ton livre dans la bibliothèque.",
+    //}
+
+    //{
+    "dialogue-orario-varis-firstmeet": "Bonjour toi, je m'appelle Varis.",
+    "dialogue-orario-varis-fmresponse": "Et que faites vous ?",
+    "dialogue-orario-varis-firstmeet2": "Moi ? Rien, je tourne autour oisivement.",
+    "dialogue-orario-varis-fmresponse2": "D'accord...",
+    "dialogue-orario-varis-menu": "Cette statue est belle n'est-ce pas ?",
+    "dialogue-orario-varis-statueqstn": "Que représente cette statue ?",
+    "dialogue-orario-varis-statueansw": "Elle représente les bâtisseurs.",
+    "dialogue-orario-varis-statueqstn2": "Les bâtisseurs ?",
+    "dialogue-orario-varis-statueansw2": "Oui elle représente tout ceux ayant apporté une aide à la construction de ce monde.",
+    "dialogue-orario-varis-statueqstn3": "Et qui sont ils ?",
+    "dialogue-orario-varis-statueansw3": "Eh bien il y a Psyloh, Tonyops, Decto, Jalihan, Wolfgrim, Architoc, Rodjy et enfin HunterFox.",
+    "dialogue-orario-varis-statueend": "Merci, je ne les oublierais pas",
+    //}
+
+    //{Generic Guard
+    "dialogue-orario-genericpalaceentryguard-notuto": "Bonjour étranger, que faites là ? L'accès est interdit, faites demi tour ?",
+    "dialogue-orario-genericpalaceentryguard-notutoansw": "D'accord j'y vais.",
+    "dialogue-orario-genericpalaceentryguard-menu": "Bonjour aventurier, l'entrée du palais est fermer à cause de la récente tempête temporelle.",
+    "dialogue-orario-genericpalaceentryguard-bye" : "D'accord merci",
+    "dialogue-orario-genericpalaceentryguard-askquest" : "Est-ce que les gardes du palais auraient besoin d'aide ?",
+    "dialogue-orario-genericpalaceentryguard-questansw": "Non, mais tu pourrais voir avec le Chef de la Garde.",
+    //}
+
+    //{
+    "dialogue-orario-sebas-firstmeet": "Que me voulez vous ?",
+    "dialogue-orario-sebas-firstansw": "J'étais curieux de savoir qui vous étiez.",
+    "dialogue-orario-sebas-firstmeet2": "Je suis Sébas, vous voila ravis, maintenant partez.",
+    "dialogue-orario-sebas-menu": "Encore vous ? Que me voulez vous ?",
+    "dialogue-orario-sebas-quests": "Auriez vous un travail pour moi ?",
+    "dialogue-orario-sebas-curiosityqstn": "Et que faites vous ici ?",
+    "dialogue-orario-sebas-curiosityansw": "J'attends. Maintenant partez",
+    "dialogue-orario-sebas-curiosityqstn2": "Qu'attendez vous ?",
+    "dialogue-orario-sebas-curiosityansw2": "Tu es donc décider à me poser un tas de question, n'est-ce pas ?",
+    "dialogue-orario-sebas-curiosityqstn3": "Je suis quelqu'un de nature curieuse",
+    "dialogue-orario-sebas-curiosityansw3": "J'attends des personnes pour un évènement qui ce veut discret.",
+    "dialogue-orario-sebas-curiosityqstn4": "Et que faites vous pour cet évènement ?",
+    "dialogue-orario-sebas-curiosityansw4": "Je suis un sorte de majordome, j'acceuille et dirige les personnes conviés à cet évènement.",
+    "dialogue-orario-sebas-curiosityqstn5": "Et quand ce déroule cet évènement ?",
+    "dialogue-orario-sebas-curiosityansw5": "Ne savez vous donc pas écouter ? Cet évènement est secret. Je ne vais donc pas divulguez la date de cet évènement.\n\nVous pouvez juste savoir qu'il a lieux deux fois par mois.",
+    "dialogue-orario-sebas-curiosityqstn6": "Comment peut-on y être convié ?",
+    "dialogue-orario-sebas-curiosityansw6": "Vous ne savez même pas ce qu'est cet évènement et vous voulez y entrez.\nVous êtes d'une curiosité sans fin...\n\nVous le saurez bien assez tôt comment y parvenir.",
+    "dialogue-orario-sebas-curiosityend": "*Hmm je dois donc revenir vers lui plus tard* Au revoir.",
+    "dialogue-orario-sebas-obj": "dialogue",
+
+
+
     //}
 
     //Quests

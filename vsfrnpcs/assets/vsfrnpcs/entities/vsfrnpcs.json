@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa|varis)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,8 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa"] }
-  ],
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa", "varis"] }  ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
     "vsfrnpc-male-none-axel",
@@ -50,6 +49,7 @@
 	"vsfrnpc-male-guard-jaime",
 	"vsfrnpc-male-none-albert",
 	"vsfrnpc-female-none-lisa",
+	"vsfrnpc-male-none-varis",
   ],
   attributes: {
     tradePropsFileByType: {
@@ -720,6 +720,7 @@
 		  "*-jaime": ["Jaime"],
 		  "*-albert": ["Albert"],
 		  "*-lisa": ["Lisa"],
+		  "*-varis": ["Varis"],
         }
       },
 			//bloc Activity
