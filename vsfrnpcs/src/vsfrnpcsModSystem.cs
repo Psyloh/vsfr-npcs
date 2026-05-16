@@ -7,6 +7,7 @@ using System.Linq;
 using System.Numerics;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Xml.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -19,6 +20,7 @@ using Vintagestory.Common;
 using Vintagestory.GameContent;
 using Vintagestory.Server;
 using Vintagestory.ServerMods;
+using Vintagestory.API.Common.Entities;
 
 namespace vsfrnpcs
 {
@@ -45,7 +47,7 @@ namespace vsfrnpcs
 				var y = data["y"].AsString("~0");
 				var z = data["z"].AsString("~0");
 
-				Helpers.TeleportXYZ(player, $"{x} {y} {z}");
+				Helpers.TeleportXYZ(api, player, $"{x} {y} {z}");
 			}
 			else if (value == "teleportRole")
 			{
@@ -57,7 +59,13 @@ namespace vsfrnpcs
 				}
 
 				var spawnPos = role.DefaultSpawn;
-				Helpers.TeleportXYZ(player, $"{spawnPos.x} {spawnPos.y ?? ""} {spawnPos.z}");
+				var cmd = new StringBuilder($"{spawnPos.x} ");
+				if (spawnPos.y != null)
+				{
+					cmd.Append($"{spawnPos.y} ");
+				}
+				cmd.Append($"{spawnPos.z} ");
+				Helpers.TeleportXYZ(api, player, cmd.ToString());
 			}
 			else if (value == "playsound")
 			{
@@ -67,14 +75,14 @@ namespace vsfrnpcs
 			}
 			else if (value == "checkDungeon")
 			{
-				var dungeon = data["dungeon"].AsString("");
+				var dungeon = data["name"].AsString("");
 				var delay = data["delay"].AsDouble(0);
 
 				Helpers.CheckDungeon(api, __instance.entity, dungeon, delay);
 			}
 			else if (value == "resetDungeon")
 			{
-				var id = data["id"].AsString("");
+				var id = data["name"].AsString("");
 				Helpers.ResetDungeon(api, id);
 			}
 			else if (value == "setRole")
@@ -98,7 +106,7 @@ namespace vsfrnpcs
 			};
 		}
 
-		public static void TeleportXYZ(IServerPlayer player, string coords)
+		public static void TeleportXYZ(ICoreServerAPI api, IServerPlayer player, string coords)
 		{
 			var caller = AdminCaller;
 			caller.Player = player;
@@ -111,7 +119,7 @@ namespace vsfrnpcs
 			api.ChatCommands.Execute("tp", args);
 		}
 
-		public static void CheckDungeon(ICoreServerAPI api, EntityHandle entity, string dungeonName, double delay)
+		public static void CheckDungeon(ICoreServerAPI api, Entity entity, string dungeonName, double delay)
 		{
 			var tree = entity.WatchedAttributes.GetOrAddTreeAttribute("resetDungeon");
 			
@@ -121,6 +129,8 @@ namespace vsfrnpcs
 
 			tree.SetDouble(dungeonName, remaining <= 0 ? 0 : remaining);
 			entity.WatchedAttributes.MarkPathDirty("resetDungeon");
+
+			api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, $"Okey, variable is {entity.WatchedAttributes.GetTreeAttribute("resetDungeon")[dungeonName]}", EnumChatType.Notification);
 		}
 
 		public static void ResetDungeon(ICoreServerAPI api, string id)
@@ -137,7 +147,8 @@ namespace vsfrnpcs
 			var modSys = api.ModLoader.GetModSystem<MainModSystem>();
 			modSys.SetLastReset(id, api.World.Calendar.TotalHours);
 
-			api.SendMessageToGroup(GlobalConstants.ServerInfoChatGroup, Lang.Get("game:reset-dungeon-message"), EnumChatType.Notification);
+			var message = Lang.Get("game:reset-dungeon-message");
+			api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
 			api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
 			{
 				Caller = AdminCaller,
@@ -154,13 +165,14 @@ namespace vsfrnpcs
 	public class MainModSystem : ModSystem
 	{
 		Dictionary<string, double>? _dungeonReset;
+		Dictionary<string, double> DungeonReset => _dungeonReset ?? throw new Exception("Dungeon reset registry is null");
 
 		ICoreServerAPI? _api;
 		ICoreServerAPI Api => _api ?? throw new Exception("Api is null");
 
 		public double GetLastReset(string dungeonName)
 		{
-			if (_dungeonReset.TryGetValue(dungeonName, out var time))
+			if (DungeonReset.TryGetValue(dungeonName, out var time))
 			{
 				return time;
 			}
@@ -169,12 +181,12 @@ namespace vsfrnpcs
 
 		public void SetLastReset(string dungeonName, double time)
 		{
-			_dungeonReset[dungeonName] = time;
+			DungeonReset[dungeonName] = time;
 		}
 
 		public override void StartServerSide(ICoreServerAPI api)
 		{
-			Api = api;
+			_api = api;
 
 			Harmony harmony = new(Mod.Info.ModID);
 			harmony.PatchAll();
@@ -193,7 +205,7 @@ namespace vsfrnpcs
 
 		void Save()
 		{
-			if (_dungeonReset.Count > 0)
+			if (DungeonReset.Count > 0)
 			{
 				Api.WorldManager.SaveGame.StoreData("dungeonReset", _dungeonReset);
 			}

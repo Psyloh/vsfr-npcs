@@ -14,7 +14,7 @@
         },
         {
           value: "Régénère les archives!",
-          jumpTo: "resetArchives"
+          jumpTo: "checkArchives"
         },
         {
           value: "Téléporte-moi!",
@@ -23,11 +23,34 @@
       ]
     },
     {
+      code: "checkArchives",
+      trigger: "checkDungeon",
+      triggerData: {
+        name: "resonancearchive",
+        delay: 2
+      },
+      jumpTo: "canResetArchives"
+    },
+    {
+      code: "canResetArchives",
+      type: "condition",
+      variable: "entity.resetDungeon.resonancearchive",
+      isValue: 0,
+      thenJumpTo: "resetArchives",
+      elseJumpTo: "toosoon"
+    },
+    {
+      code: "toosoon",
+      type: "talk",
+      text: [ { value: "Ji pi pas :-/" } ],
+      jumpTo: "thx"
+    },
+    {
       code: "resetArchives",
       type: "talk",
-      trigger: "resetdungeon",
+      trigger: "resetDungeon",
       triggerData: {
-        id: "resonancearchive"
+        name: "resonancearchive"
       },
       text: [ { value: "Vos désirs font désordre!" } ],
       jumpTo: "thx"
