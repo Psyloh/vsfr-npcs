@@ -2,6 +2,7 @@
   components: [
     {
       type: "talk",
+      owner: "npc",
       text: [ { value: "Hamdoulilalala ♫♪ Kiss ti veux?" } ]
     },
     {
@@ -24,6 +25,7 @@
     },
     {
       code: "checkArchives",
+      owner: "npc",
       trigger: "checkDungeon",
       triggerData: {
         name: "resonancearchive",
@@ -33,27 +35,28 @@
     },
     {
       code: "canResetArchives",
+      owner: "npc",
       type: "condition",
-      variable: "entity.resetDungeon.resonancearchive",
-      isValue: 0,
-      thenJumpTo: "resetArchives",
-      elseJumpTo: "toosoon"
+      variable: "global.resonancearchive",
+      isNotValue: "true",
+      thenJumpTo: "tooSoon",
+      elseJumpTo: "resetArchives"
     },
     {
-      code: "toosoon",
+      code: "tooSoon",
+      owner: "npc",
       type: "talk",
-      text: [ { value: "Ji pi pas :-/" } ],
+      text: [ { value: "Ci trop tôt :-/" } ],
       jumpTo: "thx"
     },
     {
       code: "resetArchives",
-      type: "talk",
+      owner: "npc",
       trigger: "resetDungeon",
       triggerData: {
         name: "resonancearchive"
       },
-      text: [ { value: "Vos désirs font désordre!" } ],
-      jumpTo: "thx"
+      jumpTo: "close"
     },
     {
       code: "testTeleport",
@@ -81,7 +84,8 @@
       text: [ { value: "Merci Bobby!" } ]
     },
     {
-      code: "close"
+      code: "close",
+      trigger: "closedialogue"
     }
   ]
 }
