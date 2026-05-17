@@ -16,13 +16,13 @@
       "*": {
         showtagonlywhentargeted: true,
         triggeredNameReveal: true,
-        unrevealedDisplayName: "vsfrnpcs:nametag-vsfrnpc-{sex}-unrevealed"
+        unrevealedDisplayName: "vsfrnpcs:nametag-vsfrnpc-{sex}-{work}-unrevealed"
       },
     },
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -30,19 +30,29 @@
   //bloc Variants
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac"] }
+	{ code: "work", states: ["none", "guard"]},
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert"] }
   ],
   AllowedVariants: [
-    "vsfrnpc-female-marie",
-    "vsfrnpc-male-axel",
-    "vsfrnpc-male-john",
-    "vsfrnpc-male-thomas",
-    "vsfrnpc-male-michel",
-    "vsfrnpc-male-obliviac"
+    "vsfrnpc-female-none-marie",
+    "vsfrnpc-male-none-axel",
+    "vsfrnpc-male-none-john",
+    "vsfrnpc-male-none-thomas",
+    "vsfrnpc-male-none-michel",
+    "vsfrnpc-male-none-obliviac",
+	"vsfrnpc-male-guard-christian",
+	"vsfrnpc-female-guard-christina",
+	"vsfrnpc-female-none-eina",
+	"vsfrnpc-female-guard-genericguard",
+	"vsfrnpc-male-guard-genericguard",
+	"vsfrnpc-male-none-psyloh",
+	"vsfrnpc-male-none-igor",
+	"vsfrnpc-male-guard-jaime",
+	"vsfrnpc-male-none-albert",
   ],
   attributes: {
     tradePropsFileByType: {
-      "@.*-(marie|michel)": "vsfrnpcs:config/tradelists/{name}",
+      "@.*-(marie|michel|psyloh|igor|albert)": "vsfrnpcs:config/tradelists/{name}",
     },
 		voiceSoundsByType: {
       "*-male-*":
@@ -98,7 +108,7 @@
 				waist:[]
 			},
 			"*-axel": {
-				"skin-face":[{Code:"skin-face-blacksmith"}],
+				"skin-face":[{Code:"skin-face-normal1"}],
 				"hair-base":[{Code:"hair-02", Weight:1.0}],
 				"hair-base2":[],
 				"hair-base3":[],
@@ -122,7 +132,7 @@
 				shoulder:[],
 				upperbody:[{Code:"upperbody-male-longsleeve-musician"}],
 				upperbodyover:[],
-				waist:[]
+				"waist":[{Code: "waist-guard"}],
 			},
 			"*-john": {
 				"skin-face":[{Code:"skin-face-blacksmith"}],
@@ -150,6 +160,47 @@
 				upperbody:[{Code:"upperbody-male-shortsleeve-blacksmith"}],
 				upperbodyover:[],
 				waist:[{Code:"waist-winter2"}]
+			},
+			"*-thomas": {
+				"skin-face":[{Code:"skin-face-normal1"}],
+				"hair-base":[{Code:"hair-02"}],
+				haircolor:[{Code:"lightgray",Weight:1.0}],
+				"hair-base2":[],
+				"hair-base3":[],
+				faceextra:[],
+				beard:[],
+				mustache:[],
+				iris:[{Code:"iris-9",Weight:1.0}],
+				eyebrows:[{Code:"eyebrows-normal5",Weight:1.0}],
+				lips:[{Code:"lips-normal11",Weight:1.0}],
+				sclera:[{Code:"sclera-normal1",Weight:1.0}],
+				bodyskin:[{Code:"bodyskin-3",Weight:1.0}],
+				tatoo:[],
+				scar:[],
+				arm:[],
+				face:[],
+				foot:[{Code:"foot-tailor"}],
+				hand:[{Code:"hand-alchemist"}],
+				head:[],
+				"waist":[{Code: "waist-alchemist"}],
+				lowerbody:[{Code:"lowerbody-pants-shepherd"}],
+				neck:[],
+				shoulder:[{Code:"shoulder-male-shortsleeve-peasant1"}],
+				upperbody:[],
+				upperbodyover:[],
+			},
+			"*-guard-*": {
+				tatoo:[],
+				face:[],
+				foot:[{Code:"foot-guard"}],
+				hand:[{Code:"hand-gloves"}],
+				head:[],
+				lowerbody:[{Code:"lowerbody-pants-guard"}],
+				neck:[],
+				shoulder:[{Code:"shoulder-{sex}-shortsleeve-guard",Weight:1.0}],
+				upperbody:[{Code:"upperbody-{sex}-shortsleeve-guard"}],
+				upperbodyover:[],
+				waist:[{Code:"waist-guard"}]
 			},
 			"*-male-*": {
 				"skin-face":[{Code:"skin-face-blacksmith"}],
@@ -653,11 +704,20 @@
         //bloc Nametag
         code: "nametag",
         selectFromRandomNameByType: { 
-          "*-marie": ["Marie"] ,
+          "*-marie": ["Marie"],
           "*-axel": ["Axel"],
           "*-john": ["John"],
           "*-thomas": ["Thomas"],
           "*-michel": ["Michel"],
+		  "*-obliviac": ["PNJ Admin : Obliviac"],
+		  "*-christian": ["Christian"],
+		  "*-christina": ["Christina"],
+		  "*-eina": ["Eina"],
+		  "*-genericguard": ["Garde"],
+		  "*-psyloh": ["Psyloh"],
+		  "*-igor": ["Igor"],
+		  "*-jaime": ["Jaime"],
+		  "*-albert": ["Albert"],
         }
       },
 			//bloc Activity
@@ -765,7 +825,13 @@
       },
       { code: "conversable" },
 			{ code: "questgiver", questsByType: {
-				"*-michel": ["vsfrnpcs:quest-michel-bushmeat", "vsfrnpcs:quest-michel-redmeat"]
+				"*-michel": ["vsfrnpcs:quest-michel-bushmeat", "vsfrnpcs:quest-michel-redmeat"],
+				"*-marie": ["vsfrnpcs:quest-marie-clayoven"],
+				"*-christian": ["vsfrnpcs:quest-christian-blacksmithsword"],
+				"*-psyloh": ["vsfrnpcs:quest-psyloh-drinkardgroup"],
+				"*-igor": ["vsfrnpcs:quest-igor-tinbronzeingot", "vsfrnpcs:quest-igor-ironingot"],
+				"*-jaime": ["vsfrnpcs:quest-jaime-ironfalx"],
+				"*-albert": ["vsfrnpcs:quest-albert-redmeat"],
 			}},
       { code: "entitystatetags" }
     ]

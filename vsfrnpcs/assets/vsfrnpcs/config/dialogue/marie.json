@@ -165,13 +165,20 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-bye", jumpTo:"close"},
-				{ value: "vsfrnpcs:dialogue-orario-marie-trade", jumpTo: "opentrade"}
+				{ value: "vsfrnpcs:dialogue-orario-marie-trade", jumpTo: "opentrade"},
+				{ value: "vsfrnpcs:dialogue-orario-npc-quests", jumpTo: "quests" }
 			]
 		},
 		{
 			code: "opentrade",
 			owner: "npc",
 			trigger: "opentrade"
+		},
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
 		},
         {
 			code: "close",

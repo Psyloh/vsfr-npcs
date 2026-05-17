@@ -1,8 +1,10 @@
 {
     //Vanilla Dialogue UIs Titles
-    "tradingwindow-citizen-male-axel": "{0} - Guide des Nouveaux",
-    "tradingwindow-citizen-female-marie": "{0} - Boulangère",
-    "tradingwindow-citizen-male-john": "{0} - Ancien Mercenaire",
-    "tradingwindow-citizen-male-thomas": "{0} - Gardien des Translocateurs",
-    "tradingwindow-vsfrnpc-male-michel": "{0} - Cuisinier",
+    "tradingwindow-vsfrnpc-male-none-axel": "{0} - Guide des Nouveaux",
+    "tradingwindow-vsfrnpc-female-none-marie": "{0} - Boulangère",
+    "tradingwindow-vsfrnpc-male-none-john": "{0} - Ancien Mercenaire",
+    "tradingwindow-vsfrnpc-male-none-thomas": "{0} - Gardien des Translocateurs",
+    "tradingwindow-vsfrnpc-male-none-michel": "{0} - Cuisinier",
+    "tradingwindow-vsfrnpc-male-none-obliviac": "{0} - PNJ Admin",
+
 }

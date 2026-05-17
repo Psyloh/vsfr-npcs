@@ -62,8 +62,8 @@
       code: "testTeleport",
       trigger: "teleport",
       triggerData: {
-        x: "~5",
-        z: "~7"
+        x: "0",
+        z: "0"
       },
       jumpTo: "close"
     },
@@ -72,7 +72,22 @@
       type: "talk",
       setVariables: {
         "player.hasmetmarie": "false",
-        "player.hasdonetuto": "false"
+        "player.hasdonetuto": "false",
+        "player.hasmetjail": "false",
+        "entity.hasmet": "false",
+        "player.hasfinishedq": "false",
+        "player.hasfinishedjail": "false",
+        "player.knowchristian": "false",
+        "player.knowchristina": "false",
+        "player.jaimeperso": "false",
+        "player.jaimeperso2": "false",
+        "player.jaimeperso3": "false",
+        "player.jaimepersoend": "false",
+        "player.johngive": "false",
+        "player.gavebread": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
       },
       text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
       jumpTo: "thx"

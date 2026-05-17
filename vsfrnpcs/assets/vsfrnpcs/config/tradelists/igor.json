@@ -1,0 +1,193 @@
+{
+    money: {
+        avg: 45,
+        var: 8
+    },
+    selling: {
+        maxItems: 14,
+        list: [
+            {
+                code: "game:metaleplate-tinbronze",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 8,
+                    var: 4
+                },
+                price: {
+                    avg: 11,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            },
+            {
+                code: "game:metaleplate-iron",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 6,
+                    var: 2
+                },
+                price: {
+                    avg: 15,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            },
+            {
+                code: "game:blade-falx-tinbronze",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 3,
+                    var: 2
+                },
+                price: {
+                    avg: 15,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            },
+            {
+                code: "game:blade-falx-iron",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 1,
+                    var: 0
+                },
+                price: {
+                    avg: 24,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            },
+            {
+                code: "game:knife-generic-tinbronze",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 4,
+                    var: 1
+                },
+                price: {
+                    avg: 12,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            },
+            {
+                code: "game:knife-generic-iron",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 2,
+                    var: 1
+                },
+                price: {
+                    avg: 18,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            },
+            {
+                code: "game:metalnailsandstrips-tinbronze",
+                type: "item",
+                stacksize: 2,
+                stock: {
+                    avg: 6,
+                    var: 4
+                },
+                price: {
+                    avg: 6,
+                    var: 2
+                },
+                attributes: {
+                    type: "normal"
+                }
+            }
+        ]
+    },
+    buying: {
+        maxItems: 14,
+        list: [
+            {
+                code: "game:ore-lignite",
+                type: "item",
+                stacksize: 2,
+                stock: {
+                    avg: 16,
+                    var: 4
+                },
+                price: {
+                avg: 1,
+                var: 0
+                }
+            },
+            {
+                code: "game:ore-bituminouscoal",
+                type: "item",
+                stacksize: 2,
+                stock: {
+                    avg: 12,
+                    var: 2
+                },
+                price: {
+                avg: 2,
+                var: 0
+                }
+            },
+            {
+                code: "game:charcoal",
+                type: "item",
+                stacksize: 2,
+                stock: {
+                    avg: 12,
+                    var: 2
+                },
+                price: {
+                avg: 2,
+                var: 3
+                }
+            },
+            {
+                code: "game:ingot-tinbronze",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 6,
+                    var: 2
+                },
+                price: {
+                avg: 3,
+                var: 1
+                }
+            },
+            {
+                code: "game:ingot-iron",
+                type: "item",
+                stacksize: 1,
+                stock: {
+                    avg: 3,
+                    var: 2
+                },
+                price: {
+                avg: 4,
+                var: 0
+                }
+            }
+        ]
+    }
+}
