@@ -2,7 +2,7 @@
   components: [
     {
       type: "talk",
-      trigger: "revealname",
+      owner: "npc",
       text: [ { value: "Hamdoulilalala ♫♪ Kiss ti veux?" } ]
     },
     {
@@ -15,7 +15,7 @@
         },
         {
           value: "Régénère les archives!",
-          jumpTo: "resetArchives"
+          jumpTo: "checkArchives"
         },
         {
           value: "Téléporte-moi!",
@@ -24,14 +24,39 @@
       ]
     },
     {
-      code: "resetArchives",
-      type: "talk",
-      trigger: "resetdungeon",
+      code: "checkArchives",
+      owner: "npc",
+      trigger: "checkDungeon",
       triggerData: {
-        id: "resonancearchive"
+        name: "resonancearchive",
+        delay: 2
       },
-      text: [ { value: "Vos désirs font désordre!" } ],
+      jumpTo: "canResetArchives"
+    },
+    {
+      code: "canResetArchives",
+      owner: "npc",
+      type: "condition",
+      variable: "global.resonancearchive",
+      isNotValue: "true",
+      thenJumpTo: "tooSoon",
+      elseJumpTo: "resetArchives"
+    },
+    {
+      code: "tooSoon",
+      owner: "npc",
+      type: "talk",
+      text: [ { value: "Ci trop tôt :-/" } ],
       jumpTo: "thx"
+    },
+    {
+      code: "resetArchives",
+      owner: "npc",
+      trigger: "resetDungeon",
+      triggerData: {
+        name: "resonancearchive"
+      },
+      jumpTo: "close"
     },
     {
       code: "testTeleport",
@@ -74,7 +99,8 @@
       text: [ { value: "Merci Bobby!" } ]
     },
     {
-      code: "close"
+      code: "close",
+      trigger: "closedialogue"
     }
   ]
 }
