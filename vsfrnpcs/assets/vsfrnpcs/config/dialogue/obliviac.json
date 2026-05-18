@@ -105,5 +105,79 @@
           type: "talk",
           text: [ { value: "Merci Bobby!" } ]
         }
+        name: "resonancearchive",
+        delay: 2
+      },
+      jumpTo: "canResetArchives"
+    },
+    {
+      code: "canResetArchives",
+      owner: "npc",
+      type: "condition",
+      variable: "global.resonancearchive",
+      isNotValue: "true",
+      thenJumpTo: "tooSoon",
+      elseJumpTo: "resetArchives"
+    },
+    {
+      code: "tooSoon",
+      owner: "npc",
+      type: "talk",
+      text: [ { value: "Ci trop tôt :-/" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "resetArchives",
+      owner: "npc",
+      trigger: "resetDungeon",
+      triggerData: {
+        name: "resonancearchive"
+      },
+      jumpTo: "close"
+    },
+    {
+      code: "testTeleport",
+      trigger: "teleport",
+      triggerData: {
+        x: "0",
+        z: "0"
+      },
+      jumpTo: "close"
+    },
+    {
+      code: "resetVars",
+      type: "talk",
+      setVariables: {
+        "player.hasmetmarie": "false",
+        "player.hasdonetuto": "false",
+        "player.hasmetjail": "false",
+        "entity.hasmet": "false",
+        "player.hasfinishedq": "false",
+        "player.hasfinishedjail": "false",
+        "player.knowchristian": "false",
+        "player.knowchristina": "false",
+        "player.jaimeperso": "false",
+        "player.jaimeperso2": "false",
+        "player.jaimeperso3": "false",
+        "player.jaimepersoend": "false",
+        "player.johngive": "false",
+        "player.gavebread": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
+        "player.hasdonetuto": "false",
+      },
+      text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "thx",
+      owner: "player",
+      type: "talk",
+      text: [ { value: "Merci Bobby!" } ]
+    },
+    {
+      code: "close",
+      trigger: "closedialogue"
+    }
   ]
 }

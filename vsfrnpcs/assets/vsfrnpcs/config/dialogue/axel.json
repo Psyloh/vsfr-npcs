@@ -1,6 +1,33 @@
 {
 	components: [
 		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasmetjail",
+			isNotValue: "true",
+			thenJumpTo: "firstmeetjail",
+			elseJumpTo: "testfinishedquestion"
+		},
+		{
+			code: "testfinishedquestion",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasfinishedq",
+			isNotValue: "true",
+			thenJumpTo: "choicequestion",
+			elseJumpTo: "testfinishedjail"
+		},
+		{
+			code: "testfinishedjail",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasfinishedjail",
+			isNotValue: "true",
+			thenJumpTo: "goodanswer2",
+			elseJumpTo: "testhasmet"
+		},
+		{
 			code: "testhasmet",
 			owner: "npc",
 			type: "condition",
@@ -26,6 +53,409 @@
 			isNotValue: "true",
 			thenJumpTo: "hasnotmetmarie",
 			elseJumpTo: "welcomeback"
+		},
+		{
+			code: "firstmeetjail",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail" },
+			],
+			jumpTo: "fmjresponse"
+		},
+		{
+			code: "fmjresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmjresponse", jumpTo: "firstmeetjail2" }
+			],
+		},
+		{
+			code: "firstmeetjail2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail2" },
+			],
+			jumpTo: "fmjresponse2"
+		},
+		{
+			code: "fmjresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmjresponse2", jumpTo: "firstmeetjail3" }
+			],
+		},
+		{
+			code: "firstmeetjail3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail3" },
+			],
+			jumpTo: "fmjresponse3"
+		},
+		{
+			code: "fmjresponse3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmjresponse3", jumpTo: "firstmeetjail4" }
+			],
+		},
+		{
+			code: "firstmeetjail4",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail4" },
+			],
+			jumpTo: "fmjresponse4"
+		},
+		{
+			code: "fmjresponse4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-fmjresponse4", jumpTo: "firstmeetjail5" }
+			],
+		},
+		{
+			code: "firstmeetjail5",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail5" },
+			],
+			jumpTo: "fmjresponse5"
+		},
+		{
+			code: "fmjresponse5",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ok2", jumpTo: "choicequestion" }
+			],
+		},
+		{
+			code: "choicequestion",
+			owner: "npc",
+			setVariables: {"player.hasmetjail": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstchoicequestion" },
+			],
+			jumpTo: "firstchoicequestion"
+		},
+		{
+			code: "firstchoicequestion",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-question1", jumpTo:"question1"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-question2", jumpTo:"question2"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-question3", jumpTo:"question3"}
+			]
+		},
+		{
+			code: "question1",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal1" },
+			],
+			jumpTo: "question1answer"
+		},
+		{
+			code: "question1answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion1-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion1-2", jumpTo:"2ndchoicequestion"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion1-3", jumpTo:"badanswer"}
+			]
+		},
+		{
+			code: "question2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal2" },
+			],
+			jumpTo: "question2answer"
+		},
+		{
+			code: "question2answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion2-1", jumpTo:"2ndchoicequestion"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion2-2", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion2-3", jumpTo:"badanswer"}
+			]
+		},
+		{
+			code: "question3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal3" },
+			],
+			jumpTo: "question3answer"
+		},
+		{
+			code: "question3answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion3-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion3-2", jumpTo:"2ndchoicequestion"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion3-3", jumpTo:"badanswer"}
+			]
+		},
+		{
+			code: "2ndchoicequestion",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-goodanswer" },
+			],
+			jumpTo: "choice2ndquestion"
+		},
+		{
+			code: "choice2ndquestion",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-question4", jumpTo:"question4"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-question5", jumpTo:"question5"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-question6", jumpTo:"question6"}
+			]
+		},
+		{
+			code: "question4",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal4" },
+			],
+			jumpTo: "question4answer"
+		},
+		{
+			code: "question4answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion4-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion4-2", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion4-3", jumpTo:"3rdchoicequestion"}
+			]
+		},
+		{
+			code: "question5",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal5" },
+			],
+			jumpTo: "question5answer"
+		},
+		{
+			code: "question5answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion5-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion5-2", jumpTo:"3rdchoicequestion"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion5-3", jumpTo:"badanswer"}
+			]
+		},
+		{
+			code: "question6",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal6" },
+			],
+			jumpTo: "question6answer"
+		},
+		{
+			code: "question6answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion6-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion6-2", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion6-3", jumpTo:"3rdchoicequestion"}
+			]
+		},
+		{
+			code: "3rdchoicequestion",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-goodanswer" },
+			],
+			jumpTo: "choice3rdquestion"
+		},
+		{
+			code: "choice3rdquestion",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-question7", jumpTo:"question7"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-question8", jumpTo:"question8"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-question9", jumpTo:"question9"}
+			]
+		},
+		{
+			code: "question7",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal7" },
+			],
+			jumpTo: "question7answer"
+		},
+		{
+			code: "question7answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion7-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion7-2", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion7-3", jumpTo:"finalquestion"}
+			]
+		},
+		{
+			code: "question8",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal8" },
+			],
+			jumpTo: "question8answer"
+		},
+		{
+			code: "question8answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion8-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion8-2", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion8-3", jumpTo:"finalquestion"}
+			]
+		},
+		{
+			code: "question9",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal9" },
+			],
+			jumpTo: "question9answer"
+		},
+		{
+			code: "question9answer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion9-1", jumpTo:"badanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion9-2", jumpTo:"finalquestion"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion9-3", jumpTo:"badanswer"}
+			]
+		},
+		{
+			code: "finalquestion",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal10" },
+			],
+			jumpTo: "finalquestionanswer"
+		},
+		{
+			code: "finalquestionanswer",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion10-1", jumpTo:"goodfanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion10-2", jumpTo:"goodfanswer"},
+				{ value: "vsfrnpcs:dialogue-orario-axel-ansquestion10-3", jumpTo:"goodfanswer"}
+			]
+		},
+		{
+			code: "goodfanswer",
+			owner: "npc",
+			setVariables: {"player.hasfinishedq": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-goodfanswer" },
+			],
+			jumpTo: "playeroutrage"
+		},
+		{
+			code: "badanswer",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-badanswer" },
+			],
+			jumpTo: "playerdisapointed"
+		},
+		{
+			code: "playerdisapointed",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail2", jumpTo: "close" }
+			],
+		},
+		{
+			code: "playeroutrage",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-outrage", jumpTo: "goodfanswer2" }
+			],
+		},
+		{
+			code: "goodfanswer2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-goodfanswer2" },
+			],
+			jumpTo: "playerthanks"
+		},
+		{
+			code: "playerthanks",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-axel-thanks", jumpTo: "teleport" }
+			],
+		},
+		{
+			code: "teleport",
+ 		    trigger: "teleport",
+      		triggerData: {
+        		x: "0",
+        		z: "0"
+    		},
+      		jumpTo: "setrole"
+		},
+		{
+			code: "setrole",
+			setVariables: {"player.hasfinishedjail": "true"},
+ 		    trigger: "setrole",
+      		triggerData: {
+        		role: "suplayer"
+    		},
+      		jumpTo: "close"
 		},
 		{
 			code: "firstmeet",

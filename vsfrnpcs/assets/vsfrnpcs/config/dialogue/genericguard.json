@@ -1,0 +1,70 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericguard-notuto" },
+			],
+            jumpto: "notutobye"
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christian-menu" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericguard-askquest", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-orario-genericguard-bye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "quest",
+			owner: "npc",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericguard-questansw" },
+            ],
+			jumpTo: "questbye"
+		},
+        {
+            code: "questbye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+        {
+            code: "notutobye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericguard-notutoansw", jumpto: "close"},
+            ]
+        },
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+    ]
+}

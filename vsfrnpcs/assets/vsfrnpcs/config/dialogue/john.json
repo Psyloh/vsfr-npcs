@@ -132,13 +132,23 @@
 			owner: "player",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse5", jumpTo: "giveitem" },
+				{ value: "vsfrnpcs:dialogue-orario-john-fmresponse5", jumpTo: "checkgiveitem" },
 			]
+		},
+        {
+			code: "checkgiveitem",
+			owner: "npc",
+			type: "condition",
+			variable: "player.johngive",
+			isNotValue: "true",
+			thenJumpTo: "giveitem",
+			elseJumpTo: "firstmeetresponse6"
 		},
 		{
 			code: "giveitem",
 			owner: "npc",
 			trigger: "giveitemstack",
+			setVariables: {"player.johngive": "true"},
 			triggerdata: { type: "item", code: "stick", stacksize: 20},
 			jumpTo : "firstmeet6"
 		},

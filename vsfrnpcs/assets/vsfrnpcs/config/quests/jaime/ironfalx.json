@@ -1,0 +1,25 @@
+{
+    id: "vsfrnpcs:quest-jaime-ironfalx",
+    cooldown: -1,
+    perPlayer: true,
+    onAcceptedActions: [
+        {
+            id: "playsound",
+            args: [
+                "game:sounds/effect/translocate-breakdimension"
+            ]
+        }
+    ],
+    gatherObjectives: [
+        {
+            validCodes: ["blade-falx-iron"],
+            demand: 1
+        }
+    ],
+    itemRewards: [
+        {
+            itemCode: "game:gear-rusty",
+            amount: 30
+        }
+    ]
+}

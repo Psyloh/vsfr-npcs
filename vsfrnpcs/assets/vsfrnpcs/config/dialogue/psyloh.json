@@ -1,0 +1,101 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-psyloh-notuto" },
+			],
+            jumpto: "notutoplayer"
+        },
+        {
+            code: "notutoplayer",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-sorrybye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-psyloh-menu" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-psyloh-persoqstn", jumpto: "persoansw"},
+                { value: "vsfrnpcs:dialogue-orario-psyloh-quests", jumpto: "quests"},
+				{ value: "vsfrnpcs:dialogue-orario-psyloh-trade", jumpTo: "opentrade"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "persoansw",
+			owner: "npc",
+			trigger: "revealname",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-psyloh-persoansw" },
+			],
+            jumpto: "persoqstn2"
+        },
+        {
+            code: "persoqstn2",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-psyloh-persoqstn2", jumpto: "persoansw2"},
+            ]
+        },
+		{
+			code: "persoansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-psyloh-persoansw2" },
+			],
+            jumpto: "persoqstnend"
+        },
+        {
+            code: "persoqstnend",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "opentrade",
+			owner: "npc",
+			trigger: "opentrade"
+		},
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+    ]
+}

@@ -1,47 +1,112 @@
 {
-    "nametag-vsfrnpc-male-unrevealed": "Villageois",
-    "nametag-vsfrnpc-female-unrevealed": "Villageoise",
+    "nametag-vsfrnpc-male-none-unrevealed": "Villageois",
+    "nametag-vsfrnpc-female-none-unrevealed": "Villageoise",
+    "nametag-vsfrnpc-male-guard-unrevealed": "Garde",
+    "nametag-vsfrnpc-female-guard-unrevealed": "Garde",
 
-    //Quests
-    //{ Michel
-    "quest-michel-redmeat-title":   "Ravitaillement urgent",
-    "quest-michel-redmeat-desc":    "Nos troupeaux ont beaucoup souffert de l'Apocalypse et nos stocks de viande rouge diminuent : si tu peux m'en rapporter 15 beaux morceaux,je saurais généreusement te récompenser!",
-    "quest-michel-redmeat-obj":     "Viande Rouge : {0}/15",
-
-    "quest-michel-bushmeat-title":  "On teste des trucs",
-    "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène-la moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
-    "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
-    //}
+    "npcguard": "Corse",
 
     // Dialogues
     //{ Dull answers
+    "dialogue-player-ok": "Ok",
+    "dialogue-player-ok2": "D'accord",
     "dialogue-player-yesofcourse": "Oui, bien sûr!",
     "dialogue-player-yesthatsit": "Oui, c'est ça.",
     "dialogue-player-okthx": "Bien, merci.",
+    "dialogue-player-okthx2": "D'accord, merci.",
+    "dialogue-player-intrestingthx": "Intéressant, merci.",
+    "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
+    "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
+    "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
     //}
 
-    //{ Michel
-    "dialogue-orario-michel-goaway":          "Qui êtes-vous?\nQue faites-vous dans ma cuisine?",
-    "dialogue-orario-michel-firstmeet":       "Oh salut! Tu dois être l'un des nouveaux venus dont parle Marie?",
-    "dialogue-orario-michel-fmresponse":      "Oui c'est ça",
-    "dialogue-orario-michel-firstmeet2":      "Je m'appelle {{npcname}}, je suis le cuisinier de la plus prestigieuse des auberges d'Orario.",
-    "dialogue-orario-michel-fmresponse2":     "Je vois donc vous faites plein de sorte de nourriture?",
-    "dialogue-orario-michel-firstmeet3":      "Oui! Tu peux directement venir me voir moi si tu as besoin de certains plats à emporter. Mais il faudra y mettre le prix!",
-    "dialogue-orario-michel-welcomeback":     "Salut aventurier! Alors que me vaut ta visite?",
-    "dialogue-orario-michel-trade":           "Je veux bien voir si je peux m'offrir quelques-uns de vos plats",
-    "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
-    //}
-
     //{ Axel
-    "dialogue-orario-axel-firstmeet":         "Bienvenue {{playername}}, tu dois être la dernière création de Jonas, un... séraphin?",
-    "dialogue-orario-axel-fmresponse":        "Oui, c'est ça.",
-    "dialogue-orario-axel-firstmeet2":        "Bien, je vois que tu as l'air perdu. Alors voici Orario, la capitale. Une ville fortifiée!",
-    "dialogue-orario-axel-fmresponse2":       "Y a-t-il d'autres villes aux alentours?",
-    "dialogue-orario-axel-firstmeet3":        "Eh bien... Si l'Apocalypse a frappé le monde aussi durement qu'ici, les autres villes doivent être en piteux état.",
-    "dialogue-orario-axel-fmresponse3":       "Je vois... Comment pourrais-je sortir de la ville fortifiée?",
+    "dialogue-orario-axel-firstmeetjail":     "Bonjour Prisonier n°4546B, tu es enfin conscient on dirait.",
+    "dialogue-orario-axel-fmjresponse":       "Attendez, qu'est ce que je fais là ?",
+    "dialogue-orario-axel-firstmeetjail2":    "...",
+    "dialogue-orario-axel-fmjresponse2":      "Qu'ai je fait ? Pourquoi suis-je en prison ?",
+    "dialogue-orario-axel-firstmeetjail3":    "Tu es en prison car tu as est coupable de complicité avec le scientifique Jonas.",
+    "dialogue-orario-axel-fmjresponse3":      "Jonas ? Ce nom me dit vaguement quelque chose...",
+    "dialogue-orario-axel-firstmeetjail4":    "Bien nous avançons, Jonas est coupable d'avoir provoqué la Grande Tempête Temporelle qui s'est abattue sur la ville.\nQui a causer des dégâts innombrables sur le Royaume de sa Majesté tant matériel qu'humain.\nC'est pour cela que pour vous allez être executer sur la place publique.",
+    "dialogue-orario-axel-fmjresponse4":      "Je ne suis coupable de rien, il n'y a rien que je puisse faire pour être rendu innocent ?",
+    "dialogue-orario-axel-firstmeetjail5":    "Mmmh tu peux, tu dois cependant, répondre à trois différentes question.",
+    "dialogue-orario-axel-firstchoicequestion": "Bien, je te laisserais à chaque fois choisir entre trois questions.\nAttention si tu ne réussi pas tu devras tout recommencer.",
+
     "dialogue-orario-axel-leave":             "Hmmm... Bon, j'y retourne!",
+    "dialogue-orario-axel-goodanswer":        "Bonne réponse, tu peux choisir ta prochaine question !",
+    "dialogue-orario-axel-badanswer":         "Mauvaise réponse, mais tu peux re-essayer.",
+    "dialogue-orario-axel-question1":         "Question 1",
+    "dialogue-orario-axel-questionreveal1":   "Comment je m'appelle ?",
+    "dialogue-orario-axel-ansquestion1-1":    "Tobias",
+    "dialogue-orario-axel-ansquestion1-2":    "Axel",
+    "dialogue-orario-axel-ansquestion1-3":    "John",
+
+    "dialogue-orario-axel-question2":         "Question 2",
+    "dialogue-orario-axel-questionreveal2":   "A cause de qui es tu en prison ?",
+    "dialogue-orario-axel-ansquestion2-1":    "Jonas",
+    "dialogue-orario-axel-ansquestion2-2":    "Axel",
+    "dialogue-orario-axel-ansquestion2-3":    "Sa Majesté le Roi",
+
+    "dialogue-orario-axel-question3":         "Question 3",
+    "dialogue-orario-axel-questionreveal3":   "Qu'ont causé les experiences de Jonas ?",
+    "dialogue-orario-axel-ansquestion3-1":    "Un tremblement de terre",
+    "dialogue-orario-axel-ansquestion3-2":    "Une tempête temporelle ",
+    "dialogue-orario-axel-ansquestion3-3":    "Un Ouragan",
+
+    "dialogue-orario-axel-question4":         "Question 4",
+    "dialogue-orario-axel-questionreveal4":   "À partir de quelle température l'eau devient vapeur en général ?",
+    "dialogue-orario-axel-ansquestion4-1":    "0°C",
+    "dialogue-orario-axel-ansquestion4-2":    "50°C",
+    "dialogue-orario-axel-ansquestion4-3":    "100°C",
+
+    "dialogue-orario-axel-question5":         "Question 5",
+    "dialogue-orario-axel-questionreveal5":   "Qu'elle est la temprérature moyenne du corps humain ?",
+    "dialogue-orario-axel-ansquestion5-1":    "30,4°C",
+    "dialogue-orario-axel-ansquestion5-2":    "37,5°C",
+    "dialogue-orario-axel-ansquestion5-3":    "39,9°C",
+
+    "dialogue-orario-axel-question6":         "Question 6",
+    "dialogue-orario-axel-questionreveal6":   "Qu'elle minerais est le plus dense entre les trois ?",
+    "dialogue-orario-axel-ansquestion6-1":    "Or",
+    "dialogue-orario-axel-ansquestion6-2":    "Plomb",
+    "dialogue-orario-axel-ansquestion6-3":    "Uranium",
+
+    "dialogue-orario-axel-question7":         "Question 7",
+    "dialogue-orario-axel-questionreveal7":   "Si l'on mélange toutes les couleur qu'est ce que nous obtenons ?",
+    "dialogue-orario-axel-ansquestion7-1":    "Blanc",
+    "dialogue-orario-axel-ansquestion7-2":    "Brun",
+    "dialogue-orario-axel-ansquestion7-3":    "Noir",
+
+    "dialogue-orario-axel-question8":         "Question 8",
+    "dialogue-orario-axel-questionreveal8":   "Quel animal est considerer comme le meilleur ami de l'homme ?",
+    "dialogue-orario-axel-ansquestion8-1":    "Le chat",
+    "dialogue-orario-axel-ansquestion8-2":    "Le lapin",
+    "dialogue-orario-axel-ansquestion8-3":    "Le chien",
+
+    "dialogue-orario-axel-question9":         "Question 9",
+    "dialogue-orario-axel-questionreveal9":   "Quel scientifique a découvert la loi de la gravité ?",
+    "dialogue-orario-axel-ansquestion9-1":    "Albert Einstein",
+    "dialogue-orario-axel-ansquestion9-2":    "Isaac Newton",
+    "dialogue-orario-axel-ansquestion9-3":    "Marie Curie",
+
+    "dialogue-orario-axel-questionreveal10":   "Bien, je te laisse donc avec une dernière question\nVous devez résoudre ce problème (158x2)5²/0= ?",
+    "dialogue-orario-axel-ansquestion10-1":    "128",
+    "dialogue-orario-axel-ansquestion10-2":    "6,5",
+    "dialogue-orario-axel-ansquestion10-3":    "67",
+
+    "dialogue-orario-axel-goodfanswer":        "Faux,",
+    "dialogue-orario-axel-outrage":            "Serieusement, comment pouvais-je savoir ?",
+    "dialogue-orario-axel-goodfanswer2":       "Mais ce n'est pas grave puisque seul Jonas aurait pu répondre\ncorrectement à cette question.\nBien, puisque moi Axel membre de la Noblesse de sa majesté ai pu définir que vous n'étiez pas un danger je vous déclare par la présente non coupable et te libère!",
+    "dialogue-orario-axel-thanks":             "Merci, merci beaucoup !",
+
+    "dialogue-orario-axel-firstmeet":         "Ah te revoila {{playername}}, j'espère que tu profite bien de ta liberté.",
+    "dialogue-orario-axel-fmresponse":        "Oui, merci encore !",
+    "dialogue-orario-axel-firstmeet2":        "Bien, je vois que tu as l'air un peu perdu. Alors voici Orario, la capitale. Une ville fortifiée!",
+    "dialogue-orario-axel-fmresponse2":       "Y a-t-il d'autres villes aux alentours?",
+    "dialogue-orario-axel-firstmeet3":        "Eh bien... Si l'Apocalypse a frappé le monde aussi durement qu'ici, les autres villes et villages doivent être en piteux état.",
+    "dialogue-orario-axel-fmresponse3":       "Je vois... Comment pourrais-je sortir de la ville fortifiée?",
     "dialogue-orario-axel-firstmeet4":        "Impatient à ce que je vois.\nTu peux sortir par la porte ouest, les gardes te laisseront passer.\nMais il me semble que Marie, la boulangère, a fait du zèle lors de sa dernière fournée!\nElle devrait avoir de quoi te sustenter pour ta première excursion. Tu la trouveras dans sa boulangerie.",
     "dialogue-orario-axel-guidetoexit":       "Tu n'es pas encore sorti? J'ai cru te voir par la fenêtre...\nEh bien, suis la route vers l'Ouest jusqu'à la porte principale, bon courage!",
     "dialogue-orario-axel-fmresponse4":       "Bien, à une prochaine.",
@@ -54,7 +119,7 @@
     //}
 
     //{ Marie
-    "dialogue-orario-marie-firstmeet":        "Bonjour, je me présente : je suis {{npcnape}} l'une des boulangères d'Orario.",
+    "dialogue-orario-marie-firstmeet":        "Bonjour, je me présente : je suis {{npcname}} l'une des boulangères d'Orario.",
     "dialogue-orario-marie-fmresponse":       "Un petit oiseau m'a dit que vous aviez du pain pour les aventuriers.",
     "dialogue-orario-marie-firstmeet2":       "Un aventurier?\nIntéressant, je ne savais pas qu'il était possible de survivre à l'Apocalypse hors des murs...",
     "dialogue-orario-marie-fmresponse2":      "Tout le monde parle de l'Apocalypse, mais j'ignore ce que c'est.",
@@ -93,11 +158,23 @@
     "dialogue-orario-john-leaving":       "D'accord, d'accord...",
     //}
 
+    //{ Michel
+    "dialogue-orario-michel-goaway":          "Qui êtes-vous?\nQue faites-vous dans ma cuisine?",
+    "dialogue-orario-michel-firstmeet":       "Oh salut! Tu dois être l'un des nouveaux venus dont parle Marie?",
+    "dialogue-orario-michel-fmresponse":      "Oui c'est ça",
+    "dialogue-orario-michel-firstmeet2":      "Je m'appelle {{npcname}}, je suis le cuisinier de la plus prestigieuse des auberges d'Orario.",
+    "dialogue-orario-michel-fmresponse2":     "Je vois donc vous faites plein de sorte de nourriture?",
+    "dialogue-orario-michel-firstmeet3":      "Oui! Tu peux directement venir me voir moi si tu as besoin de certains plats à emporter. Mais il faudra y mettre le prix!",
+    "dialogue-orario-michel-welcomeback":     "Salut aventurier! Alors que me vaut ta visite?",
+    "dialogue-orario-michel-trade":           "Je veux bien voir si je peux m'offrir quelques-uns de vos plats",
+    "dialogue-orario-michel-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
+    //}
+
     //{ Thomas
     "dialogue-orario-thomas-firstmeet": "Bonjour! Oh, bienvenue jeune séraphin! Tu n'es pas un peu perdu?",
     "dialogue-orario-thomas-fmresponse" : "Euhm, pourquoi me regardez-vous comme ça?",
     "dialogue-orario-thomas-firstmeet2": "Je vois que Tobias a bien travaillé, on dirait que vous êtes presque comme nous.",
-    "dialogue-orario-thomas-fmresponse2" : "Presque comme nous?\nVous connaissez Tobias?\nQue pouvez-vous me dire sur ce monde?",
+    "dialogue-orario-thomas-fmresponse2" : "Presque comme nous? Vous connaissez Tobias? Que pouvez-vous me dire sur ce monde?",
     "dialogue-orario-thomas-firstmeet3": "Oh, tu as beaucoup de questions!.. Oui, en effet, vous êtes plus grand que nous et vous avez aussi une couleur de peau qui diffère...\nEt vos yeux sont très différents!\n\nConcernant Tobias, je ne l'ai jamais rencontré mais c'est une sommité tant scientifique qu'alchimique : nous autres, techniciens, suivons attentivement ses projets, parfois jusqu'à l'imprudence, malheureusement...",
     "dialogue-orario-thomas-fmresponse3" : "D'accord... Et quel est cet endroit?",
     "dialogue-orario-thomas-firstmeet4": "Ici? C'est le Sanctuaire des Translocateurs : c'est d'ici que tu pourras rejoindre les points de ralliement d'expéditions et les villages dont les points d'arrivée sont restés intacts!",
@@ -111,5 +188,193 @@
     "dialogue-orario-thomas-howtomovetl": "Comme pour le retirer, par exemple?",
     "dialogue-orario-thomas-howtomovetlresp": "Tu veux dire \"le déplacer\"? Il me semble que ça te coûtera 15 engrenages rouillés... Mais tâche de ne pas faire perdre leur temps aux \"Administrateurs\"! Il pourrait t'en coûter bien plus que tu n'es prêt à payer!..",
     "dialogue-orario-thomas-okthx": "D'accord, merci.",
+    //}
+
+    //{ Christian
+    "dialogue-orario-christian-entry-notuto": "Tu me semble bien presser jeune aventurier, bonne chance dans ta découverte de ce monde.",
+    "dialogue-orario-christian-firstmeet": "Salut {{playername}}, qu'en pense tu d'Orario, c'est une magnifique Ville ?",
+    "dialogue-orario-christian-fmresponse" : "Oui, merci.",
+    "dialogue-orario-christian-menu": "Alors en quoi puis-je t'aider ?",
+    "dialogue-orario-christian-guardask": "Est-ce que le métier de Garde est dur ?",
+    "dialogue-orario-christian-guardansw": "Avant la grande tempête temporelle je t'aurais dis que non.",
+    "dialogue-orario-christian-guardask2": "Désolé...",
+    "dialogue-orario-christian-guardansw2": "Pourquoi t'excuse tu ? C'est de la faute de ses monstres qui apparraissent.\nIls ne témoignent aucune pitié et tuent tout ce qui bouge...",
+    "dialogue-orario-christian-guardask3": "C'étais donc moins dur avant ?",
+    "dialogue-orario-christian-guardansw3": "Oui, avant on devait seulement s'entrainement quotidiennement ainsi que surveillier l'horizon si des signaux de fumée apparaissaient ou qu'un messager arrive.",
+    "dialogue-orario-christian-guardask4": "C'est donc un métier bien pénible.",
+    "dialogue-orario-christian-guardansw4": "Oui, mais heureusement j'ai Christina avec moi, grâce à elle je me sent plus léger à ses côtés...\nEnfin bon, merci aventurier grâce à toi j'ai pu dire ce que j'avais au fond du coeur.",
+    "dialogue-orario-christian-guardaskbye": "Derien, si j'ai pû vous aider cela me fait plaisir !",
+    "dialogue-orario-christian-askquest": "Non, moi comment pourrais-je vous aider ?",
+    "dialogue-orario-christian-bye": "Je passais simplement le bonjour.",
+    //}
+
+    //{ Christina
+    "dialogue-orario-christina-entry-notuto": "En quête d'aventure ? La sortie est bien par là, mais fait bien attention !",
+    "dialogue-orario-christina-firstmeet": "Bonjour {{playername}}, Orario est une ville bien calme ?",
+    "dialogue-orario-christina-fmresponse" : "Oui, c'est agréable...",
+    "dialogue-orario-christina-menu": "Est-ce qu'un garde d'Orario peut aider ?",
+    "dialogue-orario-christina-guardask": "Vous ne vous ennuyer pas ?",
+    "dialogue-orario-christina-guardansw": "Mmmmh la question n'est pas facile.",
+    "dialogue-orario-christina-guardask2": "Ah bon ?",
+    "dialogue-orario-christina-guardansw2": "Oui, tout dépend d'avec qui nous sommes en garde, du lieux ou nous sommes et surtout ce que nous devons faire",
+    "dialogue-orario-christina-guardask3": "Vous avez une préference",
+    "dialogue-orario-christina-guardansw3": "Tu es bien curieux, mais oui. J'aime bien être à ce poste, garder la porte c'est être à deux.",
+    "dialogue-orario-christina-guardask4": "Toujours à deux ?",
+    "dialogue-orario-christina-guardansw4": "Oui, et en géneral je suis avec Christian et je ne m'ennuie jamais quand je suis avec lui.",
+    "dialogue-orario-christina-guardaskbye": "Je vois, merci pour cette histoire.",
+    "dialogue-orario-christina-askquest": "Est-ce que moi je peux aider les gardes d'Orario ?",
+    "dialogue-orario-christina-bye": "Une simple salutation en passant par là.",
+    //}
+
+    //{ Eina
+    "dialogue-orario-eina-notuto": "Bonjour aventurier, avant de pouvoir recevoir des quêtes tu dois finir la toute premiere qui t'a été donner.",
+    "dialogue-orario-eina-notutobye": "D'accord, je vais m'en occuper !",
+    "dialogue-orario-eina-notutoask": "Quelle quête ?",
+    "dialogue-orario-eina-notutoansw": "Allez voir Axel, il vous en dira plus. Vous le trouverez dehors, sur la place centrale.",
+    "dialogue-orario-eina-menu": "Bonjour {{playername}}, en quoi puis-je vous aider ?",
+    "dialogue-orario-eina-quests": "Auriez vous des quêtes pour moi ?",
+    "dialogue-orario-eina-persoqstn": "Que faites vous ici ?",
+    "dialogue-orario-eina-persoansw": "Je me présente je suis Eina, je suis l'intendante de petite Guilde.",
+    "dialogue-orario-eina-persoqstn2": "Une Guilde ?",
+    "dialogue-orario-eina-persoansw2": "Oui, avant la grande tempête il y avait nombreux aventuriers et mercenaire qui parcouraient les terres.",
+    "dialogue-orario-eina-persoqstn3": "Jusqu'où s'étendaient cette guilde ?",
+    "dialogue-orario-eina-persoansw3": "N'importe où il y a assez de passage et que des personnes ont besoin d'aide.\nVous pouvez être sûr de nous trouver pour proposer des quêtes.",
+    "dialogue-orario-eina-persoqstn4": "Vous proposez des quêtes ?",
+    "dialogue-orario-eina-persoansw4": "En effet, ceux ayant besoin d'aide viennent ici nous proposer des quêtes. En échange d'une rémunération nous postons leur requête.\nEt une fois complétée nous prenons une petite commission et le reste va à l'aventurier.",
+    "dialogue-orario-eina-altmenu": "Oui ?",
+    "dialogue-orario-eina-menuquest": "Vous pouvez trouver les quêtes sur les tableaux\nou en me demandant à moi directement.\nCependant, vous devrez allez voir les villageois directement pour accepter leur quêtes.",
+    "dialogue-orario-eina-askeinaquestctg": "Je veux bien que vous me les montriez.",    
+    "dialogue-orario-eina-einaquestcategory": "Bien, vous pouvez choisir entre trois catégories de quêtes.",
+    "dialogue-orario-eina-craftquest": "Quêtes d'Artisanat",
+    "dialogue-orario-eina-huntquest": "Quêtes de Chasses",
+    "dialogue-orario-eina-harvestquest": "Quêtes de Récolte",
+    "dialogue-orario-eina-craftquestmenu": "Il y a un total de 1 quête pour 1 villageois.",
+    "dialogue-orario-eina-huntquestmenu": "Il n'y as pas de quêtes de chasse actuellement.",
+    "dialogue-orario-eina-harvestquestmenu": "Il y a actuellement 1 villageois pour un total de 2 quêtes.",
+    "dialogue-orario-eina-craftquest1": "Quête Artisanat | Marie.",
+    "dialogue-orario-eina-craftquest1desc": "Durant la tempête temporelle Marie, la Boulangère de la ville a perdu l'un de ses fours à pain elle aimerait que quelqu'un lui en re fasse un.",
+    "dialogue-orario-eina-harvestquest1": "Quête collecte | Michel (1)",
+    "dialogue-orario-eina-harvestquest1desc": "Avec la tempête temporelle la quantité de viande a drastiquement baisser.\nMichel le cuisinier de l'Auberge des Ours aurait besoin de 15 Viande Rouge.",
+    "dialogue-orario-eina-harvestquest2": "Quête collecte | Michel (2)",
+    "dialogue-orario-eina-harvestquest2desc": "Au vu de la récente pénurie de viande rouge dans la ville, michel aimerait tester de cuisiner des plats à base de Viande Coriace, peux tu lui en ramener 8 ?",
+    "dialogue-orario-eina-persoend": "Ah encore une chose.",
+    //}
+
+    //{ Psyloh
+    "dialogue-orario-psyloh-notuto": "Salut aventurier, il semblerait que tu sois occupé. Reviens me voir quand tu auras plus de temps.",
+    "dialogue-orario-psyloh-menu": "Bonjoir aventurier, qu'est-ce que j'peux t'servir ?",
+    "dialogue-orario-psyloh-persoqstn": "Qui êtes vous ?",
+    "dialogue-orario-psyloh-persoansw": "Moi qui chuis ? J'chuis Psyloh. L'tavernier et l'brasseur d'la ville.",
+    "dialogue-orario-psyloh-persoqstn2": "Vous ne vendez que de la bière ?",
+    "dialogue-orario-psyloh-persoansw2": "Boarff pas que, j'ai l'materiel pour faire des liqueurs et du Schnaps.",
+    "dialogue-orario-psyloh-trade": "Je peux voir votre carte des boissons ?",
+    "dialogue-orario-psyloh-quests": "Est-ce que vous auriez besoin d'aide ?",
+    //}
+
+    //{Igor
+    "dialogue-orario-igor-notuto": "Hey aventurier, tu semble occupé. Reviens me voir quand tu auras plus de temps.",
+    "dialogue-orario-igor-menu": "Je suis un peu occupé, mais dit moi aventurier de quoi a tu besoin ?",
+    "dialogue-orario-igor-persoqstn": "Qui êtes vous ?",
+    "dialogue-orario-igor-persoansw": "Je suis Igor, forgeron de la ville.",
+    "dialogue-orario-igor-persoqstn2": "Vous êtes donc forgeron",
+    "dialogue-orario-igor-persoansw2": "Bah oe logique tu croyais qu'on étais à la boulangerie de Marie ?\nEnfin bon, tout ce qui est fait de metal peut être forger ici.",
+    "dialogue-orario-igor-quests": "Est-ce que vous auriez besoin d'aide par tout hasard ?",
+    "dialogue-orario-igor-trade": "Que vendez vous ?",
+    "dialogue-orario-igor-repairask": "Pouvez vous réparez mon objet ?",
+    "dialogue-orario-igor-repairansw": "Oui, tout dépend de ce que vous voulez réparer.\nSi vous voulez réparer un outil ce sera 7 engrenages pour 300 durabilité.\nCependant, pour les armures ce sera 10 engrenages pour 300 durabilité.\nVous devez prendre l'outil ou l'armure en question dans vos mains.",
+    "dialogue-orario-igor-repairtool": "J'aimerais bien réparer mon outil.",
+    "dialogue-orario-igor-repairarmor": "Je souhaite réparer l'armure que j'ai.",
+    "dialogue-orario-igor-repairno": "Au final je n'ai plus envie de réparer mes outils.",
+    "dialogue-orario-igor-noworries": "Pas de problème, alors que souhaite tu ?",
+    "dialogue-orario-igor-nothingtorepair": "Il semblerait que tu n'ai rien à réparer.",
+    "dialogue-orario-igor-letsgo": "C'est partis !",
+    "dialogue-orario-igor-comebackagaintool": "Parfait, voila ton outil réparé, n'hésite pas à revenir.",
+    "dialogue-orario-igor-comebackagainarmor": "Parfait, voila ton armure réparé, n'hésite pas à revenir.",
+    //}
+
+    //{
+    "dialogue-orario-jaime-notuto": "Bonjour étranger, il semblerait que vous n'ayez rien à faire ici.",
+    "dialogue-orario-jaime-menu": "Que me veux tu aventurier ?",
+    "dialogue-orario-jaime-persoqstn": "Qui êtes vous ?",
+    "dialogue-orario-jaime-persoansw": "Qui est tu pour me poser cette question ?",
+    "dialogue-orario-jaime-persoansw2": "Tu es têtu, pourquoi je te répondrais ?",
+    "dialogue-orario-jaime-persoansw3": "Bien d'accord... Je m'appelle Jaime. Je suis le chef de la garde.\nTu es content, tu as tes réponses ?",
+    "dialogue-orario-jaime-persoqstn2": "Depuis combien de temps êtes vous garde ?",
+    "dialogue-orario-jaime-persoansw4": "Je suis au service du Roi depuis presque 15 ans.",
+    "dialogue-orario-jaime-persoqstn3": "Et pourquoi cette vocation ?",
+    "dialogue-orario-jaime-persoansw5": "J'étais au départ un simple enfant de forgeron, mais ■■■■■ ■■ ■■■■■■■■.",
+    "dialogue-orario-jaime-persoqstnend": "Pardon ?",
+    "dialogue-orario-jaime-quests": "Excusez moi auriez vous un travail par hasard ?",
+    //}
+
+    //{Generic Guard
+    "dialogue-orario-genericguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
+    "dialogue-orario-genericguard-notutoansw": "Excusez moi, je vais redescendre.",
+    "dialogue-orario-genericguard-menu": "La vue des plaines est belle depuis les murs aventurier... Si seulement l'insoucience pouvait reigner comme autrefois...",
+    "dialogue-orario-genericguard-bye" : "En effet, au revoir...",
+    "dialogue-orario-genericguard-askquest" : "Est-ce que du haut de ces murailles vous auriez besoin d'aide ?",
+    "dialogue-orario-genericguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
+    //}
+
+    //{ Albert
+    "dialogue-orario-albert-notuto": "Bonjour jeune homme. Tu semble essouflé, re viens dans ma boucherie une fois que tu n'es pas occuper.",
+    "dialogue-orario-albert-menu": "Salut aventurier. Que puis-je te servir ?",
+    "dialogue-orario-albert-persoqstn": "Parlez moi un peu de vous ?",
+    "dialogue-orario-albert-quests": "Auriez vous une tâche pour moi ?",
+    "dialogue-orario-albert-trade": "Que vendez vous ?",
+    "dialogue-orario-albert-persoansw": "Je suis Alberto, mais ici on m'appelle Albert. Comme tu peux le voir nous sommes dans une boucherie, je suis donc boucher.",
+    "dialogue-orario-albert-persoqstn2": "Intéressant et quels type de viande d'animal vendez vous ?",
+    "dialogue-orario-albert-persoansw2": "Toutes viandes qui se mange peut être vendue ici.",
+    //}
+
+    //Quests
+
+    "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
+    //{ Michel
+    "quest-michel-redmeat-title":   "Ravitaillement urgent",
+    "quest-michel-redmeat-desc":    "Nos troupeaux ont beaucoup souffert de l'Apocalypse et nos stocks de viande rouge diminuent : si tu peux m'en rapporter 15 beaux morceaux,je saurais généreusement te récompenser!",
+    "quest-michel-redmeat-obj":     "Viande Rouge : {0}/15",
+
+    "quest-michel-bushmeat-title":  "On teste des trucs",
+    "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène-la moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
+    "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
+    //}
+
+    //{ Marie
+    "quest-marie-clayoven-title":      "Four à pain détruit",
+    "quest-marie-clayoven-desc":       "Avec la tempête temporelle l'un de mes fours à pain a été détruit, peut tu m'en confectionner un ?",
+    "quest-marie-clayoven-obj":        "Four en Céramique {0}/1",
+    //}
+
+    //{ Psyloh
+    "quest-psyloh-drinkardgroup-title":      "Groupe de Buveur",
+    "quest-psyloh-drinkardgroup-desc":       "Tous les an j'ai un gros groupe de voyageur qui m'viens me vider mon stock de bière. Mais avec la tempête j'en ai plus. Tu peux m'ramner 64 grains d'épautre ? Heureusement ils aiment boire mais ne font pas attention au goûts.",
+    "quest-psyloh-drinkardgroup-obj":        "Grains d'épautre {0}/64",
+    //}
+
+    //{ Igor
+    "quest-igor-tinbronzeingot-title":      "Manque de Bronze",
+    "quest-igor-tinbronzeingot-desc":       "Avec les récents combats dû à la tempête temporelle, je dois forger pas mal d'armes.\nPour l'instant je n'ai besoin que de 4 lingots de bronze pour des armes basiques.",
+    "quest-igor-tinbronzeingot-obj":        "Lingots de bronze {0}/4",
+    
+    "quest-igor-ironingot-title":      "Pénurie de Fer",
+    "quest-igor-ironingot-desc":       "Ayant fait une demande pour des lingots de bronze, j'ai besoin de fer pour des armes de meilleure qualité.",
+    "quest-igor-ironingot-obj":        "Lingots de fer {0}/2",    
+    //}
+
+    //{ Marie
+    "quest-jaime-ironfalx-title":      "Epée du Chef de la Garde",
+    "quest-jaime-ironfalx-desc":       "Bon Aventurier, avec cette tempête temporelle, j'ai perdu mon épée en fer. Après avoir discuter avec Igor il semblerait que désormais les épées seront moins utiles contre ces monstres.\nRamène moi une nouvelle arme en fer qui est efficace contre ces monstres et je te récompenserait.",
+    "quest-jaime-ironfalx-obj":        "Falx en Fer {0}/1",
+    //}
+
+    //{ Albert
+    "quest-albert-redmeat-title":      "Besoin Urgent de viande",
+    "quest-albert-redmeat-desc":       "Salut aventurier, j'ai besoin de viande rouge. N'ayant plus de réponse du fermier du village d'à côté, j'ai quand même besoin d'un apport en viande rouge pour ma boucherie.",
+    "quest-albert-redmeat-obj":        "Viande rouge {0}/10",
+    //}
+
+    //{
+    "dialogue-village-npc-obj": "dialogue",
     //}
 }

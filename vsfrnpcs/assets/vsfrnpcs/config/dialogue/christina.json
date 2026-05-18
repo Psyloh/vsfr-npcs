@@ -1,0 +1,171 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "knowchristina"
+		},
+        {
+			code: "knowchristina",
+			owner: "npc",
+			type: "condition",
+			variable: "player.knowchristina",
+			isNotValue: "true",
+			thenJumpTo: "hasmet",
+			elseJumpTo: "revealchristina"
+		},
+		{
+			code: "revealchristina",
+			owner: "npc",
+			trigger: "revealname",
+            jumpto: "hasmet"
+        },
+        {
+			code: "hasmet",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+            setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-firstmeet" },
+			],
+            jumpto: "fmresponse"
+        },
+        {
+            code: "fmresponse",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christina-fmresponse", jumpto: "menu"},
+            ]
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-menu" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christina-guardask", jumpto: "guardansw"},
+                { value: "vsfrnpcs:dialogue-orario-christina-askquest", jumpto: "quests"},
+                { value: "vsfrnpcs:dialogue-orario-christina-bye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "guardansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-guardansw" },
+			],
+            jumpto: "guardask2"
+        },
+        {
+            code: "guardask2",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christina-guardask2", jumpto: "guardansw2"},
+            ]
+        },
+		{
+			code: "guardansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-guardansw2" },
+			],
+            jumpto: "guardask3"
+        },
+        {
+            code: "guardask3",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christina-guardask3", jumpto: "guardansw3"},
+            ]
+        },
+		{
+			code: "guardansw3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-guardansw3" },
+			],
+            jumpto: "guardask4"
+        },
+        {
+            code: "guardask4",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christina-guardask4", jumpto: "guardansw4"},
+            ]
+        },
+		{
+			code: "guardansw4",
+			owner: "npc",
+            setVariables: {"player.knowchristian": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-guardansw4" },
+			],
+            jumpto: "guardaskbye"
+        },
+        {
+            code: "guardaskbye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-christina-guardaskbye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-christina-entry-notuto" },
+			],
+            jumpto: "bye"
+        },
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+            code: "bye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+	]
+}

@@ -1,11 +1,14 @@
 {
     //Creative Inventory UIs
     "tabname-vsfrnpcs": "VSFR NPCs",
-    "vsfrnpcs:item-creature-vsfrnpc-male-axel": "Axel",
-    "vsfrnpcs:item-creature-vsfrnpc-male-michel": "Michel",
-    "vsfrnpcs:item-creature-vsfrnpc-male-john": "John",
-    "vsfrnpcs:item-creature-vsfrnpc-female-marie": "Marie",
-    "vsfrnpcs:item-creature-vsfrnpc-male-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-axel": "Axel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-michel": "Michel",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-john": "John",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-marie": "Marie",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-thomas": "Thomas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-obliviac": "Admin NPC : Obliviac",
+    "vsfrnpcs:item-creature-vsfrnpc-male-guard-christian": "Christian",
+    "vsfrnpcs:item-creature-vsfrnpc-female-guard-christina": "Christina",
 
     //Vanilla Dialogue UIs Titles
     "tradingwindow-vsfrnpc-male-axel": "{0} - Beginners Guide",
