@@ -2,7 +2,6 @@
   components: [
     {
       type: "talk",
-      owner: "npc",
       text: [ { value: "Hamdoulilalala ♫♪ Kiss ti veux?" } ]
     },
     {
@@ -24,10 +23,88 @@
       ]
     },
     {
-      code: "checkArchives",
-      owner: "npc",
-      trigger: "checkDungeon",
+      code: "checkPrivileges",
+      type: "jump",
+      trigger: "checkPrivileges",
       triggerData: {
+        values: [
+          {
+            privileges: [ "pri1", "pri2", "pri3", "pri4"],
+            jumpTo: "block1"
+          },
+          {
+            privileges: [ "pri1", "pri3", "pri4" ],
+            jumpTo: "block2"
+          },
+          {
+            privileges: [ "pri1", "pri4" ],
+            jumpTo: "block3"
+          },
+          {
+            privileges: [ "pri2", "pri3" ],
+            jumpTo: "block4"
+          }
+        ]
+      },
+      {
+        code: "checkRole",
+        type: "jump",
+        trigger: "checkRole",
+        triggerData: {
+          values: {
+            suvisitor: "block1",
+            admin: "block2",
+            role2: "block3",
+            meskouilles: "surTonNez"
+          }
+        },
+        {
+          code: "checkArchives",
+          type: "jump",
+          trigger: "canResetDungeon",
+          triggerData: {
+            name: "resonancearchive",
+            if: "resetArchives",
+            else: "tooSoon"
+          }
+        },
+        {
+          code: "tooSoon",
+          type: "talk",
+          text: [ { value: "Ci trop tôt :-/" } ],
+          jumpTo: "thx"
+        },
+        {
+          code: "resetArchives",
+          trigger: "resetDungeon",
+          triggerData: {
+            name: "resonancearchive"
+          }
+        },
+        {
+          code: "testTeleport",
+          trigger: "teleport",
+          triggerData: {
+            x: "~5",
+            z: "~7"
+          }
+        },
+        {
+          code: "resetVars",
+          type: "talk",
+          setVariables: {
+            "player.hasmetmarie": "false",
+            "player.hasdonetuto": "false"
+          },
+          text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
+          jumpTo: "thx"
+        },
+        {
+          code: "thx",
+          owner: "player",
+          type: "talk",
+          text: [ { value: "Merci Bobby!" } ]
+        }
         name: "resonancearchive",
         delay: 2
       },
