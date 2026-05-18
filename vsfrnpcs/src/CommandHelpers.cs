@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.Linq;
 using System.Text;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -52,16 +54,21 @@ namespace VSFRNPCS
 			TeleportXYZ(api, player, cmd.ToString());
 		}
 
-		public static void CheckDungeon(ICoreServerAPI api, Entity entity, string dungeonName, double delay)
+		public static bool CanResetDungeon(ICoreServerAPI api, string dungeonName)
 		{
 			var modSys = api.ModLoader.GetModSystem<MainModSystem>();
 			var lastReset = modSys.Server.GetLastReset(dungeonName);
-			var remaining = lastReset + delay - api.World.Calendar.TotalHours;
+			if (lastReset == null)
+			{
+				return true;
+			}
 
-			var varSys = api.ModLoader.GetModSystem<VariablesModSystem>();
-			varSys.SetVariable(entity, EnumActivityVariableScope.Global, dungeonName, remaining > 0 ? "" : "true");
-
-			api.Logger.Error($"global.{dungeonName} {remaining}");
+			var config = modSys.Server.Config;
+			if (!config.Delays.TryGetValue(dungeonName, out var delay))
+			{
+				delay = config.GlobalDelay;
+			}
+			return lastReset.Value.AddHours(delay) <= DateTime.Now;
 		}
 
 		public static void ResetDungeon(ICoreServerAPI api, string name)
@@ -76,7 +83,7 @@ namespace VSFRNPCS
 			var z2 = dungeon.Location.MaxZ / chunkSize;
 
 			var modSys = api.ModLoader.GetModSystem<MainModSystem>();
-			modSys.Server.SetLastReset(name, api.World.Calendar.TotalHours);
+			modSys.Server.SetLastReset(name, DateAndTime.Now);
 
 			var message = Lang.Get("game:reset-dungeon-message");
 			api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
