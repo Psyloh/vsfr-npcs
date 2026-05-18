@@ -29,7 +29,7 @@
       trigger: "checkDungeon",
       triggerData: {
         name: "resonancearchive",
-        delay: 2
+        delay: 1
       },
       jumpTo: "canResetArchives"
     },
@@ -65,7 +65,8 @@
         x: "0",
         z: "0"
       },
-      jumpTo: "close"
+      text: [ { value: "C fait :-/" } ],
+      jumpTo: "thx"
     },
     {
       code: "resetVars",
@@ -93,11 +94,13 @@
       jumpTo: "thx"
     },
     {
-      code: "thx",
-      owner: "player",
-      type: "talk",
-      text: [ { value: "Merci Bobby!" } ]
-    },
+			code: "thx",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "Merci bobby", jumpTo: "close" },
+			]
+		},
     {
       code: "close",
       trigger: "closedialogue"

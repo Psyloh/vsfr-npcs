@@ -60,7 +60,7 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-varis-statueqstn", jumpTo: "statueansw" },
-                { value: "vsfrnpcs:dialogue-orario-varis-close", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-player-yesofcourse", jumpTo: "close" },
 			]
 		},
 		{

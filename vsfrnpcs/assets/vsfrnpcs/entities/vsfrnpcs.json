@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa|varis)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa|varis|sebas|gaster)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,7 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa", "varis"] }  ],
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa", "varis", "sebas", "gaster"] }  ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
     "vsfrnpc-male-none-axel",
@@ -50,6 +50,8 @@
 	"vsfrnpc-male-none-albert",
 	"vsfrnpc-female-none-lisa",
 	"vsfrnpc-male-none-varis",
+	"vsfrnpc-male-none-sebas",
+	"vsfrnpc-male-none-gaster",
   ],
   attributes: {
     tradePropsFileByType: {
@@ -721,6 +723,8 @@
 		  "*-albert": ["Albert"],
 		  "*-lisa": ["Lisa"],
 		  "*-varis": ["Varis"],
+		  "*-sebas": ["Sebas"],
+		  "*-gaster": ["Gaster"],
         }
       },
 			//bloc Activity
@@ -835,7 +839,9 @@
 				"*-igor": ["vsfrnpcs:quest-igor-tinbronzeingot", "vsfrnpcs:quest-igor-ironingot"],
 				"*-jaime": ["vsfrnpcs:quest-jaime-ironfalx"],
 				"*-albert": ["vsfrnpcs:quest-albert-redmeat"],
-				"*-lisa": ["vsfrnpcs:quest-lisa-paper"]
+				"*-lisa": ["vsfrnpcs:quest-lisa-paper"],
+				"*-sebas": ["vsfrnpcs:quest-sebas-rope"],
+				"*-gaster": ["vsfrnpcs:quest-gaster-temporalgear"],
 			}},
       { code: "entitystatetags" }
     ]

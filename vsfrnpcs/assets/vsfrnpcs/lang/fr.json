@@ -11,7 +11,7 @@
     "dialogue-player-nothingtosay": "...",
     "dialogue-player-ok": "Ok",
     "dialogue-player-ok2": "D'accord",
-    "dialogue-player-yesofcourse": "Oui, bien sûr!",
+    "dialogue-player-yesofcourse": "Oui, bien sûr !",
     "dialogue-player-yesthatsit": "Oui, c'est ça.",
     "dialogue-player-okthx": "Bien, merci.",
     "dialogue-player-okthx2": "D'accord, merci.",
@@ -19,11 +19,15 @@
     "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
     "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
     "dialogue-player-sorrybye3": "Excusez moi, j'ai un imprévu.",
+    "dialogue-player-okweird": "D'accord...",
     "dialogue-player-bye": "Tchao.",
     "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
     "dialogue-player-ohwaitaminute": "Oh attendez.",
+
+    "dialogue-player-next": "Page Suivante",
+    "dialogue-player-previous": "Page précedente",
     //}
 
     //{ Axel
@@ -362,7 +366,7 @@
     "dialogue-orario-varis-statueqstn2": "Les bâtisseurs ?",
     "dialogue-orario-varis-statueansw2": "Oui elle représente tout ceux ayant apporté une aide à la construction de ce monde.",
     "dialogue-orario-varis-statueqstn3": "Et qui sont ils ?",
-    "dialogue-orario-varis-statueansw3": "Eh bien il y a Psyloh, Tonyops, Decto, Jalihan, Wolfgrim, Architoc, Rodjy et enfin HunterFox.",
+    "dialogue-orario-varis-statueansw3": "Eh bien il y a pour \n\nLa Construction : Rodjy et HunterFox\n\nLa Décoration : Jalihan, Wolfgrim, Tonyops, Decto et HunterFox\n\nLe développement : Psyloh et HunterFox\n\nLa mise en place du serveur Tonyops et HunterFox\n\nEt mention spéciale pour Architoc, qui a fait cette statue.",
     "dialogue-orario-varis-statueend": "Merci, je ne les oublierais pas",
     //}
 
@@ -377,12 +381,12 @@
 
     //{
     "dialogue-orario-sebas-firstmeet": "Que me voulez vous ?",
-    "dialogue-orario-sebas-firstansw": "J'étais curieux de savoir qui vous étiez.",
+    "dialogue-orario-sebas-fmresponse": "J'étais curieux de savoir qui vous étiez.",
     "dialogue-orario-sebas-firstmeet2": "Je suis Sébas, vous voila ravis, maintenant partez.",
     "dialogue-orario-sebas-menu": "Encore vous ? Que me voulez vous ?",
     "dialogue-orario-sebas-quests": "Auriez vous un travail pour moi ?",
     "dialogue-orario-sebas-curiosityqstn": "Et que faites vous ici ?",
-    "dialogue-orario-sebas-curiosityansw": "J'attends. Maintenant partez",
+    "dialogue-orario-sebas-curiosityansw": "J'attends. Maintenant partez.",
     "dialogue-orario-sebas-curiosityqstn2": "Qu'attendez vous ?",
     "dialogue-orario-sebas-curiosityansw2": "Tu es donc décider à me poser un tas de question, n'est-ce pas ?",
     "dialogue-orario-sebas-curiosityqstn3": "Je suis quelqu'un de nature curieuse",
@@ -395,10 +399,50 @@
     "dialogue-orario-sebas-curiosityansw6": "Vous ne savez même pas ce qu'est cet évènement et vous voulez y entrez.\nVous êtes d'une curiosité sans fin...\n\nVous le saurez bien assez tôt comment y parvenir.",
     "dialogue-orario-sebas-curiosityend": "*Hmm je dois donc revenir vers lui plus tard* Au revoir.",
     "dialogue-orario-sebas-obj": "dialogue",
+    //}
 
 
+    //{
+    "dialogue-orario-gaster-firstmeet": "👌︎⚐︎☠︎☺︎⚐︎🕆︎☼︎📪︎ ✈︎🕆︎☜︎ 💧︎⚐︎🕆︎☟︎✌︎✋︎❄︎☜︎☪︎ ✞︎⚐︎🕆︎💧︎ ✍︎",
+    "dialogue-orario-gaster-fmresponse": "Pardon ?",
+    "dialogue-orario-gaster-firstmeet2": "Excusez moi, vieille habitude. Bonjour que souhaitez vous ?",
+    "dialogue-orario-gaster-fmresponse2": "Je découvre la ville, qui êtes vous et faites vous ? ",
+    "dialogue-orario-gaster-firstmeet3": "Je suis Gaster l'homme qui parle avec les mains.\nJe suis aussi l'homme qui viens effacer les traces du présent.",
+    "dialogue-orario-gaster-menu": "Que puis-je faire pour vous ?",
+    "dialogue-orario-gaster-services": "Je peux accéder à vos services ?",
+    "dialogue-orario-gaster-quests": "Auriez vous une tâche à me confier ?",
+    "dialogue-orario-gaster-resetqstn": "Je n'ai pas bien compris ce que vous faisiez ?",
+    "dialogue-orario-gaster-resetansw": "Moi ? Je remet des espaces entier digne d'intérêt comme si personne n'y étais jamais venu.",
+    "dialogue-orario-gaster-resetqstn2": "Oh comme ça nous pouvons les explorer à nouveau ?",
+    "dialogue-orario-gaster-resetansw2": "En effet, mais ce n'est pas gratuit.\n\nConsulter mes services pour en savoir plus.",
+    "dialogue-orario-gaster-servicesmenu": "Biensûr, voici ce que je vous propose ainsi que les tarifs :\nLes archives de résonance : 200 engrenages rouillés.\nLe Lazaret : 150 engrenages rouillés.\nLa zone de la dévastation : 400 engrenages rouillés.\nTour des enfants perdus : 300 Engrenages rouillés.\nDonjon des enfants perdus : 500 engrenages rouillés.\nUniversité : 500 engrenages rouillés.\nLa mine de charbon : 350 engrenages rouillés.",
+    "dialogue-orario-gaster-servicesmenu2": "Biensûr, voici ce que je vous propose ainsi que les tarifs :\nMine 1 et 2 : 300 engrenages rouillés.\nCroisé des chemins : 150 engrenages rouillés.\nLe Manoir : 250 engrenages rouillés.\nLe panoptique : 300 engrenages rouillés.\nHuaca : 300 engrenages rouillés\nLa déchirure solaire : 400 engrenages rouillés.\nCalix : 300 engrenages rouillés\nCentre commercial : 300 engrenages rouillés.\nCarrière d'halite : 300 engrenages rouillés.",
+    "dialogue-orario-gaster-resonancearchive": "Les Archives de Résonance",
+    "dialogue-orario-gaster-lazaret": "Le Lazaret",
+    "dialogue-orario-gaster-devastationarea": "La zone de la dévastation",
+    "dialogue-orario-gaster-largeforlornhopetower": "La Tour des Enfants perdus",
+    "dialogue-orario-gaster-forlornhopedungeon": "Donjon des enfants perdus",
+    "dialogue-orario-gaster-university": "Université",
+    "dialogue-orario-gaster-coalmine": "Mine de Charbon",
+    "dialogue-orario-gaster-mine1": "Mine 1",
+    "dialogue-orario-gaster-mine2": "Mine 2",
+    "dialogue-orario-gaster-crossroads": "Croisé des Chemins",
+    "dialogue-orario-gaster-mansion": "Le Manoir",
+    "dialogue-orario-gaster-thepanopticon": "Le Panoptique",
+    "dialogue-orario-gaster-huaca": "Huaca",
+    "dialogue-orario-gaster-sunrift": "Déchirure Solaire",
+    "dialogue-orario-gaster-calix": "Calix",
+    "dialogue-orario-gaster-shoppingcentre": "Le Centre Commercial",
+    "dialogue-orario-gaster-halitequarry": "Carrière d'halite",
+    "dialogue-orario-gaster-servicenomoney": "Je n'ai pas l'argent pour vos services désolé.",
+    "dialogue-orario-gaster-seerviceplayerhasnomoney": "Il semblerait que vous n'ayez pas d'argent pour mes services.",
+    "dialogue-orario-gaster-servicedone": "Le zone en question sera reset d'ici dix minutes, soyez les premiers là bas.",
+    "dialogue-orario-gaster-servicedelay": "Le délais d'une semaine (IRL) n'est pas encore écoulé.",
+    "dialogue-orario-gaster-obj": "dialogue",
 
     //}
+
+
 
     //Quests
 
@@ -453,7 +497,28 @@
     "quest-lisa-paper-obj":        "Parchemin {0}/12",
     //}
 
+   //{ Sebas
+    "quest-sebas-rope-title":      "Corde de travail",
+    "quest-sebas-rope-desc":       "J'ai besoin de douze metres de corde pour une mission que l'on m'a confié.",
+    "quest-sebas-rope-obj":        "Bobine de Corde {0}/12",
+    //}
+
+   //{ Gester
+    "quest-gaster-temporalgear-title":      "Restauration d'énergie",
+    "quest-gaster-temporalgear-desc":       "J'ai besoin d'un engrenage temporel, sans ça il risque de me manquer d'énergie pour remettre à zero des emplacements de ce monde.",
+    "quest-gaster-temporalgear-obj":        "Engrenage Temporel {0}/1",
+    //}
+
+
+
     //{
     "dialogue-village-npc-obj": "dialogue",
+    //}
+
+
+   //{ PNJ
+    "quest-pnj-ID-title":      "text",
+    "quest-pnj-ID-desc":       "text",
+    "quest-pnj-ID-obj":        "text {0}/12",
     //}
 }

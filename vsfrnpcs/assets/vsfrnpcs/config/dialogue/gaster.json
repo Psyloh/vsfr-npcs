@@ -1,0 +1,184 @@
+{
+	components: [
+		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			trigger: "revealname",
+            setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-firstmeet" },
+			],
+			jumpTo: "fmresponse"
+		},
+        {
+			code: "fmresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-fmresponse", jumpTo: "firstmeet2" },
+			]
+		},
+		{
+			code: "firstmeet2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-firstmeet2" },
+			],
+			jumpTo: "fmresponse2"
+		},
+        {
+			code: "fmresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-fmresponse2", jumpTo: "firstmeet3" },
+			]
+		},
+		{
+			code: "firstmeet3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-firstmeet3" },
+			],
+			jumpTo: "fmend"
+		},
+        {
+			code: "fmend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-okweird", jumpTo: "menu" },
+			]
+		},
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-menu" },
+			],
+			jumpTo: "playermenu"
+		},
+        {
+			code: "playermenu",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-services", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-quests", jumpTo: "quests" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-resetqstn", jumpTo: "resetansw" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "resetansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-resetansw" },
+			],
+			jumpTo: "resetqstn2"
+		},
+        {
+			code: "resetqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-resetqstn2", jumpTo: "resetansw2" },
+			]
+		},
+		{
+			code: "resetansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-resetansw2" },
+			],
+			jumpTo: "resetend"
+		},
+        {
+			code: "resetend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ok2", jumpTo: "menu" },
+			]
+		},
+		{
+			code: "servicesmenu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-servicesmenu" },
+			],
+			jumpTo: "playerservicemenu"
+		},
+        {
+			code: "playerservicemenu",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-orario-gaster-resonancearchive", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-lazaret", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-devastationarea", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-largeforlornhopetower", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-forlornhopedungeon", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-university", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-coalmine", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-player-next", jumpTo: "servicesmenu2" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "servicesmenu2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-servicesmenu2" },
+			],
+			jumpTo: "playerservicemenu2"
+		},
+        {
+			code: "playerservicemenu2",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-orario-gaster-mine1", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-mine2", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-crossroads", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-mansion", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-thepanopticon", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-huaca", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-sunrift", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-calix", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-shoppingcentre", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-halitequarry", jumpTo: "close" },
+                { value: "vsfrnpcs:dialogue-player-previous", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		}
+    ]
+}
