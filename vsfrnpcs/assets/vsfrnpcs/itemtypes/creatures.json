@@ -16,15 +16,15 @@
 			states: [
 				"vsfrnpc-male-none-axel",
 				"vsfrnpc-male-none-john",
+				"vsfrnpc-female-none-marie",
 				"vsfrnpc-male-none-thomas",
 				"vsfrnpc-male-none-michel",
-				"vsfrnpc-female-none-marie",
-				"vsfrnpc-male-none-obliviac",
 				"vsfrnpc-male-guard-christian",
 				"vsfrnpc-female-guard-christina",
 				"vsfrnpc-female-none-eina",
 				"vsfrnpc-female-guard-genericguard",
 				"vsfrnpc-male-guard-genericguard",
+				"vsfrnpc-male-guard-genericpalaceentryguard",
 				"vsfrnpc-male-none-psyloh",
 				"vsfrnpc-male-none-igor",
 				"vsfrnpc-male-guard-jaime",
@@ -33,6 +33,7 @@
 				"vsfrnpc-male-none-varis",
 				"vsfrnpc-male-none-sebas",
 				"vsfrnpc-male-none-gaster",
+				"vsfrnpc-male-none-obliviac",
 			]
 		}
 	],

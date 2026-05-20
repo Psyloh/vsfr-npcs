@@ -165,7 +165,7 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-trade", jumpTo: "opentrade"},
-				{ value: "vsfrnpcs:dialogue-orario-npc-quests", jumpTo: "quests" }
+				{ value: "vsfrnpcs:dialogue-orario-npc-quests", jumpTo: "quests" },
 				{ value: "vsfrnpcs:dialogue-player-sorrybye3", jumpTo:"close"},
 			]
 		},

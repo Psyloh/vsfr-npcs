@@ -9,13 +9,38 @@
     "vsfrnpcs:item-creature-vsfrnpc-male-none-obliviac": "Admin NPC : Obliviac",
     "vsfrnpcs:item-creature-vsfrnpc-male-guard-christian": "Christian",
     "vsfrnpcs:item-creature-vsfrnpc-female-guard-christina": "Christina",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-eina": "Eina",
+    "vsfrnpcs:item-creature-vsfrnpc-male-guard-genericguard": "Random Guard Male",
+    "vsfrnpcs:item-creature-vsfrnpc-female-guard-genericguard": "Random Guard Female",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-psyloh": "Psyloh",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-igor": "Igor",
+    "vsfrnpcs:item-creature-vsfrnpc-male-guard-jaime": "Jaime",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-albert": "Albert",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-lisa": "Lisa",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-varis": "Varis",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-sebas": "Sebas",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-gaster": "Gaster",
 
     //Vanilla Dialogue UIs Titles
-    "tradingwindow-vsfrnpc-male-axel": "{0} - Beginners Guide",
-    "tradingwindow-vsfrnpc-female-marie": "{0} - Baker",
-    "tradingwindow-vsfrnpc-male-john": "{0} - Old Mercenary",
-    "tradingwindow-vsfrnpc-male-michel": "{0} - Cook",
-    "tradingwindow-vsfrnpc-male-thomas": "{0} - Warden of Translocators",
+    "tradingwindow-vsfrnpc-male-none-axel": "{0} - Royal Steward",
+    "tradingwindow-vsfrnpc-female-none-marie": "{0} - Baker",
+    "tradingwindow-vsfrnpc-male-none-john": "{0} - Old Mercenary",
+    "tradingwindow-vsfrnpc-male-none-michel": "{0} - Cook",
+    "tradingwindow-vsfrnpc-male-none-thomas": "{0} - Warden of Translocators",
+    "tradingwindow-vsfrnpc-male-guard-christian": "{0} - Warden of the main gateway",
+    "tradingwindow-vsfrnpc-female-guard-christina": "{0} - Warden of the main gateway",
+    "tradingwindow-vsfrnpc-female-none-eina": "{0} - Guild Adventurer Steward",
+    "tradingwindow-vsfrnpc-male-guard-genericguard": "Wall Guard",
+    "tradingwindow-vsfrnpc-female-guard-genericguard": "Wall Guard",
+    "tradingwindow-vsfrnpc-male-none-psyloh": "{0} - Brewer",
+    "tradingwindow-vsfrnpc-male-none-igor": "{0} - Forgeron",
+    "tradingwindow-vsfrnpc-male-guard-jaime": "{0} - Guard Captain",
+    "tradingwindow-vsfrnpc-male-none-albert": "{0} - Butcher",
+    "tradingwindow-vsfrnpc-female-none-lisa": "{0} - Library Director",
+    "tradingwindow-vsfrnpc-male-none-varis": "{0} - Admiring wanderer",
+    "tradingwindow-vsfrnpc-male-none-sebas": "{0} - Shadow Butler",
+    
 
-    "reset-dungeon-message": "Pouet! Ca va ramer!!"
+
+    "reset-dungeon-message": "Warning the {dungeon} gonna be regen in..."
 }

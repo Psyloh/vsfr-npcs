@@ -1,10 +1,32 @@
 {
+    //Creative Inventory UIs
+    "tabname-vsfrnpcs": "VSFR PNJ",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-obliviac": "PNJ Admin : Obliviac",
+    "vsfrnpcs:item-creature-vsfrnpc-male-guard-genericguard": "Garde Aléatoire Homme",
+    "vsfrnpcs:item-creature-vsfrnpc-female-guard-genericguard": "Garde Aléatoire Femme",
+
     //Vanilla Dialogue UIs Titles
-    "tradingwindow-vsfrnpc-male-none-axel": "{0} - Guide des Nouveaux",
+    "tradingwindow-vsfrnpc-male-none-axel": "{0} - Intendant Royal",
     "tradingwindow-vsfrnpc-female-none-marie": "{0} - Boulangère",
     "tradingwindow-vsfrnpc-male-none-john": "{0} - Ancien Mercenaire",
     "tradingwindow-vsfrnpc-male-none-thomas": "{0} - Gardien des Translocateurs",
     "tradingwindow-vsfrnpc-male-none-michel": "{0} - Cuisinier",
     "tradingwindow-vsfrnpc-male-none-obliviac": "{0} - PNJ Admin",
+    "tradingwindow-vsfrnpc-male-guard-christian": "{0} - Garde de la porte principale",
+    "tradingwindow-vsfrnpc-female-guard-christina": "{0} - Garde de la porte principale",
+    "tradingwindow-vsfrnpc-female-none-eina": "{0} - Intendante de la Guilde des Aventuriers",
+    "tradingwindow-vsfrnpc-male-guard-genericguard": "Garde de la Muraille",
+    "tradingwindow-vsfrnpc-female-guard-genericguard": "Garde de la Muraille",
+    "tradingwindow-vsfrnpc-male-none-psyloh": "{0} - Brasseur",
+    "tradingwindow-vsfrnpc-male-none-igor": "{0} - Forgeron",
+    "tradingwindow-vsfrnpc-male-guard-jaime": "{0} - Capitaine de la Garde",
+    "tradingwindow-vsfrnpc-male-none-albert": "{0} - Boucher",
+    "tradingwindow-vsfrnpc-female-none-lisa": "{0} - Directrice de la Bibliothèque",
+    "tradingwindow-vsfrnpc-male-none-varis": "{0} - Vagabon admirateur",
+    "tradingwindow-vsfrnpc-male-none-sebas": "{0} - Majordome de l'ombre",
 
+
+
+
+    "reset-dungeon-message": "Attention {dungeon} va être regenerer dans..."
 }
