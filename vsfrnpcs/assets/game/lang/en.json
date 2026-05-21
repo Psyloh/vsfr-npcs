@@ -20,6 +20,10 @@
     "vsfrnpcs:item-creature-vsfrnpc-male-none-varis": "Varis",
     "vsfrnpcs:item-creature-vsfrnpc-male-none-sebas": "Sebas",
     "vsfrnpcs:item-creature-vsfrnpc-male-none-gaster": "Gaster",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-genericvillagerinside": "Random Villager Inside Male",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-genericvillagerinside": "Random Villager Inside Female",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-genericvillageroutside": "Random Villager Outside Male",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-genericvillageroutside": "Random Villager Outside Female",
 
     //Vanilla Dialogue UIs Titles
     "tradingwindow-vsfrnpc-male-none-axel": "{0} - Royal Steward",
@@ -39,6 +43,11 @@
     "tradingwindow-vsfrnpc-female-none-lisa": "{0} - Library Director",
     "tradingwindow-vsfrnpc-male-none-varis": "{0} - Admiring wanderer",
     "tradingwindow-vsfrnpc-male-none-sebas": "{0} - Shadow Butler",
+    "tradingwindow-vsfrnpc-male-none-gaster": "{0} - World Restorer",
+    "tradingwindow-vsfrnpc-male-none-genericvillagerinside": "{0} - Orario Villager",
+    "tradingwindow-vsfrnpc-female-none-genericvillagerinside": "{0} - Orario Villager",
+    "tradingwindow-vsfrnpc-male-none-genericvillageroutside": "{0} - Orario Villager",
+    "tradingwindow-vsfrnpc-female-none-genericvillageroutside": "{0} - Orario Villager",
     
 
 

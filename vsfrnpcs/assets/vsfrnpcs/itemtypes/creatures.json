@@ -34,6 +34,10 @@
 				"vsfrnpc-male-none-sebas",
 				"vsfrnpc-male-none-gaster",
 				"vsfrnpc-male-none-obliviac",
+				"vsfrnpc-male-none-genericvillagerinside",
+				"vsfrnpc-male-none-genericvillageroutside",
+				"vsfrnpc-female-none-genericvillagerinside",
+				"vsfrnpc-female-none-genericvillageroutside",
 			]
 		}
 	],

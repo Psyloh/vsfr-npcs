@@ -1,0 +1,70 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericvillagerinside-notuto" },
+			],
+            jumpto: "notutobye"
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericvillagerinside-menu" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericvillagerinside-askquest", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-orario-genericvillagerinside-bye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "quest",
+			owner: "npc",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericvillagerinside-questansw" },
+            ],
+			jumpTo: "questbye"
+		},
+        {
+            code: "questbye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+        {
+            code: "notutobye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpto: "close"},
+            ]
+        },
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+    ]
+}

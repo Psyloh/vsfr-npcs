@@ -19,6 +19,7 @@
     "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
     "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
     "dialogue-player-sorrybye3": "Excusez moi, j'ai un imprévu.",
+    "dialogue-player-sorrydisturbbye" : "Désolé du dérangement, je dois y aller",
     "dialogue-player-okweird": "D'accord...",
     "dialogue-player-bye": "Tchao.",
     "dialogue-player-changeofmind": "En fait non.",
@@ -450,9 +451,25 @@
     "dialogue-orario-gaster-obj": "dialogue",
     "dialogue-orario-gaster-obj": "dialogue",
     "dialogue-orario-gaster-obj": "dialogue",
-
     //}
 
+    //{Generic Villager inside
+    "dialogue-orario-genericvillagerinside-notuto": "Euuuh bonjour ? Que faites vous chez moi ?",
+    "dialogue-orario-genericvillagerinside-menu": "Bonjour aventurier, Que faites vous chez moi ?",
+    "dialogue-orario-genericvillagerinside-bye" : "Excusez moi je vais sortir.",
+    "dialogue-orario-genericvillagerinside-askquest" : "Je venais pour voir si vous aviez besoin d'aide ?",
+    "dialogue-orario-genericvillagerinside-questansw": "Non. Cependant, vous pouvez regarder à la guilde des aventuriers.",
+    //}
+
+    //{Generic Villager inside
+    "dialogue-orario-genericvillageroutside-notuto": "La tempête s'est terminer il y a peu... Regardez tous les dégâts...",
+    "dialogue-orario-genericvillageroutside-notutobye": "En effet...",
+    "dialogue-orario-genericvillageroutside-menualt": "Maintenant que la tempête est terminée esperons qu'ils vont retirer les barricades",
+    "dialogue-orario-genericvillageroutside-menu": "Nous voila enfin débarasser des barricades ! Que puis-je faire pour vous aventurier ?",
+    "dialogue-orario-genericvillageroutside-bye" : "Désolé du dérangement, je dois y aller",
+    "dialogue-orario-genericvillageroutside-askquest" : "Auriez vous besoin d'aide ?",
+    "dialogue-orario-genericvillageroutside-questansw": "Hélas actuellement non. Regardez à la Guilde des aventurier si ils ont besoin d'aide",
+    //}
 
 
     //Quests

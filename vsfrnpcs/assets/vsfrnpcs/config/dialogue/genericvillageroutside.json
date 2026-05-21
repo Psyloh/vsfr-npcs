@@ -1,0 +1,89 @@
+{
+	components: [
+        {
+			code: "testhasfinishedtuto",
+			owner: "npc",
+			type: "condition",
+			variable: "player.hasdonetuto",
+			isNotValue: "true",
+			thenJumpTo: "notuto",
+			elseJumpTo: "checkstartofserver"
+		},
+        {
+            code: "checkstartofserver",
+            type: "jump",
+            trigger: "hasPrivilege",
+            triggerData: {
+                privilege: "twoweekserver",
+                if: "menualt",
+                else: "menu"
+            }
+        },
+		{
+			code: "notuto",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-notuto" },
+			],
+            jumpto: "notutobye"
+        },
+		{
+			code: "menualt",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-menualt" },
+			],
+            jumpto: "playermenu"
+        },
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-menu" },
+			],
+            jumpto: "playermenu"
+        },
+        {
+            code: "playermenu",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericvillageroutside-askquest", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-player-sorrydisturbbye", jumpto: "close"},
+            ]
+        },
+		{
+			code: "quest",
+			owner: "npc",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-orario-genericvillageroutside-questansw" },
+            ],
+			jumpTo: "questbye"
+		},
+        {
+            code: "questbye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
+            ]
+        },
+        {
+            code: "notutobye",
+            owner: "player",
+            type: "talk",
+            text: [
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpto: "close"},
+            ]
+        },
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue"
+		}
+    ]
+}

@@ -4,6 +4,10 @@
     "vsfrnpcs:item-creature-vsfrnpc-male-none-obliviac": "PNJ Admin : Obliviac",
     "vsfrnpcs:item-creature-vsfrnpc-male-guard-genericguard": "Garde Aléatoire Homme",
     "vsfrnpcs:item-creature-vsfrnpc-female-guard-genericguard": "Garde Aléatoire Femme",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-genericvillagerinside": "Villageois Aléatoire Interieur Homme",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-genericvillagerinside": "Villageoise Aléatoire Interieur Femme",
+    "vsfrnpcs:item-creature-vsfrnpc-male-none-genericvillageroutside": "Villageois Aléatoire Exterieur Homme",
+    "vsfrnpcs:item-creature-vsfrnpc-female-none-genericvillageroutside": "Villageoise Aléatoire Exterieur Femme",
 
     //Vanilla Dialogue UIs Titles
     "tradingwindow-vsfrnpc-male-none-axel": "{0} - Intendant Royal",
@@ -24,7 +28,11 @@
     "tradingwindow-vsfrnpc-female-none-lisa": "{0} - Directrice de la Bibliothèque",
     "tradingwindow-vsfrnpc-male-none-varis": "{0} - Vagabon admirateur",
     "tradingwindow-vsfrnpc-male-none-sebas": "{0} - Majordome de l'ombre",
-
+    "tradingwindow-vsfrnpc-male-none-gaster": "{0} - Restaurateur de Monde",
+    "tradingwindow-vsfrnpc-male-none-genericvillagerinside": "{0} - Villageois d'Orario",
+    "tradingwindow-vsfrnpc-female-none-genericvillagerinside": "{0} - Villageoise d'Orario",
+    "tradingwindow-vsfrnpc-male-none-genericvillageroutside": "{0} -Villageois d'Orario",
+    "tradingwindow-vsfrnpc-female-none-genericvillageroutside": "{0} - Villageoise d'Orario",
 
 
 
