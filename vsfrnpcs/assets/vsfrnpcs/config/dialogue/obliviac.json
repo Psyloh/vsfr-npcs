@@ -9,8 +9,16 @@
       type: "talk",
       text: [
         {
-          value: "Met les variables à zéro!",
-          jumpTo: "resetVars"
+          value: "Suis-je admin?",
+          jumpTo: "checkAdmin"
+        },
+        {
+          value: "Parle-moi de mon rôle!",
+          jumpTo: "switchRole"
+        },
+        {
+          value: "Est-ce que j'ai le privilege \"root\"?",
+          jumpTo: "checkRoot"
         },
         {
           value: "Régénère les archives!",
@@ -23,42 +31,98 @@
       ]
     },
     {
-      code: "checkPrivileges",
+      code: "switchPrivileges",
       type: "jump",
-      trigger: "checkPrivileges",
-      triggerData: {
-        values: [
-          {
-            privileges: [ "pri1", "pri2", "pri3", "pri4"],
-            jumpTo: "block1",
-          },
-          {
-            privileges: [ "pri1", "pri3", "pri4" ],
-            jumpTo: "block2",
-          },
-          {
-            privileges: [ "pri1", "pri4" ],
-            jumpTo: "block3",
-          },
-          {
-            privileges: [ "pri2", "pri3" ],
-            jumpTo: "block4",
-          }
-        ]
-      },
-    },
-    {
-      code: "checkRole",
-      type: "jump",
-      trigger: "checkRole",
+      trigger: "switchPrivilege",
       triggerData: {
         values: {
-          suvisitor: "block1",
-          admin: "block2",
-          role2: "block3",
-          meskouilles: "surTonNez"
+          pri1: "block1",
+          pri3: "block2",
+          pri4: "block3",
+          default : "privilegeDefault"
         }
       }
+    },
+    {
+      code: "switchRole",
+      type: "jump",
+      trigger: "switchRole",
+      triggerData: {
+        values: {
+          suvisitor: "roleNul",
+          suplayer: "rolePasOuf",
+          admin: "roleAdmin",
+          default: "roleDefault"
+        }
+      }
+    },
+    {
+      code: "roleNul",
+      type: "talk",
+      text: [ { value: "C'i d'la mèrde, j'i envi d'ti racketter..." } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "rolePasOuf",
+      type: "talk",
+      text: [ { value: "Vas-y mé r'garde pas, sal péon!.." } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "roleAdmin",
+      type: "talk",
+      text: [ { value: "Ouuuh, m'sieur le maître, ji m'incline! C'i pas mouah, j'i rien fé!" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "roleDefault",
+      type: "talk",
+      text: [ { value: "Ji sépa c'i kwa..." } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "checkAdmin",
+      type: "jump",
+      trigger: "hasRole",
+      triggerData: {
+        role: "admin",
+        if: "yesAdmin",
+        else: "notAdmin"
+      }
+    },
+    {
+      code: "yesAdmin",
+      type: "talk",
+      text: [ { value: "Wesh wallah t'i admin, toi!" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "notAdmin",
+      type: "talk",
+      text: [ { value: "Ti t'é cru-où? T'i pas admin, wesh..." } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "checkRoot",
+      type: "jump",
+      trigger: "hasPrivilege",
+      triggerData: {
+        privilege: "root",
+        if: "yesRoot",
+        else: "notRoot"
+      }
+    },
+    {
+      code: "yesRoot",
+      type: "talk",
+      text: [ { value: "Wallamdalouloulalilallah ♪♫ T'i bien roôt!" } ],
+      jumpTo: "thx"
+    },
+    {
+      code: "notRoot",
+      type: "talk",
+      text: [ { value: "Ci li arabres qu'y'ont di routs... Toi, nan!" } ],
+      jumpTo: "thx"
     },
     {
       code: "checkArchives",
@@ -84,73 +148,18 @@
       }
     },
     {
-      code: "resetVars",
-      type: "talk",
-      setVariables: {
-        "player.hasmetmarie": "false",
-        "player.hasdonetuto": "false"
-      },
-      text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
-      jumpTo: "thx"
+      code: "testTeleport",
+      trigger: "teleport",
+      triggerData: {
+        x: "~5",
+        z: "~7"
+      }
     },
     {
       code: "thx",
       owner: "player",
       type: "talk",
       text: [ { value: "Merci Bobby!" } ]
-    },
-    {
-      code: "tooSoon",
-      owner: "npc",
-      type: "talk",
-      text: [ { value: "Ci trop tôt :-/" } ],
-      jumpTo: "thx"
-    },
-    {
-      code: "resetArchives",
-      owner: "npc",
-      trigger: "resetDungeon",
-      triggerData: {
-        name: "resonancearchive"
-      },
-      jumpTo: "close"
-    },
-    {
-      code: "resetVars",
-      type: "talk",
-      setVariables: {
-        "player.hasmetmarie": "false",
-        "player.hasdonetuto": "false",
-        "player.hasmetjail": "false",
-        "entity.hasmet": "false",
-        "player.hasfinishedq": "false",
-        "player.hasfinishedjail": "false",
-        "player.knowchristian": "false",
-        "player.knowchristina": "false",
-        "player.jaimeperso": "false",
-        "player.jaimeperso2": "false",
-        "player.jaimeperso3": "false",
-        "player.jaimepersoend": "false",
-        "player.johngive": "false",
-        "player.gavebread": "false",
-        "player.hasdonetuto": "false",
-        "player.hasdonetuto": "false",
-        "player.hasdonetuto": "false",
-      },
-      text: [ { value: "J'ai recousu l'hymen : elle est prêt à marier, wallah!" } ],
-      jumpTo: "thx"
-    },
-    {
-			code: "thx",
-			owner: "player",
-			type: "talk",
-			text: [
-				{ value: "Merci bobby", jumpTo: "close" },
-			]
-		},
-    {
-      code: "close",
-      trigger: "closedialogue"
     }
   ]
 }
