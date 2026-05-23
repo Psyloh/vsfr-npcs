@@ -148,9 +148,8 @@
       }
     },
     {
-      code: "resetArchives",
-      owner: "npc",
-      trigger: "resetDungeon",
+      code: "testTeleport",
+      trigger: "teleport",
       triggerData: {
         x: "~5",
         z: "~7"
