@@ -8,18 +8,29 @@
 
     // Dialogues
     //{ Dull answers
+    "dialogue-player-nothingtosay": "...",
     "dialogue-player-ok": "Ok",
     "dialogue-player-ok2": "D'accord",
-    "dialogue-player-yesofcourse": "Oui, bien sûr!",
+    "dialogue-player-yesofcourse": "Oui, bien sûr !",
     "dialogue-player-yesthatsit": "Oui, c'est ça.",
     "dialogue-player-okthx": "Bien, merci.",
     "dialogue-player-okthx2": "D'accord, merci.",
     "dialogue-player-intrestingthx": "Intéressant, merci.",
     "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
     "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
+    "dialogue-player-sorrybye3": "Excusez moi, j'ai un imprévu.",
+    "dialogue-player-sorrydisturbbye" : "Désolé du dérangement, je dois y aller",
+    "dialogue-player-okweird": "D'accord...",
+    "dialogue-player-bye": "Tchao.",
     "dialogue-player-changeofmind": "En fait non.",
     "dialogue-player-thxbye": "Merci, au revoir!",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
+    "dialogue-player-ohwaitaminute": "Oh attendez.",
+    "dialogue-player-ohwaitsomethingelse": "Oh encore quelque chose s'il vous plait.",
+    "dialogue-player-ihavemoney": "J'ai l'argent je vais payer.",
+
+    "dialogue-player-next": "Page Suivante",
+    "dialogue-player-previous": "Page précedente",
     //}
 
     //{ Axel
@@ -257,7 +268,6 @@
     "dialogue-orario-eina-harvestquest1desc": "Avec la tempête temporelle la quantité de viande a drastiquement baisser.\nMichel le cuisinier de l'Auberge des Ours aurait besoin de 15 Viande Rouge.",
     "dialogue-orario-eina-harvestquest2": "Quête collecte | Michel (2)",
     "dialogue-orario-eina-harvestquest2desc": "Au vu de la récente pénurie de viande rouge dans la ville, michel aimerait tester de cuisiner des plats à base de Viande Coriace, peux tu lui en ramener 8 ?",
-    "dialogue-orario-eina-persoend": "Ah encore une chose.",
     //}
 
     //{ Psyloh
@@ -327,6 +337,141 @@
     "dialogue-orario-albert-persoansw2": "Toutes viandes qui se mange peut être vendue ici.",
     //}
 
+    //{
+    "dialogue-orario-lisa-placediscover": "Bienvenue cher aventurier dans la Bibliothèque des Lumières",
+    "dialogue-orario-lisa-placeqstn": "Oooh, c'est donc une bibliothèque",
+    "dialogue-orario-lisa-placeansw": "C'est aussi un lieu d'étude, grâce à nos archives et notre grande base de livre.",
+    "dialogue-orario-lisa-placeqstn2": "Et la bibliothèque n'a pas subis de dégats ?",
+    "dialogue-orario-lisa-placeansw2": "Non ! Moi, Lisa directrice de cette bibliothèque ne le permetrait pas !",
+    "dialogue-orario-lisa-placeend": "Je vois",
+    "dialogue-orario-lisa-menu": "Que puis-je faire pour vous Aventurier ?",
+    "dialogue-orario-lisa-menualt": "Bon, que puis-je faire pour vous Aventurier ?",
+    "dialogue-orario-lisa-placefqstn": "Quel est cet endroit ?",
+    "dialogue-orario-lisa-quests": "Est-ce que la directrice de la bibliothèque a besoin d'aide ?",
+    "dialogue-orario-lisa-bookqstn": "Vous acceptez quel genre de livre ?",
+    "dialogue-orario-lisa-bookansw": "Tout type de livre. Du roman à des livres historiques, des recettes de cuisine ect...",
+    "dialogue-orario-lisa-bookqstn2": "Vraiment tout ?",
+    "dialogue-orario-lisa-bookansw2": "Oui tout livre qui raconte une histoire ou renferme un savoir a sa place ici.",
+    "dialogue-orario-lisa-bookqstn3": "Donc si nous écrivons un livre il pourrais avoir sa place ici ?",
+    "dialogue-orario-lisa-bookansw3": "Oui si vous avez écris un livre qui raconte une réelle histoire ou des connaissance,\nil a tout a fait sa place ici !",
+    "dialogue-orario-lisa-bookqstn4": "Comment je peux avoir mon livre dans la bibliothèque ?",
+    "dialogue-orario-lisa-bookansw4": "Tu dois tout simplement contacter un *Administrateur* pour ajouter ton livre dans la bibliothèque.",
+    //}
+
+    //{
+    "dialogue-orario-varis-firstmeet": "Bonjour toi, je m'appelle Varis.",
+    "dialogue-orario-varis-fmresponse": "Et que faites vous ?",
+    "dialogue-orario-varis-firstmeet2": "Moi ? Rien, je tourne autour oisivement.",
+    "dialogue-orario-varis-fmresponse2": "D'accord...",
+    "dialogue-orario-varis-menu": "Cette statue est belle n'est-ce pas ?",
+    "dialogue-orario-varis-statueqstn": "Que représente cette statue ?",
+    "dialogue-orario-varis-statueansw": "Elle représente les bâtisseurs.",
+    "dialogue-orario-varis-statueqstn2": "Les bâtisseurs ?",
+    "dialogue-orario-varis-statueansw2": "Oui elle représente tout ceux ayant apporté une aide à la construction de ce monde.",
+    "dialogue-orario-varis-statueqstn3": "Et qui sont ils ?",
+    "dialogue-orario-varis-statueansw3": "Eh bien il y a pour \n\nLa Construction : Rodjy et HunterFox\n\nLa Décoration : Jalihan, Wolfgrim, Tonyops, Decto et HunterFox\n\nLe développement : Psyloh et HunterFox\n\nLa mise en place du serveur Tonyops et HunterFox\n\nEt mention spéciale pour Architoc, qui a fait cette statue.",
+    "dialogue-orario-varis-statueend": "Merci, je ne les oublierais pas",
+    //}
+
+    //{Generic Guard
+    "dialogue-orario-genericpalaceentryguard-notuto": "Bonjour étranger, que faites là ? L'accès est interdit, faites demi tour ?",
+    "dialogue-orario-genericpalaceentryguard-notutoansw": "D'accord j'y vais.",
+    "dialogue-orario-genericpalaceentryguard-menu": "Bonjour aventurier, l'entrée du palais est fermer à cause de la récente tempête temporelle.",
+    "dialogue-orario-genericpalaceentryguard-bye" : "D'accord merci",
+    "dialogue-orario-genericpalaceentryguard-askquest" : "Est-ce que les gardes du palais auraient besoin d'aide ?",
+    "dialogue-orario-genericpalaceentryguard-questansw": "Non, mais tu pourrais voir avec le Chef de la Garde.",
+    //}
+
+    //{
+    "dialogue-orario-sebas-firstmeet": "Que me voulez vous ?",
+    "dialogue-orario-sebas-fmresponse": "J'étais curieux de savoir qui vous étiez.",
+    "dialogue-orario-sebas-firstmeet2": "Je suis Sébas, vous voila ravis, maintenant partez.",
+    "dialogue-orario-sebas-menu": "Encore vous ? Que me voulez vous ?",
+    "dialogue-orario-sebas-quests": "Auriez vous un travail pour moi ?",
+    "dialogue-orario-sebas-curiosityqstn": "Et que faites vous ici ?",
+    "dialogue-orario-sebas-curiosityansw": "J'attends. Maintenant partez.",
+    "dialogue-orario-sebas-curiosityqstn2": "Qu'attendez vous ?",
+    "dialogue-orario-sebas-curiosityansw2": "Tu es donc décider à me poser un tas de question, n'est-ce pas ?",
+    "dialogue-orario-sebas-curiosityqstn3": "Je suis quelqu'un de nature curieuse",
+    "dialogue-orario-sebas-curiosityansw3": "J'attends des personnes pour un évènement qui ce veut discret.",
+    "dialogue-orario-sebas-curiosityqstn4": "Et que faites vous pour cet évènement ?",
+    "dialogue-orario-sebas-curiosityansw4": "Je suis un sorte de majordome, j'acceuille et dirige les personnes conviés à cet évènement.",
+    "dialogue-orario-sebas-curiosityqstn5": "Et quand ce déroule cet évènement ?",
+    "dialogue-orario-sebas-curiosityansw5": "Ne savez vous donc pas écouter ? Cet évènement est secret. Je ne vais donc pas divulguez la date de cet évènement.\n\nVous pouvez juste savoir qu'il a lieux deux fois par mois.",
+    "dialogue-orario-sebas-curiosityqstn6": "Comment peut-on y être convié ?",
+    "dialogue-orario-sebas-curiosityansw6": "Vous ne savez même pas ce qu'est cet évènement et vous voulez y entrez.\nVous êtes d'une curiosité sans fin...\n\nVous le saurez bien assez tôt comment y parvenir.",
+    "dialogue-orario-sebas-curiosityend": "*Hmm je dois donc revenir vers lui plus tard* Au revoir.",
+    "dialogue-orario-sebas-obj": "dialogue",
+    //}
+
+
+    //{
+    "dialogue-orario-gaster-firstmeet": "👌︎⚐︎☠︎☺︎⚐︎🕆︎☼︎📪︎ ✈︎🕆︎☜︎ 💧︎⚐︎🕆︎☟︎✌︎✋︎❄︎☜︎☪︎ ✞︎⚐︎🕆︎💧︎ ✍︎",
+    "dialogue-orario-gaster-fmresponse": "Pardon ?",
+    "dialogue-orario-gaster-firstmeet2": "Excusez moi, vieille habitude. Bonjour que souhaitez vous ?",
+    "dialogue-orario-gaster-fmresponse2": "Je découvre la ville, qui êtes vous et faites vous ? ",
+    "dialogue-orario-gaster-firstmeet3": "Je suis Gaster l'homme qui parle avec les mains.\nJe suis aussi l'homme qui viens effacer les traces du présent.",
+    "dialogue-orario-gaster-menu": "Que puis-je faire pour vous ?",
+    "dialogue-orario-gaster-services": "Je peux accéder à vos services ?",
+    "dialogue-orario-gaster-quests": "Auriez vous une tâche à me confier ?",
+    "dialogue-orario-gaster-resetqstn": "Je n'ai pas bien compris ce que vous faisiez ?",
+    "dialogue-orario-gaster-resetansw": "Moi ? Je remet des espaces entier digne d'intérêt comme si personne n'y étais jamais venu.",
+    "dialogue-orario-gaster-resetqstn2": "Oh comme ça nous pouvons les explorer à nouveau ?",
+    "dialogue-orario-gaster-resetansw2": "En effet, mais ce n'est pas gratuit.\n\nConsulter mes services pour en savoir plus.",
+    "dialogue-orario-gaster-servicesmenu": "Biensûr, voici ce que je vous propose ainsi que les tarifs :\nLes archives de résonance : 200 engrenages rouillés.\nLe Lazaret : 150 engrenages rouillés.\nLa zone de la dévastation : 400 engrenages rouillés.\nTour des enfants perdus : 300 Engrenages rouillés.\nDonjon des enfants perdus : 500 engrenages rouillés.\nUniversité : 500 engrenages rouillés.\nLa mine de charbon : 350 engrenages rouillés.",
+    "dialogue-orario-gaster-servicesmenu2": "Biensûr, voici ce que je vous propose ainsi que les tarifs :\nMine 1 et 2 : 300 engrenages rouillés.\nCroisé des chemins : 150 engrenages rouillés.\nLe Manoir : 250 engrenages rouillés.\nLe panoptique : 300 engrenages rouillés.\nHuaca : 350 engrenages rouillés\nLa déchirure solaire : 400 engrenages rouillés.\nCalix : 300 engrenages rouillés\nCentre commercial : 300 engrenages rouillés.\nCarrière d'halite : 300 engrenages rouillés.",
+    "dialogue-orario-gaster-resonancearchive": "Les Archives de Résonance",
+    "dialogue-orario-gaster-lazaret": "Le Lazaret",
+    "dialogue-orario-gaster-devastationarea": "La zone de la dévastation",
+    "dialogue-orario-gaster-largeforlornhopetower": "La Tour des Enfants perdus",
+    "dialogue-orario-gaster-forlornhopedungeon": "Donjon des enfants perdus",
+    "dialogue-orario-gaster-university": "Université",
+    "dialogue-orario-gaster-coalmine": "Mine de Charbon",
+    "dialogue-orario-gaster-mine1": "Mine 1",
+    "dialogue-orario-gaster-mine2": "Mine 2",
+    "dialogue-orario-gaster-crossroads": "Croisé des Chemins",
+    "dialogue-orario-gaster-mansion": "Le Manoir",
+    "dialogue-orario-gaster-thepanopticon": "Le Panoptique",
+    "dialogue-orario-gaster-huaca": "Huaca",
+    "dialogue-orario-gaster-sunrift": "Déchirure Solaire",
+    "dialogue-orario-gaster-calix": "Calix",
+    "dialogue-orario-gaster-shoppingcentre": "Le Centre Commercial",
+    "dialogue-orario-gaster-halitequarry": "Carrière d'halite",
+    "dialogue-orario-gaster-servicenomoney": "Je n'ai pas l'argent pour vos services désolé.",
+    "dialogue-orario-gaster-seerviceplayerhasnomoney": "Il semblerait que vous n'ayez pas d'argent pour mes services.",
+    "dialogue-orario-gaster-servicedone": "Le zone en question sera reset d'ici dix minutes, soyez les premiers là bas.",
+    "dialogue-orario-gaster-servicedelay": "Hélas ce service m'a déjà été proposer récemment.\nReviens dans 7 mois [1 Semaine IRL]. Et je pourrais à nouveau remettre cette zone en état.",
+    "dialogue-orario-gaster-countmoney": "Voyons voir si tu as l'argent pour que je puisse régenerer cette zone.",
+    "dialogue-orario-gaster-checkprice": "Je n'ai pas bien vu je peux voir à nouveau les choix ?",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    "dialogue-orario-gaster-obj": "dialogue",
+    //}
+
+    //{Generic Villager inside
+    "dialogue-orario-genericvillagerinside-notuto": "Euuuh bonjour ? Que faites vous chez moi ?",
+    "dialogue-orario-genericvillagerinside-menu": "Bonjour aventurier, Que faites vous chez moi ?",
+    "dialogue-orario-genericvillagerinside-bye" : "Excusez moi je vais sortir.",
+    "dialogue-orario-genericvillagerinside-askquest" : "Je venais pour voir si vous aviez besoin d'aide ?",
+    "dialogue-orario-genericvillagerinside-questansw": "Non. Cependant, vous pouvez regarder à la guilde des aventuriers.",
+    //}
+
+    //{Generic Villager inside
+    "dialogue-orario-genericvillageroutside-notuto": "La tempête s'est terminer il y a peu... Regardez tous les dégâts...",
+    "dialogue-orario-genericvillageroutside-notutobye": "En effet...",
+    "dialogue-orario-genericvillageroutside-menualt": "Maintenant que la tempête est terminée esperons qu'ils vont retirer les barricades",
+    "dialogue-orario-genericvillageroutside-menu": "Nous voila enfin débarasser des barricades ! Que puis-je faire pour vous aventurier ?",
+    "dialogue-orario-genericvillageroutside-bye" : "Désolé du dérangement, je dois y aller",
+    "dialogue-orario-genericvillageroutside-askquest" : "Auriez vous besoin d'aide ?",
+    "dialogue-orario-genericvillageroutside-questansw": "Hélas actuellement non. Regardez à la Guilde des aventurier si ils ont besoin d'aide",
+    //}
+
+
     //Quests
 
     "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
@@ -374,7 +519,34 @@
     "quest-albert-redmeat-obj":        "Viande rouge {0}/10",
     //}
 
+    //{ Lisa
+    "quest-lisa-paper-title":      "Classification",
+    "quest-lisa-paper-desc":       "Bonjour aventurier, j'ai grandement besoin de papier pour la classification de mes livres. Sans ça je ne peux pas efficacement ranger la bibliothèque.",
+    "quest-lisa-paper-obj":        "Parchemin {0}/12",
+    //}
+
+   //{ Sebas
+    "quest-sebas-rope-title":      "Corde de travail",
+    "quest-sebas-rope-desc":       "J'ai besoin de douze metres de corde pour une mission que l'on m'a confié.",
+    "quest-sebas-rope-obj":        "Bobine de Corde {0}/12",
+    //}
+
+   //{ Gester
+    "quest-gaster-temporalgear-title":      "Restauration d'énergie",
+    "quest-gaster-temporalgear-desc":       "J'ai besoin d'un engrenage temporel, sans ça il risque de me manquer d'énergie pour remettre à zero des emplacements de ce monde.",
+    "quest-gaster-temporalgear-obj":        "Engrenage Temporel {0}/1",
+    //}
+
+
+
     //{
     "dialogue-village-npc-obj": "dialogue",
+    //}
+
+
+   //{ PNJ
+    "quest-pnj-ID-title":      "text",
+    "quest-pnj-ID-desc":       "text",
+    "quest-pnj-ID-obj":        "text {0}/12",
     //}
 }
