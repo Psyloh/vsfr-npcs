@@ -1,0 +1,156 @@
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Linq;
+using System.Text;
+using Vintagestory.API.Common;
+using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
+using Vintagestory.API.Server;
+using Vintagestory.GameContent;
+
+namespace VSFRNPCS.Server
+{
+	public static class CmdHelpers
+	{
+		static Caller AdminCaller
+		{
+			get => new()
+			{
+				Type = EnumCallerType.Console,
+				CallerRole = "admin",
+				CallerPrivileges = ["*"],
+				FromChatGroupId = GlobalConstants.ConsoleGroup
+			};
+		}
+
+		public static void TeleportXYZ(IServerPlayer player, string coords)
+		{
+			var caller = AdminCaller;
+			caller.Player = player;
+
+			var args = new TextCommandCallingArgs
+			{
+				Caller = caller,
+				RawArgs = new CmdArgs($"{player.PlayerName} {coords}")
+			};
+			ApiModHelper.Api.ChatCommands.Execute("tp", args);
+		}
+
+		public static void TeleportRole(IServerPlayer player, string roleName)
+		{
+			var role = ApiModHelper.Api.Server.Config.Roles.FirstOrDefault(r => r.Name == roleName);
+			if (role is null)
+			{
+				return;
+			}
+
+			var spawnPos = role.DefaultSpawn;
+			var cmd = new StringBuilder($"{spawnPos.x} ");
+			if (spawnPos.y != null)
+			{
+				cmd.Append($"{spawnPos.y} ");
+			}
+			cmd.Append($"{spawnPos.z} ");
+			TeleportXYZ(player, cmd.ToString());
+		}
+
+		public static bool CanResetDungeon(string dungeonName)
+		{
+			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
+			var isPending = modSys.Server.IsPending(dungeonName);
+			if (isPending)
+			{
+				return false;
+			}
+
+			var lastReset = modSys.Server.GetLastReset(dungeonName);
+			if (lastReset == null)
+			{
+				return true;
+			}
+
+			var config = modSys.Server.Config;
+			if (!config.Delays.TryGetValue(dungeonName, out var delay))
+			{
+				delay = config.GlobalDelay;
+			}
+			return lastReset.Value.AddHours(delay) <= DateTime.Now;
+		}
+
+		public static void RegisterDungeonReset(string name)
+		{
+			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
+			modSys.Server.RegisterReset(name);
+		}
+
+		public static void ResetDungeon(string name)
+		{
+			var sSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+			var dungeon = sSys.Structures.Get(name);
+			if (dungeon == null)
+			{
+				throw new Exception($@"There's no such dungeon as ""{dungeon}""");
+			}
+
+			var chunkSize = GlobalConstants.ChunkSize;
+			var x1 = dungeon.Location.MinX / chunkSize;
+			var z1 = dungeon.Location.MinZ / chunkSize;
+			var x2 = dungeon.Location.MaxX / chunkSize;
+			var z2 = dungeon.Location.MaxZ / chunkSize;			
+
+			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
+			modSys.Server.SetReset(name);
+
+			var message = Lang.Get("game:reset-dungeon-message");
+			ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
+			ApiModHelper.Api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
+			{
+				Caller = AdminCaller,
+				RawArgs = new CmdArgs($"regenrange {x1} {z1} {x2} {z2}")
+			});
+		}
+
+		public static bool HasRole(EntityPlayer player, string role) =>
+			player.Player.Role.Code == role;
+
+		public static string SwitchRole(EntityPlayer player, JsonObject data)
+		{
+			var role = player.Player.Role.Code;
+
+			if (data["values"].Token is JObject roles)
+			{
+				foreach (var property in roles.Properties())
+				{
+					if (property.Name == role)
+					{
+						return property?.Value.Value<string>() ?? throw new Exception("");
+					}
+				}
+			}
+			return "";
+		}
+
+		public static bool HasPrivilege(EntityPlayer player, string privilege) =>
+			player.Player.Privileges.Any(p => p == privilege);
+
+		public static string SwitchPrivilege(EntityPlayer player, JsonObject data)
+		{
+			var privileges = player.Player.Privileges;
+
+			if (data["values"].Token is JObject paths)
+			{
+				foreach (var property in paths.Properties())
+				{
+					if (privileges.Contains(property.Name))
+					{
+						return property?.Value.Value<string>() ?? throw new Exception("");
+					}
+				}
+			}
+			return "";
+		}
+
+		public static void ChangeRole(IServerPlayer player, string role) =>
+			player.SetRole(role);
+	}
+}
