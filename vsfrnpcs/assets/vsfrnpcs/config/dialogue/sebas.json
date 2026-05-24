@@ -1,0 +1,181 @@
+{
+	components: [
+		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			trigger: "revealname",
+            setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-firstmeet" },
+			],
+			jumpTo: "fmresponse"
+		},
+        {
+			code: "fmresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-fmresponse", jumpTo: "firstmeet2" },
+			]
+		},
+		{
+			code: "firstmeet2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-firstmeet2" },
+			],
+			jumpTo: "fmend"
+		},
+        {
+			code: "fmend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-nothingtosay", jumpTo: "close" },
+			]
+		},
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-menu" },
+			],
+			jumpTo: "playermenu"
+		},
+        {
+			code: "playermenu",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn", jumpTo: "curiosityansw" },
+                { value: "vsfrnpcs:dialogue-orario-sebas-quests", jumpTo: "quests" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "curiosityansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityansw" },
+			],
+			jumpTo: "curiosityqstn2"
+		},
+        {
+			code: "curiosityqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn2", jumpTo: "curiosityansw2" },
+			]
+		},
+		{
+			code: "curiosityansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityansw2" },
+			],
+			jumpTo: "curiosityqstn3"
+		},
+        {
+			code: "curiosityqstn3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn3", jumpTo: "curiosityansw3" },
+			]
+		},
+		{
+			code: "curiosityansw3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityansw3" },
+			],
+			jumpTo: "curiosityqstn4"
+		},
+        {
+			code: "curiosityqstn4",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn4", jumpTo: "curiosityansw4" },
+			]
+		},
+		{
+			code: "curiosityansw4",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityansw4" },
+			],
+			jumpTo: "curiosityqstn5"
+		},
+        {
+			code: "curiosityqstn5",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn5", jumpTo: "curiosityansw5" },
+			]
+		},
+		{
+			code: "curiosityansw5",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityansw5" },
+			],
+			jumpTo: "curiosityqstn6"
+		},
+        {
+			code: "curiosityqstn6",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn6", jumpTo: "curiosityansw6" },
+			]
+		},
+		{
+			code: "curiosityansw6",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityansw6" },
+			],
+			jumpTo: "curiosityend"
+		},
+        {
+			code: "curiosityend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityend", jumpTo: "close" },
+			]
+		},
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		},
+    ]
+}

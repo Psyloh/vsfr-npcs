@@ -7,23 +7,42 @@
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
 			thenJumpTo: "notuto",
-			elseJumpTo: "menu"
+			elseJumpTo: "checkstartofserver"
 		},
+        {
+            code: "checkstartofserver",
+            type: "jump",
+            trigger: "hasPrivilege",
+            triggerData: {
+                privilege: "twoweekserver",
+                if: "menualt",
+                else: "menu"
+            }
+        },
 		{
 			code: "notuto",
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-genericguard-notuto" },
+				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-notuto" },
 			],
             jumpto: "notutobye"
+        },
+		{
+			code: "menualt",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-menualt" },
+			],
+            jumpto: "playermenu"
         },
 		{
 			code: "menu",
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-genericguard-menu" },
+				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-menu" },
 			],
             jumpto: "playermenu"
         },
@@ -32,8 +51,8 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-genericguard-askquest", jumpto: "quest"},
-                { value: "vsfrnpcs:dialogue-orario-genericguard-bye", jumpto: "close"},
+                { value: "vsfrnpcs:dialogue-orario-genericvillageroutside-askquest", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-player-sorrydisturbbye", jumpto: "close"},
             ]
         },
 		{
@@ -41,7 +60,7 @@
 			owner: "npc",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-genericguard-questansw" },
+                { value: "vsfrnpcs:dialogue-orario-genericvillageroutside-questansw" },
             ],
 			jumpTo: "questbye"
 		},
@@ -58,7 +77,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-genericguard-notutoansw", jumpto: "close"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpto: "close"},
             ]
         },
         {

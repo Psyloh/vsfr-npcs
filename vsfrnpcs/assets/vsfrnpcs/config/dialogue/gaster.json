@@ -1,0 +1,959 @@
+{
+	components: [
+		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			trigger: "revealname",
+            setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-firstmeet" },
+			],
+			jumpTo: "fmresponse"
+		},
+        {
+			code: "fmresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-fmresponse", jumpTo: "firstmeet2" },
+			]
+		},
+		{
+			code: "firstmeet2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-firstmeet2" },
+			],
+			jumpTo: "fmresponse2"
+		},
+        {
+			code: "fmresponse2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-fmresponse2", jumpTo: "firstmeet3" },
+			]
+		},
+		{
+			code: "firstmeet3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-firstmeet3" },
+			],
+			jumpTo: "fmend"
+		},
+        {
+			code: "fmend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-okweird", jumpTo: "menu" },
+			]
+		},
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-menu" },
+			],
+			jumpTo: "playermenu"
+		},
+        {
+			code: "playermenu",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-services", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-quests", jumpTo: "quests" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-resetqstn", jumpTo: "resetansw" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "resetansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-resetansw" },
+			],
+			jumpTo: "resetqstn2"
+		},
+        {
+			code: "resetqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-resetqstn2", jumpTo: "resetansw2" },
+			]
+		},
+		{
+			code: "resetansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-resetansw2" },
+			],
+			jumpTo: "resetend"
+		},
+        {
+			code: "resetend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ok2", jumpTo: "menu" },
+			]
+		},
+		{
+			code: "servicesmenu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-servicesmenu" },
+			],
+			jumpTo: "playerservicemenu"
+		},
+        {
+			code: "playerservicemenu",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-orario-gaster-resonancearchive", jumpTo: "checkarchives" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-lazaret", jumpTo: "checklazaret" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-devastationarea", jumpTo: "checkdevastationarea" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-largeforlornhopetower", jumpTo: "checklargeforlornhopetower" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-forlornhopedungeon", jumpTo: "checkforlornhopedungeon" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-university", jumpTo: "checkuniversity" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-coalmine", jumpTo: "checkcoalmine" },
+                { value: "vsfrnpcs:dialogue-player-next", jumpTo: "servicesmenu2" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "servicesmenu2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-servicesmenu2" },
+			],
+			jumpTo: "playerservicemenu2"
+		},
+        {
+			code: "playerservicemenu2",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-orario-gaster-mine1", jumpTo: "checkmine1" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-mine2", jumpTo: "checkmine2" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-crossroads", jumpTo: "checkcrossroads" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-mansion", jumpTo: "checkmansion" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-thepanopticon", jumpTo: "checkthepanopticon" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-huaca", jumpTo: "checkhuaca" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-sunrift", jumpTo: "checksunrift" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-calix", jumpTo: "checkcalix" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-shoppingcentre", jumpTo: "checkshoppingcentre" },
+                { value: "vsfrnpcs:dialogue-orario-gaster-halitequarry", jumpTo: "checkhalitequarry" },
+                { value: "vsfrnpcs:dialogue-player-previous", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "checkarchives",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "resonancearchive",
+				if: "checkmoneyresonance",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneyresonance",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneyresonance"
+		},
+        {
+			code: "playercheckmoneyresonance",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsarchives", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 200}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsarchives",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 200 },
+			jumpTo: "resetresonancearchive"
+		},	
+		{
+			code: "resetresonancearchive",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "resonancearchive"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checklazaret",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "lazaret",
+				if: "checkmoneylazaret",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneylazaret",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneylazaret"
+		},
+        {
+			code: "playercheckmoneylazaret",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearslazaret", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 150}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearslazaret",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 150 },
+			jumpTo: "resetlazaret"
+		},	
+		{
+			code: "resetlazaret",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "lazaret"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkdevastationarea",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "devastationarea",
+				if: "checkmoneydevastationarea",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneydevastationarea",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneydevastationarea"
+		},
+        {
+			code: "playercheckmoneydevastationarea",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsdevastationarea", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 400}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsdevastationarea",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 400 },
+			jumpTo: "resetdevastationarea"
+		},	
+		{
+			code: "resetdevastationarea",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "devastationarea"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checklargeforlornhopetower",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "largeforlornhopetower",
+				if: "checkmoneylargeforlornhopetower",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneylargeforlornhopetower",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneylargeforlornhopetower"
+		},
+        {
+			code: "playercheckmoneylargeforlornhopetower",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearslargeforlornhopetower", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearslargeforlornhopetower",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resetlargeforlornhopetower"
+		},	
+		{
+			code: "resetlargeforlornhopetower",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "largeforlornhopetower"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkforlornhopedungeon",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "forlornhopedungeon",
+				if: "checkmoneyforlornhopedungeon",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneyforlornhopedungeon",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneyforlornhopedungeon"
+		},
+        {
+			code: "playercheckmoneyforlornhopedungeon",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsforlornhopedungeon", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 500}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsforlornhopedungeon",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 500 },
+			jumpTo: "resetforlornhopedungeon"
+		},	
+		{
+			code: "resetforlornhopedungeon",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "forlornhopedungeon"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkuniversity",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "university",
+				if: "checkmoneyuniversity",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneyuniversity",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneyuniversity"
+		},
+        {
+			code: "playercheckmoneyuniversity",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsuniversity", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 500}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsuniversity",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 500 },
+			jumpTo: "resetuniversity"
+		},	
+		{
+			code: "resetuniversity",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "university"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkcoalmine",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "coalmine",
+				if: "checkmoneycoalmine",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneycoalmine",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneycoalmine"
+		},
+        {
+			code: "playercheckmoneycoalmine",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearscoalmine", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 350}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearscoalmine",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 350 },
+			jumpTo: "resetcoalmine"
+		},	
+		{
+			code: "resetcoalmine",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "coalmine"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkmine1",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "mine1",
+				if: "checkmoneymine1",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneymine1",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneymine1"
+		},
+        {
+			code: "playercheckmoneymine1",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsmine1", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsmine1",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resetmine1"
+		},	
+		{
+			code: "resetmine1",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "mine1"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkmine2",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "mine2",
+				if: "checkmoneymine2",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneymine2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneymine2"
+		},
+        {
+			code: "playercheckmoneymine2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsmine2", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsmine2",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resetmine2"
+		},	
+		{
+			code: "resetmine2",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "mine2"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkcrossroads",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "crossroads",
+				if: "checkmoneycrossroads",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneycrossroads",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneycrossroads"
+		},
+        {
+			code: "playercheckmoneycrossroads",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearscrossroads", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 150}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearscrossroads",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 150 },
+			jumpTo: "resetcrossroads"
+		},	
+		{
+			code: "resetcrossroads",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "crossroads"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkmansion",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "mansion",
+				if: "checkmoneymansion",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneymansion",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneymansion"
+		},
+        {
+			code: "playercheckmoneymansion",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsmansion", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 250}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsmansion",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 250 },
+			jumpTo: "resetmansion"
+		},	
+		{
+			code: "resetmansion",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "mansion"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkthepanopticon",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "thepanopticon",
+				if: "checkmoneythepanopticon",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneythepanopticon",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneythepanopticon"
+		},
+        {
+			code: "playercheckmoneythepanopticon",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsthepanopticon", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsthepanopticon",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resetthepanopticon"
+		},	
+		{
+			code: "resetthepanopticon",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "thepanopticon"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkhuaca",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "huaca",
+				if: "checkmoneyhuaca",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneyhuaca",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneyhuaca"
+		},
+        {
+			code: "playercheckmoneyhuaca",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearshuaca", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 350}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearshuaca",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 350 },
+			jumpTo: "resethuaca"
+		},	
+		{
+			code: "resethuaca",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "huaca"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checksunrift",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "sunrift",
+				if: "checkmoneysunrift",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneysunrift",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneysunrift"
+		},
+        {
+			code: "playercheckmoneysunrift",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearssunrift", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 400}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearssunrift",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 400 },
+			jumpTo: "resetsunrift"
+		},	
+		{
+			code: "resetsunrift",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "sunrift"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkcalix",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "calix",
+				if: "checkmoneycalix",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneycalix",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneycalix"
+		},
+        {
+			code: "playercheckmoneycalix",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearscalix", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearscalix",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resetcalix"
+		},	
+		{
+			code: "resetcalix",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "calix"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkshoppingcentre",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "shoppingcentre",
+				if: "checkmoneyshoppingcentre",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneyshoppingcentre",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneyshoppingcentre"
+		},
+        {
+			code: "playercheckmoneyshoppingcentre",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearsshoppingcentre", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearsshoppingcentre",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resetshoppingcentre"
+		},	
+		{
+			code: "resetshoppingcentre",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "shoppingcentre"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "checkhalitequarry",
+			type: "jump",
+			trigger: "canResetDungeon",
+			triggerData: {
+				name: "halitequarry",
+				if: "checkmoneyhalitequarry",
+				else: "dungeontoosoon"
+			}
+		},
+		{
+			code: "checkmoneyhalitequarry",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-countmoney"},
+			],
+			jumpTo: "playercheckmoneyhalitequarry"
+		},
+        {
+			code: "playercheckmoneyhalitequarry",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-ihavemoney", jumpTo: "takegearshalitequarry", condition: { variable: "player.inventory", isValue: "{type: 'item', code: 'gear-rusty', stacksize: 300}" }	},
+                { value: "vsfrnpcs:dialogue-orario-gaster-checkprice", jumpTo: "servicesmenu" },
+                { value: "vsfrnpcs:dialogue-player-changeofmind", jumpTo: "close" },
+			]
+		},
+		{
+			code: "takegearshalitequarry",
+			owner: "npc",
+			trigger: "takefrominventory",
+			triggerdata: {type: 'item', code: 'gear-rusty', quantity: 300 },
+			jumpTo: "resethalitequarry"
+		},	
+		{
+			code: "resethalitequarry",
+			trigger: "resetDungeon",
+			triggerData: {
+				name: "halitequarry"
+			},
+			jumpto: "dungeonreset"
+		},
+		{
+			code: "dungeonreset",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-servicedone"},
+			],
+			jumpTo: "playerendservices"
+		},
+		{
+			code: "dungeontoosoon",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-gaster-servicedelay"},
+			],
+			jumpTo: "playerendservices"
+		},
+        {
+			code: "playerendservices",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-player-ohwaitsomethingelse", jumpTo: "menu" },
+                { value: "vsfrnpcs:dialogue-player-thxbye", jumpTo: "close" },
+			]
+		},
+		{
+			code: "quests",
+			owner: "npc",
+			trigger: "openquests",
+			jumpTo: "void"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		}
+    ]
+}

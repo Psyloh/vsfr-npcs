@@ -121,7 +121,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-eina-persoend", jumpto: "menualt"},
+                { value: "vsfrnpcs:dialogue-player-ohwaitaminute", jumpto: "menualt"},
                 { value: "vsfrnpcs:dialogue-player-thxbye", jumpto: "close"},
             ]
         },

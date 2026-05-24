@@ -14,7 +14,7 @@
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-genericguard-notuto" },
+				{ value: "vsfrnpcs:dialogue-orario-genericpalaceentryguard-notuto" },
 			],
             jumpto: "notutobye"
         },
@@ -23,7 +23,7 @@
 			owner: "npc",
 			type: "talk",
 			text: [
-				{ value: "vsfrnpcs:dialogue-orario-genericguard-menu" },
+				{ value: "vsfrnpcs:dialogue-orario-genericpalaceentryguard-menu" },
 			],
             jumpto: "playermenu"
         },
@@ -32,8 +32,8 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-genericguard-askquest", jumpto: "quest"},
-                { value: "vsfrnpcs:dialogue-orario-genericguard-bye", jumpto: "close"},
+                { value: "vsfrnpcs:dialogue-orario-genericpalaceentryguard-askquest", jumpto: "quest"},
+                { value: "vsfrnpcs:dialogue-orario-genericpalaceentryguard-bye", jumpto: "close"},
             ]
         },
 		{
@@ -41,7 +41,7 @@
 			owner: "npc",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-genericguard-questansw" },
+                { value: "vsfrnpcs:dialogue-orario-genericpalaceentryguard-questansw" },
             ],
 			jumpTo: "questbye"
 		},
@@ -58,7 +58,7 @@
             owner: "player",
             type: "talk",
             text: [
-                { value: "vsfrnpcs:dialogue-orario-genericguard-notutoansw", jumpto: "close"},
+                { value: "vsfrnpcs:dialogue-orario-genericpalaceentryguard-notutoansw", jumpto: "close"},
             ]
         },
         {
