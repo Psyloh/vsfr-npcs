@@ -3,9 +3,12 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
+using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.CommandAbbr;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
@@ -194,6 +197,28 @@ namespace VSFRNPCS.Server
 					return TextCommandResult.Success("Cleared!");
 				})
 				.EndSub()
+				.EndSub();
+
+			api.ChatCommands.GetOrCreate("debug")
+				.RequiresPlayer()
+				.RequiresPrivilege(Privilege.controlserver)
+				.BeginSub("fuckingClearVariables")
+				.WithAlias("fcv")
+				.HandleWith(args =>
+				{
+					if (args.Caller.Player is IServerPlayer player)
+					{
+						player.Entity.WatchedAttributes["variables"] = new TreeAttribute();
+					}
+
+					var entities = ApiModHelper.Api.World.LoadedEntities.Values.Where(e => e.Code.Domain == "vsfrnpcs");
+					foreach (var entity in entities)
+					{
+						entity.WatchedAttributes["variables"] = new TreeAttribute();
+					}
+
+					return TextCommandResult.Success("Fucking cleared!!");
+				})
 				.EndSub();
 
 			api.Event.PlayerReady += PlayerReady;

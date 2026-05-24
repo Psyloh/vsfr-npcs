@@ -1,12 +1,7 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Reflection.Emit;
-using Vintagestory.API.Client;
-using Vintagestory.API.Common;
-using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
-using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 using VSFRNPCS.Server;
 
