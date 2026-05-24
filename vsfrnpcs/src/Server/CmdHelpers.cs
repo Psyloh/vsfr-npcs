@@ -101,6 +101,8 @@ namespace VSFRNPCS.Server
 			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
 			modSys.Server.SetReset(name);
 
+			ApiModHelper.Api.Server.PauseThread("chunkdbthread");
+
 			var message = Lang.Get("game:reset-dungeon-message");
 			ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
 			ApiModHelper.Api.ChatCommands.Execute("wgen", new TextCommandCallingArgs

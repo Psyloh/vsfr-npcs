@@ -2,22 +2,19 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Timers;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.CommandAbbr;
 using Vintagestory.API.Config;
-using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
-using Vintagestory.Client.NoObf;
 using Vintagestory.GameContent;
 
 namespace VSFRNPCS.Server
 {
 	public class ResetCountdown : Timer
 	{
-		readonly List<int> _thresholds = [];
-		int _nextThreshold;
+		readonly int[] _thresholds;
+		int _nextThresholdIndex;
 
 		readonly string _dungeonName;
 		public string DungeonName => _dungeonName;
@@ -25,32 +22,38 @@ namespace VSFRNPCS.Server
 		int _remaining;
 		public int Remaining => _remaining;
 
-		public ResetCountdown(string dungeonName, double[] thresholds, int? remaining = null) : base(1000)
+		public ResetCountdown(string dungeonName, int[] thresholds, int? remaining = null) : base(1000)
 		{
 			_dungeonName = dungeonName;
-
-			foreach (var threshold in thresholds)
-			{
-				_thresholds.Add((int)(threshold * 60));
-			}
+			_thresholds = thresholds;
 			_remaining = remaining ?? _thresholds[0];
 
-			SetNextThreshold();
+			while (_nextThresholdIndex < _thresholds.Length && _remaining < _thresholds[_nextThresholdIndex])
+			{
+				_nextThresholdIndex++;
+			}
 		}
 
 		public bool Check()
 		{
-			return _remaining == _nextThreshold;
+			if (_nextThresholdIndex == _thresholds.Length)
+			{
+				return false;
+			}
+
+			var check = _remaining == _thresholds[_nextThresholdIndex];
+			if (check)
+			{
+				_nextThresholdIndex++;
+			}
+			return check;
 		}
 
-		public void SetNextThreshold()
+		public bool Tick()
 		{
-			_nextThreshold = _thresholds.FirstOrDefault(t => _remaining >= t);
-		}
+			_remaining--;
 
-		public int Tick()
-		{
-			return _remaining--;
+			return Check();
 		}
 	}
 
@@ -58,6 +61,7 @@ namespace VSFRNPCS.Server
 	{
 		readonly ConcurrentDictionary<string, DateTime> _dungeonResets = [];
 		readonly ConcurrentDictionary<string, ResetCountdown> _pendingResets = [];
+		readonly int[] _secondThresholds;
 
 		public Config Config { get; init; }
 
@@ -68,6 +72,12 @@ namespace VSFRNPCS.Server
 
 			Config = Config.Get();
 
+			_secondThresholds = new int[Config.AnnounceThresholds.Length];
+			for (var i = 0; i < _secondThresholds.Length; i++)
+			{
+				_secondThresholds[i] = (int)(Config.AnnounceThresholds[i] * 60);
+			}
+
 			var dungeonResets = api.WorldManager.SaveGame.GetData<Dictionary<string, long>>("dungeonResets") ?? [];
 			foreach (var (dungeon, time) in dungeonResets)
 			{
@@ -77,7 +87,7 @@ namespace VSFRNPCS.Server
 			var pendingResets = api.WorldManager.SaveGame.GetData<Dictionary<string, int>>("pendingResets") ?? [];
 			foreach (var (dungeon, remaining) in pendingResets)
 			{
-				_pendingResets[dungeon] = new(dungeon, Config.AnnounceThresholds, remaining);
+				_pendingResets[dungeon] = new(dungeon, _secondThresholds, remaining);
 			}
 
 			api.ChatCommands.Create("resetDungeonDelay")
@@ -190,28 +200,18 @@ namespace VSFRNPCS.Server
 			api.Event.GameWorldSave += Save;
 		}
 
-		void PlayerReady(IServerPlayer player)
-		{
-			foreach (var (_, timer) in _pendingResets)
-			{
-				player.SendMessage(GlobalConstants.GeneralChatGroup, Announce(timer), EnumChatType.Notification);
-			}
-		}
-
-		string Announce(ResetCountdown timer)
-		{
-			var message = $@"<font color=""{Config.TextColor}"">{timer.Remaining} seconds until {timer.DungeonName} dungeon gets reset! Leave the area or suffer consequences...</font>";
-			if (Config.BoldText)
-			{
-				message = $"<strong>{message}</strong>";
-			}
-			return message;
-		}
-
 		void Save()
 		{
 			ApiModHelper.SaveData("dungeonResets", _dungeonResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
 			ApiModHelper.SaveData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value.Remaining)));
+		}
+
+		void PlayerReady(IServerPlayer player)
+		{
+			foreach (var (_, timer) in _pendingResets)
+			{
+				player.SendMessage(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification);
+			}
 		}
 
 		public bool IsPending(string dungeonName) =>
@@ -233,39 +233,44 @@ namespace VSFRNPCS.Server
 
 		public void RegisterReset(string dungeonName)
 		{
-			var timer = new ResetCountdown(dungeonName, Config.AnnounceThresholds);
+			var timer = new ResetCountdown(dungeonName, _secondThresholds);
 			_pendingResets[dungeonName] = timer;
 			timer.Elapsed += TimerElapsed;
 			timer.Disposed += TimerDisposed;
-			Check(timer);
+			if (timer.Check())
+			{
+				Announce(timer);
+			}
 			timer.Start();
 		}
 
-		public bool Check(ResetCountdown timer)
+		void Announce(ResetCountdown timer)
 		{
-			var check = timer.Check();
-			if (check)
+			ApiModHelper.Api.Event.EnqueueMainThreadTask(() =>
+				ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification),
+				"announce");
+		}
+
+		string GetAnnounce(ResetCountdown timer)
+		{
+			var message = $@"<font color=""{Config.TextColor}"">{timer.Remaining} seconds until {timer.DungeonName} dungeon gets reset! Leave the area or suffer consequences...</font>";
+			if (Config.BoldText)
 			{
-				ApiModHelper.Api.Event.EnqueueMainThreadTask(() =>
-				{
-					ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, Announce(timer), EnumChatType.Notification);
-				}, "announce");
+				message = $"<strong>{message}</strong>";
 			}
-			return check;
+			return message;
 		}
 
 		void TimerElapsed(object? sender, ElapsedEventArgs e)
 		{
 			if (sender is ResetCountdown timer)
 			{
-				var remaining = timer.Tick();
-
-				if (Check(timer))
+				if (timer.Tick())
 				{
-					timer.SetNextThreshold();
+					Announce(timer);
 				}
 
-				if (remaining <= 0)
+				if (timer.Remaining <= 0)
 				{
 					timer.Stop();
 					timer.Dispose();
@@ -275,7 +280,6 @@ namespace VSFRNPCS.Server
 
 		void TimerDisposed(object? sender, EventArgs e)
 		{
-			ApiModHelper.Error("disposed");
 			if (sender is ResetCountdown timer)
 			{
 				timer.Elapsed -= TimerElapsed;
