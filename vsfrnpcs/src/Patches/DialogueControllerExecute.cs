@@ -57,7 +57,7 @@ namespace VSFRNPCS
 
 		static string? Execute(DialogueController controller, DialogueComponent component)
 		{
-			if (component.Type == "talk")
+			if (component.Type == "talk" || component.Type == "condition")
 			{
 				return component.Execute();
 			}
