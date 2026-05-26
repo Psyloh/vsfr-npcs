@@ -5,6 +5,7 @@ using System.Text;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
@@ -92,6 +93,9 @@ namespace VSFRNPCS.Server
 				throw new Exception($@"There's no such dungeon as ""{dungeon}""");
 			}
 
+			var message = Lang.Get("game:reset-dungeon-message");
+			ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
+
 			var chunkSize = GlobalConstants.ChunkSize;
 			var x1 = dungeon.Location.MinX / chunkSize;
 			var z1 = dungeon.Location.MinZ / chunkSize;
@@ -101,10 +105,18 @@ namespace VSFRNPCS.Server
 			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
 			modSys.Server.SetReset(name);
 
-			ApiModHelper.Api.Server.PauseThread("chunkdbthread");
+			var maxHeight = ApiModHelper.Api.WorldManager.MapSizeY;
+			var exclusionArea = dungeon.Location.GrowToInclude(x1, 0, z1).GrowToInclude(x1, maxHeight, z1);
 
-			var message = Lang.Get("game:reset-dungeon-message");
-			ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
+			var players = ApiModHelper.Api.World.AllOnlinePlayers.Cast<IServerPlayer>();
+			foreach(var player in players)
+			{
+				if (player.ConnectionState == EnumClientState.Playing && exclusionArea.Contains(player.Entity.Pos.XYZFloat))
+				{
+					player.Entity.ReceiveDamage(new() { Type = EnumDamageType.Injury, KnockbackStrength = 0}, 5);
+				}
+			}
+
 			ApiModHelper.Api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
 			{
 				Caller = AdminCaller,
@@ -133,7 +145,10 @@ namespace VSFRNPCS.Server
 		}
 
 		public static bool HasPrivilege(EntityPlayer player, string privilege) =>
-			player.Player.Privileges.Any(p => p == privilege);
+			player.Player.Privileges.Contains(privilege);
+
+		public static bool HasAllPrivileges(EntityPlayer player, string[] privileges) =>
+			privileges.All(p => player.Player.Privileges.Contains(p));
 
 		public static string SwitchPrivilege(EntityPlayer player, JsonObject data)
 		{
