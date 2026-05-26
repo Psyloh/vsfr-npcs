@@ -8,6 +8,7 @@ using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
+using Vintagestory.ServerMods;
 
 namespace VSFRNPCS.Server
 {
@@ -124,6 +125,19 @@ namespace VSFRNPCS.Server
 			});
 		}
 
+		public static void Expel(EntityPlayer player, StoryStructureLocation location, bool cheating)
+		{
+			var x = player.Pos.X <= location.CenterPos.X ? location.Location.X1 - 1 : location.Location.X2 + 2;
+			var z = player.Pos.Z <= location.CenterPos.Z ? location.Location.Z1 - 1 : location.Location.Z2 + 2;
+
+			player.TeleportTo(x, ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt(x, z), z);
+
+			if (cheating)
+			{
+				player.ReceiveDamage(new() { Type = EnumDamageType.Injury, KnockbackStrength = 0 }, 5);
+			}
+		}
+
 		public static bool HasRole(EntityPlayer player, string role) =>
 			player.Player.Role.Code == role;
 
@@ -146,6 +160,9 @@ namespace VSFRNPCS.Server
 
 		public static bool HasPrivilege(EntityPlayer player, string privilege) =>
 			player.Player.Privileges.Contains(privilege);
+
+		public static bool HasAnyOfPrivileges(EntityPlayer player, string[] privileges) =>
+			privileges.Any(p => player.Player.Privileges.Contains(p));
 
 		public static bool HasAllPrivileges(EntityPlayer player, string[] privileges) =>
 			privileges.All(p => player.Player.Privileges.Contains(p));

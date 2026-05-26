@@ -101,8 +101,13 @@ namespace VSFRNPCS
 
 					return CmdHelpers.HasPrivilege(controller.PlayerEntity, privilege);
 
-				case "hasAllPrivileges":
+				case "hasAnyOfPrivileges":
 					var privileges = (data["privileges"].Token?.ToObject<string[]>()) ?? throw new Exception(@"""privileges"" value should be an array");
+
+					return CmdHelpers.HasAnyOfPrivileges(controller.PlayerEntity, privileges);
+
+				case "hasAllPrivileges":
+					privileges = (data["privileges"].Token?.ToObject<string[]>()) ?? throw new Exception(@"""privileges"" value should be an array");
 
 					return CmdHelpers.HasAllPrivileges(controller.PlayerEntity, privileges);
 

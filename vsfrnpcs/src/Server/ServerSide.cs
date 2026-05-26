@@ -9,6 +9,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
+using Vintagestory.ServerMods;
 
 namespace VSFRNPCS.Server
 {
@@ -63,6 +64,8 @@ namespace VSFRNPCS.Server
 		readonly ConcurrentDictionary<string, DateTime> _dungeonResets = [];
 		readonly ConcurrentDictionary<string, ResetCountdown> _pendingResets = [];
 		readonly int[] _secondThresholds;
+
+		readonly ConcurrentDictionary<string, (string, DateTime, bool)> _suspiciousDisconnections = [];
 
 		public Config Config { get; init; }
 
@@ -220,7 +223,31 @@ namespace VSFRNPCS.Server
 				.EndSub();
 
 			api.Event.PlayerReady += PlayerReady;
+			api.Event.PlayerLeave += PlayerLeave;
 			api.Event.GameWorldSave += Save;
+		}
+
+		void PlayerLeave(IServerPlayer player)
+		{
+			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+			var pos = player.Entity.Pos;
+
+			string? storyLoc = null;
+			bool inside = false;
+			foreach (var structure in modSys.Structures.values.Values)
+			{
+				if (structure.Location.X1 <= pos.X && structure.Location.X2 + 1 >= pos.X && structure.Location.Z1 <= pos.Z && structure.Location.Z2 >= pos.Z)
+				{
+					storyLoc = structure.Code;
+					inside = structure.Location.Y1 <= pos.Y && structure.Location.Y2 + 1 >= pos.Y;
+					break;
+				}
+			}
+
+			if (storyLoc != null)
+			{
+				_suspiciousDisconnections.TryAdd(player.PlayerUID, (storyLoc, DateTime.Now, _pendingResets.ContainsKey(storyLoc) && inside));
+			}
 		}
 
 		void Save()
@@ -236,6 +263,20 @@ namespace VSFRNPCS.Server
 			foreach (var (_, timer) in _pendingResets)
 			{
 				player.SendMessage(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification);
+			}
+
+			if (_suspiciousDisconnections.Remove(player.PlayerUID, out var disconnection))
+			{
+				var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+				var structure = modSys.Structures.Get(disconnection.Item1);
+
+				if (_dungeonResets.TryGetValue(structure.Code, out var reset))
+				{
+					if (reset > disconnection.Item2)
+					{
+						CmdHelpers.Expel(player.Entity, structure, disconnection.Item3);
+					}
+				}
 			}
 		}
 
