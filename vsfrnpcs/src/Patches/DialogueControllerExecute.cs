@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using Vintagestory.API.Datastructures;
@@ -99,6 +100,11 @@ namespace VSFRNPCS
 					var privilege = data["privilege"].AsString("");
 
 					return CmdHelpers.HasPrivilege(controller.PlayerEntity, privilege);
+
+				case "hasAllPrivileges":
+					var privileges = (data["privileges"].Token?.ToObject<string[]>()) ?? throw new Exception(@"""privileges"" value should be an array");
+
+					return CmdHelpers.HasAllPrivileges(controller.PlayerEntity, privileges);
 
 				default:
 					return false;

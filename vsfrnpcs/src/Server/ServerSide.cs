@@ -3,10 +3,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
-using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.CommandAbbr;
-using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
@@ -211,7 +209,7 @@ namespace VSFRNPCS.Server
 						player.Entity.WatchedAttributes["variables"] = new TreeAttribute();
 					}
 
-					var entities = ApiModHelper.Api.World.LoadedEntities.Values.Where(e => e.Code.Domain == "vsfrnpcs");
+					var entities = ApiModHelper.Api.World.LoadedEntities.Values.Where(e => e.Code.Domain == "vsfrnpcs"); 
 					foreach (var entity in entities)
 					{
 						entity.WatchedAttributes["variables"] = new TreeAttribute();
@@ -227,8 +225,10 @@ namespace VSFRNPCS.Server
 
 		void Save()
 		{
+			ApiModHelper.Error("Saving");
 			ApiModHelper.SaveData("dungeonResets", _dungeonResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
 			ApiModHelper.SaveData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value.Remaining)));
+			ApiModHelper.Error("Saved");
 		}
 
 		void PlayerReady(IServerPlayer player)
@@ -278,7 +278,11 @@ namespace VSFRNPCS.Server
 
 		string GetAnnounce(ResetCountdown timer)
 		{
-			var message = $@"<font color=""{Config.TextColor}"">{timer.Remaining} seconds until {timer.DungeonName} dungeon gets reset! Leave the area or suffer consequences...</font>";
+			var message = Lang.GetUnformatted("vsfrnpcs:dungeon-reset-announce");
+			var dungeon = Lang.GetIfExists($"vsfrnpcs:{timer.DungeonName}") ?? timer.DungeonName;
+
+			message = message.Replace("{seconds}", timer.Remaining.ToString()).Replace("{dungeon}", dungeon);
+			message = $@"<font color=""{Config.TextColor}"">{message}</font>";
 			if (Config.BoldText)
 			{
 				message = $"<strong>{message}</strong>";
@@ -326,6 +330,7 @@ namespace VSFRNPCS.Server
 				timer.Disposed -= TimerDisposed;
 				timer.Dispose();
 			}
+			ApiModHelper.Error("Disposed");
 			ApiModHelper.Api.Event.GameWorldSave -= Save;
 			GC.SuppressFinalize(this);
 		}
