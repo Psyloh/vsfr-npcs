@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using Vintagestory.API.Common;
@@ -101,7 +103,7 @@ namespace VSFRNPCS.Server
 			var x1 = dungeon.Location.MinX / chunkSize;
 			var z1 = dungeon.Location.MinZ / chunkSize;
 			var x2 = dungeon.Location.MaxX / chunkSize;
-			var z2 = dungeon.Location.MaxZ / chunkSize;			
+			var z2 = dungeon.Location.MaxZ / chunkSize;
 
 			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
 			modSys.Server.SetReset(name);
@@ -110,11 +112,11 @@ namespace VSFRNPCS.Server
 			var exclusionArea = dungeon.Location.GrowToInclude(x1, 0, z1).GrowToInclude(x1, maxHeight, z1);
 
 			var players = ApiModHelper.Api.World.AllOnlinePlayers.Cast<IServerPlayer>();
-			foreach(var player in players)
+			foreach (var player in players)
 			{
-				if (player.ConnectionState == EnumClientState.Playing && exclusionArea.Contains(player.Entity.Pos.XYZFloat))
+				if (player.ConnectionState == EnumClientState.Playing && IsPlayerInDungeonArea(player.Entity, dungeon, out var inside))
 				{
-					player.Entity.ReceiveDamage(new() { Type = EnumDamageType.Injury, KnockbackStrength = 0}, 5);
+					Expel(player.Entity, dungeon, inside);
 				}
 			}
 
@@ -125,12 +127,47 @@ namespace VSFRNPCS.Server
 			});
 		}
 
-		public static void Expel(EntityPlayer player, StoryStructureLocation location, bool cheating)
+		public static bool IsPlayerInDungeonArea(EntityPlayer player, StoryStructureLocation dungeon, out bool inside)
 		{
-			var x = player.Pos.X <= location.CenterPos.X ? location.Location.X1 - 1 : location.Location.X2 + 2;
-			var z = player.Pos.Z <= location.CenterPos.Z ? location.Location.Z1 - 1 : location.Location.Z2 + 2;
+			var pos = player.Pos;
+			var location = dungeon.Location;
 
-			player.TeleportTo(x, ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt(x, z), z);
+			inside = false;
+
+			var inArea = location.MinX <= pos.X && location.MaxX >= pos.X && location.MinZ <= pos.Z && location.MaxZ >= pos.Z;
+			if (inArea)
+			{
+				inside = location.MinY <= pos.Y && location.MaxY >= pos.Y;
+			}
+			return inArea;
+		}
+
+		public static void Expel(EntityPlayer player, StoryStructureLocation structure, bool cheating)
+		{
+			double x = 0, z = 0;
+			switch (ApiModHelper.Api.World.Rand.Next(4))
+			{
+				case 0:
+					x = structure.Location.SizeX * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinX;
+					z = structure.Location.MinZ - 1;
+					break;
+
+				case 1:
+					x = structure.Location.SizeX * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinX;
+					z = structure.Location.MaxZ + 1;
+					break;
+
+				case 2:
+					x = structure.Location.MinX - 1;
+					z = structure.Location.SizeZ * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinZ;
+					break;
+
+				case 3:
+					x = structure.Location.MaxX + 1;
+					z = structure.Location.SizeZ * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinZ;
+					break;
+			}
+			player.TeleportToDouble(x, ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt((int)x, (int)z), z);
 
 			if (cheating)
 			{
