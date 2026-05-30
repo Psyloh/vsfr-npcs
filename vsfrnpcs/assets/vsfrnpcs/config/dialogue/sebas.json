@@ -7,8 +7,18 @@
 			variable: "entity.hasmet",
 			isNotValue: "true",
 			thenJumpTo: "firstmeet",
-			elseJumpTo: "menu"
+			elseJumpTo: "checkweekah"
 		},
+        {
+            code: "checkweekah",
+            type: "jump",
+            trigger: "hasPrivilege",
+            triggerData: {
+                privilege: "weekah",
+                if: "menualt",
+                else: "menu"
+            }
+        },
 		{
 			code: "firstmeet",
 			owner: "npc",
@@ -60,6 +70,48 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn", jumpTo: "curiosityansw" },
+                { value: "vsfrnpcs:dialogue-orario-sebas-quests", jumpTo: "quests" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "menualt",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-menualt"},
+			],
+			jumpTo: "checkweektimeah"
+		},
+        {
+            code: "checkweektimeah",
+            type: "jump",
+            trigger: "hasPrivilege",
+            triggerData: {
+                privilege: "hourah",
+                if: "playermenualt2",
+                else: "playermenualt"
+            }
+        },
+        {
+			code: "playermenualt",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn", jumpTo: "curiosityansw" },
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventqstn", jumpTo: "weekeventansw" },
+                { value: "vsfrnpcs:dialogue-orario-sebas-quests", jumpTo: "quests" },
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+        {
+			code: "playermenualt2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityqstn", jumpTo: "curiosityansw" },
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventqstn", jumpTo: "weekeventansw" },
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventtp", jumpTo: "weekeventtp2" },
                 { value: "vsfrnpcs:dialogue-orario-sebas-quests", jumpTo: "quests" },
                 { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
 			]
@@ -165,6 +217,100 @@
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-sebas-curiosityend", jumpTo: "close" },
 			]
+		},
+		{
+			code: "weekeventansw",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventansw" },
+			],
+			jumpTo: "weekeventqstn2"
+		},
+        {
+			code: "weekeventqstn2",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventqstn2", jumpTo: "weekeventansw2" },
+			]
+		},
+		{
+			code: "weekeventansw2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventansw2" },
+			],
+			jumpTo: "weekeventqstn3"
+		},
+        {
+			code: "weekeventqstn3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventqstn3", jumpTo: "weekeventansw3" },
+			]
+		},
+		{
+			code: "weekeventansw3",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventansw3" },
+			],
+			jumpTo: "weekeventend"
+		},
+        {
+			code: "weekeventend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-okthx2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "weekeventtp2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventtp2" },
+			],
+			jumpTo: "weekeventtp3"
+		},
+        {
+			code: "weekeventtp3",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-yesofcourse", jumpTo: "weekeventtp4" },
+			]
+		},
+		{
+			code: "weekeventtp4",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-sebas-weekeventtp4" },
+			],
+			jumpTo: "weekeventtpend"
+		},
+        {
+			code: "weekeventtpend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-okthx2", jumpTo: "eventtp" },
+			]
+		},
+		{
+			code: "eventtp",
+ 		    trigger: "teleport",
+      		triggerData: {
+        		x: "0",
+        		z: "0"
+    		},
+      		jumpTo: "close"
 		},
 		{
 			code: "quests",

@@ -22,7 +22,7 @@
     conversable: {
 		//bloc Dialogues
 		dialogueByType: {
-			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa|varis|sebas|gaster|genericpalaceentryguard|genericvillagerinside|genericvillageroutside)": "vsfrnpcs:config/dialogue/{name}",
+			"@*-(axel|marie|john|thomas|michel|obliviac|christian|christina|genericguard|eina|psyloh|igor|jaime|albert|lisa|varis|sebas|gaster|genericpalaceentryguard|genericvillagerinside|jevil|genericvillageroutside)": "vsfrnpcs:config/dialogue/{name}",
 		},
 		approachPlayer: false
 	}
@@ -31,7 +31,7 @@
   variantgroups: [
     { code: "sex", states: ["male", "female"] },
 	{ code: "work", states: ["none", "guard"]},
-    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa", "varis", "sebas", "gaster", "genericpalaceentryguard", "genericvillagerinside", "genericvillageroutside"] }  ],
+    { code: "name", states: ["axel", "marie", "john", "thomas", "michel", "obliviac", "christian", "christina", "eina", "genericguard", "psyloh", "igor", "jaime", "albert", "lisa", "varis", "sebas", "gaster", "jevil", "genericpalaceentryguard", "genericvillagerinside", "genericvillageroutside"] }  ],
   AllowedVariants: [
     "vsfrnpc-female-none-marie",
     "vsfrnpc-male-none-axel",
@@ -53,6 +53,7 @@
 	"vsfrnpc-male-none-varis",
 	"vsfrnpc-male-none-sebas",
 	"vsfrnpc-male-none-gaster",
+	"vsfrnpc-male-none-jevil",
 	"vsfrnpc-male-none-genericvillagerinside",
 	"vsfrnpc-male-none-genericvillageroutside",
 	"vsfrnpc-female-none-genericvillagerinside",
@@ -389,34 +390,6 @@
 				upperbodyover:[],
 				waist:[{Code:"waist-guard"}]
 			},
-			"*-jaime": {
-				"skin-face":[{Code:"skin-face-normal4"}],
-				"hair-base":[{Code:"hair-medium-basic"}],
-				haircolor:[{Code:"wheat",Weight:1.0}],
-				"hair-base2":[],
-				"hair-base3":[],
-				faceextra:[],
-				beard:[{Code:"beard-1",Weight:1.0}],
-				mustache:[{Code: "mustache-1"}],
-				iris:[{Code:"iris-16",Weight:1.0}],
-				eyebrows:[{Code:"eyebrows-normal5",Weight:1.0}],
-				lips:[{Code:"lips-normal11",Weight:1.0}],
-				sclera:[{Code:"sclera-normal1",Weight:1.0}],
-				bodyskin:[{Code:"bodyskin-4",Weight:1.0}],
-				tatoo:[],
-				scar:[],
-				tatoo:[],
-				face:[],
-				foot:[{Code:"foot-guard"}],
-				hand:[{Code:"hand-gloves"}],
-				head:[],
-				lowerbody:[{Code:"lowerbody-pants-guard"}],
-				neck:[],
-				shoulder:[{Code:"shoulder-{sex}-shortsleeve-guard",Weight:1.0}],
-				upperbody:[{Code:"upperbody-{sex}-shortsleeve-guard"}],
-				upperbodyover:[],
-				waist:[{Code:"waist-guard"}]
-			},
 			"*-albert": {
 				"skin-face":[{Code:"skin-face-normal2"}],
 				"hair-base":[{Code:"hair-long-braid1"}],
@@ -553,6 +526,31 @@
 				upperbody:[{Code:"upperbody-male-shortsleeve-peasant4"}],
 				upperbodyover:[],
 				waist:[{Code:"waist-tailor"}]
+			},
+			"*-jevil": {
+				"skin-face":[{Code:"skin-face-normal3"}],
+				"hair-base":[{Code:"hair-medium-layered"}],
+				"hair-base2":[],
+				"hair-base3":[],
+				haircolor:[{Code:"eerieblack",Weight:1.0}],
+				faceextra:[],
+				bodyskin:[{Code:"bodyskin-10",Weight:1.0}],
+				iris:[{Code:"iris-10",Weight:1.0}],
+				lips:[{Code:"lips-normal5",Weight:1.0}],
+				scar:[],
+				sclera:[{Code:"sclera-normal1",Weight:1.0}],
+				tatoo:[],
+				arm:[],
+				face:[],
+				foot:[{Code:"foot-peasant1"}],
+				hand:[{Code:"hand-peasant2"}],
+				head:[],
+				neck:[],
+				lowerbody:[{Code:"lowerbody-pants-innkeeper"}],
+				shoulder:[{Code:"shoulder-male-shortsleeve-fisher"}],
+				upperbody:[],
+				upperbodyover:[],
+				waist:[]
 			},
 			"*-guard-*": {
 				tatoo:[],
@@ -1046,6 +1044,7 @@
 		  "*-varis": ["Varis"],
 		  "*-sebas": ["Sebas"],
 		  "*-gaster": ["Gaster"],
+		  "*-jevil": ["Jevil"],
 		  "*-genericvillagerinside": ["Villageois"],
 		  "*-genericvillageroutside": ["Villageois"],
         }

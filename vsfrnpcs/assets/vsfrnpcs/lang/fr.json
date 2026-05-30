@@ -16,38 +16,40 @@
     "dialogue-player-okthx": "Bien, merci.",
     "dialogue-player-okthx2": "D'accord, merci.",
     "dialogue-player-intrestingthx": "Intéressant, merci.",
-    "dialogue-player-sorrybye": "Oh excusez moi, j'étais de passage au revoir.",
+    "dialogue-player-sorrybye": "Oh excusez-moi, j'étais de passage, au revoir.",
     "dialogue-player-sorrybye2": "Oups pardon, au revoir.",
     "dialogue-player-sorrybye3": "Excusez moi, j'ai un imprévu.",
     "dialogue-player-sorrydisturbbye" : "Désolé du dérangement, je dois y aller",
     "dialogue-player-okweird": "D'accord...",
     "dialogue-player-bye": "Tchao.",
     "dialogue-player-changeofmind": "En fait non.",
-    "dialogue-player-thxbye": "Merci, au revoir!",
+    "dialogue-player-thxbye": "Merci, au revoir !",
     "dialogue-player-imgonnacheck": "Je vais aller voir.",
     "dialogue-player-ohwaitaminute": "Oh attendez.",
     "dialogue-player-ohwaitsomethingelse": "Oh encore quelque chose s'il vous plait.",
     "dialogue-player-ihavemoney": "J'ai l'argent je vais payer.",
+    "dialogue-player-iseethx": "Je vois, merci.",
+    "dialogue-player-letsgo": "C'est partis !",
 
-    "dialogue-player-next": "Page Suivante",
-    "dialogue-player-previous": "Page précedente",
+    "dialogue-player-next": "Page suivante",
+    "dialogue-player-previous": "Page précédente",
     //}
 
     //{ Axel
-    "dialogue-orario-axel-firstmeetjail":     "Bonjour Prisonier n°4546B, tu es enfin conscient on dirait.",
-    "dialogue-orario-axel-fmjresponse":       "Attendez, qu'est ce que je fais là ?",
+    "dialogue-orario-axel-firstmeetjail":     "Bonjour Prisonnier n°4546B, tu es enfin conscient on dirait.",
+    "dialogue-orario-axel-fmjresponse":       "Attendez, qu'est-ce que je fais là ?",
     "dialogue-orario-axel-firstmeetjail2":    "...",
-    "dialogue-orario-axel-fmjresponse2":      "Qu'ai je fait ? Pourquoi suis-je en prison ?",
-    "dialogue-orario-axel-firstmeetjail3":    "Tu es en prison car tu as est coupable de complicité avec le scientifique Jonas.",
+    "dialogue-orario-axel-fmjresponse2":      "Qu'ai-je fait ? Pourquoi suis-je en prison ?",
+    "dialogue-orario-axel-firstmeetjail3":    "Tu es en prison car tu es coupable de complicité avec le scientifique Jonas.",
     "dialogue-orario-axel-fmjresponse3":      "Jonas ? Ce nom me dit vaguement quelque chose...",
-    "dialogue-orario-axel-firstmeetjail4":    "Bien nous avançons, Jonas est coupable d'avoir provoqué la Grande Tempête Temporelle qui s'est abattue sur la ville.\nQui a causer des dégâts innombrables sur le Royaume de sa Majesté tant matériel qu'humain.\nC'est pour cela que pour vous allez être executer sur la place publique.",
+    "dialogue-orario-axel-firstmeetjail4":    "Bien nous avançons, Jonas est coupable d'avoir provoqué la Grande Tempête Temporelle qui s'est abattue sur la ville.\nQui a causer des dégâts innombrables sur le Royaume de sa Majesté tant matériel qu'humain.\nC'est pour cela que pour vous allez être exécuter sur la place publique.",
     "dialogue-orario-axel-fmjresponse4":      "Je ne suis coupable de rien, il n'y a rien que je puisse faire pour être rendu innocent ?",
     "dialogue-orario-axel-firstmeetjail5":    "Mmmh tu peux, tu dois cependant, répondre à trois différentes question.",
     "dialogue-orario-axel-firstchoicequestion": "Bien, je te laisserais à chaque fois choisir entre trois questions.\nAttention si tu ne réussi pas tu devras tout recommencer.",
 
     "dialogue-orario-axel-leave":             "Hmmm... Bon, j'y retourne!",
     "dialogue-orario-axel-goodanswer":        "Bonne réponse, tu peux choisir ta prochaine question !",
-    "dialogue-orario-axel-badanswer":         "Mauvaise réponse, mais tu peux re-essayer.",
+    "dialogue-orario-axel-badanswer":         "Mauvaise réponse, mais tu peux réessayer.",
     "dialogue-orario-axel-question1":         "Question 1",
     "dialogue-orario-axel-questionreveal1":   "Comment je m'appelle ?",
     "dialogue-orario-axel-ansquestion1-1":    "Tobias",
@@ -61,7 +63,7 @@
     "dialogue-orario-axel-ansquestion2-3":    "Sa Majesté le Roi",
 
     "dialogue-orario-axel-question3":         "Question 3",
-    "dialogue-orario-axel-questionreveal3":   "Qu'ont causé les experiences de Jonas ?",
+    "dialogue-orario-axel-questionreveal3":   "Qu'ont causé les expériences de Jonas ?",
     "dialogue-orario-axel-ansquestion3-1":    "Un tremblement de terre",
     "dialogue-orario-axel-ansquestion3-2":    "Une tempête temporelle ",
     "dialogue-orario-axel-ansquestion3-3":    "Un Ouragan",
@@ -73,7 +75,7 @@
     "dialogue-orario-axel-ansquestion4-3":    "100°C",
 
     "dialogue-orario-axel-question5":         "Question 5",
-    "dialogue-orario-axel-questionreveal5":   "Qu'elle est la temprérature moyenne du corps humain ?",
+    "dialogue-orario-axel-questionreveal5":   "Qu'elle est la température moyenne du corps humain ?",
     "dialogue-orario-axel-ansquestion5-1":    "30,4°C",
     "dialogue-orario-axel-ansquestion5-2":    "37,5°C",
     "dialogue-orario-axel-ansquestion5-3":    "39,9°C",
@@ -91,7 +93,7 @@
     "dialogue-orario-axel-ansquestion7-3":    "Noir",
 
     "dialogue-orario-axel-question8":         "Question 8",
-    "dialogue-orario-axel-questionreveal8":   "Quel animal est considerer comme le meilleur ami de l'homme ?",
+    "dialogue-orario-axel-questionreveal8":   "Quel animal est considérer comme le meilleur ami de l'homme ?",
     "dialogue-orario-axel-ansquestion8-1":    "Le chat",
     "dialogue-orario-axel-ansquestion8-2":    "Le lapin",
     "dialogue-orario-axel-ansquestion8-3":    "Le chien",
@@ -108,7 +110,7 @@
     "dialogue-orario-axel-ansquestion10-3":    "67",
 
     "dialogue-orario-axel-goodfanswer":        "Faux,",
-    "dialogue-orario-axel-outrage":            "Serieusement, comment pouvais-je savoir ?",
+    "dialogue-orario-axel-outrage":            "Sérieusement, comment pouvais-je savoir ?",
     "dialogue-orario-axel-goodfanswer2":       "Mais ce n'est pas grave puisque seul Jonas aurait pu répondre\ncorrectement à cette question.\nBien, puisque moi Axel membre de la Noblesse de sa majesté ai pu définir que vous n'étiez pas un danger je vous déclare par la présente non coupable et te libère!",
     "dialogue-orario-axel-thanks":             "Merci, merci beaucoup !",
 
@@ -117,7 +119,7 @@
     "dialogue-orario-axel-firstmeet2":        "Bien, je vois que tu as l'air un peu perdu. Alors voici Orario, la capitale. Une ville fortifiée!",
     "dialogue-orario-axel-fmresponse2":       "Y a-t-il d'autres villes aux alentours?",
     "dialogue-orario-axel-firstmeet3":        "Eh bien... Si l'Apocalypse a frappé le monde aussi durement qu'ici, les autres villes et villages doivent être en piteux état.",
-    "dialogue-orario-axel-fmresponse3":       "Je vois... Comment pourrais-je sortir de la ville fortifiée?",
+    "dialogue-orario-axel-fmresponse3":       "Je vois... Comment pourrai-je sortir de la ville fortifiée?",
     "dialogue-orario-axel-firstmeet4":        "Impatient à ce que je vois.\nTu peux sortir par la porte ouest, les gardes te laisseront passer.\nMais il me semble que Marie, la boulangère, a fait du zèle lors de sa dernière fournée!\nElle devrait avoir de quoi te sustenter pour ta première excursion. Tu la trouveras dans sa boulangerie.",
     "dialogue-orario-axel-guidetoexit":       "Tu n'es pas encore sorti? J'ai cru te voir par la fenêtre...\nEh bien, suis la route vers l'Ouest jusqu'à la porte principale, bon courage!",
     "dialogue-orario-axel-fmresponse4":       "Bien, à une prochaine.",
@@ -125,7 +127,7 @@
     "dialogue-orario-axel-welcomeback":       "Salut, alors comment se passe ton aventure?",
     "dialogue-orario-axel-wbresponse":        "Bien merci.",
     "dialogue-orario-axel-lookformarie":      "Non je ne la trouve pas, pourrais-tu m'aider?",
-    "dialogue-orario-axel-guidetomarie":      "Marie est dans la premiere rue à gauche quand tu vas vers l'Ouest.",
+    "dialogue-orario-axel-guidetomarie":      "Marie est dans la première rue à gauche quand tu vas vers l'Ouest.",
     "dialogue-orario-axel-thxforguidance":    "Merci, au revoir!",
     //}
 
@@ -138,7 +140,7 @@
     "dialogue-orario-marie-givebread":        "Oh! Ce serait une trop longue histoire et tu as un vaste monde à parcourir!\nTiens, voilà un sac de pain pour toi.",
     "dialogue-orario-marie-thxforbread":      "Ooh merci beaucoup!\nAuriez-vous des conseils à me donner?",
     "dialogue-orario-marie-fmresponse3":      "Auriez-vous des conseils à me donner?",
-    "dialogue-orario-marie-firstmeet4":       "Dirige-toi vers la porte Ouest.\nLa maison à droite, avant la sortie, est celle d'un vieux mercenaire taciturne : John.\nIl pourra te donner quelques infos utiles et, peut-être, quelque équipement fondamental.",
+    "dialogue-orario-marie-firstmeet4":       "Dirige toi vers la porte Ouest.\nLa maison à droite, avant la sortie, est celle d'un vieux mercenaire taciturne : John.\nIl pourra te donner quelques infos utiles et, peut-être, quelque équipement fondamental.",
     "dialogue-orario-marie-fmresponse4":      "J'y vais de ce pas!",
     "dialogue-orario-marie-hasnotmetjohn":    "Oh re-bonjour!.. Tu as l'air perdu, ça va?",
     "dialogue-orario-marie-lookforjohn":      "Heu, oui, un peu...\nJe n'ai pas trouvé la maison du mercenaire, pourriez-vous me guider à nouveau?",
@@ -146,13 +148,13 @@
     "dialogue-orario-marie-thxforguidance":   "Ah, merci! Au revoir.",
     "dialogue-orario-marie-welcomeback":      "Alors, explorateur, le monde n'est-il magnifique?",
     "dialogue-orario-marie-bye":              "Oui, l'aventure de ce monde est magnifique!",
-    "dialogue-orario-marie-trade":            "Oui! Mais qu'avez vous comme pain ou vienoiserie?",
+    "dialogue-orario-marie-trade":            "Oui! Mais qu'avez vous comme pain ou viennoiserie?",
     //}
 
     //{ John
     "dialogue-orario-john-hello":         "... ... ... Que me veux-tu?",
     "dialogue-orario-john-notmet":        "Oups! Mauvaise maison.",
-    "dialogue-orario-john-helloback":     "Excusez-moi! Vous êtes bien {{npcname}}, le mercenaire?",
+    "dialogue-orario-john-helloback":     "Excusez moi! Vous êtes bien {{npcname}}, le mercenaire?",
     "dialogue-orario-john-firstmeet":     "Ancien mercenaire, mais cela ne me dit rien de ta présence chez moi.",
     "dialogue-orario-john-fmresponse":    "C'est Marie, la boulangère, qui m'a envoyé,\nelle pense que vous pourriez m'aider à explorer le monde.",
     "dialogue-orario-john-firstmeet2":    "Mmmpf... Bien!\nAlors fais bien attention aux monstres, dehors. Il en existe quatre familles : les rodeurs, petits et lents, ils tenteront de te griffer au visage et lanceront des cailloux s'ils ne peuvent t'atteindre.",
@@ -163,7 +165,7 @@
     "dialogue-orario-john-fmresponse4":   "Et le derni...",
     "dialogue-orario-john-firstmeet5":    "Les derniers! Ce sont les locustes! Ils grouillent partout, des murs au plafond, fais attention si tu en vois : le nid n'est jamais très loin.\nEt si tu entends une scie, fuis et ne te retourne jamais!",
     "dialogue-orario-john-fmresponse5":   "D'accord, merci pour ces informations",
-    "dialogue-orario-john-firstmeet6":    "Attends! Avant que tu partes, laisse-moi te donner quelques bâtons et des silex...",
+    "dialogue-orario-john-firstmeet6":    "Attends! Avant que tu partes, laisse moi te donner quelques bâtons et des silex ...",
     "dialogue-orario-john-fmresponse6":   "Au revoir monsieur et merci pour tout!",
     "dialogue-orario-john-goaway":        "Encore toi? Allez ouste! Hors de chez moi!",
     "dialogue-orario-john-leaving":       "D'accord, d'accord...",
@@ -184,8 +186,8 @@
     //{ Thomas
     "dialogue-orario-thomas-firstmeet": "Bonjour! Oh, bienvenue jeune séraphin! Tu n'es pas un peu perdu?",
     "dialogue-orario-thomas-fmresponse" : "Euhm, pourquoi me regardez-vous comme ça?",
-    "dialogue-orario-thomas-firstmeet2": "Je vois que Tobias a bien travaillé, on dirait que vous êtes presque comme nous.",
-    "dialogue-orario-thomas-fmresponse2" : "Presque comme nous? Vous connaissez Tobias? Que pouvez-vous me dire sur ce monde?",
+    "dialogue-orario-thomas-firstmeet2": "Je vois que Jonas a bien travaillé, on dirait que vous êtes presque comme nous.",
+    "dialogue-orario-thomas-fmresponse2" : "Presque comme nous? Vous connaissez Jonas ? Que pouvez-vous me dire sur ce monde?",
     "dialogue-orario-thomas-firstmeet3": "Oh, tu as beaucoup de questions!.. Oui, en effet, vous êtes plus grand que nous et vous avez aussi une couleur de peau qui diffère...\nEt vos yeux sont très différents!\n\nConcernant Tobias, je ne l'ai jamais rencontré mais c'est une sommité tant scientifique qu'alchimique : nous autres, techniciens, suivons attentivement ses projets, parfois jusqu'à l'imprudence, malheureusement...",
     "dialogue-orario-thomas-fmresponse3" : "D'accord... Et quel est cet endroit?",
     "dialogue-orario-thomas-firstmeet4": "Ici? C'est le Sanctuaire des Translocateurs : c'est d'ici que tu pourras rejoindre les points de ralliement d'expéditions et les villages dont les points d'arrivée sont restés intacts!",
@@ -195,27 +197,27 @@
     "dialogue-orario-thomas-welcomeback": "Bonjour? Ou Re-bonjour! Je ne sais plus trop, je suis perdu dans mes tâches! Dis-moi tout...",
     "dialogue-orario-thomas-nothingbye": "Non rien, au revoir.",
     "dialogue-orario-thomas-howtogettl": "Comment obtenir un translocateur?",
-    "dialogue-orario-thomas-howtogettlresp": "Oh, je peux t'en laisser un non-connecté pour 50 engrenages rouillés, mais tu auras besoin de contacter un \"Administrateur\" pour l'activer... Veille cependant à le placer inteligemment car lorsqu'il sera activé, tu auras besoin de rappeler un \"Administrateur\" pour toute opération...",
+    "dialogue-orario-thomas-howtogettlresp": "Oh, je peux t'en laisser un non connecté pour 100 engrenages rouillés, mais tu auras besoin de contacter un \"Administrateur\" pour l'activer... Veille cependant à le placer intelligemment car lorsqu'il sera activé, tu auras besoin de rappeler un \"Administrateur\" pour toute opération...",
     "dialogue-orario-thomas-howtomovetl": "Comme pour le retirer, par exemple?",
     "dialogue-orario-thomas-howtomovetlresp": "Tu veux dire \"le déplacer\"? Il me semble que ça te coûtera 15 engrenages rouillés... Mais tâche de ne pas faire perdre leur temps aux \"Administrateurs\"! Il pourrait t'en coûter bien plus que tu n'es prêt à payer!..",
     "dialogue-orario-thomas-okthx": "D'accord, merci.",
     //}
 
     //{ Christian
-    "dialogue-orario-christian-entry-notuto": "Tu me semble bien presser jeune aventurier, bonne chance dans ta découverte de ce monde.",
+    "dialogue-orario-christian-entry-notuto": "Tu me sembles bien pressé, jeune aventurier. Bonne chance dans ta découverte de ce monde.",
     "dialogue-orario-christian-firstmeet": "Salut {{playername}}, qu'en pense tu d'Orario, c'est une magnifique Ville ?",
     "dialogue-orario-christian-fmresponse" : "Oui, merci.",
     "dialogue-orario-christian-menu": "Alors en quoi puis-je t'aider ?",
     "dialogue-orario-christian-guardask": "Est-ce que le métier de Garde est dur ?",
     "dialogue-orario-christian-guardansw": "Avant la grande tempête temporelle je t'aurais dis que non.",
     "dialogue-orario-christian-guardask2": "Désolé...",
-    "dialogue-orario-christian-guardansw2": "Pourquoi t'excuse tu ? C'est de la faute de ses monstres qui apparraissent.\nIls ne témoignent aucune pitié et tuent tout ce qui bouge...",
+    "dialogue-orario-christian-guardansw2": "Pourquoi t'excuse tu ? C'est de la faute de ses monstres qui apparaissent.\nIls ne témoignent aucune pitié et tuent tout ce qui bouge...",
     "dialogue-orario-christian-guardask3": "C'étais donc moins dur avant ?",
-    "dialogue-orario-christian-guardansw3": "Oui, avant on devait seulement s'entrainement quotidiennement ainsi que surveillier l'horizon si des signaux de fumée apparaissaient ou qu'un messager arrive.",
+    "dialogue-orario-christian-guardansw3": "Oui, avant on devait seulement s'entrainement quotidiennement ainsi que surveiller l'horizon si des signaux de fumée apparaissaient ou qu'un messager arrive.",
     "dialogue-orario-christian-guardask4": "C'est donc un métier bien pénible.",
     "dialogue-orario-christian-guardansw4": "Oui, mais heureusement j'ai Christina avec moi, grâce à elle je me sent plus léger à ses côtés...\nEnfin bon, merci aventurier grâce à toi j'ai pu dire ce que j'avais au fond du coeur.",
-    "dialogue-orario-christian-guardaskbye": "Derien, si j'ai pû vous aider cela me fait plaisir !",
-    "dialogue-orario-christian-askquest": "Non, moi comment pourrais-je vous aider ?",
+    "dialogue-orario-christian-guardaskbye": "Derien, si j'ai pu vous aider cela me fait plaisir !",
+    "dialogue-orario-christian-askquest": "Non, moi comment pourrai-je vous aider ?",
     "dialogue-orario-christian-bye": "Je passais simplement le bonjour.",
     //}
 
@@ -228,17 +230,17 @@
     "dialogue-orario-christina-guardansw": "Mmmmh la question n'est pas facile.",
     "dialogue-orario-christina-guardask2": "Ah bon ?",
     "dialogue-orario-christina-guardansw2": "Oui, tout dépend d'avec qui nous sommes en garde, du lieux ou nous sommes et surtout ce que nous devons faire",
-    "dialogue-orario-christina-guardask3": "Vous avez une préference",
+    "dialogue-orario-christina-guardask3": "Vous avez une préférence",
     "dialogue-orario-christina-guardansw3": "Tu es bien curieux, mais oui. J'aime bien être à ce poste, garder la porte c'est être à deux.",
     "dialogue-orario-christina-guardask4": "Toujours à deux ?",
-    "dialogue-orario-christina-guardansw4": "Oui, et en géneral je suis avec Christian et je ne m'ennuie jamais quand je suis avec lui.",
+    "dialogue-orario-christina-guardansw4": "Oui, et en général je suis avec Christian et je ne m'ennuie jamais quand je suis avec lui.",
     "dialogue-orario-christina-guardaskbye": "Je vois, merci pour cette histoire.",
     "dialogue-orario-christina-askquest": "Est-ce que moi je peux aider les gardes d'Orario ?",
     "dialogue-orario-christina-bye": "Une simple salutation en passant par là.",
     //}
 
     //{ Eina
-    "dialogue-orario-eina-notuto": "Bonjour aventurier, avant de pouvoir recevoir des quêtes tu dois finir la toute premiere qui t'a été donner.",
+    "dialogue-orario-eina-notuto": "Bonjour aventurier, avant de pouvoir recevoir des quêtes tu dois finir la toute première qui t'a été donner.",
     "dialogue-orario-eina-notutobye": "D'accord, je vais m'en occuper !",
     "dialogue-orario-eina-notutoask": "Quelle quête ?",
     "dialogue-orario-eina-notutoansw": "Allez voir Axel, il vous en dira plus. Vous le trouverez dehors, sur la place centrale.",
@@ -282,7 +284,7 @@
     //}
 
     //{Igor
-    "dialogue-orario-igor-notuto": "Hey aventurier, tu semble occupé. Reviens me voir quand tu auras plus de temps.",
+    "dialogue-orario-igor-notuto": "Hey aventurier, tu sembles occupé. Reviens me voir quand tu auras plus de temps.",
     "dialogue-orario-igor-menu": "Je suis un peu occupé, mais dit moi aventurier de quoi a tu besoin ?",
     "dialogue-orario-igor-persoqstn": "Qui êtes vous ?",
     "dialogue-orario-igor-persoansw": "Je suis Igor, forgeron de la ville.",
@@ -320,29 +322,29 @@
     //{Generic Guard
     "dialogue-orario-genericguard-notuto": "Bonjour, que faites vous sur les murailles ? Et d'ailleurs qui êtes vous ?",
     "dialogue-orario-genericguard-notutoansw": "Excusez moi, je vais redescendre.",
-    "dialogue-orario-genericguard-menu": "La vue des plaines est belle depuis les murs aventurier... Si seulement l'insoucience pouvait reigner comme autrefois...",
+    "dialogue-orario-genericguard-menu": "La vue des plaines est belle depuis les murs aventurier... Si seulement l'insouciance pouvait régner comme autrefois...",
     "dialogue-orario-genericguard-bye" : "En effet, au revoir...",
     "dialogue-orario-genericguard-askquest" : "Est-ce que du haut de ces murailles vous auriez besoin d'aide ?",
     "dialogue-orario-genericguard-questansw": "Non, mais tu pourrais voir avec le Capitaine de la Garde.",
     //}
 
     //{ Albert
-    "dialogue-orario-albert-notuto": "Bonjour jeune homme. Tu semble essouflé, re viens dans ma boucherie une fois que tu n'es pas occuper.",
+    "dialogue-orario-albert-notuto": "Bonjour jeune homme. Tu semble essoufflé, re viens dans ma boucherie une fois que tu n'es pas occuper.",
     "dialogue-orario-albert-menu": "Salut aventurier. Que puis-je te servir ?",
     "dialogue-orario-albert-persoqstn": "Parlez moi un peu de vous ?",
     "dialogue-orario-albert-quests": "Auriez vous une tâche pour moi ?",
     "dialogue-orario-albert-trade": "Que vendez vous ?",
     "dialogue-orario-albert-persoansw": "Je suis Alberto, mais ici on m'appelle Albert. Comme tu peux le voir nous sommes dans une boucherie, je suis donc boucher.",
     "dialogue-orario-albert-persoqstn2": "Intéressant et quels type de viande d'animal vendez vous ?",
-    "dialogue-orario-albert-persoansw2": "Toutes viandes qui se mange peut être vendue ici.",
+    "dialogue-orario-albert-persoansw2": "Toutes viandes qui se mangent peuvent être vendue ici.",
     //}
 
-    //{
+    //{ Lisa
     "dialogue-orario-lisa-placediscover": "Bienvenue cher aventurier dans la Bibliothèque des Lumières",
     "dialogue-orario-lisa-placeqstn": "Oooh, c'est donc une bibliothèque",
     "dialogue-orario-lisa-placeansw": "C'est aussi un lieu d'étude, grâce à nos archives et notre grande base de livre.",
-    "dialogue-orario-lisa-placeqstn2": "Et la bibliothèque n'a pas subis de dégats ?",
-    "dialogue-orario-lisa-placeansw2": "Non ! Moi, Lisa directrice de cette bibliothèque ne le permetrait pas !",
+    "dialogue-orario-lisa-placeqstn2": "Et la bibliothèque n'a pas subis de dégâts ?",
+    "dialogue-orario-lisa-placeansw2": "Non ! Moi, Lisa directrice de cette bibliothèque ne le permettrait pas !",
     "dialogue-orario-lisa-placeend": "Je vois",
     "dialogue-orario-lisa-menu": "Que puis-je faire pour vous Aventurier ?",
     "dialogue-orario-lisa-menualt": "Bon, que puis-je faire pour vous Aventurier ?",
@@ -358,18 +360,18 @@
     "dialogue-orario-lisa-bookansw4": "Tu dois tout simplement contacter un *Administrateur* pour ajouter ton livre dans la bibliothèque.",
     //}
 
-    //{
+    //{ Varis
     "dialogue-orario-varis-firstmeet": "Bonjour toi, je m'appelle Varis.",
     "dialogue-orario-varis-fmresponse": "Et que faites vous ?",
     "dialogue-orario-varis-firstmeet2": "Moi ? Rien, je tourne autour oisivement.",
     "dialogue-orario-varis-fmresponse2": "D'accord...",
-    "dialogue-orario-varis-menu": "Cette statue est belle n'est-ce pas ?",
-    "dialogue-orario-varis-statueqstn": "Que représente cette statue ?",
-    "dialogue-orario-varis-statueansw": "Elle représente les bâtisseurs.",
+    "dialogue-orario-varis-menu": "Cette statue étais si belle...",
+    "dialogue-orario-varis-statueqstn": "Une statue ? Il n'y a que des gravats, que representait elle ?",
+    "dialogue-orario-varis-statueansw": "Elle représentait les bâtisseurs.",
     "dialogue-orario-varis-statueqstn2": "Les bâtisseurs ?",
-    "dialogue-orario-varis-statueansw2": "Oui elle représente tout ceux ayant apporté une aide à la construction de ce monde.",
+    "dialogue-orario-varis-statueansw2": "Oui elle représentait tout ceux ayant apporté une aide à la construction de ce monde.",
     "dialogue-orario-varis-statueqstn3": "Et qui sont ils ?",
-    "dialogue-orario-varis-statueansw3": "Eh bien il y a pour \n\nLa Construction : Rodjy et HunterFox\n\nLa Décoration : Jalihan, Wolfgrim, Tonyops, Decto et HunterFox\n\nLe développement : Psyloh et HunterFox\n\nLa mise en place du serveur Tonyops et HunterFox\n\nEt mention spéciale pour Architoc, qui a fait cette statue.",
+    "dialogue-orario-varis-statueansw3": "Eh bien il y a pour \n\nLa Construction : Rodjy et HunterFox\n\nLa Décoration : Jalihan, Wolfgrim, Tonyops, Decto et HunterFox\n\nLe développement : Psyloh et HunterFox\n\nLa mise en place du serveur Tonyops et HunterFox.\nLa personne ayant fait cette statue demeure oubliée.",
     "dialogue-orario-varis-statueend": "Merci, je ne les oublierais pas",
     //}
 
@@ -382,11 +384,21 @@
     "dialogue-orario-genericpalaceentryguard-questansw": "Non, mais tu pourrais voir avec le Chef de la Garde.",
     //}
 
-    //{
+    //{ Sebas
     "dialogue-orario-sebas-firstmeet": "Que me voulez vous ?",
     "dialogue-orario-sebas-fmresponse": "J'étais curieux de savoir qui vous étiez.",
     "dialogue-orario-sebas-firstmeet2": "Je suis Sébas, vous voila ravis, maintenant partez.",
     "dialogue-orario-sebas-menu": "Encore vous ? Que me voulez vous ?",
+    "dialogue-orario-sebas-menualt": "Cette semaine le samedi à 18h aura lieux l'évènement secret, venez me voir entre 17h30 et 18h pour y accéder.",
+    "dialogue-orario-sebas-weekeventtp": "Bonjour, j'aimerais me rendre à cet évènement.",
+    "dialogue-orario-sebas-weekeventtp2": "J'espère que vous avez apporter des objets de valeur.",
+    "dialogue-orario-sebas-weekeventtp4": "Préparez vous pour le déplacement instantané !.",
+    "dialogue-orario-sebas-weekeventqstn": "Que dois-je apporter lors de cet évènement ?",
+    "dialogue-orario-sebas-weekeventansw": "Apportez des ressources qui sont précieuses.",
+    "dialogue-orario-sebas-weekeventqstn2": "Quoi comme ressources ?",
+    "dialogue-orario-sebas-weekeventansw2": "Lingots d'or et d'argent. Engrenages rouillés et temporels.",
+    "dialogue-orario-sebas-weekeventqstn3": "Et que pouvons nous y obtenir là bas ?",
+    "dialogue-orario-sebas-weekeventansw3": "Principalement des êtres vivants, mais il est possible d'obtenir d'autres avantages.",
     "dialogue-orario-sebas-quests": "Auriez vous un travail pour moi ?",
     "dialogue-orario-sebas-curiosityqstn": "Et que faites vous ici ?",
     "dialogue-orario-sebas-curiosityansw": "J'attends. Maintenant partez.",
@@ -395,7 +407,7 @@
     "dialogue-orario-sebas-curiosityqstn3": "Je suis quelqu'un de nature curieuse",
     "dialogue-orario-sebas-curiosityansw3": "J'attends des personnes pour un évènement qui ce veut discret.",
     "dialogue-orario-sebas-curiosityqstn4": "Et que faites vous pour cet évènement ?",
-    "dialogue-orario-sebas-curiosityansw4": "Je suis un sorte de majordome, j'acceuille et dirige les personnes conviés à cet évènement.",
+    "dialogue-orario-sebas-curiosityansw4": "Je suis un sorte de majordome, j'accueille et dirige les personnes conviés à cet évènement.",
     "dialogue-orario-sebas-curiosityqstn5": "Et quand ce déroule cet évènement ?",
     "dialogue-orario-sebas-curiosityansw5": "Ne savez vous donc pas écouter ? Cet évènement est secret. Je ne vais donc pas divulguez la date de cet évènement.\n\nVous pouvez juste savoir qu'il a lieux deux fois par mois.",
     "dialogue-orario-sebas-curiosityqstn6": "Comment peut-on y être convié ?",
@@ -404,8 +416,7 @@
     "dialogue-orario-sebas-obj": "dialogue",
     //}
 
-
-    //{
+    //{ Gaster
     "dialogue-orario-gaster-firstmeet": "👌︎⚐︎☠︎☺︎⚐︎🕆︎☼︎📪︎ ✈︎🕆︎☜︎ 💧︎⚐︎🕆︎☟︎✌︎✋︎❄︎☜︎☪︎ ✞︎⚐︎🕆︎💧︎ ✍︎",
     "dialogue-orario-gaster-fmresponse": "Pardon ?",
     "dialogue-orario-gaster-firstmeet2": "Excusez moi, vieille habitude. Bonjour que souhaitez vous ?",
@@ -418,8 +429,8 @@
     "dialogue-orario-gaster-resetansw": "Moi ? Je remet des espaces entier digne d'intérêt comme si personne n'y étais jamais venu.",
     "dialogue-orario-gaster-resetqstn2": "Oh comme ça nous pouvons les explorer à nouveau ?",
     "dialogue-orario-gaster-resetansw2": "En effet, mais ce n'est pas gratuit.\n\nConsulter mes services pour en savoir plus.",
-    "dialogue-orario-gaster-servicesmenu": "Biensûr, voici ce que je vous propose ainsi que les tarifs :\nLes archives de résonance : 200 engrenages rouillés.\nLe Lazaret : 150 engrenages rouillés.\nLa zone de la dévastation : 400 engrenages rouillés.\nTour des enfants perdus : 300 Engrenages rouillés.\nDonjon des enfants perdus : 500 engrenages rouillés.\nUniversité : 500 engrenages rouillés.\nLa mine de charbon : 350 engrenages rouillés.",
-    "dialogue-orario-gaster-servicesmenu2": "Biensûr, voici ce que je vous propose ainsi que les tarifs :\nMine 1 et 2 : 300 engrenages rouillés.\nCroisé des chemins : 150 engrenages rouillés.\nLe Manoir : 250 engrenages rouillés.\nLe panoptique : 300 engrenages rouillés.\nHuaca : 350 engrenages rouillés\nLa déchirure solaire : 400 engrenages rouillés.\nCalix : 300 engrenages rouillés\nCentre commercial : 300 engrenages rouillés.\nCarrière d'halite : 300 engrenages rouillés.",
+    "dialogue-orario-gaster-servicesmenu": "Bien sûr, voici ce que je vous propose ainsi que les tarifs :\nLes archives de résonance : 200 engrenages rouillés.\nLe Lazaret : 150 engrenages rouillés.\nLa zone de la dévastation : 400 engrenages rouillés.\nTour des enfants perdus : 300 Engrenages rouillés.\nDonjon des enfants perdus : 500 engrenages rouillés.\nUniversité : 500 engrenages rouillés.\nLa mine de charbon : 350 engrenages rouillés.",
+    "dialogue-orario-gaster-servicesmenu2": "Bien sûr, voici ce que je vous propose ainsi que les tarifs :\nMine 1 et 2 : 300 engrenages rouillés.\nCroisé des chemins : 150 engrenages rouillés.\nLe Manoir : 250 engrenages rouillés.\nLe panoptique : 300 engrenages rouillés.\nHuaca : 350 engrenages rouillés\nLa déchirure solaire : 400 engrenages rouillés.\nCalix : 300 engrenages rouillés\nCentre commercial : 300 engrenages rouillés.\nCarrière d'halite : 300 engrenages rouillés.",
     "dialogue-orario-gaster-resonancearchive": "Les Archives de Résonance",
     "dialogue-orario-gaster-lazaret": "Le Lazaret",
     "dialogue-orario-gaster-devastationarea": "La zone de la dévastation",
@@ -441,16 +452,8 @@
     "dialogue-orario-gaster-seerviceplayerhasnomoney": "Il semblerait que vous n'ayez pas d'argent pour mes services.",
     "dialogue-orario-gaster-servicedone": "Le zone en question sera reset d'ici dix minutes, soyez les premiers là bas.",
     "dialogue-orario-gaster-servicedelay": "Hélas ce service m'a déjà été proposer récemment.\nReviens dans 7 mois [1 Semaine IRL]. Et je pourrais à nouveau remettre cette zone en état.",
-    "dialogue-orario-gaster-countmoney": "Voyons voir si tu as l'argent pour que je puisse régenerer cette zone.",
+    "dialogue-orario-gaster-countmoney": "Voyons voir si tu as l'argent pour que je puisse régénérer cette zone.",
     "dialogue-orario-gaster-checkprice": "Je n'ai pas bien vu je peux voir à nouveau les choix ?",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
-    "dialogue-orario-gaster-obj": "dialogue",
     //}
 
     //{Generic Villager inside
@@ -462,13 +465,28 @@
     //}
 
     //{Generic Villager inside
-    "dialogue-orario-genericvillageroutside-notuto": "La tempête s'est terminer il y a peu... Regardez tous les dégâts...",
+    "dialogue-orario-genericvillageroutside-notuto": "La tempête s'est terminée il y a peu... Regardez tous les dégâts...",
     "dialogue-orario-genericvillageroutside-notutobye": "En effet...",
-    "dialogue-orario-genericvillageroutside-menualt": "Maintenant que la tempête est terminée esperons qu'ils vont retirer les barricades",
-    "dialogue-orario-genericvillageroutside-menu": "Nous voila enfin débarasser des barricades ! Que puis-je faire pour vous aventurier ?",
+    "dialogue-orario-genericvillageroutside-menualt": "Maintenant que la tempête est terminée espérons qu'ils vont retirer les barricades",
+    "dialogue-orario-genericvillageroutside-menu": "Nous voila enfin débarrasser des barricades ! Que puis-je faire pour vous aventurier ?",
     "dialogue-orario-genericvillageroutside-bye" : "Désolé du dérangement, je dois y aller",
     "dialogue-orario-genericvillageroutside-askquest" : "Auriez vous besoin d'aide ?",
     "dialogue-orario-genericvillageroutside-questansw": "Hélas actuellement non. Regardez à la Guilde des aventurier si ils ont besoin d'aide",
+    //}
+
+    //{
+    "dialogue-orario-jevil-firstmeet": "Bonjour aventurier, je suis Jevil.",
+    "dialogue-orario-jevil-fmresponse": "Et que faites vous ?",
+    "dialogue-orario-jevil-firstmeet2": "Je suis celui qui divertis les foules",
+    "dialogue-orario-jevil-menu": "Bonjour aventurier, vous venez vous divertir ?",
+    "dialogue-orario-jevil-seasonalevent": "Oui j'aimerais participer à l'évent saisonnier",
+    "dialogue-orario-jevil-customevent": "En effet, j'aimerais participier à cet évènement particulier.",
+    "dialogue-orario-jevil-springevent": "L'hiver disparait, le printemps prends sa place. Direction l'évenement du printemps !",
+    "dialogue-orario-jevil-summerevent": "Les douces matinés et temps frais font place aux orages et jours chaud. Direction l'évenement d'été.",
+    "dialogue-orario-jevil-automnevent": "Les feuilles tombes et les nuits fraiches arrivent. Direction l'évènement du printemps.",
+    "dialogue-orario-jevil-winterevent": "Les arbres sont nus, les plaines sont blanches. Direction l'évènement d'Hiver !",
+    "dialogue-orario-jevil-customeventtp": "Déplacement instantané vers cet évènement si... particulier !",
+    "dialogue-orario-jevil-noevent": "Il semblerait qu'il n'y ait pas d'évenement. Au revoir.",
     //}
 
 
@@ -477,11 +495,11 @@
     "dialogue-orario-npc-quests":          "Auriez-vous besoin d'aide pour quelque chose?",
     //{ Michel
     "quest-michel-redmeat-title":   "Ravitaillement urgent",
-    "quest-michel-redmeat-desc":    "Nos troupeaux ont beaucoup souffert de l'Apocalypse et nos stocks de viande rouge diminuent : si tu peux m'en rapporter 15 beaux morceaux,je saurais généreusement te récompenser!",
+    "quest-michel-redmeat-desc":    "Nos troupeaux ont beaucoup souffert de l'Apocalypse et nos stocks de viande rouge diminuent : si tu peux m'en rapporter 15 beaux morceaux, je saurais généreusement te récompenser!",
     "quest-michel-redmeat-obj":     "Viande Rouge : {0}/15",
 
     "quest-michel-bushmeat-title":  "On teste des trucs",
-    "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène-la moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
+    "quest-michel-bushmeat-desc":   "Si tu parviens à récupérer de la viande coriace sur les prédateurs qui rôdent aux alentours, ramène là moi : ça a beau être difficile à cuisiner, dans la situation actuelle ça serait dommage de gaspiller... Pour 8 morceaux je veillerais à ce que tu n'aies pas risqué ta vie pour rien!",
     "quest-michel-bushmeat-obj":    "Viande Coriace : {0}/8",
     //}
 
@@ -493,8 +511,8 @@
 
     //{ Psyloh
     "quest-psyloh-drinkardgroup-title":      "Groupe de Buveur",
-    "quest-psyloh-drinkardgroup-desc":       "Tous les an j'ai un gros groupe de voyageur qui m'viens me vider mon stock de bière. Mais avec la tempête j'en ai plus. Tu peux m'ramner 64 grains d'épautre ? Heureusement ils aiment boire mais ne font pas attention au goûts.",
-    "quest-psyloh-drinkardgroup-obj":        "Grains d'épautre {0}/64",
+    "quest-psyloh-drinkardgroup-desc":       "Tous les an j'ai un gros groupe de voyageur qui m'viens me vider mon stock de bière. Mais avec la tempête j'en ai plus. Tu peux m'ramner 64 grains d'épeautre ? Heureusement ils aiment boire mais ne font pas attention au goûts.",
+    "quest-psyloh-drinkardgroup-obj":        "Grains d'épeautre {0}/64",
     //}
 
     //{ Igor
@@ -507,9 +525,9 @@
     "quest-igor-ironingot-obj":        "Lingots de fer {0}/2",    
     //}
 
-    //{ Marie
-    "quest-jaime-ironfalx-title":      "Epée du Chef de la Garde",
-    "quest-jaime-ironfalx-desc":       "Bon Aventurier, avec cette tempête temporelle, j'ai perdu mon épée en fer. Après avoir discuter avec Igor il semblerait que désormais les épées seront moins utiles contre ces monstres.\nRamène moi une nouvelle arme en fer qui est efficace contre ces monstres et je te récompenserait.",
+    //{ Jaime
+    "quest-jaime-ironfalx-title":      "Épée du Chef de la Garde",
+    "quest-jaime-ironfalx-desc":       "Bon, aventurier avec cette tempête temporelle, j'ai perdu mon épée en fer. Après avoir discuter avec Igor il semblerait que désormais les épées seront moins utiles contre ces monstres.\nRamène moi une nouvelle arme en fer qui est efficace contre ces monstres et je te récompenserait.",
     "quest-jaime-ironfalx-obj":        "Falx en Fer {0}/1",
     //}
 
@@ -527,13 +545,13 @@
 
    //{ Sebas
     "quest-sebas-rope-title":      "Corde de travail",
-    "quest-sebas-rope-desc":       "J'ai besoin de douze metres de corde pour une mission que l'on m'a confié.",
+    "quest-sebas-rope-desc":       "J'ai besoin de douze mètres de corde pour une mission que l'on m'a confié.",
     "quest-sebas-rope-obj":        "Bobine de Corde {0}/12",
     //}
 
    //{ Gester
     "quest-gaster-temporalgear-title":      "Restauration d'énergie",
-    "quest-gaster-temporalgear-desc":       "J'ai besoin d'un engrenage temporel, sans ça il risque de me manquer d'énergie pour remettre à zero des emplacements de ce monde.",
+    "quest-gaster-temporalgear-desc":       "J'ai besoin d'un engrenage temporel, sans ça il risque de me manquer d'énergie pour remettre à zéro des emplacements de ce monde.",
     "quest-gaster-temporalgear-obj":        "Engrenage Temporel {0}/1",
     //}
 
@@ -549,4 +567,24 @@
     "quest-pnj-ID-desc":       "text",
     "quest-pnj-ID-obj":        "text {0}/12",
     //}
+
+    "dungeon-reset-announce": "{seconds} secondes avant que {dungeon} va être régenerer ! Merci de quitter les alentours du dongeon...",
+    "resonancearchive": "Les Archives de Résonance",
+    "lazaret": "Le Lazaret",
+    "devastationarea": "La zone de la dévastation",
+    "largeforlornhopetower": "La tour des enfants perdus",
+    "forlornhopedungeon": "Le donjon des enfants perdus",
+    "university": "L'université",
+    "coalmine": "La mine de charbon",
+    "mine1": "La mine n°1",
+    "mine2": "La mine n°2",
+    "crossroads": "La croisée des chemins",
+    "mansion": "Le manoir",
+    "thepanopticon": "Le panoptique",
+    "huaca": "Huaca",
+    "sunrift": "La déchirure solaire",
+    "calix": "Calix",
+    "shoppingcentre": "Le centre commercial",
+    "halitequarry": "Carrière de sel",
+
 }

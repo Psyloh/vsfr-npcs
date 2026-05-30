@@ -1,0 +1,221 @@
+{
+	components: [
+		{
+			code: "testfinisheddiscover",
+			owner: "npc",
+			type: "condition",
+			variable: "entity.hasmet",
+			isNotValue: "true",
+			thenJumpTo: "firstmeet",
+			elseJumpTo: "menu"
+		},
+		{
+			code: "firstmeet",
+			owner: "npc",
+			trigger: "revealname",
+            setVariables: {"entity.hasmet": "true"},
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-firstmeet" },
+			],
+			jumpTo: "fmresponse"
+		},
+        {
+			code: "fmresponse",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-fmresponse", jumpTo: "firstmeet2" },
+			]
+		},
+		{
+			code: "firstmeet2",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-firstmeet2" },
+			],
+			jumpTo: "fmend"
+		},
+        {
+			code: "fmend",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-player-okthx2", jumpTo: "close" },
+			]
+		},
+		{
+			code: "menu",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-menu" },
+			],
+			jumpTo: "checkcustomevent"
+		},
+        {
+            code: "checkcustomevent",
+            type: "jump",
+            trigger: "hasPrivilege",
+            triggerData: {
+                privilege: "customevent",
+                if: "checkmultipleevent",
+                else: "checkseasonalevent"
+            }
+        },
+        {
+            code: "checkmultipleevent",
+            type: "jump",
+            trigger: "hasAnyOfPrivileges",
+            triggerData: {
+                privileges: ["springevent", "summerevent", "automnevent", "winterevent" ],
+                if: "playermultiple",
+                else: "playercustomevent"
+            }
+        },
+        {
+            code: "checkseasonalevent",
+            type: "jump",
+            trigger: "hasAnyOfPrivileges",
+            triggerData: {
+                privileges: ["springevent", "summerevent", "automnevent", "winterevent" ],
+                if: "playerseasonalevent",
+                else: "playernoevent"
+            }
+        },
+        {
+			code: "playerseasonalevent",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-seasonalevent", jumpTo: "checktypeseasonalevent"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+        {
+			code: "playercustomevent",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-customevent", jumpTo: "customevent"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+        {
+			code: "playermultiple",
+			owner: "player",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-seasonalevent", jumpTo: "checktypeseasonalevent"},
+				{ value: "vsfrnpcs:dialogue-orario-jevil-customevent", jumpTo: "customevent"},
+                { value: "vsfrnpcs:dialogue-player-sorrybye2", jumpTo: "close" },
+			]
+		},
+        {
+			code: "playernoevent",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-orario-jevil-noevent", jumpTo: "close" },
+			]
+		},
+		{
+			code: "checktypeseasonalevent",
+			type: "jump",
+			trigger: "switchPrivilege",
+			triggerData: {
+				values: {
+				springevent: "springevent",
+				summerevent: "summerevent",
+				automnevent: "automnevent",
+				winterevent : "winterevent"
+				}
+			}
+		},
+		{
+			code: "springevent",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-springevent" },
+			],
+			jumpTo: "tpplayerseasonal"
+		},
+		{
+			code: "summerevent",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-summerevent" },
+			],
+			jumpTo: "tpplayerseasonal"
+		},
+		{
+			code: "automnevent",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-automnevent" },
+			],
+			jumpTo: "tpplayerseasonal"
+		},
+		{
+			code: "winterevent",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-winterevent" },
+			],
+			jumpTo: "tpplayerseasonal"
+		},
+        {
+			code: "tpplayerseasonal",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-player-nothingtosay", jumpTo: "tpseasonal" },
+			]
+		},
+		{
+			code: "tpseasonal",
+ 		    trigger: "teleport",
+      		triggerData: {
+        		x: "5",
+        		z: "5"
+    		},
+      		jumpTo: "close"
+		},
+		{
+			code: "customevent",
+			owner: "npc",
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-jevil-customeventtp" },
+			],
+			jumpTo: "tpplayercustom"
+		},
+        {
+			code: "tpplayercustom",
+			owner: "player",
+			type: "talk",
+			text: [
+                { value: "vsfrnpcs:dialogue-player-letsgo", jumpTo: "tpcustom" },
+			]
+		},
+		{
+			code: "tpcustom",
+ 		    trigger: "teleport",
+      		triggerData: {
+        		x: "0",
+        		z: "0"
+    		},
+      		jumpTo: "close"
+		},
+        {
+			code: "close",
+			owner: "npc",
+			trigger: "closedialogue",
+		},
+	]
+}
