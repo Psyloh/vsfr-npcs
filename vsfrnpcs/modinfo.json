@@ -2,16 +2,16 @@
 	$schema: "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
 	type: "Code",
 	name: "Vintage Story FR - NPCs",
-	version: "0.2.0",
+	version: "1.0.0",
 	description: "Adds content NPCs to VSFR server",
 	modID: "vsfrnpcs",
-	authors: [ "Fox" ],
+	authors: [ "Fox", "Psyloh" ],
 	contributors: [],
 	side: "Universal",
 	requiredOnClient: true,
 	requiredOnServer: true,
 	dependencies: {
-		game: "1.22.0-rc.2",
+		game: "1.22.3",
 		//alegacyvsquest: "2.4.1"
 	}
 }
