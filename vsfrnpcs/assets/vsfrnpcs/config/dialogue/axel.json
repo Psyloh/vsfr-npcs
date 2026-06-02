@@ -2,7 +2,7 @@
 	components: [
 		{
 			code: "testfinisheddiscover",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasmetjail",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
 		{
 			code: "testfinishedquestion",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasfinishedq",
 			isNotValue: "true",
@@ -20,7 +20,7 @@
 		},
 		{
 			code: "testfinishedjail",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasfinishedjail",
 			isNotValue: "true",
@@ -29,7 +29,7 @@
 		},
 		{
 			code: "testhasmet",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
@@ -38,7 +38,7 @@
 		},
 		{
 			code: "testhasdonetuto",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -47,7 +47,7 @@
 		},
         {
 			code: "testhasmetmarie",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasmetmarie",
 			isNotValue: "true",
@@ -56,7 +56,7 @@
 		},
 		{
 			code: "firstmeetjail",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail" },
@@ -73,7 +73,7 @@
 		},
 		{
 			code: "firstmeetjail2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail2" },
@@ -90,7 +90,7 @@
 		},
 		{
 			code: "firstmeetjail3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail3" },
@@ -107,7 +107,7 @@
 		},
 		{
 			code: "firstmeetjail4",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail4" },
@@ -124,7 +124,7 @@
 		},
 		{
 			code: "firstmeetjail5",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeetjail5" },
@@ -141,7 +141,7 @@
 		},
 		{
 			code: "choicequestion",
-			owner: "npc",
+			
 			setVariables: {"player.hasmetjail": "true"},
 			type: "talk",
 			text: [
@@ -161,7 +161,7 @@
 		},
 		{
 			code: "question1",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal1" },
@@ -180,7 +180,7 @@
 		},
 		{
 			code: "question2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal2" },
@@ -199,7 +199,7 @@
 		},
 		{
 			code: "question3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal3" },
@@ -218,7 +218,7 @@
 		},
 		{
 			code: "2ndchoicequestion",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-goodanswer" },
@@ -237,7 +237,7 @@
 		},
 		{
 			code: "question4",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal4" },
@@ -256,7 +256,7 @@
 		},
 		{
 			code: "question5",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal5" },
@@ -275,7 +275,7 @@
 		},
 		{
 			code: "question6",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal6" },
@@ -294,7 +294,7 @@
 		},
 		{
 			code: "3rdchoicequestion",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-goodanswer" },
@@ -313,7 +313,7 @@
 		},
 		{
 			code: "question7",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal7" },
@@ -332,7 +332,7 @@
 		},
 		{
 			code: "question8",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal8" },
@@ -351,7 +351,7 @@
 		},
 		{
 			code: "question9",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal9" },
@@ -370,7 +370,7 @@
 		},
 		{
 			code: "finalquestion",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-questionreveal10" },
@@ -389,7 +389,7 @@
 		},
 		{
 			code: "goodfanswer",
-			owner: "npc",
+			
 			setVariables: {"player.hasfinishedq": "true"},
 			type: "talk",
 			text: [
@@ -399,7 +399,7 @@
 		},
 		{
 			code: "badanswer",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-badanswer" },
@@ -424,7 +424,7 @@
 		},
 		{
 			code: "goodfanswer2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-goodfanswer2" },
@@ -459,7 +459,7 @@
 		},
 		{
 			code: "firstmeet",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet" },
@@ -476,7 +476,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet2" },
@@ -493,7 +493,7 @@
 		},
         {
 			code: "firstmeet3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-firstmeet3" },
@@ -528,7 +528,7 @@
 		},
 		{
 			code: "testmetmariebefore",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasmetmarie",
 			isNotValue: "true",
@@ -537,7 +537,7 @@
 		},
         {
 			code: "guidetoexit",
-			owner: "npc",
+			
 			type: "talk",
             setVariables: {"entity.hasmet": "true"},
 			text: [
@@ -554,7 +554,7 @@
 		},
         {
 			code: "firstmeet4",
-			owner: "npc",
+			
 			type: "talk",
             setVariables: {"entity.hasmet": "true"},
 			text: [
@@ -571,7 +571,7 @@
 		},
 		{
 			code: "welcomeback",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-welcomeback" },
@@ -588,7 +588,7 @@
 		},
 		{
 			code: "hasnotmetmarie",
-			owner: "npc",
+			
 			type: "talk",
             
 			text: [
@@ -606,7 +606,7 @@
 		},
         {
 			code: "guidetomarie",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-axel-guidetomarie" }
@@ -623,7 +623,7 @@
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		},
 	]

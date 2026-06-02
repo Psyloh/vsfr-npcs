@@ -61,12 +61,14 @@ namespace VSFRNPCS.Server
 			var isPending = modSys.Server.IsPending(dungeonName);
 			if (isPending)
 			{
+				ApiModHelper.Error("Dungeon reset pending");
 				return false;
 			}
 
 			var lastReset = modSys.Server.GetLastReset(dungeonName);
 			if (lastReset == null)
 			{
+				ApiModHelper.Error("Dungeon never reset");
 				return true;
 			}
 
@@ -75,7 +77,10 @@ namespace VSFRNPCS.Server
 			{
 				delay = config.GlobalDelay;
 			}
-			return lastReset.Value.AddHours(delay) <= DateTime.Now;
+
+			var canReset = lastReset.Value.AddHours(delay) <= DateTime.Now;
+			ApiModHelper.Error($"canReset: {canReset}");
+			return canReset;
 		}
 
 		public static void RegisterDungeonReset(string name)
@@ -125,14 +130,11 @@ namespace VSFRNPCS.Server
 
 			inside = false;
 
-			ApiModHelper.Error($"{location.MinY} {location.MaxY}");
-
 			var inArea = location.MinX <= pos.X && location.MaxX >= pos.X && location.MinZ <= pos.Z && location.MaxZ >= pos.Z;
 			if (inArea)
 			{
 				inside = location.MinY <= pos.Y && location.MaxY >= pos.Y;
 			}
-			ApiModHelper.Error($"{inside}");
 			return inArea;
 		}
 
@@ -165,8 +167,6 @@ namespace VSFRNPCS.Server
 			}
 
 			var y = ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt((int)x, (int)z);
-			ApiModHelper.Error($"{structure.Location.MinX} {structure.Location.MaxX} {structure.Location.MinZ} {structure.Location.MaxZ}");
-			ApiModHelper.Error($"{x} {y} {z}");
 			player.TeleportToDouble(x, y, z, () => ApiModHelper.Error("Teleported"));
 
 			if (cheating)

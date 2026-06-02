@@ -78,8 +78,10 @@ namespace VSFRNPCS
 
 			var jumpIf = data["if"].AsString("");
 			var jumpElse = data["else"].AsString("");
-
-			return Execute(controller, trigger, data) ? jumpIf : jumpElse;
+			ApiModHelper.Error($@"Trigger {trigger} - if: ""{jumpIf}"" - else: ""{jumpElse}""");
+			var path = Execute(controller, trigger, data) ? jumpIf : jumpElse;
+			ApiModHelper.Error($@"next is ""{path}""");
+			return path;
 		}
 
 		static bool Execute(DialogueController controller, string triggerName, JsonObject data)

@@ -2,7 +2,7 @@
 	components: [
         {
 			code: "testhasfinishedtuto",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
         {
 			code: "testjaimeperso",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.jaimeperso",
 			isValue: "true",
@@ -20,7 +20,7 @@
 		},
         {
 			code: "testjaimeperso2",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.jaimeperso2",
 			isValue: "true",
@@ -29,7 +29,7 @@
 		},
         {
 			code: "testjaimeperso3",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.jaimeperso3",
 			isValue: "true",
@@ -38,7 +38,7 @@
 		},
         {
 			code: "testjaimepersoend",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.jaimepersoend",
 			isValue: "true",
@@ -47,13 +47,13 @@
 		},
 		{
 			code: "givejaimeperso",
-			owner: "npc",
+			
 			setVariables: {"player.jaimeperso": "true"},
             jumpto: "menu"
         },
 		{
 			code: "notuto",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jaime-notuto" },
@@ -70,7 +70,7 @@
         },
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jaime-menu" },
@@ -91,7 +91,7 @@
         },
 		{
 			code: "persoansw",
-			owner: "npc",
+			
 			setVariables: {
 				"player.jaimeperso": "false",
 				"player.jaimeperso2": "true",
@@ -104,7 +104,7 @@
         },
 		{
 			code: "persoansw2",
-			owner: "npc",
+			
 			setVariables: {
 				"player.jaimeperso2": "false",
 				"player.jaimeperso3": "true",
@@ -117,7 +117,7 @@
         },
 		{
 			code: "persoansw3",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -135,7 +135,7 @@
         },
 		{
 			code: "persoansw4",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jaime-persoansw4" },
@@ -152,7 +152,7 @@
         },
 		{
 			code: "persoansw5",
-			owner: "npc",
+			
 			setVariables: {
 				"player.jaimeperso3": "false",
             	"player.jaimepersoend": "true",
@@ -173,13 +173,13 @@
         },
 		{
 			code: "quests",
-			owner: "npc",
+			
 			trigger: "openquests",
 			jumpTo: "void"
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		}
     ]

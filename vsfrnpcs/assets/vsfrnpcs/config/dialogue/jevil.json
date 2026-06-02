@@ -2,7 +2,7 @@
 	components: [
 		{
 			code: "testfinisheddiscover",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
 		{
 			code: "firstmeet",
-			owner: "npc",
+			
 			trigger: "revealname",
             setVariables: {"entity.hasmet": "true"},
 			type: "talk",
@@ -30,7 +30,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-firstmeet2" },
@@ -47,7 +47,7 @@
 		},
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-menu" },
@@ -135,7 +135,7 @@
 		},
 		{
 			code: "springevent",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-springevent" },
@@ -144,7 +144,7 @@
 		},
 		{
 			code: "summerevent",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-summerevent" },
@@ -153,7 +153,7 @@
 		},
 		{
 			code: "automnevent",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-automnevent" },
@@ -162,7 +162,7 @@
 		},
 		{
 			code: "winterevent",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-winterevent" },
@@ -188,7 +188,7 @@
 		},
 		{
 			code: "customevent",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-jevil-customeventtp" },
@@ -214,7 +214,7 @@
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		},
 	]

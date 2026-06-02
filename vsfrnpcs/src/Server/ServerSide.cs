@@ -268,10 +268,8 @@ namespace VSFRNPCS.Server
 
 		void Save()
 		{
-			ApiModHelper.Error("Saving");
 			ApiModHelper.SaveData("dungeonResets", _dungeonResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
 			ApiModHelper.SaveData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value.Remaining)));
-			ApiModHelper.Error("Saved");
 		}
 
 		void PlayerReady(IServerPlayer player)
