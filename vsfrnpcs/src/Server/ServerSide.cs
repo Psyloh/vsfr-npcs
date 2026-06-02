@@ -9,7 +9,6 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
-using Vintagestory.ServerMods;
 
 namespace VSFRNPCS.Server
 {
@@ -223,9 +222,9 @@ namespace VSFRNPCS.Server
 				.EndSub();
 
 			api.ChatCommands.GetOrCreate("vsfr")
+				.RequiresPrivilege(Privilege.chat)
 				.BeginSub("indungeon")
 				.RequiresPlayer()
-				.RequiresPrivilege(Privilege.chat)
 				.WithArgs(api.ChatCommands.Parsers.Word("dungeon"))
 				.HandleWith(args =>
 				{
@@ -340,6 +339,11 @@ namespace VSFRNPCS.Server
 			var dungeon = Lang.GetIfExists($"vsfrnpcs:{timer.DungeonName}") ?? timer.DungeonName;
 
 			message = message.Replace("{seconds}", timer.Remaining.ToString()).Replace("{dungeon}", dungeon);
+			return GetMessage(message);
+		}
+
+		string GetMessage(string message)
+		{
 			message = $@"<font color=""{Config.TextColor}"">{message}</font>";
 			if (Config.BoldText)
 			{
@@ -375,8 +379,11 @@ namespace VSFRNPCS.Server
 				var dungeon = timer.DungeonName;
 				_pendingResets.Remove(dungeon, out var _);
 
-				ApiModHelper.Api.Event.EnqueueMainThreadTask(() =>
-					CmdHelpers.ResetDungeon(dungeon), "resetDungeon");
+				ApiModHelper.Api.Event.EnqueueMainThreadTask(() => {
+					var message = Lang.GetUnformatted("game:reset-dungeon-message").Replace("{dungeon}", dungeon);
+					ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetMessage(message), EnumChatType.Notification);
+					CmdHelpers.ResetDungeon(dungeon);
+				}, "resetDungeon");
 			}
 		}
 
