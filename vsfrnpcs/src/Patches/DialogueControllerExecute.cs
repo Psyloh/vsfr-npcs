@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.GameContent;
 using VSFRNPCS.Server;
@@ -15,7 +16,7 @@ namespace VSFRNPCS
 		{
 			if (code == null)
 			{
-				__instance.Trigger(__instance.NPCEntity, "closedialogue", null);
+				__instance.Trigger(null, "closedialogue", null);
 				return false;
 			}
 			return true;
@@ -23,8 +24,16 @@ namespace VSFRNPCS
 	}
 
 	[HarmonyPatch(typeof(DialogueController), nameof(DialogueController.ContinueExecute))]
+	[HarmonyPatchCategory("both")]
 	public static class DialogueControllerContinueExecutePatch
 	{
+		static ICoreAPI? _api;
+		public static ICoreAPI Api
+		{
+			get => _api ?? throw new Exception("Api is null");
+			set => _api = value;
+		}
+
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
 			var matcher = new CodeMatcher(instructions, generator);
@@ -46,7 +55,7 @@ namespace VSFRNPCS
 			}
 			else
 			{
-				ApiModHelper.Api.Logger.Error("CodeMatcher can't find the instruction sequence x_x");
+				Api.Logger.Error("CodeMatcher can't find the instruction sequence x_x");
 			}
 			return matcher.Instructions();
 		}
@@ -68,6 +77,12 @@ namespace VSFRNPCS
 				return component.JumpTo;
 			}
 
+			var api = controller.NPCEntity.Api;
+			if (api.Side == EnumAppSide.Client)
+			{
+				return null;
+			}
+
 			var trigger = component.Trigger;
 			var data = component.TriggerData;
 
@@ -78,9 +93,9 @@ namespace VSFRNPCS
 
 			var jumpIf = data["if"].AsString("");
 			var jumpElse = data["else"].AsString("");
-			ApiModHelper.Error($@"Trigger {trigger} - if: ""{jumpIf}"" - else: ""{jumpElse}""");
+			api.Logger.Error($@"Trigger {trigger} - if: ""{jumpIf}"" - else: ""{jumpElse}""");
 			var path = Execute(controller, trigger, data) ? jumpIf : jumpElse;
-			ApiModHelper.Error($@"next is ""{path}""");
+			api.Logger.Error($@"next is ""{path}""");
 			return path;
 		}
 
