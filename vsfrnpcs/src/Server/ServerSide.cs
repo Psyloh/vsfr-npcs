@@ -9,7 +9,6 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
-using Vintagestory.ServerMods;
 
 namespace VSFRNPCS.Server
 {
@@ -222,6 +221,33 @@ namespace VSFRNPCS.Server
 				})
 				.EndSub();
 
+			api.ChatCommands.GetOrCreate("vsfr")
+				.RequiresPrivilege(Privilege.chat)
+				.BeginSub("indungeon")
+				.RequiresPlayer()
+				.WithArgs(api.ChatCommands.Parsers.Word("dungeon"))
+				.HandleWith(args =>
+				{
+					var dungeonName = (string)args[0];
+
+					var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+					var dungeon = modSys.Structures.Get(dungeonName);
+
+					if (dungeon is null)
+					{
+						return TextCommandResult.Success($"No such dungeon as {dungeonName}");
+					}
+					else
+					{
+						if (CmdHelpers.IsPlayerInDungeonArea(args.Caller.Player.Entity, dungeon, out var inside) && inside)
+						{
+							return TextCommandResult.Success($"Yes, you are...");
+						}
+						return TextCommandResult.Success($"Absolutely not!");
+					}
+				})
+				.EndSub();
+
 			api.Event.PlayerReady += PlayerReady;
 			api.Event.PlayerLeave += PlayerLeave;
 			api.Event.GameWorldSave += Save;
@@ -230,23 +256,13 @@ namespace VSFRNPCS.Server
 		void PlayerLeave(IServerPlayer player)
 		{
 			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
-			var pos = player.Entity.Pos;
-
-			string? storyLoc = null;
-			bool inside = false;
 			foreach (var structure in modSys.Structures.values.Values)
 			{
-				if (structure.Location.X1 <= pos.X && structure.Location.X2 + 1 >= pos.X && structure.Location.Z1 <= pos.Z && structure.Location.Z2 >= pos.Z)
+				if (CmdHelpers.IsPlayerInDungeonArea(player.Entity, structure, out var inside))
 				{
-					storyLoc = structure.Code;
-					inside = structure.Location.Y1 <= pos.Y && structure.Location.Y2 + 1 >= pos.Y;
+					_suspiciousDisconnections.TryAdd(player.PlayerUID, (structure.Code, DateTime.Now, _pendingResets.ContainsKey(structure.Code) && inside));
 					break;
 				}
-			}
-
-			if (storyLoc != null)
-			{
-				_suspiciousDisconnections.TryAdd(player.PlayerUID, (storyLoc, DateTime.Now, _pendingResets.ContainsKey(storyLoc) && inside));
 			}
 		}
 
@@ -323,6 +339,11 @@ namespace VSFRNPCS.Server
 			var dungeon = Lang.GetIfExists($"vsfrnpcs:{timer.DungeonName}") ?? timer.DungeonName;
 
 			message = message.Replace("{seconds}", timer.Remaining.ToString()).Replace("{dungeon}", dungeon);
+			return GetMessage(message);
+		}
+
+		string GetMessage(string message)
+		{
 			message = $@"<font color=""{Config.TextColor}"">{message}</font>";
 			if (Config.BoldText)
 			{
@@ -358,8 +379,11 @@ namespace VSFRNPCS.Server
 				var dungeon = timer.DungeonName;
 				_pendingResets.Remove(dungeon, out var _);
 
-				ApiModHelper.Api.Event.EnqueueMainThreadTask(() =>
-					CmdHelpers.ResetDungeon(dungeon), "resetDungeon");
+				ApiModHelper.Api.Event.EnqueueMainThreadTask(() => {
+					var message = Lang.GetUnformatted("game:reset-dungeon-message").Replace("{dungeon}", dungeon);
+					ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetMessage(message), EnumChatType.Notification);
+					CmdHelpers.ResetDungeon(dungeon);
+				}, "resetDungeon");
 			}
 		}
 

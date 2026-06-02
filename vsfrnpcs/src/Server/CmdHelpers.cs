@@ -5,7 +5,6 @@ using System.Text;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
-using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 using Vintagestory.ServerMods;
@@ -94,27 +93,21 @@ namespace VSFRNPCS.Server
 				throw new Exception($@"There's no such dungeon as ""{dungeon}""");
 			}
 
-			var message = Lang.Get("game:reset-dungeon-message");
-			ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
-
 			var chunkSize = GlobalConstants.ChunkSize;
 			var x1 = dungeon.Location.MinX / chunkSize;
 			var z1 = dungeon.Location.MinZ / chunkSize;
 			var x2 = dungeon.Location.MaxX / chunkSize;
-			var z2 = dungeon.Location.MaxZ / chunkSize;			
+			var z2 = dungeon.Location.MaxZ / chunkSize;
 
 			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
 			modSys.Server.SetReset(name);
 
-			var maxHeight = ApiModHelper.Api.WorldManager.MapSizeY;
-			var exclusionArea = dungeon.Location.GrowToInclude(x1, 0, z1).GrowToInclude(x1, maxHeight, z1);
-
 			var players = ApiModHelper.Api.World.AllOnlinePlayers.Cast<IServerPlayer>();
-			foreach(var player in players)
+			foreach (var player in players)
 			{
-				if (player.ConnectionState == EnumClientState.Playing && exclusionArea.Contains(player.Entity.Pos.XYZFloat))
+				if (player.ConnectionState == EnumClientState.Playing && IsPlayerInDungeonArea(player.Entity, dungeon, out var inside))
 				{
-					player.Entity.ReceiveDamage(new() { Type = EnumDamageType.Injury, KnockbackStrength = 0}, 5);
+					Expel(player.Entity, dungeon, inside);
 				}
 			}
 
@@ -125,12 +118,56 @@ namespace VSFRNPCS.Server
 			});
 		}
 
-		public static void Expel(EntityPlayer player, StoryStructureLocation location, bool cheating)
+		public static bool IsPlayerInDungeonArea(EntityPlayer player, StoryStructureLocation dungeon, out bool inside)
 		{
-			var x = player.Pos.X <= location.CenterPos.X ? location.Location.X1 - 1 : location.Location.X2 + 2;
-			var z = player.Pos.Z <= location.CenterPos.Z ? location.Location.Z1 - 1 : location.Location.Z2 + 2;
+			var pos = player.Pos;
+			var location = dungeon.Location;
 
-			player.TeleportTo(x, ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt(x, z), z);
+			inside = false;
+
+			ApiModHelper.Error($"{location.MinY} {location.MaxY}");
+
+			var inArea = location.MinX <= pos.X && location.MaxX >= pos.X && location.MinZ <= pos.Z && location.MaxZ >= pos.Z;
+			if (inArea)
+			{
+				inside = location.MinY <= pos.Y && location.MaxY >= pos.Y;
+			}
+			ApiModHelper.Error($"{inside}");
+			return inArea;
+		}
+
+		public static void Expel(EntityPlayer player, StoryStructureLocation structure, bool cheating)
+		{
+			var test = (structure.Location.MinZ / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
+
+			double x = 0, z = 0;
+			switch (ApiModHelper.Api.World.Rand.Next(4))
+			{
+				case 0:
+					x = structure.Location.SizeX * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinX;
+					z = (structure.Location.MinZ / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
+					break;
+
+				case 1:
+					x = structure.Location.SizeX * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinX;
+					z = (structure.Location.MaxZ / GlobalConstants.ChunkSize + 1) * GlobalConstants.ChunkSize;
+					break;
+
+				case 2:
+					x = (structure.Location.MinX / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
+					z = structure.Location.SizeZ * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinZ;
+					break;
+
+				case 3:
+					x = (structure.Location.MaxX / GlobalConstants.ChunkSize + 1) * GlobalConstants.ChunkSize;
+					z = structure.Location.SizeZ * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinZ;
+					break;
+			}
+
+			var y = ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt((int)x, (int)z);
+			ApiModHelper.Error($"{structure.Location.MinX} {structure.Location.MaxX} {structure.Location.MinZ} {structure.Location.MaxZ}");
+			ApiModHelper.Error($"{x} {y} {z}");
+			player.TeleportToDouble(x, y, z, () => ApiModHelper.Error("Teleported"));
 
 			if (cheating)
 			{
