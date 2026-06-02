@@ -2,7 +2,7 @@
     components: [
         {
 			code: "testhasmet",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
 		{
 			code: "firstmeet",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet" },
@@ -28,7 +28,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet2" },
@@ -45,7 +45,7 @@
 		},
 		{
 			code: "firstmeet3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet3" },
@@ -62,7 +62,7 @@
 		},
 		{
 			code: "firstmeet4",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-firstmeet4" },
@@ -79,7 +79,7 @@
 		},
 		{
 			code: "firstmeet5",
-			owner: "npc",
+			
             setVariables: {"entity.hasmet": "true"},
 			trigger: "revealname",			
 			type: "talk",
@@ -98,7 +98,7 @@
 		},
 		{
 			code: "welcomeback",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-welcomeback" },
@@ -116,7 +116,7 @@
 		},
 		{
 			code: "howtogettranslocresp",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-howtogettlresp" },
@@ -133,7 +133,7 @@
 		},
 		{
 			code: "howtomovetranslocresp",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-thomas-howtomovetlresp" },

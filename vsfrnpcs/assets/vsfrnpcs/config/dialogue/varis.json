@@ -2,7 +2,7 @@
 	components: [
 		{
 			code: "testfinisheddiscover",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
 		{
 			code: "firstmeet",
-			owner: "npc",
+			
 			trigger: "revealname",
             setVariables: {"entity.hasmet": "true"},
 			type: "talk",
@@ -30,7 +30,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-varis-firstmeet2" },
@@ -47,7 +47,7 @@
 		},
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-varis-menu" },
@@ -65,7 +65,7 @@
 		},
 		{
 			code: "statueansw",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-varis-statueansw" },
@@ -82,7 +82,7 @@
 		},
 		{
 			code: "statueansw2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-varis-statueansw2" },
@@ -99,7 +99,7 @@
 		},
 		{
 			code: "statueansw3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-varis-statueansw3" },
@@ -116,7 +116,7 @@
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		},
     ]

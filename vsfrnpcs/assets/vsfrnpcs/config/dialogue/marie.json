@@ -2,7 +2,7 @@
 	components: [
 		{
 			code: "testhasmet",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasmetmarie",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
         {
 			code: "testhasmetjohn",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -21,7 +21,7 @@
 		{
 			code: "firstmeet",
 			trigger: "revealname",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet" },
@@ -38,7 +38,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet2" },
@@ -55,7 +55,7 @@
 		},
 		{
 			code: "testgavebread",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.gavebread",
 			isNotValue: "true",
@@ -64,7 +64,7 @@
 		},
 		{
 			code: "firstmeet3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-firstmeet3" },
@@ -73,7 +73,7 @@
 		},
         {
 			code: "givebread",
-			owner: "npc",
+			
 			type: "talk",
 			setVariables:{"player.gavebread": "true"},
 			trigger: "giveitemstack",
@@ -101,7 +101,7 @@
 		},
         {
 			code: "firstmeet4",
-			owner: "npc",
+			
 			type: "talk",
             setVariables: {"player.hasmetmarie": "true"},
 			text: [
@@ -118,7 +118,7 @@
 		},
 		{
 			code: "hasnotmetjohn",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-hasnotmetjohn" },
@@ -135,7 +135,7 @@
 		},
         {
 			code: "guidetojohn",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-guidetojohn" }
@@ -152,7 +152,7 @@
 		},
 		{
 			code: "welcomeback",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-marie-welcomeback" },
@@ -171,18 +171,18 @@
 		},
 		{
 			code: "opentrade",
-			owner: "npc",
+			
 			trigger: "opentrade"
 		},
 		{
 			code: "quests",
-			owner: "npc",
+			
 			trigger: "openquests",
 			jumpTo: "void"
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		}
 	]

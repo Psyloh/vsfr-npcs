@@ -2,7 +2,7 @@
 	components: [
         {
 			code: "testhasfinishedtuto",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -21,7 +21,7 @@
         },
 		{
 			code: "notuto",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-notuto" },
@@ -30,7 +30,7 @@
         },
 		{
 			code: "menualt",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-menualt" },
@@ -39,7 +39,7 @@
         },
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-genericvillageroutside-menu" },
@@ -57,7 +57,7 @@
         },
 		{
 			code: "quest",
-			owner: "npc",
+			
             type: "talk",
             text: [
                 { value: "vsfrnpcs:dialogue-orario-genericvillageroutside-questansw" },
@@ -82,7 +82,7 @@
         },
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue"
 		}
     ]

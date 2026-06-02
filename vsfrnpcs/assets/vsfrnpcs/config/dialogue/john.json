@@ -2,7 +2,7 @@
 	components: [
         {
 			code: "testhasmet",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -27,7 +27,7 @@
 		},
 		{
 			code: "hello",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-john-hello" },
@@ -53,7 +53,7 @@
 		},
 		{
 			code: "firstmeet",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -71,7 +71,7 @@
 		},
 		{
 			code: "firstmeet2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet2" },
@@ -88,7 +88,7 @@
 		},
         {
 			code: "firstmeet3",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet3" },
@@ -105,7 +105,7 @@
 		},
         {
 			code: "firstmeet4",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet4", jumpTo:"firstmeetresponse4" },
@@ -121,7 +121,7 @@
 		},
         {
 			code: "firstmeet5",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-john-firstmeet5", jumpTo:"firstmeetresponse5" },
@@ -137,7 +137,7 @@
 		},
         {
 			code: "checkgiveitem",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.johngive",
 			isNotValue: "true",
@@ -146,7 +146,7 @@
 		},
 		{
 			code: "giveitem",
-			owner: "npc",
+			
 			trigger: "giveitemstack",
 			setVariables: {"player.johngive": "true"},
 			triggerdata: { type: "item", code: "stick", stacksize: 20},
@@ -154,7 +154,7 @@
 		},
         {
 			code: "firstmeet6",
-			owner: "npc",
+			
 			type: "talk",
 			trigger: "giveitemstack",
 			triggerdata: {type: "item", code: "flint", stacksize: 8 },
@@ -173,7 +173,7 @@
 		},
 		{
 			code: "goaway",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-john-goaway" },
@@ -190,7 +190,7 @@
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		},
 	]

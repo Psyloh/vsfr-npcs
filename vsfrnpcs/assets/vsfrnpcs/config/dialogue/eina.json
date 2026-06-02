@@ -2,7 +2,7 @@
 	components: [
         {
 			code: "testhasfinishedtuto",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
 		{
 			code: "notuto",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-notuto" },
@@ -29,7 +29,7 @@
         },
 		{
 			code: "notutoansw",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-notutoansw" },
@@ -46,7 +46,7 @@
         },
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-menu" },
@@ -55,7 +55,7 @@
         },
 		{
 			code: "menualt",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-altmenu" },
@@ -74,7 +74,7 @@
         },
 		{
 			code: "persoansw",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -92,7 +92,7 @@
         },
 		{
 			code: "persoansw2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-persoansw2" },
@@ -109,7 +109,7 @@
         },
 		{
 			code: "persoansw4",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-persoansw4" },
@@ -127,7 +127,7 @@
         },
 		{
 			code: "quest",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-menuquest" },
@@ -145,7 +145,7 @@
         },
 		{
 			code: "categoryquest",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-einaquestcategory" },
@@ -165,7 +165,7 @@
         },
 		{
 			code: "craftcategory",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-craftquestmenu" },
@@ -182,7 +182,7 @@
         },
 		{
 			code: "craftquest1",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest1desc" },
@@ -191,7 +191,7 @@
         },
 		{
 			code: "huntcategory",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-huntquestmenu" },
@@ -200,7 +200,7 @@
         },
 		{
 			code: "harvestcategory",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquestmenu" },
@@ -218,7 +218,7 @@
         },
 		{
 			code: "harvestquest1",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest1desc" },
@@ -227,7 +227,7 @@
         },
 		{
 			code: "harvestquest2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest2desc" },
@@ -244,7 +244,7 @@
         },
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue"
 		}
     ]

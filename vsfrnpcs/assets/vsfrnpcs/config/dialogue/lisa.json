@@ -2,7 +2,7 @@
 	components: [
 		{
 			code: "testfinisheddiscover",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "entity.hasmet",
 			isNotValue: "true",
@@ -11,13 +11,13 @@
 		},
 		{
 			code: "firstmeet",
-			owner: "npc",
+			
 			setVariables: {"entity.hasmet": "true"},
 			jumpTo: "placediscover"
 		},
 		{
 			code: "placediscover",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -35,7 +35,7 @@
 		},
 		{
 			code: "placeansw",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -53,7 +53,7 @@
 		},
 		{
 			code: "placeansw2",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -71,7 +71,7 @@
 		},
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-lisa-menu" },
@@ -80,7 +80,7 @@
 		},
 		{
 			code: "menualt",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-lisa-menualt" },
@@ -99,7 +99,7 @@
 			]
 		},		{
 			code: "bookansw",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -117,7 +117,7 @@
 		},
 		{
 			code: "bookansw2",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -135,7 +135,7 @@
 		},
 		{
 			code: "bookansw3",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -153,7 +153,7 @@
 		},
 		{
 			code: "bookansw4",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -172,13 +172,13 @@
 		},
 		{
 			code: "quests",
-			owner: "npc",
+			
 			trigger: "openquests",
 			jumpTo: "void"
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue",
 		},
     ]

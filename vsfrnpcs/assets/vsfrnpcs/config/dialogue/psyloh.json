@@ -2,7 +2,7 @@
 	components: [
         {
 			code: "testhasfinishedtuto",
-			owner: "npc",
+			
 			type: "condition",
 			variable: "player.hasdonetuto",
 			isNotValue: "true",
@@ -11,7 +11,7 @@
 		},
 		{
 			code: "notuto",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-psyloh-notuto" },
@@ -28,7 +28,7 @@
         },
 		{
 			code: "menu",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-psyloh-menu" },
@@ -48,7 +48,7 @@
         },
 		{
 			code: "persoansw",
-			owner: "npc",
+			
 			trigger: "revealname",
 			type: "talk",
 			text: [
@@ -66,7 +66,7 @@
         },
 		{
 			code: "persoansw2",
-			owner: "npc",
+			
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-psyloh-persoansw2" },
@@ -83,18 +83,18 @@
         },
 		{
 			code: "opentrade",
-			owner: "npc",
+			
 			trigger: "opentrade"
 		},
 		{
 			code: "quests",
-			owner: "npc",
+			
 			trigger: "openquests",
 			jumpTo: "void"
 		},
         {
 			code: "close",
-			owner: "npc",
+			
 			trigger: "closedialogue"
 		}
     ]
