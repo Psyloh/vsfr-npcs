@@ -1,4 +1,4 @@
-{
+[{
     id: "vsfrnpcs:quest-marie-clayoven",
     cooldown: -1,
     perPlayer: true,
@@ -22,4 +22,4 @@
             amount: 15
         }
     ]
-}
+}]

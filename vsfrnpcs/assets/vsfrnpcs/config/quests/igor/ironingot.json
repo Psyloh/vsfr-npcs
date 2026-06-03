@@ -1,4 +1,4 @@
-{
+[{
     id: "vsfrnpcs:quest-igor-ironingot",
     cooldown: -1,
     perPlayer: true,
@@ -22,4 +22,4 @@
             amount: 32
         }
     ]
-}
+}]
