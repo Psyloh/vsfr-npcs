@@ -19,10 +19,7 @@ namespace VSFRNPCS.Server
 			Config config;
 			try
 			{
-				config = ApiModHelper.Api.LoadModConfig<Config>(FILENAME);
-
-
-				config = ApiModHelper.LoadConfig(FILENAME);
+				config = ApiModHelper.LoadServerConfig(FILENAME);
 				config ??= new();
 			}
 			catch (Exception e)
@@ -33,14 +30,14 @@ namespace VSFRNPCS.Server
 				return new();
 			}
 			config.AnnounceThresholds.Sort(Comparer<double>.Create((d1, d2) => -d1.CompareTo(d2)));
-			ApiModHelper.Api.StoreModConfig(config, FILENAME);
+			ApiModHelper.SApi.StoreModConfig(config, FILENAME);
 
 			return config;
 		}
 
 		public void Save()
 		{
-			ApiModHelper.Api.StoreModConfig(this, FILENAME);
+			ApiModHelper.SApi.StoreModConfig(this, FILENAME);
 		}
 	}
 }

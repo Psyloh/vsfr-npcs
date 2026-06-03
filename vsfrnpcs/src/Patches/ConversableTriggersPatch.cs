@@ -3,11 +3,11 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
-using VSFRNPCS.Server;
 
-namespace VSFRNPCS
+namespace VSFRNPCS.Server
 {
 	[HarmonyPatch(typeof(EntityBehaviorConversable), "Controller_DialogTriggers")]
+	[HarmonyPatchCategory("server")]
 	public static class ConversableTriggersPatch
 	{
 		public static void Postfix(EntityBehaviorConversable __instance, EntityAgent triggeringEntity, string value, JsonObject data)

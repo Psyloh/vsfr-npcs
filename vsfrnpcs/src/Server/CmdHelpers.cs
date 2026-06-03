@@ -34,12 +34,12 @@ namespace VSFRNPCS.Server
 				Caller = caller,
 				RawArgs = new CmdArgs($"{player.PlayerName} {coords}")
 			};
-			ApiModHelper.Api.ChatCommands.Execute("tp", args);
+			ApiModHelper.SApi.ChatCommands.Execute("tp", args);
 		}
 
 		public static void TeleportRole(IServerPlayer player, string roleName)
 		{
-			var role = ApiModHelper.Api.Server.Config.Roles.FirstOrDefault(r => r.Name == roleName);
+			var role = ApiModHelper.SApi.Server.Config.Roles.FirstOrDefault(r => r.Name == roleName);
 			if (role is null)
 			{
 				return;
@@ -57,22 +57,22 @@ namespace VSFRNPCS.Server
 
 		public static bool CanResetDungeon(string dungeonName)
 		{
-			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
-			var isPending = modSys.Server.IsPending(dungeonName);
+			var modSys = ApiModHelper.GetServerSystem<DungeonResetModSystem>();
+			var isPending = modSys.IsPending(dungeonName);
 			if (isPending)
 			{
 				ApiModHelper.Error("Dungeon reset pending");
 				return false;
 			}
 
-			var lastReset = modSys.Server.GetLastReset(dungeonName);
+			var lastReset = modSys.GetLastReset(dungeonName);
 			if (lastReset == null)
 			{
 				ApiModHelper.Error("Dungeon never reset");
 				return true;
 			}
 
-			var config = modSys.Server.Config;
+			var config = modSys.Config;
 			if (!config.Delays.TryGetValue(dungeonName, out var delay))
 			{
 				delay = config.GlobalDelay;
@@ -85,13 +85,13 @@ namespace VSFRNPCS.Server
 
 		public static void RegisterDungeonReset(string name)
 		{
-			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
-			modSys.Server.RegisterReset(name);
+			var modSys = ApiModHelper.GetServerSystem<DungeonResetModSystem>();
+			modSys.RegisterReset(name);
 		}
 
 		public static void ResetDungeon(string name)
 		{
-			var sSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+			var sSys = ApiModHelper.GetServerSystem<GenStoryStructures>();
 			var dungeon = sSys.Structures.Get(name);
 			if (dungeon == null)
 			{
@@ -104,10 +104,10 @@ namespace VSFRNPCS.Server
 			var x2 = dungeon.Location.MaxX / chunkSize;
 			var z2 = dungeon.Location.MaxZ / chunkSize;
 
-			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<MainModSystem>();
-			modSys.Server.SetReset(name);
+			var modSys = ApiModHelper.GetServerSystem<DungeonResetModSystem>();
+			modSys.SetReset(name);
 
-			var players = ApiModHelper.Api.World.AllOnlinePlayers.Cast<IServerPlayer>();
+			var players = ApiModHelper.SApi.World.AllOnlinePlayers.Cast<IServerPlayer>();
 			foreach (var player in players)
 			{
 				if (player.ConnectionState == EnumClientState.Playing && IsPlayerInDungeonArea(player.Entity, dungeon, out var inside))
@@ -116,7 +116,7 @@ namespace VSFRNPCS.Server
 				}
 			}
 
-			ApiModHelper.Api.ChatCommands.Execute("wgen", new TextCommandCallingArgs
+			ApiModHelper.SApi.ChatCommands.Execute("wgen", new TextCommandCallingArgs
 			{
 				Caller = AdminCaller,
 				RawArgs = new CmdArgs($"regenrange {x1} {z1} {x2} {z2}")
@@ -143,30 +143,30 @@ namespace VSFRNPCS.Server
 			var test = (structure.Location.MinZ / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
 
 			double x = 0, z = 0;
-			switch (ApiModHelper.Api.World.Rand.Next(4))
+			switch (ApiModHelper.SApi.World.Rand.Next(4))
 			{
 				case 0:
-					x = structure.Location.SizeX * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinX;
+					x = structure.Location.SizeX * ApiModHelper.SApi.World.Rand.NextDouble() + structure.Location.MinX;
 					z = (structure.Location.MinZ / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
 					break;
 
 				case 1:
-					x = structure.Location.SizeX * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinX;
+					x = structure.Location.SizeX * ApiModHelper.SApi.World.Rand.NextDouble() + structure.Location.MinX;
 					z = (structure.Location.MaxZ / GlobalConstants.ChunkSize + 1) * GlobalConstants.ChunkSize;
 					break;
 
 				case 2:
 					x = (structure.Location.MinX / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
-					z = structure.Location.SizeZ * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinZ;
+					z = structure.Location.SizeZ * ApiModHelper.SApi.World.Rand.NextDouble() + structure.Location.MinZ;
 					break;
 
 				case 3:
 					x = (structure.Location.MaxX / GlobalConstants.ChunkSize + 1) * GlobalConstants.ChunkSize;
-					z = structure.Location.SizeZ * ApiModHelper.Api.World.Rand.NextDouble() + structure.Location.MinZ;
+					z = structure.Location.SizeZ * ApiModHelper.SApi.World.Rand.NextDouble() + structure.Location.MinZ;
 					break;
 			}
 
-			var y = ApiModHelper.Api.World.BlockAccessor.GetRainMapHeightAt((int)x, (int)z);
+			var y = ApiModHelper.SApi.World.BlockAccessor.GetRainMapHeightAt((int)x, (int)z);
 			player.TeleportToDouble(x, y, z, () => ApiModHelper.Error("Teleported"));
 
 			if (cheating)
