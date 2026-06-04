@@ -76,7 +76,7 @@ namespace VSFRNPCS
 			}
 			else if (api.Side == EnumAppSide.Server)
 			{
-				var modSys = ApiModHelper.GetServerSystem<MainModSystem>();
+				var modSys = ApiModHelper.GetSystem<MainModSystem>();
 				modSys.AddController(controller);
 			}
 			return null;

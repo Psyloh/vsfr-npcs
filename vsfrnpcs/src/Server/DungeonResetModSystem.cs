@@ -59,8 +59,6 @@ namespace VSFRNPCS.Server
 
 		public override void StartServerSide(ICoreServerAPI api)
 		{
-			ApiModHelper.SApi = api;
-
 			_config = Config.Get();
 			_secondThresholds = new int[Config.AnnounceThresholds.Length];
 			for (var i = 0; i < SecondThresholds.Length; i++)
@@ -70,8 +68,10 @@ namespace VSFRNPCS.Server
 
 			api.Event.SaveGameLoaded += SaveGameLoaded;
 			api.Event.GameWorldSave += GameWorldSave;
-			api.Event.PlayerReady += PlayerReady;
+			api.Event.PlayerNowPlaying += PlayerNowPlaying;
 			api.Event.PlayerLeave += PlayerLeave;
+
+			
 
 			api.ChatCommands.Create("resetDungeonDelay")
 				.WithAlias("rdd")
@@ -178,92 +178,26 @@ namespace VSFRNPCS.Server
 				})
 				.EndSub()
 				.EndSub();
-
-			api.ChatCommands.GetOrCreate("debug")
-				.RequiresPlayer()
-				.RequiresPrivilege(Privilege.controlserver)
-				.BeginSub("fuckingClearVariables")
-				.WithAlias("fcv")
-				.HandleWith(args =>
-				{
-					if (args.Caller.Player is IServerPlayer player)
-					{
-						player.Entity.WatchedAttributes["variables"] = new TreeAttribute();
-					}
-
-					var entities = ApiModHelper.SApi.World.LoadedEntities.Values.Where(e => e.Code.Domain == "vsfrnpcs");
-					foreach (var entity in entities)
-					{
-						entity.WatchedAttributes["variables"] = new TreeAttribute();
-					}
-
-					return TextCommandResult.Success("Fucking cleared!!");
-				})
-				.EndSub();
-
-			api.ChatCommands.GetOrCreate("vsfr")
-				.RequiresPrivilege(Privilege.chat)
-				.BeginSub("indungeon")
-				.RequiresPlayer()
-				.WithArgs(api.ChatCommands.Parsers.Word("dungeon"))
-				.HandleWith(args =>
-				{
-					var dungeonName = (string)args[0];
-
-					var modSys = ApiModHelper.SApi.ModLoader.GetModSystem<GenStoryStructures>();
-					var dungeon = modSys.Structures.Get(dungeonName);
-
-					if (dungeon is null)
-					{
-						return TextCommandResult.Success($"No such dungeon as {dungeonName}");
-					}
-					else
-					{
-						if (CmdHelpers.IsPlayerInDungeonArea(args.Caller.Player.Entity, dungeon, out var inside) && inside)
-						{
-							return TextCommandResult.Success($"Yes, you are...");
-						}
-						return TextCommandResult.Success($"Absolutely not!");
-					}
-				})
-				.EndSub();
 		}
 
-		void SaveGameLoaded()
-		{
-			var dungeonResets = ApiModHelper.SApi.WorldManager.SaveGame.GetData<Dictionary<string, long>>("pastResets") ?? [];
-			foreach (var (dungeon, time) in dungeonResets)
-			{
-				_pastResets[dungeon] = DateTime.FromBinary(time);
-			}
-
-			var pendingResets = ApiModHelper.SApi.WorldManager.SaveGame.GetData<Dictionary<string, int>>("pendingResets") ?? [];
-			foreach (var (dungeon, remaining) in pendingResets)
-			{
-				_pendingResets[dungeon] = new(dungeon, SecondThresholds, remaining);
-			}
-		}
-
-		void GameWorldSave()
-		{
-			ApiModHelper.SApi.WorldManager.SaveGame.StoreData("dungeonResets", _pastResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
-			ApiModHelper.SApi.WorldManager.SaveGame.StoreData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value?.Remaining)));
-		}
-
-		void PlayerReady(IServerPlayer player)
+		void PlayerNowPlaying(IServerPlayer player)
 		{
 			foreach (var (_, timer) in _pendingResets)
 			{
-				player.SendMessage(GlobalConstants.GeneralChatGroup, GetAnnounce(timer!), EnumChatType.Notification);
+				ApiModHelper.ServerNotification(player, GetAnnounce(timer!));
 			}
 
 			if (_suspiciousDisconnections.Remove(player.PlayerUID, out var disconnection))
 			{
-				var modSys = ApiModHelper.SApi.ModLoader.GetModSystem<GenStoryStructures>();
+				ApiModHelper.Error($"{disconnection.Item1} {disconnection.Item2:D} {disconnection.Item3}");
+
+				var modSys = ApiModHelper.GetSystem<GenStoryStructures>();
 				var structure = modSys.Structures.Get(disconnection.Item1);
 
 				if (_pastResets.TryGetValue(structure.Code, out var reset))
 				{
+					ApiModHelper.Error($"{reset:D}");
+
 					if (reset > disconnection.Item2)
 					{
 						CmdHelpers.Expel(player.Entity, structure, disconnection.Item3);
@@ -272,14 +206,43 @@ namespace VSFRNPCS.Server
 			}
 		}
 
+		void SaveGameLoaded()
+		{
+			var dungeonResets = ApiModHelper.GetSaveGameData<Dictionary<string, long>>("pastResets") ?? [];
+			foreach (var (dungeon, time) in dungeonResets)
+			{
+				_pastResets[dungeon] = DateTime.FromBinary(time);
+			}
+
+			var pendingResets = ApiModHelper.GetSaveGameData<Dictionary<string, int>>("pendingResets") ?? [];
+			foreach (var (dungeon, remaining) in pendingResets)
+			{
+				_pendingResets[dungeon] = new(dungeon, SecondThresholds, remaining);
+			}
+		}
+
+		void GameWorldSave()
+		{
+			ApiModHelper.SaveData("dungeonResets", _pastResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
+			ApiModHelper.SaveData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value?.Remaining)));
+		}
+
 		void PlayerLeave(IServerPlayer player)
 		{
-			var modSys = ApiModHelper.SApi.ModLoader.GetModSystem<GenStoryStructures>();
+			ApiModHelper.Error("leaving");
+
+			var modSys = ApiModHelper.GetSystem<GenStoryStructures>();
 			foreach (var structure in modSys.Structures.values.Values)
 			{
 				if (CmdHelpers.IsPlayerInDungeonArea(player.Entity, structure, out var inside))
 				{
-					_suspiciousDisconnections.TryAdd(player.PlayerUID, (structure.Code, DateTime.Now, _pendingResets.ContainsKey(structure.Code) && inside));
+					var playerUID = player.PlayerUID;
+					var date = DateTime.Now;
+					var cheating = _pendingResets.ContainsKey(structure.Code) && inside;
+
+					ApiModHelper.Error($"{playerUID} {date:D} {cheating}");
+
+					_suspiciousDisconnections.TryAdd(player.PlayerUID, (structure.Code, DateTime.Now, cheating));
 					break;
 				}
 			}
@@ -311,9 +274,9 @@ namespace VSFRNPCS.Server
 
 				var dungeon = timer.DungeonName;
 
-				ApiModHelper.SApi.Event.EnqueueMainThreadTask(() => {
+				ApiModHelper.EnqueueToMainThread(() => {
 					var message = Lang.GetUnformatted("game:reset-dungeon-message").Replace("{dungeon}", dungeon);
-					ApiModHelper.SApi.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetMessage(message), EnumChatType.Notification);
+					ApiModHelper.ServerNotification(GetMessage(message));
 					CmdHelpers.ResetDungeon(dungeon);
 				}, "resetDungeon");
 			}
@@ -321,9 +284,8 @@ namespace VSFRNPCS.Server
 
 		void Announce(ResetCountdown timer)
 		{
-			ApiModHelper.SApi.Event.EnqueueMainThreadTask(() =>
-				ApiModHelper.SApi.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification),
-				"announce");
+			ApiModHelper.EnqueueToMainThread(() =>
+				ApiModHelper.ServerNotification(GetAnnounce(timer)), "announce");
 		}
 
 		string GetAnnounce(ResetCountdown timer)
@@ -347,7 +309,7 @@ namespace VSFRNPCS.Server
 
 		public override void Dispose()
 		{
-			if (ApiModHelper.SApi != null)
+			if (ApiModHelper.IsServer)
 			{
 				foreach (var (_, timer) in _pendingResets)
 				{
@@ -356,10 +318,10 @@ namespace VSFRNPCS.Server
 					timer!.Dispose();
 				}
 
-				ApiModHelper.SApi.Event.SaveGameLoaded -= SaveGameLoaded;
-				ApiModHelper.SApi.Event.GameWorldSave -= GameWorldSave;
-				ApiModHelper.SApi.Event.PlayerReady -= PlayerReady;
-				ApiModHelper.SApi.Event.PlayerLeave -= PlayerLeave;
+				ApiModHelper.ServerEvents.SaveGameLoaded -= SaveGameLoaded;
+				ApiModHelper.ServerEvents.GameWorldSave -= GameWorldSave;
+				ApiModHelper.ServerEvents.PlayerNowPlaying -= PlayerNowPlaying;
+				ApiModHelper.ServerEvents.PlayerLeave -= PlayerLeave;
 			}
 		}
 	}

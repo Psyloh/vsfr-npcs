@@ -22,37 +22,37 @@ namespace VSFRNPCS.Server
 				return;
 			}
 
-			if (value == "teleport")
+			switch (value.ToLowerInvariant())
 			{
-				__instance.Dialog?.TryClose();
+				case "teleport":
+					__instance.Dialog?.TryClose();
 
-				var x = data["x"].AsString("~0");
-				var y = data["y"].AsString("~0");
-				var z = data["z"].AsString("~0");
+					var x = data["x"].AsString("~0");
+					var y = data["y"].AsString("~0");
+					var z = data["z"].AsString("~0");
 
-				CmdHelpers.TeleportXYZ(player, $"{x} {y} {z}");
-			}
-			else if (value == "teleportRole")
-			{
-				var roleName = data["role"].AsString(player.Role.Name);
+					CmdHelpers.TeleportXYZ(player, $"{x} {y} {z}");
+					break;
 
-				CmdHelpers.TeleportRole(player, roleName);
-			}
-			else if (value == "playsound")
-			{
-				var path = data["path"].AsString("");
+				case "teleportrole":
+					var roleName = data["role"].AsString(player.Role.Name);
+					CmdHelpers.TeleportRole(player, roleName);
+					break;
 
-				api.World.PlaySoundFor(AssetLocation.CreateOrNull(path), player);
-			}
-			else if (value == "resetDungeon")
-			{
-				var id = data["name"].AsString("");
-				CmdHelpers.RegisterDungeonReset(id);
-			}
-			else if (value == "setRole")
-			{
-				var role = data["role"].AsString("");
-				CmdHelpers.ChangeRole(player, role);
+				case "playsound":
+					var path = data["path"].AsString("");
+					api.World.PlaySoundFor(AssetLocation.CreateOrNull(path), player);
+					break;
+
+				case "resetdungeon":
+					var id = data["name"].AsString("");
+					CmdHelpers.RegisterDungeonReset(id);
+					break;
+
+				case "setrole":
+					var role = data["role"].AsString("");
+					CmdHelpers.ChangeRole(player, role);
+					break;
 			}
 		}
 	}
