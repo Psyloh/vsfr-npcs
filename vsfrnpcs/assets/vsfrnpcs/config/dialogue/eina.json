@@ -178,6 +178,10 @@
             type: "talk",
             text: [
                 { value: "vsfrnpcs:dialogue-orario-eina-craftquest1", jumpto: "craftquest1"},
+                { value: "vsfrnpcs:dialogue-orario-eina-craftquest2", jumpto: "craftquest2"},
+                { value: "vsfrnpcs:dialogue-orario-eina-craftquest3", jumpto: "craftquest3"},
+                { value: "vsfrnpcs:dialogue-orario-eina-craftquest4", jumpto: "craftquest4"},
+                { value: "vsfrnpcs:dialogue-orario-eina-craftquest5", jumpto: "craftquest5"},
             ]
         },
 		{
@@ -186,6 +190,42 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest1desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "craftquest2",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest2desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "craftquest3",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest3desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "craftquest4",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest4desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "craftquest5",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-craftquest5desc" },
 			],
             jumpto: "playerthanks"
         },
@@ -214,6 +254,9 @@
             text: [
                 { value: "vsfrnpcs:dialogue-orario-eina-harvestquest1", jumpto: "harvestquest1"},
                 { value: "vsfrnpcs:dialogue-orario-eina-harvestquest2", jumpto: "harvestquest2"},
+                { value: "vsfrnpcs:dialogue-orario-eina-harvestquest3", jumpto: "harvestquest3"},
+                { value: "vsfrnpcs:dialogue-orario-eina-harvestquest4", jumpto: "harvestquest4"},
+                { value: "vsfrnpcs:dialogue-orario-eina-harvestquest5", jumpto: "harvestquest5"},
             ]
         },
 		{
@@ -231,6 +274,33 @@
 			type: "talk",
 			text: [
 				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest2desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "harvestquest3",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest3desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "harvestquest4",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest4desc" },
+			],
+            jumpto: "playerthanks"
+        },
+		{
+			code: "harvestquest5",
+			
+			type: "talk",
+			text: [
+				{ value: "vsfrnpcs:dialogue-orario-eina-harvestquest5desc" },
 			],
             jumpto: "playerthanks"
         },
