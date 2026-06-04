@@ -3,8 +3,11 @@ using Newtonsoft.Json;
 using ProtoBuf;
 using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.CommandAbbr;
+using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
@@ -31,6 +34,9 @@ namespace VSFRNPCS
 			=> new() { Name = name, Data = data.Token!.ToString(Formatting.None) };
 	}
 
+	[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
+	public class ClearVariables { }
+
 	public class MainModSystem : ModSystem
 	{
 		readonly ConcurrentDictionary<string, DialogueController> _controllers = [];
@@ -43,6 +49,7 @@ namespace VSFRNPCS
 			ApiModHelper.Mod = Mod;
 
 			api.Network.RegisterChannel(Mod.Info.ModID)
+				.RegisterMessageType<ClearVariables>()
 				.RegisterMessageType<Trigger>()
 				.RegisterMessageType<JumpTo>();
 		}
@@ -58,7 +65,24 @@ namespace VSFRNPCS
 				.SetMessageHandler<JumpTo>(data =>
 				{
 					DialogueControllerContinueExecutePatch.Controller?.JumpTo(data.Code);
-				});
+				})
+				.SetMessageHandler<ClearVariables>(data => CmdHelpers.ClearVariables());
+
+			api.ChatCommands.GetOrCreate("debug")
+				.RequiresPlayer()
+				.BeginSub("checkVariables")
+				.WithAlias("cv")
+				.HandleWith(args =>
+				{
+					var modSys = ApiModHelper.GetSystem<VariablesModSystem>();
+
+					((IClientPlayer)args.Caller.Player).ShowChatNotification($"{modSys.VarData.PlayerVariables.Count}");
+					((IClientPlayer)args.Caller.Player).ShowChatNotification($"{modSys.VarData.GlobalVariables.Variables.Count}");
+					((IClientPlayer)args.Caller.Player).ShowChatNotification($"{modSys.VarData.GroupVariables.Count}");
+
+					return TextCommandResult.Success();
+				})
+				.EndSub();
 		}
 
 		public override void StartServerSide(ICoreServerAPI api)
@@ -98,33 +122,102 @@ namespace VSFRNPCS
 						controller.JumpTo(result);
 					}
 				});
+
+			api.ChatCommands.GetOrCreate("debug")
+				.RequiresPlayer()
+				.RequiresPrivilege(Privilege.controlserver)
+				.BeginSub("checkVariables")
+				.WithAlias("cv")
+				.HandleWith(args =>
+				{
+					var modSys = ApiModHelper.GetSystem<VariablesModSystem>();
+
+					ApiModHelper.ServerNotification(args.Caller.Player, $"{modSys.VarData.PlayerVariables.Count}");
+					ApiModHelper.ServerNotification(args.Caller.Player, $"{modSys.VarData.GlobalVariables.Variables.Count}");
+					ApiModHelper.ServerNotification(args.Caller.Player, $"{modSys.VarData.GroupVariables.Count}");
+
+					return TextCommandResult.Success();
+				})
+				.EndSub()
+				.BeginSub("fuckingClearVariables")
+				.WithAlias("fcv")
+				.HandleWith(args =>
+				{
+					foreach (var player in ApiModHelper.OnlineServerPlayers)
+					{
+						player.Entity.WatchedAttributes["variables"] = new TreeAttribute();
+						player.Entity.WatchedAttributes.MarkPathDirty("variables");
+					}
+
+					var entities = ApiModHelper.LoadedEntities.Where(e => e.Code.Domain == "vsfrnpcs");
+					foreach (var entity in entities)
+					{
+						entity.WatchedAttributes["variables"] = new TreeAttribute();
+						entity.WatchedAttributes.MarkPathDirty("variables");
+					}
+
+					api.Network.GetChannel(Mod.Info.ModID)
+						.BroadcastPacket(new ClearVariables());
+
+					CmdHelpers.ClearVariables();
+
+					return TextCommandResult.Success("Fucking cleared!!");
+				})
+				.EndSub();
+
+			api.ChatCommands.GetOrCreate("vsfr")
+				.RequiresPrivilege(Privilege.chat)
+				.BeginSub("indungeon")
+				.RequiresPlayer()
+				.WithArgs(api.ChatCommands.Parsers.Word("dungeon"))
+				.HandleWith(args =>
+				{
+					var dungeonName = (string)args[0];
+
+					var modSys = ApiModHelper.GetSystem<GenStoryStructures>();
+					var dungeon = modSys.Structures.Get(dungeonName);
+
+					if (dungeon is null)
+					{
+						return TextCommandResult.Success($"No such dungeon as {dungeonName}");
+					}
+					else
+					{
+						if (CmdHelpers.IsPlayerInDungeonArea(args.Caller.Player.Entity, dungeon, out var inside) && inside)
+						{
+							return TextCommandResult.Success($"Yes, you are...");
+						}
+						return TextCommandResult.Success($"Absolutely not!");
+					}
+				})
+				.EndSub();
 		}
 
 		static bool Execute(EntityPlayer player, string triggerName, JsonObject data)
 		{
-			switch (triggerName)
+			switch (triggerName.ToLowerInvariant())
 			{
-				case "canResetDungeon":
+				case "canresetdungeon":
 					var name = data["name"].AsString("");
 
 					return CmdHelpers.CanResetDungeon(name);
 
-				case "hasRole":
+				case "hasrole":
 					var role = data["role"].AsString("");
 
 					return CmdHelpers.HasRole(player, role);
 
-				case "hasPrivilege":
+				case "hasprivilege":
 					var privilege = data["privilege"].AsString("");
 
 					return CmdHelpers.HasPrivilege(player, privilege);
 
-				case "hasAnyOfPrivileges":
+				case "hasanyofprivileges":
 					var privileges = (data["privileges"].Token?.ToObject<string[]>()) ?? throw new Exception(@"""privileges"" value should be an array");
 
 					return CmdHelpers.HasAnyOfPrivileges(player, privileges);
 
-				case "hasAllPrivileges":
+				case "hasallprivileges":
 					privileges = (data["privileges"].Token?.ToObject<string[]>()) ?? throw new Exception(@"""privileges"" value should be an array");
 
 					return CmdHelpers.HasAllPrivileges(player, privileges);
@@ -136,11 +229,11 @@ namespace VSFRNPCS
 
 		static string ExecuteSwitch(EntityPlayer player, string triggerName, JsonObject data)
 		{
-			return triggerName switch
+			return triggerName.ToLowerInvariant() switch
 			{
-				"switchRole" => CmdHelpers.SwitchRole(player, data),
-				"switchPrivilege" => CmdHelpers.SwitchPrivilege(player, data),
-				_ => "",
+				"switchrole" => CmdHelpers.SwitchRole(player, data),
+				"switchprivilege" => CmdHelpers.SwitchPrivilege(player, data),
+				_ => ""
 			};
 		}
 
