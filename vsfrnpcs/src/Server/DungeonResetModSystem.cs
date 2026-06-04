@@ -8,90 +8,70 @@ using Vintagestory.API.Common.CommandAbbr;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
 namespace VSFRNPCS.Server
 {
-	public class ResetCountdown : Timer
+	public class DungeonResetModSystem : ModSystem
 	{
-		readonly int[] _thresholds;
-		int _nextThresholdIndex;
+		readonly ConcurrentDictionary<string, DateTime> _pastResets = [];
+		readonly ConcurrentDictionary<string, ResetCountdown?> _pendingResets = [];
 
-		readonly string _dungeonName;
-		public string DungeonName => _dungeonName;
-
-		int _remaining;
-		public int Remaining => _remaining;
-
-		public ResetCountdown(string dungeonName, int[] thresholds, int? remaining = null) : base(1000)
-		{
-			_dungeonName = dungeonName;
-			_thresholds = thresholds;
-			_remaining = remaining ?? _thresholds[0];
-
-			while (_nextThresholdIndex < _thresholds.Length && _remaining < _thresholds[_nextThresholdIndex])
-			{
-				_nextThresholdIndex++;
-			}
-		}
-
-		public bool Check()
-		{
-			if (_nextThresholdIndex == _thresholds.Length)
-			{
-				return false;
-			}
-
-			var check = _remaining == _thresholds[_nextThresholdIndex];
-			if (check)
-			{
-				_nextThresholdIndex++;
-			}
-			return check;
-		}
-
-		public bool Tick()
-		{
-			_remaining--;
-
-			return Check();
-		}
-	}
-
-	public class ServerSide : IDisposable
-	{
-		readonly ConcurrentDictionary<string, DateTime> _dungeonResets = [];
-		readonly ConcurrentDictionary<string, ResetCountdown> _pendingResets = [];
-		readonly int[] _secondThresholds;
+		int[]? _secondThresholds;
+		public int[] SecondThresholds => _secondThresholds ?? throw new Exception();
 
 		readonly ConcurrentDictionary<string, (string, DateTime, bool)> _suspiciousDisconnections = [];
 
-		public Config Config { get; init; }
+		Config? _config;
+		public Config Config => _config ?? throw new Exception();
 
-		public ServerSide(ICoreServerAPI api, Mod mod)
+		public bool IsPending(string dungeonName) =>
+			_pendingResets.ContainsKey(dungeonName);
+
+		public DateTime? GetLastReset(string dungeonName)
 		{
-			ApiModHelper.Api = api;
-			ApiModHelper.Mod = mod;
+			if (_pastResets.TryGetValue(dungeonName, out var time))
+			{
+				return time;
+			}
+			return null;
+		}
 
-			Config = Config.Get();
+		public void SetReset(string dungeonName)
+		{
+			_pastResets[dungeonName] = DateTime.Now;
+			_pendingResets.Remove(dungeonName);
+		}
 
+		public void RegisterReset(string dungeonName)
+		{
+			var timer = new ResetCountdown(dungeonName, SecondThresholds);
+			_pendingResets[dungeonName] = timer;
+			timer.Elapsed += TimerElapsed;
+			timer.Disposed += TimerDisposed;
+			if (timer.Check())
+			{
+				Announce(timer);
+			}
+			timer.Start();
+		}
+
+		public override void StartServerSide(ICoreServerAPI api)
+		{
+			ApiModHelper.SApi = api;
+
+			_config = Config.Get();
 			_secondThresholds = new int[Config.AnnounceThresholds.Length];
-			for (var i = 0; i < _secondThresholds.Length; i++)
+			for (var i = 0; i < SecondThresholds.Length; i++)
 			{
-				_secondThresholds[i] = (int)(Config.AnnounceThresholds[i] * 60);
+				SecondThresholds[i] = (int)(Config.AnnounceThresholds[i] * 60);
 			}
 
-			var dungeonResets = api.WorldManager.SaveGame.GetData<Dictionary<string, long>>("dungeonResets") ?? [];
-			foreach (var (dungeon, time) in dungeonResets)
-			{
-				_dungeonResets[dungeon] = DateTime.FromBinary(time);
-			}
-
-			var pendingResets = api.WorldManager.SaveGame.GetData<Dictionary<string, int>>("pendingResets") ?? [];
-			foreach (var (dungeon, remaining) in pendingResets)
-			{
-				_pendingResets[dungeon] = new(dungeon, _secondThresholds, remaining);
-			}
+			api.Event.SaveGameLoaded += SaveGameLoaded;
+			api.Event.GameWorldSave += GameWorldSave;
+			api.Event.PlayerReady += PlayerReady;
+			api.Event.PlayerLeave += PlayerLeave;
 
 			api.ChatCommands.Create("resetDungeonDelay")
 				.WithAlias("rdd")
@@ -160,7 +140,7 @@ namespace VSFRNPCS.Server
 				{
 					if (args.Caller.Player is IServerPlayer player)
 					{
-						foreach (var (dungeon, time) in _dungeonResets)
+						foreach (var (dungeon, time) in _pastResets)
 						{
 							player.SendMessage(GlobalConstants.GeneralChatGroup, $"{dungeon} {time:F}", EnumChatType.Notification);
 						}
@@ -170,7 +150,7 @@ namespace VSFRNPCS.Server
 				.BeginSub("clear")
 				.HandleWith(args =>
 				{
-					_dungeonResets.Clear();
+					_pastResets.Clear();
 
 					return TextCommandResult.Success("Cleared!");
 				})
@@ -184,7 +164,7 @@ namespace VSFRNPCS.Server
 					{
 						foreach (var (dungeon, remaining) in _pendingResets)
 						{
-							player.SendMessage(GlobalConstants.GeneralChatGroup, $"{dungeon} {remaining.Remaining}", EnumChatType.Notification);
+							player.SendMessage(GlobalConstants.GeneralChatGroup, $"{dungeon} {remaining!.Remaining}", EnumChatType.Notification);
 						}
 					}
 					return TextCommandResult.Success();
@@ -211,7 +191,7 @@ namespace VSFRNPCS.Server
 						player.Entity.WatchedAttributes["variables"] = new TreeAttribute();
 					}
 
-					var entities = ApiModHelper.Api.World.LoadedEntities.Values.Where(e => e.Code.Domain == "vsfrnpcs"); 
+					var entities = ApiModHelper.SApi.World.LoadedEntities.Values.Where(e => e.Code.Domain == "vsfrnpcs");
 					foreach (var entity in entities)
 					{
 						entity.WatchedAttributes["variables"] = new TreeAttribute();
@@ -230,7 +210,7 @@ namespace VSFRNPCS.Server
 				{
 					var dungeonName = (string)args[0];
 
-					var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+					var modSys = ApiModHelper.SApi.ModLoader.GetModSystem<GenStoryStructures>();
 					var dungeon = modSys.Structures.Get(dungeonName);
 
 					if (dungeon is null)
@@ -247,44 +227,42 @@ namespace VSFRNPCS.Server
 					}
 				})
 				.EndSub();
-
-			api.Event.PlayerReady += PlayerReady;
-			api.Event.PlayerLeave += PlayerLeave;
-			api.Event.GameWorldSave += Save;
 		}
 
-		void PlayerLeave(IServerPlayer player)
+		void SaveGameLoaded()
 		{
-			var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
-			foreach (var structure in modSys.Structures.values.Values)
+			var dungeonResets = ApiModHelper.SApi.WorldManager.SaveGame.GetData<Dictionary<string, long>>("pastResets") ?? [];
+			foreach (var (dungeon, time) in dungeonResets)
 			{
-				if (CmdHelpers.IsPlayerInDungeonArea(player.Entity, structure, out var inside))
-				{
-					_suspiciousDisconnections.TryAdd(player.PlayerUID, (structure.Code, DateTime.Now, _pendingResets.ContainsKey(structure.Code) && inside));
-					break;
-				}
+				_pastResets[dungeon] = DateTime.FromBinary(time);
+			}
+
+			var pendingResets = ApiModHelper.SApi.WorldManager.SaveGame.GetData<Dictionary<string, int>>("pendingResets") ?? [];
+			foreach (var (dungeon, remaining) in pendingResets)
+			{
+				_pendingResets[dungeon] = new(dungeon, SecondThresholds, remaining);
 			}
 		}
 
-		void Save()
+		void GameWorldSave()
 		{
-			ApiModHelper.SaveData("dungeonResets", _dungeonResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
-			ApiModHelper.SaveData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value.Remaining)));
+			ApiModHelper.SApi.WorldManager.SaveGame.StoreData("dungeonResets", _pastResets.Select(entry => (entry.Key, entry.Value.ToBinary())));
+			ApiModHelper.SApi.WorldManager.SaveGame.StoreData("pendingResets", _pendingResets.Select(entry => (entry.Key, entry.Value?.Remaining)));
 		}
 
 		void PlayerReady(IServerPlayer player)
 		{
 			foreach (var (_, timer) in _pendingResets)
 			{
-				player.SendMessage(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification);
+				player.SendMessage(GlobalConstants.GeneralChatGroup, GetAnnounce(timer!), EnumChatType.Notification);
 			}
 
 			if (_suspiciousDisconnections.Remove(player.PlayerUID, out var disconnection))
 			{
-				var modSys = ApiModHelper.Api.ModLoader.GetModSystem<GenStoryStructures>();
+				var modSys = ApiModHelper.SApi.ModLoader.GetModSystem<GenStoryStructures>();
 				var structure = modSys.Structures.Get(disconnection.Item1);
 
-				if (_dungeonResets.TryGetValue(structure.Code, out var reset))
+				if (_pastResets.TryGetValue(structure.Code, out var reset))
 				{
 					if (reset > disconnection.Item2)
 					{
@@ -294,60 +272,17 @@ namespace VSFRNPCS.Server
 			}
 		}
 
-		public bool IsPending(string dungeonName) =>
-			_pendingResets.ContainsKey(dungeonName);
-
-		public DateTime? GetLastReset(string dungeonName)
+		void PlayerLeave(IServerPlayer player)
 		{
-			if (_dungeonResets.TryGetValue(dungeonName, out var time))
+			var modSys = ApiModHelper.SApi.ModLoader.GetModSystem<GenStoryStructures>();
+			foreach (var structure in modSys.Structures.values.Values)
 			{
-				return time;
+				if (CmdHelpers.IsPlayerInDungeonArea(player.Entity, structure, out var inside))
+				{
+					_suspiciousDisconnections.TryAdd(player.PlayerUID, (structure.Code, DateTime.Now, _pendingResets.ContainsKey(structure.Code) && inside));
+					break;
+				}
 			}
-			return null;
-		}
-
-		public void SetReset(string dungeon)
-		{
-			_dungeonResets[dungeon] = DateTime.Now;
-		}
-
-		public void RegisterReset(string dungeonName)
-		{
-			var timer = new ResetCountdown(dungeonName, _secondThresholds);
-			_pendingResets[dungeonName] = timer;
-			timer.Elapsed += TimerElapsed;
-			timer.Disposed += TimerDisposed;
-			if (timer.Check())
-			{
-				Announce(timer);
-			}
-			timer.Start();
-		}
-
-		void Announce(ResetCountdown timer)
-		{
-			ApiModHelper.Api.Event.EnqueueMainThreadTask(() =>
-				ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification),
-				"announce");
-		}
-
-		string GetAnnounce(ResetCountdown timer)
-		{
-			var message = Lang.GetUnformatted("vsfrnpcs:dungeon-reset-announce");
-			var dungeon = Lang.GetIfExists($"vsfrnpcs:{timer.DungeonName}") ?? timer.DungeonName;
-
-			message = message.Replace("{seconds}", timer.Remaining.ToString()).Replace("{dungeon}", dungeon);
-			return GetMessage(message);
-		}
-
-		string GetMessage(string message)
-		{
-			message = $@"<font color=""{Config.TextColor}"">{message}</font>";
-			if (Config.BoldText)
-			{
-				message = $"<strong>{message}</strong>";
-			}
-			return message;
 		}
 
 		void TimerElapsed(object? sender, ElapsedEventArgs e)
@@ -375,27 +310,57 @@ namespace VSFRNPCS.Server
 				timer.Disposed -= TimerDisposed;
 
 				var dungeon = timer.DungeonName;
-				_pendingResets.Remove(dungeon, out var _);
 
-				ApiModHelper.Api.Event.EnqueueMainThreadTask(() => {
+				ApiModHelper.SApi.Event.EnqueueMainThreadTask(() => {
 					var message = Lang.GetUnformatted("game:reset-dungeon-message").Replace("{dungeon}", dungeon);
-					ApiModHelper.Api.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetMessage(message), EnumChatType.Notification);
+					ApiModHelper.SApi.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetMessage(message), EnumChatType.Notification);
 					CmdHelpers.ResetDungeon(dungeon);
 				}, "resetDungeon");
 			}
 		}
 
-		public void Dispose()
+		void Announce(ResetCountdown timer)
 		{
-			foreach (var (_, timer) in _pendingResets)
+			ApiModHelper.SApi.Event.EnqueueMainThreadTask(() =>
+				ApiModHelper.SApi.SendMessageToGroup(GlobalConstants.GeneralChatGroup, GetAnnounce(timer), EnumChatType.Notification),
+				"announce");
+		}
+
+		string GetAnnounce(ResetCountdown timer)
+		{
+			var message = Lang.GetUnformatted("vsfrnpcs:dungeon-reset-announce");
+			var dungeon = Lang.GetIfExists($"vsfrnpcs:{timer.DungeonName}") ?? timer.DungeonName;
+
+			message = message.Replace("{seconds}", timer.Remaining.ToString()).Replace("{dungeon}", dungeon);
+			return GetMessage(message);
+		}
+
+		string GetMessage(string message)
+		{
+			message = $@"<font color=""{Config.TextColor}"">{message}</font>";
+			if (Config.BoldText)
 			{
-				timer.Elapsed -= TimerElapsed;
-				timer.Disposed -= TimerDisposed;
-				timer.Dispose();
+				message = $"<strong>{message}</strong>";
 			}
-			ApiModHelper.Error("Disposed");
-			ApiModHelper.Api.Event.GameWorldSave -= Save;
-			GC.SuppressFinalize(this);
+			return message;
+		}
+
+		public override void Dispose()
+		{
+			if (ApiModHelper.SApi != null)
+			{
+				foreach (var (_, timer) in _pendingResets)
+				{
+					timer!.Elapsed -= TimerElapsed;
+					timer!.Disposed -= TimerDisposed;
+					timer!.Dispose();
+				}
+
+				ApiModHelper.SApi.Event.SaveGameLoaded -= SaveGameLoaded;
+				ApiModHelper.SApi.Event.GameWorldSave -= GameWorldSave;
+				ApiModHelper.SApi.Event.PlayerReady -= PlayerReady;
+				ApiModHelper.SApi.Event.PlayerLeave -= PlayerLeave;
+			}
 		}
 	}
 }

@@ -1,25 +1,25 @@
-[{
-    id: "vsfrnpcs:quest-gaster-temporalgear",
-    cooldown: -1,
-    perPlayer: true,
-    onAcceptedActions: [
-        {
-            id: "playsound",
-            args: [
-                "game:sounds/effect/translocate-breakdimension"
-            ]
-        }
-    ],
-    gatherObjectives: [
-        {
-            validCodes: ["temporal-gear"],
-            demand: 1
-        }
-    ],
-    itemRewards: [
-        {
-            itemCode: "game:gear-rusty",
-            amount: 55
-        }
-    ]
-}]
+{
+  id: "vsfrnpcs:quest-gaster-temporalgear",
+  cooldown: -1,
+  perPlayer: true,
+  onAcceptedActions: [
+    {
+      id: "playsound",
+      args: [
+        "game:sounds/effect/translocate-breakdimension"
+      ]
+    }
+  ],
+  gatherObjectives: [
+    {
+      validCodes: [ "temporal-gear" ],
+      demand: 1
+    }
+  ],
+  itemRewards: [
+    {
+      itemCode: "game:gear-rusty",
+      amount: 55
+    }
+  ]
+}

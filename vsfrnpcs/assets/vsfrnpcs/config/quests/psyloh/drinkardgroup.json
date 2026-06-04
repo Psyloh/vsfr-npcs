@@ -1,25 +1,25 @@
-[{
-    id: "vsfrnpcs:quest-psyloh-drinkardgroup",
-    cooldown: -1,
-    perPlayer: true,
-    onAcceptedActions: [
-        {
-            id: "playsound",
-            args: [
-                "game:sounds/effect/translocate-breakdimension"
-            ]
-        }
-    ],
-    gatherObjectives: [
-        {
-            validCodes: ["grain-spelt"],
-            demand: 64
-        }
-    ],
-    itemRewards: [
-        {
-            itemCode: "game:gear-rusty",
-            amount: 26
-        }
-    ]
-}]
+{
+  id: "vsfrnpcs:quest-psyloh-drinkardgroup",
+  cooldown: -1,
+  perPlayer: true,
+  onAcceptedActions: [
+    {
+      id: "playsound",
+      args: [
+        "game:sounds/effect/translocate-breakdimension"
+      ]
+    }
+  ],
+  gatherObjectives: [
+    {
+      validCodes: [ "grain-spelt" ],
+      demand: 64
+    }
+  ],
+  itemRewards: [
+    {
+      itemCode: "game:gear-rusty",
+      amount: 26
+    }
+  ]
+}
