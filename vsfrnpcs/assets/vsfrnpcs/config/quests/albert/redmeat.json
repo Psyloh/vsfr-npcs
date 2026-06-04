@@ -1,0 +1,25 @@
+{
+  id: "vsfrnpcs:quest-albert-redmeat",
+  cooldown: -1,
+  perPlayer: true,
+  onAcceptedActions: [
+    {
+      id: "playsound",
+      args: [
+        "game:sounds/effect/translocate-breakdimension"
+      ]
+    }
+  ],
+  gatherObjectives: [
+    {
+      validCodes: [ "redmeat-raw" ],
+      demand: 10
+    }
+  ],
+  itemRewards: [
+    {
+      itemCode: "game:gear-rusty",
+      amount: 24
+    }
+  ]
+}
