@@ -26,10 +26,7 @@ namespace VSFRNPCS
 			set => _sapi = value;
 		}
 
-		public static bool IsServer => _sapi != null;
-		public static bool IsClient => _capi != null;
-
-		public static ICoreAPI Api => _capi as ICoreAPI ?? _sapi as ICoreAPI ?? throw new Exception("Both Apis are null");
+		public static ICoreAPI Api => _sapi as ICoreAPI ?? _capi as ICoreAPI ?? throw new Exception("Both Apis are null");
 
 		static Mod? _mod;
 		public static Mod Mod
@@ -55,7 +52,11 @@ namespace VSFRNPCS
 		public static void Error(Exception ex)
 			=> Mod.Logger.Error(ex);
 
-		public static void ExecuteCommand(string command, TextCommandCallingArgs args, IPlayer? player = null)
+		public static void ExecuteServerCommand(string command, TextCommandCallingArgs args, IPlayer? player = null)
+			=> ExecuteCommand(SApi, command, args, player);
+		public static void ExecuteClientCommand(string command, TextCommandCallingArgs args, IPlayer? player = null)
+			=> ExecuteCommand(CApi, command, args, player);
+		public static void ExecuteCommand(ICoreAPI api, string command, TextCommandCallingArgs args, IPlayer? player = null)
 		{
 			var caller = AdminCaller;
 			if (player != null)
@@ -63,7 +64,7 @@ namespace VSFRNPCS
 				caller.Player = player;
 			}
 			args.Caller = caller;
-			Api.ChatCommands.Execute(command, args);
+			api.ChatCommands.Execute(command, args);
 		}
 
 		public static IServerConfig ServerConfig
@@ -74,9 +75,6 @@ namespace VSFRNPCS
 
 		public static IServerEventAPI ServerEvents
 			=> SApi.Event;
-
-		public static int GetRainY(int x, int z)
-			=> Api.World.BlockAccessor.GetRainMapHeightAt(x, z);
 
 		public static ICollection<Entity> LoadedEntities
 			=> SApi.World.LoadedEntities.Values;
@@ -91,7 +89,7 @@ namespace VSFRNPCS
 			=> ServerConfig.Roles.FirstOrDefault(r => r.Name == name);
 
 		public static T GetSystem<T>() where T : ModSystem
-			=> Api.ModLoader.GetModSystem<T>();
+			=> _sapi?.ModLoader.GetModSystem<T>() ?? _capi?.ModLoader.GetModSystem<T>() ?? throw new Exception("No such ModSystem");
 
 		public static void ServerNotification(string message)
 			=> SApi.SendMessageToGroup(GlobalConstants.GeneralChatGroup, message, EnumChatType.Notification);
@@ -102,11 +100,19 @@ namespace VSFRNPCS
 		public static void EnqueueToMainThread(Action action, string label)
 			=> SApi.Event.EnqueueMainThreadTask(action, label);
 
-		public static Config LoadConfig(string filename)
-			=> Api.LoadModConfig<Config>(filename);
+		public static Config LoadServerConfig(string filename)
+			=> LoadConfig(SApi, filename);
+		public static Config LoadClientConfig(string filename)
+			=> LoadConfig(CApi, filename);
+		public static Config LoadConfig(ICoreAPI api, string filename)
+			=> api.LoadModConfig<Config>(filename);
 
-		public static void StoreConfig(Config config, string filename)
-			=> Api.StoreModConfig(config, filename);
+		public static void StoreServerConfig(Config config, string filename)
+			=> StoreConfig(SApi, config, filename);
+		public static void StoreClientConfig(Config config, string filename)
+			=> StoreConfig(CApi, config, filename);
+		public static void StoreConfig(ICoreAPI api, Config config, string filename)
+			=> api.StoreModConfig(config, filename);
 
 		public static void SaveData<T>(string key, T data)
 			=> SApi.WorldManager.SaveGame.StoreData(key, data);

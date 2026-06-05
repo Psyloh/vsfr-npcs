@@ -38,6 +38,9 @@ namespace VSFRNPCS.Server
 			return null;
 		}
 
+		public override bool ShouldLoad(EnumAppSide side)
+			=> side == EnumAppSide.Server;
+
 		public void SetReset(string dungeonName)
 		{
 			_pastResets[dungeonName] = DateTime.Now;
@@ -71,7 +74,7 @@ namespace VSFRNPCS.Server
 			api.Event.PlayerNowPlaying += PlayerNowPlaying;
 			api.Event.PlayerLeave += PlayerLeave;
 
-			
+
 
 			api.ChatCommands.Create("resetDungeonDelay")
 				.WithAlias("rdd")
@@ -189,14 +192,14 @@ namespace VSFRNPCS.Server
 
 			if (_suspiciousDisconnections.Remove(player.PlayerUID, out var disconnection))
 			{
-				ApiModHelper.Error($"{disconnection.Item1} {disconnection.Item2:D} {disconnection.Item3}");
+				ApiModHelper.Error($"{disconnection.Item1} {disconnection.Item2:F} {disconnection.Item3}");
 
 				var modSys = ApiModHelper.GetSystem<GenStoryStructures>();
 				var structure = modSys.Structures.Get(disconnection.Item1);
 
 				if (_pastResets.TryGetValue(structure.Code, out var reset))
 				{
-					ApiModHelper.Error($"{reset:D}");
+					ApiModHelper.Error($"{reset:F}");
 
 					if (reset > disconnection.Item2)
 					{
@@ -274,7 +277,8 @@ namespace VSFRNPCS.Server
 
 				var dungeon = timer.DungeonName;
 
-				ApiModHelper.EnqueueToMainThread(() => {
+				ApiModHelper.EnqueueToMainThread(() =>
+				{
 					var message = Lang.GetUnformatted("game:reset-dungeon-message").Replace("{dungeon}", dungeon);
 					ApiModHelper.ServerNotification(GetMessage(message));
 					CmdHelpers.ResetDungeon(dungeon);
@@ -309,20 +313,17 @@ namespace VSFRNPCS.Server
 
 		public override void Dispose()
 		{
-			if (ApiModHelper.IsServer)
+			foreach (var (_, timer) in _pendingResets)
 			{
-				foreach (var (_, timer) in _pendingResets)
-				{
-					timer!.Elapsed -= TimerElapsed;
-					timer!.Disposed -= TimerDisposed;
-					timer!.Dispose();
-				}
-
-				ApiModHelper.ServerEvents.SaveGameLoaded -= SaveGameLoaded;
-				ApiModHelper.ServerEvents.GameWorldSave -= GameWorldSave;
-				ApiModHelper.ServerEvents.PlayerNowPlaying -= PlayerNowPlaying;
-				ApiModHelper.ServerEvents.PlayerLeave -= PlayerLeave;
+				timer!.Elapsed -= TimerElapsed;
+				timer!.Disposed -= TimerDisposed;
+				timer!.Dispose();
 			}
+
+			ApiModHelper.ServerEvents.SaveGameLoaded -= SaveGameLoaded;
+			ApiModHelper.ServerEvents.GameWorldSave -= GameWorldSave;
+			ApiModHelper.ServerEvents.PlayerNowPlaying -= PlayerNowPlaying;
+			ApiModHelper.ServerEvents.PlayerLeave -= PlayerLeave;
 		}
 	}
 }

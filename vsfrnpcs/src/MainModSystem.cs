@@ -66,7 +66,7 @@ namespace VSFRNPCS
 				{
 					DialogueControllerContinueExecutePatch.Controller?.JumpTo(data.Code);
 				})
-				.SetMessageHandler<ClearVariables>(data => CmdHelpers.ClearVariables());
+				.SetMessageHandler<ClearVariables>(data => CmdHelpers.ClearVariables(false));
 
 			api.ChatCommands.GetOrCreate("debug")
 				.RequiresPlayer()
@@ -159,7 +159,7 @@ namespace VSFRNPCS
 					api.Network.GetChannel(Mod.Info.ModID)
 						.BroadcastPacket(new ClearVariables());
 
-					CmdHelpers.ClearVariables();
+					CmdHelpers.ClearVariables(true);
 
 					return TextCommandResult.Success("Fucking cleared!!");
 				})
@@ -189,6 +189,21 @@ namespace VSFRNPCS
 						}
 						return TextCommandResult.Success($"Absolutely not!");
 					}
+				})
+				.EndSub();
+
+			api.ChatCommands.GetOrCreate("vsfr")
+				.RequiresPrivilege(Privilege.controlserver)
+				.BeginSub("expel")
+				.RequiresPlayer()
+				.HandleWith(args =>
+				{
+					var modSys = ApiModHelper.GetSystem<GenStoryStructures>();
+					var structure = modSys.Structures.Get("lazaret");
+
+					CmdHelpers.Expel(args.Caller.Player.Entity, structure, true);
+
+					return TextCommandResult.Success($"Done");
 				})
 				.EndSub();
 		}

@@ -5,6 +5,7 @@ using System.Text;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 using Vintagestory.ServerMods;
@@ -13,26 +14,33 @@ namespace VSFRNPCS.Server
 {
 	public static class CmdHelpers
 	{
-		public static void ClearVariables()
+		public static void ClearVariables(bool server)
 		{
 			var args = new TextCommandCallingArgs
 			{
 				RawArgs = new("clearvariables")
 			};
-			ApiModHelper.ExecuteCommand("debug", args);
 
+			if (server)
+			{
+				ApiModHelper.ExecuteServerCommand("debug", args);
+			}
+			else
+			{
+				ApiModHelper.ExecuteClientCommand("debug", args);
+			}
 		}
 
-		public static void TeleportXYZ(IServerPlayer player, string coords)
+		public static void TeleportXYZ(IPlayer player, string coords)
 		{
 			var args = new TextCommandCallingArgs
 			{
 				RawArgs = new($"{player.PlayerName} {coords}")
 			};
-			ApiModHelper.ExecuteCommand("tp", args, player);
+			ApiModHelper.ExecuteServerCommand("tp", args, player);
 		}
 
-		public static void TeleportRole(IServerPlayer player, string roleName)
+		public static void TeleportRole(IPlayer player, string roleName)
 		{
 			var role = ApiModHelper.GetRole(roleName);
 			if (role is null)
@@ -115,7 +123,7 @@ namespace VSFRNPCS.Server
 			{
 				RawArgs = new($"regenrange {x1} {z1} {x2} {z2}")
 			};
-			ApiModHelper.ExecuteCommand("wgen", args);
+			ApiModHelper.ExecuteServerCommand("wgen", args);
 		}
 
 		public static bool IsPlayerInDungeonArea(EntityPlayer player, StoryStructureLocation dungeon, out bool inside)
@@ -135,8 +143,6 @@ namespace VSFRNPCS.Server
 
 		public static void Expel(EntityPlayer player, StoryStructureLocation structure, bool cheating)
 		{
-			var test = (structure.Location.MinZ / GlobalConstants.ChunkSize) * GlobalConstants.ChunkSize - 1;
-
 			double x = 0, z = 0;
 			switch (ApiModHelper.Rand.Next(4))
 			{
@@ -161,13 +167,21 @@ namespace VSFRNPCS.Server
 					break;
 			}
 
-			var y = ApiModHelper.GetRainY((int)x, (int)z);
-			player.TeleportToDouble(x, y, z);
-
-			if (cheating)
+			var chunkX = (int)x / GlobalConstants.ChunkSize;
+			var chunkZ = (int)z / GlobalConstants.ChunkSize;
+			ApiModHelper.SApi.WorldManager.LoadChunkColumnPriority(chunkX, chunkZ, new ChunkLoadOptions()
 			{
-				player.ReceiveDamage(new() { Type = EnumDamageType.Injury, KnockbackStrength = 0 }, 5);
-			}
+				OnLoaded = () =>
+				{
+					var y = ApiModHelper.SApi.WorldManager.GetSurfacePosY((int)x, (int)z) ?? throw new Exception("Cannot tp");
+					player.TeleportToDouble(x, y, z);
+
+					if (cheating)
+					{
+						player.ReceiveDamage(new() { Type = EnumDamageType.Injury, KnockbackStrength = 0 }, 5);
+					}
+				}
+			});
 		}
 
 		public static bool HasRole(EntityPlayer player, string role) =>
