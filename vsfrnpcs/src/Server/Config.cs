@@ -19,7 +19,7 @@ namespace VSFRNPCS.Server
 			Config config;
 			try
 			{
-				config = ApiModHelper.LoadConfig(FILENAME);
+				config = ApiModHelper.LoadServerConfig(FILENAME);
 				config ??= new();
 			}
 			catch (Exception e)
@@ -37,7 +37,7 @@ namespace VSFRNPCS.Server
 
 		public void Save()
 		{
-			ApiModHelper.StoreConfig(this, FILENAME);
+			ApiModHelper.StoreServerConfig(this, FILENAME);
 		}
 	}
 }
