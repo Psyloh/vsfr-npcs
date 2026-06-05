@@ -307,8 +307,9 @@
 			code: "eventtp",
  		    trigger: "teleport",
       		triggerData: {
-        		x: "0",
-        		z: "0"
+        		x: "-111",
+				y: "157",
+        		z: "44"
     		},
       		jumpTo: "close"
 		},
